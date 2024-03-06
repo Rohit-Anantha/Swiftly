@@ -2,12 +2,13 @@
 //  TabBarViewController.swift
 //  Swiftly
 //
+
 //  Created by Akın B on 3/6/24.
 //
 
 import UIKit
 
-class TabBarViewController: UIViewController {
+class CustomTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
