@@ -31,6 +31,7 @@ struct RoadmapNewView: View {
                                 lessonNumber = circlePos
                             } else {
                                 alertBool = true
+                                print("Hello")
                             }
                         }) {
                             ZStack {
@@ -64,13 +65,13 @@ struct RoadmapNewView: View {
                         }
                     }
                     .navigationDestination(item: $lessonNumber) { lesson in
-                        NextRepresentedViewController()
-                        //                        QuestionView(lesson: "Lesson \(lesson)") }
+//                        NextRepresentedViewController()
+                        QuestionView(lesson: "Lesson \(lesson)")
                     }
                 }
                 .padding()
             }
-            .navigationTitle("Roadmap")
+            .navigationTitle("Your Progress")
             .alert("Content Locked", isPresented: $alertBool) {
                 Button("Next Lesson") {
                     // LessonNumber's value is changed triggering the navigationDestination
@@ -80,10 +81,34 @@ struct RoadmapNewView: View {
             } message: {
                 Text("Please complete previous lessons.")
             }
+//            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
 #Preview {
-    RoadmapNewView()
+    TabView {
+        RoadmapNewView()
+            .tabItem {
+                Label("Roadmap", systemImage: "map.fill")
+            }
+        Text("Hello, world!")
+            .tabItem {
+                Label("Welcome", systemImage: "text.bubble")
+            }
+        List(["John", "Shawn", "Dave", "Dave"], id: \.self) { name in
+            HStack {
+                Label(name, systemImage: "trophy.fill")
+                Spacer()
+                Text("5xp")
+            }
+        }
+            .tabItem {
+                Label("Leaderboard", systemImage: "trophy.fill")
+            }
+        Text("Settings")
+            .tabItem {
+                Label("Settings", systemImage: "person")
+            }
+    }
 }

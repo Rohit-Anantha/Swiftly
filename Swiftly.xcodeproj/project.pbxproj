@@ -19,6 +19,8 @@
 		FC0E38862B901BC600B4405B /* RoadmapNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E38852B901BC600B4405B /* RoadmapNewView.swift */; };
 		FC70B8EF2B9422B200386D64 /* RoadmapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70B8EE2B9422B100386D64 /* RoadmapViewController.swift */; };
 		FC70B8F12B94290B00386D64 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70B8F02B94290B00386D64 /* NextViewController.swift */; };
+		FC70B8F62B94D2B000386D64 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70B8F52B94D2B000386D64 /* UserSettings.swift */; };
+		FCC5AFF42B97E7BE00E99634 /* QuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC5AFF32B97E7BE00E99634 /* QuestionType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		FC0E38852B901BC600B4405B /* RoadmapNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapNewView.swift; sourceTree = "<group>"; };
 		FC70B8EE2B9422B100386D64 /* RoadmapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapViewController.swift; sourceTree = "<group>"; };
 		FC70B8F02B94290B00386D64 /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
+		FC70B8F52B94D2B000386D64 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		FCC5AFF32B97E7BE00E99634 /* QuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,16 +72,16 @@
 		C9674BB62B8FE9EB00A50CCD /* Swiftly */ = {
 			isa = PBXGroup;
 			children = (
+				FC70B8F22B94D27300386D64 /* Models */,
 				FC70B8ED2B94229500386D64 /* Views */,
 				FC0E387C2B8FF20200B4405B /* ViewControllers */,
 				C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */,
 				C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */,
-				C9674BBB2B8FE9EB00A50CCD /* ViewController.swift */,
 				C9674BBD2B8FE9EB00A50CCD /* Eder.storyboard */,
+				C91BDD7B2B924F380013FCE5 /* Rohit.storyboard */,
 				C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */,
 				C9674BC22B8FE9ED00A50CCD /* LaunchScreen.storyboard */,
 				C9674BC52B8FE9ED00A50CCD /* Info.plist */,
-				C91BDD7B2B924F380013FCE5 /* Rohit.storyboard */,
 			);
 			path = Swiftly;
 			sourceTree = "<group>";
@@ -85,6 +89,7 @@
 		FC0E387C2B8FF20200B4405B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C9674BBB2B8FE9EB00A50CCD /* ViewController.swift */,
 				FC70B8EE2B9422B100386D64 /* RoadmapViewController.swift */,
 				FC70B8F02B94290B00386D64 /* NextViewController.swift */,
 			);
@@ -99,6 +104,15 @@
 				FC0E38852B901BC600B4405B /* RoadmapNewView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FC70B8F22B94D27300386D64 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC70B8F52B94D2B000386D64 /* UserSettings.swift */,
+				FCC5AFF32B97E7BE00E99634 /* QuestionType.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,8 +193,10 @@
 				FC0E38822B9012F700B4405B /* RoadmapView.swift in Sources */,
 				FC70B8EF2B9422B200386D64 /* RoadmapViewController.swift in Sources */,
 				C9674BB82B8FE9EB00A50CCD /* AppDelegate.swift in Sources */,
+				FC70B8F62B94D2B000386D64 /* UserSettings.swift in Sources */,
 				FC0E38862B901BC600B4405B /* RoadmapNewView.swift in Sources */,
 				C9674BBA2B8FE9EB00A50CCD /* SceneDelegate.swift in Sources */,
+				FCC5AFF42B97E7BE00E99634 /* QuestionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

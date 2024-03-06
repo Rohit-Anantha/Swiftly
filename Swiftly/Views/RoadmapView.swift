@@ -23,9 +23,7 @@ struct RoadmapView: View {
                 }
             }
             .navigationTitle("Roadmap")
-            
         }
-        
     }
 }
 
