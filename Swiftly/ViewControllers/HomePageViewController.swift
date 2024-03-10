@@ -1,14 +1,24 @@
 //
-//  TabBarViewController.swift
+//  HomePageViewController.swift
 //  Swiftly
 //
-//  Created by Akın B on 3/6/24.
+//  Created by Akın B on 3/10/24.
 //
 
 import UIKit
 
-class TabBarViewController: UIViewController {
+class HomePageViewController: UIViewController {
 
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var chapterOverview: UITableView!
+    
+    @IBOutlet weak var streakCount: UILabel!
+    
+//    the fire logo
+    @IBOutlet weak var streakLabel: UIImageView!
+    @IBOutlet weak var leaderboardButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
