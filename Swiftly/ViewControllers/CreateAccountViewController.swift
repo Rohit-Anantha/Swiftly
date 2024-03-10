@@ -89,13 +89,15 @@ class CreateAccountViewController: UIViewController {
                     Auth.auth().signIn(
                         withEmail: self.email,
                         password: self.password)
+                    /*
+                     Create Segue to home Page
+                     }
+                     */
+                    self.performSegue(withIdentifier: "AccountCreatedSegue", sender: nil)
                     
                 }
-                /*
-                 // MARK: -TODO
-                 Create Segue to home Page
-                 }
-                 */
+                
+
                 
             }
         

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseCore
+import FirebaseAuth
 import UserNotifications
 
 @main
@@ -20,6 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       didFinishLaunchingWithOptions launchOptions:
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        
+        if Auth.auth().currentUser != nil {
+            // User is already logged in, perform the segue to the home screen
+            showHomeScreen()
+        }
+
         
         Task {
           let center = UNUserNotificationCenter.current()
@@ -47,6 +54,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    func showHomeScreen() {
+        // Instantiate the home view controller from the main storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+
+        // Set the root view controller of the window to the home view controller
+        window?.rootViewController = homeViewController
+        window?.makeKeyAndVisible()
+    }
+
 
 
 }
