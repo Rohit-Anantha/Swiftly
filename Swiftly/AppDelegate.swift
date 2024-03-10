@@ -6,14 +6,31 @@
 //
 
 import UIKit
+import FirebaseCore
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    var window: UIWindow?
+
+    func application(_ application: UIApplication,
+      didFinishLaunchingWithOptions launchOptions:
+                     [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
+        
+        Task {
+          let center = UNUserNotificationCenter.current()
+          try await center.requestAuthorization(options: [.badge, .sound, .alert])
+
+          // 3
+          await MainActor.run {
+            application.registerForRemoteNotifications()
+          }
+        }
+        
         return true
     }
 
