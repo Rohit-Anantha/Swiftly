@@ -29,6 +29,7 @@
 		20F084E62B990479005FF676 /* Akin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20F084E52B990479005FF676 /* Akin.storyboard */; };
 		20F084E82B9904A8005FF676 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20F084E72B9904A8005FF676 /* Main.storyboard */; };
 		20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F084E92B9907CB005FF676 /* CustomTabBarController.swift */; };
+<<<<<<< HEAD
 		99EC11912B9F66D40023FEDE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 99EC11902B9F66D40023FEDE /* FirebaseAnalytics */; };
 		99EC11932B9F66D40023FEDE /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 99EC11922B9F66D40023FEDE /* FirebaseAnalyticsOnDeviceConversion */; };
 		99EC11952B9F66D40023FEDE /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 99EC11942B9F66D40023FEDE /* FirebaseAnalyticsSwift */; };
@@ -79,10 +80,8 @@
 		C9674BBA2B8FE9EB00A50CCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */; };
 		C9674BBC2B8FE9EB00A50CCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BBB2B8FE9EB00A50CCD /* ViewController.swift */; };
 		C9674BC12B8FE9ED00A50CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */; };
-		FC0E38822B9012F700B4405B /* RoadmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E38812B9012F700B4405B /* RoadmapView.swift */; };
 		FC0E38842B90181100B4405B /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E38832B90181100B4405B /* QuestionView.swift */; };
 		FC0E38862B901BC600B4405B /* RoadmapNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E38852B901BC600B4405B /* RoadmapNewView.swift */; };
-		FC70B8EF2B9422B200386D64 /* RoadmapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70B8EE2B9422B100386D64 /* RoadmapViewController.swift */; };
 		FC70B8F12B94290B00386D64 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70B8F02B94290B00386D64 /* NextViewController.swift */; };
 		FC70B8F62B94D2B000386D64 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70B8F52B94D2B000386D64 /* UserSettings.swift */; };
 		FCC5AFF42B97E7BE00E99634 /* QuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC5AFF32B97E7BE00E99634 /* QuestionType.swift */; };
@@ -126,10 +125,8 @@
 		C9674BBB2B8FE9EB00A50CCD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9674BC52B8FE9ED00A50CCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FC0E38812B9012F700B4405B /* RoadmapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapView.swift; sourceTree = "<group>"; };
 		FC0E38832B90181100B4405B /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		FC0E38852B901BC600B4405B /* RoadmapNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapNewView.swift; sourceTree = "<group>"; };
-		FC70B8EE2B9422B100386D64 /* RoadmapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapViewController.swift; sourceTree = "<group>"; };
 		FC70B8F02B94290B00386D64 /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 		FC70B8F52B94D2B000386D64 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		FCC5AFF32B97E7BE00E99634 /* QuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionType.swift; sourceTree = "<group>"; };
@@ -307,6 +304,7 @@
 				C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */,
 				C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */,
 				99F45DE12B9D2141000753C4 /* LessonElementStoryboards */,
+				99F45DE12B9D2141000753C4 /* QuestionStoryboards */,
 				C91BDD7B2B924F380013FCE5 /* Rohit.storyboard */,
 				209FF8A72B990A5F000854A9 /* Eder.storyboard */,
 				209FF8A92B990A85000854A9 /* LaunchScreen.storyboard */,
@@ -325,7 +323,6 @@
 			children = (
 				99F45DC82B9D132E000753C4 /* LessonViewControllers */,
 				C9674BBB2B8FE9EB00A50CCD /* ViewController.swift */,
-				FC70B8EE2B9422B100386D64 /* RoadmapViewController.swift */,
 				FC70B8F02B94290B00386D64 /* NextViewController.swift */,
 				20F084E92B9907CB005FF676 /* CustomTabBarController.swift */,
 				207F067D2B9D725A0067778F /* CreateAccountViewController.swift */,
@@ -338,7 +335,6 @@
 		FC70B8ED2B94229500386D64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FC0E38812B9012F700B4405B /* RoadmapView.swift */,
 				FC0E38832B90181100B4405B /* QuestionView.swift */,
 				FC0E38852B901BC600B4405B /* RoadmapNewView.swift */,
 			);
