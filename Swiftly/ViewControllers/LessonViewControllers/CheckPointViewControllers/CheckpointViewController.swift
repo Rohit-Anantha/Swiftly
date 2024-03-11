@@ -1,14 +1,14 @@
 //
-//  ResultsViewController.swift
+//  CheckpointViewController.swift
 //  Swiftly
 //
-//  Created by Guillermo Garcia Perez on 9/3/24.
+//  Created by Guillermo Garcia Perez on 11/3/24.
 //
 
 import UIKit
 
-class ResultsViewController: UIViewController, LessonElement {
-
+class CheckpointViewController: UIViewController, LessonElement {
+    
     // MARK: - Variables
     
     var delegate: LessonViewController!

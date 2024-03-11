@@ -180,13 +180,13 @@ class LessonViewController: UIViewController {
             next = storyboard!.instantiateViewController(withIdentifier: QuestionTypes.dragAndDrop.rawValue) as? DragAndDropViewController
             
         case .lecture:
-            print("Not implemented yet")
+            next = storyboard!.instantiateViewController(withIdentifier: LectureTypes.lecture.rawValue) as? LectureViewController
             
         case .checkpoint:
-            print("Not implemented yet")
+            next = storyboard!.instantiateViewController(withIdentifier: CheckpointTypes.checkpoint.rawValue) as? CheckpointViewController
             
         case .results:
-            print("Not implemented yet")
+            next = storyboard!.instantiateViewController(withIdentifier: ResultsTypes.results.rawValue) as? ResultsViewController
             
         }
         

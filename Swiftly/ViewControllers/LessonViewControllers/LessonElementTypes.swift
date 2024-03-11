@@ -31,12 +31,12 @@ enum QuestionTypes : String {
 
 
 enum LectureTypes : String {
-    case lesson = "Lesson"       //For now just one type
+    case lecture = "Lecture"     //For now just one type
 }
 
 
 enum CheckpointTypes : String {
-    case checkpoint = "Checkpoint"   //For now just one type
+    case checkpoint = "Checkpoint"  //For now just one type
 }
 
 enum ResultsTypes : String {

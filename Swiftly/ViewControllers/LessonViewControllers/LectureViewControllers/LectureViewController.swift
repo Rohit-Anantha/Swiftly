@@ -1,13 +1,13 @@
 //
-//  ResultsViewController.swift
+//  LectureViewController.swift
 //  Swiftly
 //
-//  Created by Guillermo Garcia Perez on 9/3/24.
+//  Created by Guillermo Garcia Perez on 11/3/24.
 //
 
 import UIKit
 
-class ResultsViewController: UIViewController, LessonElement {
+class LectureViewController: UIViewController, LessonElement {
 
     // MARK: - Variables
     

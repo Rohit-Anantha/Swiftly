@@ -20,6 +20,7 @@ class OneChoiceViewController: UIViewController, LessonElement {
     
     @IBOutlet weak var questionTittleLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var questionTextView: UITextView!
     
     
     // MARK: - View Controller Events
@@ -45,12 +46,13 @@ class OneChoiceViewController: UIViewController, LessonElement {
         self.delegate = delegate
         self.data = data
         
+        self.questionTittleLabel.text = "Question \(counter)"
         self.questionTittleLabel.text = self.data.first
         
         // Set it up
         for i in 1..<self.data.count {
             let button = UIButton()
-            button.setTitle(self.data[1+i], for: .normal)
+            button.setTitle(self.data[i], for: .normal)
             
             stackView.addArrangedSubview(button)
         }

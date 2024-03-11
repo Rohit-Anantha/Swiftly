@@ -50,6 +50,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="questionTextView" destination="gVu-ra-5T2" id="Hkj-kP-Iry"/>
                         <outlet property="questionTittleLabel" destination="xlp-0i-mfR" id="kEk-9P-2hm"/>
                         <outlet property="stackView" destination="LRI-Uf-eLJ" id="9aS-2Z-UT4"/>
                     </connections>
