@@ -29,7 +29,6 @@
 		20F084E62B990479005FF676 /* Akin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20F084E52B990479005FF676 /* Akin.storyboard */; };
 		20F084E82B9904A8005FF676 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20F084E72B9904A8005FF676 /* Main.storyboard */; };
 		20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F084E92B9907CB005FF676 /* CustomTabBarController.swift */; };
-<<<<<<< HEAD
 		99EC11912B9F66D40023FEDE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 99EC11902B9F66D40023FEDE /* FirebaseAnalytics */; };
 		99EC11932B9F66D40023FEDE /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 99EC11922B9F66D40023FEDE /* FirebaseAnalyticsOnDeviceConversion */; };
 		99EC11952B9F66D40023FEDE /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 99EC11942B9F66D40023FEDE /* FirebaseAnalyticsSwift */; };
