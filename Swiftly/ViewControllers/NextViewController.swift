@@ -8,28 +8,19 @@
 import UIKit
 import SwiftUI
 
-class NextViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-}
-
 struct NextRepresentedViewController: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> NextViewController {
-        guard let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "nextViewController") as? NextViewController else {
-            fatalError("ViewController not implemented in storyboard")
+    func makeUIViewController(context: Context) -> LessonViewController {
+        guard let viewController = UIStoryboard(name: "Lesson", bundle: nil).instantiateViewController(identifier: "lessonViewController") as? LessonViewController else {
+            fatalError("LessonViewController not implemented in storyboard")
         }
         return viewController
     }
     
-    func updateUIViewController(_ uiViewController: NextViewController, context: Context) {
+    func updateUIViewController(_ uiViewController: LessonViewController, context: Context) {
         
     }
     
-    typealias UIViewControllerType = NextViewController
+    typealias UIViewControllerType = LessonViewController
     
     
 }
