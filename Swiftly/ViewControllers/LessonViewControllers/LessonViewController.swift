@@ -160,33 +160,36 @@ class LessonViewController: UIViewController {
         switch self.elementTypes[self.counter]{
             
         case .question(type: .oneChoice):
-            
-            next = storyboard!.instantiateViewController(withIdentifier: QuestionTypes.oneChoice.rawValue) as? OneChoiceViewController
+                        
+            next = UIStoryboard(name: "OneChoice", bundle: nil).instantiateViewController(identifier: "OneChoiceViewController") as? OneChoiceViewController
             
         case .question(type: .multipleChoice):
             
-            next = storyboard!.instantiateViewController(withIdentifier: QuestionTypes.multipleChoice.rawValue) as? MultipleChoiceViewController
+            next = UIStoryboard(name: "MultipleChoice", bundle: nil).instantiateViewController(identifier: "MultipleChoiceViewController") as? MultipleChoiceViewController
             
         case .question(type: .trueOrFalse):
             
-            next = storyboard!.instantiateViewController(withIdentifier: QuestionTypes.trueOrFalse.rawValue) as? TrueOrFalseViewController
+            next = UIStoryboard(name: "TrueOrFalse", bundle: nil).instantiateViewController(identifier: "TrueOrFalseViewController") as? TrueOrFalseViewController
             
         case .question(type: .fillTheBlank):
             
-            next = storyboard!.instantiateViewController(withIdentifier: QuestionTypes.fillTheBlank.rawValue) as? FillTheBlankViewController
+            next = UIStoryboard(name: "FillTheBlank", bundle: nil).instantiateViewController(identifier: "FillTheBlankViewController") as? FillTheBlankViewController
             
         case .question(type: .dragAndDrop):
             
-            next = storyboard!.instantiateViewController(withIdentifier: QuestionTypes.dragAndDrop.rawValue) as? DragAndDropViewController
+            next = UIStoryboard(name: "DragAndDrop", bundle: nil).instantiateViewController(identifier: "DragAndDropViewController") as? DragAndDropViewController
             
         case .lecture:
-            next = storyboard!.instantiateViewController(withIdentifier: LectureTypes.lecture.rawValue) as? LectureViewController
+            
+            next = UIStoryboard(name: "Lecture", bundle: nil).instantiateViewController(identifier: "LectureViewController") as? LectureViewController
             
         case .checkpoint:
-            next = storyboard!.instantiateViewController(withIdentifier: CheckpointTypes.checkpoint.rawValue) as? CheckpointViewController
             
+            next = UIStoryboard(name: "CheckPoint", bundle: nil).instantiateViewController(identifier: "CheckpointViewController") as? CheckpointViewController
+
         case .results:
-            next = storyboard!.instantiateViewController(withIdentifier: ResultsTypes.results.rawValue) as? ResultsViewController
+            
+            next = UIStoryboard(name: "Results", bundle: nil).instantiateViewController(identifier: "ResultsViewController") as? ResultsViewController
             
         }
         

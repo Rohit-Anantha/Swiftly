@@ -18,18 +18,22 @@ class NextViewController: UIViewController {
 }
 
 struct NextRepresentedViewController: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> NextViewController {
-        guard let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "nextViewController") as? NextViewController else {
+    
+    func makeUIViewController(context: Context) -> LessonViewController {
+        
+        //let viewController = storyboard!.instantiateViewController(withIdentifier: "Lesson") as? LessonViewController
+
+        guard let viewController = UIStoryboard(name: "Lesson", bundle: nil).instantiateViewController(identifier: "LessonViewController") as? LessonViewController else {
             fatalError("ViewController not implemented in storyboard")
         }
         return viewController
     }
     
-    func updateUIViewController(_ uiViewController: NextViewController, context: Context) {
+    func updateUIViewController(_ uiViewController: LessonViewController, context: Context) {
         
     }
     
-    typealias UIViewControllerType = NextViewController
+    typealias UIViewControllerType = LessonViewController
     
     
 }
