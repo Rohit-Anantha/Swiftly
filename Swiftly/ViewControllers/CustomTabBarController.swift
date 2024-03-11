@@ -7,11 +7,46 @@
 //
 
 import UIKit
+import SwiftUI
 
 class CustomTabBarController: UITabBarController {
+    
+    private let homeVCID = "HomePageViewController"
+    private let settingsVCID = "SettingsViewController"
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        guard let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: homeVCID) as? HomePageViewController else {
+            fatalError("HomePageViewController not implemented in storyboard")
+        }
+        guard let settingsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: settingsVCID) as? SettingsViewController else {
+            fatalError("SettingsViewController not implemented in storyboard")
+        }
+        
+        let roadmapNav = UINavigationController(rootViewController: UIHostingController(rootView: RoadmapNewView()))
+        let homeNav = UINavigationController(rootViewController: homeVC)
+        let settingsNav = UINavigationController(rootViewController: settingsVC)
+        
+        roadmapNav.title = "Roadmap"
+        homeNav.title = "Home"
+        settingsNav.title = "Settings"
+        
+        
+        setViewControllers([roadmapNav, homeNav, settingsNav], animated: false)
+        
+        guard let items = tabBar.items else {
+            return
+        }
+        
+        items[0].image = UIImage(systemName: "swift")
+        items[1].image = UIImage(systemName: "homekit")
+        items[2].image = UIImage(systemName: "gearshape")
+        
+        modalPresentationStyle = .fullScreen
+        
+        
 
         // Do any additional setup after loading the view.
 //        
