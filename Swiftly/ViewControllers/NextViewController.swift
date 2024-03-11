@@ -8,15 +8,6 @@
 import UIKit
 import SwiftUI
 
-class NextViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-}
-
 struct NextRepresentedViewController: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> LessonViewController {
