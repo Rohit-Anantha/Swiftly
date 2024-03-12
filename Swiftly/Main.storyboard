@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ns8-HB-34T">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -182,7 +182,7 @@
         <!--Login-->
         <scene sceneID="7f7-gu-F79">
             <objects>
-                <viewController title="Login" id="ns8-HB-34T" sceneMemberID="viewController">
+                <viewController title="Login" id="ns8-HB-34T" customClass="LoginViewController" customModule="Swiftly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uqe-18-Yl5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -223,6 +223,9 @@
                                 <rect key="frame" x="163.66666666666666" y="599.66666666666663" width="65.666666666666657" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="ns8-HB-34T" eventType="touchUpInside" id="9Fy-jE-yxW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75q-P5-MD5">
                                 <rect key="frame" x="125.33333333333333" y="684.66666666666663" width="142.33333333333337" height="34.333333333333371"/>
@@ -265,10 +268,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="u3l-37-6hI"/>
+                    <connections>
+                        <outlet property="passwordField" destination="dwb-GH-QXs" id="z5Z-3P-v2B"/>
+                        <outlet property="usernameField" destination="eas-HI-vFI" id="Lwc-kY-DJy"/>
+                        <segue destination="ws5-o8-u3h" kind="presentation" identifier="LoggedInSegue" modalPresentationStyle="fullScreen" id="Nhq-Cl-RD9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YeZ-bX-Rc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973.28244274809151" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="1089" y="-800"/>
         </scene>
         <!--SettingsVC-->
         <scene sceneID="BoZ-jb-nUm">
@@ -683,6 +691,9 @@
             <point key="canvasLocation" x="4105" y="-777"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Nhq-Cl-RD9"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="flame" catalog="system" width="106" height="128"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
