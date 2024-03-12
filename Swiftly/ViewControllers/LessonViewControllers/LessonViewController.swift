@@ -14,24 +14,24 @@ class LessonViewController: UIViewController {
     /*
      Variable "data" will be used to store all the lesson's elements
      (lectures, questions and checkpoints) information. The type for
-     now is String, will need to change it in the future probably to
-     depending on how we store the lesson element's data. For now this
-     variable will be populated with questions, in the future this
-     variable should be assined a value to in the constructor. It could
-     be made let.
+     now is [[String]], we will need to change it in the future to some
+     dictionary type structure. For now this variable will be populated
+     with questions, in the future this variable should be assined a
+     value to in the constructor.
      */
     var data : [[String]] = [
-        ["Introduction to Swift!",
-            "Swift is a cool programing language..."],
-        // One Choice
+        // Lecture type
+        /*["Introduction to Swift!",
+            "Swift is a cool programing language..."],*/
+        // One Choice question type
         ["What is an \"if else\" statement called?",
                 "Conditional Banching",
                 "Looping Construct",
                 "Protocol",
                 "Class"],
-        // True or False
+        // True or False question type
         ["Is Swift an interpreted language?"],
-        // Multiple Choice
+        // Multiple Choice question type
         ["Which of these keywords belong to swift?",
                 "elif",
                 "while",
@@ -39,7 +39,7 @@ class LessonViewController: UIViewController {
                 "Class",
                 "func",
                 "ret"],
-        // Fill in the Blank
+        // Fill in the Blank question type
         ["for i "," 1..10{\n",
                 "(\"Hello, this is iteration \\(i)\")\n",
                 "if i","5{\n",
@@ -47,15 +47,11 @@ class LessonViewController: UIViewController {
                 "} "," {\n",
                     "print(\"i is not 5!\")",
                 "}"],
-        /*// Drag and Drop
-        ["Which of these keywords belong to swift?",
-                "elif",
-                "while",
-                "protocol",
-                "Class",
-                "func",
-                "ret"],
-         */
+        // Drag and Drop
+        /*[...],
+        // Results
+        [...]
+        */
     ]
     
     /*
@@ -98,7 +94,7 @@ class LessonViewController: UIViewController {
         self.currentElement = self.instantiateNextElement()
         
         // Set it up
-        self.currentElement.setup(data: data[counter], delegate: self, counter: self.counter)
+        self.currentElement.setup(data: data.first!, delegate: self, counter: 0)
         
         // It's a child!
         self.addChild(self.currentElement)
@@ -115,10 +111,12 @@ class LessonViewController: UIViewController {
     
     // MARK: - Protocols
     
+    // next will be called from each lesson element to show the next lesson element
     func next() {
         
         if self.counter >= self.data.count {
-            // Call the last view controller (results), lesson ended
+            // Lesson ended, if result screen existed it was shown
+            // Now just go back to roadmap
         }
         
         // This will be the next lesson element
@@ -161,23 +159,23 @@ class LessonViewController: UIViewController {
             
         case .question(type: .oneChoice):
                         
-            next = UIStoryboard(name: "OneChoice", bundle: nil).instantiateViewController(identifier: "OneChoiceViewController") as? OneChoiceViewController
+            next = UIStoryboard(name: "OneChoice", bundle: nil).instantiateViewController(identifier: "One Choice") as? OneChoiceViewController
             
         case .question(type: .multipleChoice):
             
-            next = UIStoryboard(name: "MultipleChoice", bundle: nil).instantiateViewController(identifier: "MultipleChoiceViewController") as? MultipleChoiceViewController
+            next = UIStoryboard(name: "MultipleChoice", bundle: nil).instantiateViewController(identifier: "Multiple Choice") as? MultipleChoiceViewController
             
         case .question(type: .trueOrFalse):
             
-            next = UIStoryboard(name: "TrueOrFalse", bundle: nil).instantiateViewController(identifier: "TrueOrFalseViewController") as? TrueOrFalseViewController
+            next = UIStoryboard(name: "TrueOrFalse", bundle: nil).instantiateViewController(identifier: "True Or False") as? TrueOrFalseViewController
             
         case .question(type: .fillTheBlank):
             
-            next = UIStoryboard(name: "FillTheBlank", bundle: nil).instantiateViewController(identifier: "FillTheBlankViewController") as? FillTheBlankViewController
+            next = UIStoryboard(name: "FillTheBlank", bundle: nil).instantiateViewController(identifier: "Fill The Blank") as? FillTheBlankViewController
             
         case .question(type: .dragAndDrop):
             
-            next = UIStoryboard(name: "DragAndDrop", bundle: nil).instantiateViewController(identifier: "DragAndDropViewController") as? DragAndDropViewController
+            next = UIStoryboard(name: "DragAndDrop", bundle: nil).instantiateViewController(identifier: "Drag And Drop") as? DragAndDropViewController
             
         case .lecture:
             

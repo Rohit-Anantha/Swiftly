@@ -8,11 +8,13 @@
 import UIKit
 
 class ResultsViewController: UIViewController, LessonElement {
+    
 
     // MARK: - Variables
     
     var delegate: LessonViewController!
-    
+    var number: Int!
+    var data: [String]!
     
     
     

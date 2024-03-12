@@ -9,11 +9,12 @@ import UIKit
 
 class CheckpointViewController: UIViewController, LessonElement {
     
+    
     // MARK: - Variables
     
     var delegate: LessonViewController!
-    
-    
+    var number: Int!
+    var data: [String]!
     
     
     // MARK: - View Controller Events

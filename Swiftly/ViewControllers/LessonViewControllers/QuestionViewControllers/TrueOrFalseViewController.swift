@@ -15,6 +15,8 @@ class TrueOrFalseViewController: UIViewController, LessonElement {
     // MARK: - Variables
     
     var delegate: LessonViewController!
+    var number : Int!
+    var data: [String]!
     
     var answer : Bool!
     
@@ -27,6 +29,8 @@ class TrueOrFalseViewController: UIViewController, LessonElement {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.questionTittleLabel?.text = "Question \(self.number!)"
+        self.questionTextView?.text = self.data!.first
     }
     
     
@@ -53,8 +57,7 @@ class TrueOrFalseViewController: UIViewController, LessonElement {
     func setup(data: [String], delegate: LessonViewController, counter: Int) {
         
         self.delegate = delegate
-        
-        self.questionTittleLabel.text = "Question \(counter)"
-        self.questionTittleLabel.text = data.first
+        self.number = counter
+        self.data = data
     }
 }
