@@ -74,6 +74,8 @@
 		99F45DEC2B9D2201000753C4 /* DragAndDrop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F45DEB2B9D2201000753C4 /* DragAndDrop.storyboard */; };
 		99F45DF02B9D2780000753C4 /* LessonElementTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F45DEF2B9D2780000753C4 /* LessonElementTypes.swift */; };
 		99F45DF42B9D33A2000753C4 /* LessonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F45DF32B9D33A2000753C4 /* LessonElement.swift */; };
+		99FBBA472BA0BB96005B1938 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FBBA462BA0BB96005B1938 /* TestingViewController.swift */; };
+		99FBBA492BA0BBC8005B1938 /* Testing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FBBA482BA0BBC8005B1938 /* Testing.storyboard */; };
 		C91BDD7C2B924F380013FCE5 /* Rohit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91BDD7B2B924F380013FCE5 /* Rohit.storyboard */; };
 		C9674BB82B8FE9EB00A50CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */; };
 		C9674BBA2B8FE9EB00A50CCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */; };
@@ -116,6 +118,8 @@
 		99F45DEB2B9D2201000753C4 /* DragAndDrop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DragAndDrop.storyboard; sourceTree = "<group>"; };
 		99F45DEF2B9D2780000753C4 /* LessonElementTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonElementTypes.swift; sourceTree = "<group>"; };
 		99F45DF32B9D33A2000753C4 /* LessonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonElement.swift; sourceTree = "<group>"; };
+		99FBBA462BA0BB96005B1938 /* TestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
+		99FBBA482BA0BBC8005B1938 /* Testing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Testing.storyboard; sourceTree = "<group>"; };
 		C91BDD7B2B924F380013FCE5 /* Rohit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rohit.storyboard; sourceTree = "<group>"; };
 		C9674BB42B8FE9EB00A50CCD /* Swiftly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -310,6 +314,8 @@
 				C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */,
 				C9674BC52B8FE9ED00A50CCD /* Info.plist */,
 				99C9AE1A2B9FC04100C85B09 /* GoogleService-Info.plist */,
+				99FBBA462BA0BB96005B1938 /* TestingViewController.swift */,
+				99FBBA482BA0BBC8005B1938 /* Testing.storyboard */,
 			);
 			path = Swiftly;
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 				99F45DEC2B9D2201000753C4 /* DragAndDrop.storyboard in Resources */,
 				99EC11C42B9F68D10023FEDE /* Results.storyboard in Resources */,
 				99F45DD32B9D1B43000753C4 /* Lesson.storyboard in Resources */,
+				99FBBA492BA0BBC8005B1938 /* Testing.storyboard in Resources */,
 				99C9AE1B2B9FC04100C85B09 /* GoogleService-Info.plist in Resources */,
 				20F084E62B990479005FF676 /* Akin.storyboard in Resources */,
 				99F45DE92B9D21D7000753C4 /* FillTheBlank.storyboard in Resources */,
@@ -477,6 +484,7 @@
 				207F067E2B9D725A0067778F /* CreateAccountViewController.swift in Sources */,
 				FC70B8F12B94290B00386D64 /* NextViewController.swift in Sources */,
 				99F45DE02B9D1DC6000753C4 /* ResultsViewController.swift in Sources */,
+				99FBBA472BA0BB96005B1938 /* TestingViewController.swift in Sources */,
 				20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */,
 				99F45DD72B9D1D43000753C4 /* DragAndDropViewController.swift in Sources */,
 				20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */,
