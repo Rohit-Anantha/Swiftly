@@ -17,15 +17,18 @@ class CustomTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        let roadmapVC = UIHostingController(rootView: RoadmapNewView())
+        roadmapVC.title = "Your Progress"
+
         guard let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: homeVCID) as? HomePageViewController else {
             fatalError("HomePageViewController not implemented in storyboard")
         }
+        
         guard let settingsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: settingsVCID) as? SettingsViewController else {
             fatalError("SettingsViewController not implemented in storyboard")
         }
         
-        let roadmapNav = UINavigationController(rootViewController: UIHostingController(rootView: RoadmapNewView()))
+        let roadmapNav = UINavigationController(rootViewController: roadmapVC)
         let homeNav = UINavigationController(rootViewController: homeVC)
         let settingsNav = UINavigationController(rootViewController: settingsVC)
         

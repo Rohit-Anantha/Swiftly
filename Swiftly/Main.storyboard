@@ -398,7 +398,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfT-A4-unc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4909" y="-63"/>
+            <point key="canvasLocation" x="4378" y="-63"/>
         </scene>
         <!--HomePageVC-->
         <scene sceneID="eM8-sI-VCd">
@@ -665,7 +665,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AC2-cg-5u2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4105" y="-63"/>
+            <point key="canvasLocation" x="3505" y="-63"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="Ftx-d8-Ghd">
