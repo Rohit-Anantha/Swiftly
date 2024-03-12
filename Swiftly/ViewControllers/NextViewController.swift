@@ -26,5 +26,4 @@ struct NextRepresentedViewController: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = LessonViewController
     
-    
 }
