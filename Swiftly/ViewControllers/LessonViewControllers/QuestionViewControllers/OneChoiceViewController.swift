@@ -15,8 +15,8 @@ class OneChoiceViewController: UIViewController, LessonElement {
     // MARK: - Variables
     
     var delegate: LessonViewController!
-    
     var data : [String]!
+    var number : Int!
     
     @IBOutlet weak var questionTittleLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
@@ -29,6 +29,16 @@ class OneChoiceViewController: UIViewController, LessonElement {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.questionTittleLabel.text = "Question \(number!)"
+        self.questionTextView.text! = self.data.first!
+        
+        // Set it up
+        for i in 1..<self.data.count {
+            let button = UIButton()
+            button.setTitle(self.data[i], for: .normal)
+            
+            stackView.addArrangedSubview(button)
+        }
     }
 
     
@@ -45,16 +55,6 @@ class OneChoiceViewController: UIViewController, LessonElement {
         
         self.delegate = delegate
         self.data = data
-        
-        self.questionTittleLabel.text = "Question \(counter)"
-        self.questionTittleLabel.text = self.data.first
-        
-        // Set it up
-        for i in 1..<self.data.count {
-            let button = UIButton()
-            button.setTitle(self.data[i], for: .normal)
-            
-            stackView.addArrangedSubview(button)
-        }
+        self.number = counter
     }
 }

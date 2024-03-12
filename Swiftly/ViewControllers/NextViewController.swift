@@ -9,9 +9,13 @@ import UIKit
 import SwiftUI
 
 struct NextRepresentedViewController: UIViewControllerRepresentable {
+    
     func makeUIViewController(context: Context) -> LessonViewController {
-        guard let viewController = UIStoryboard(name: "Lesson", bundle: nil).instantiateViewController(identifier: "lessonViewController") as? LessonViewController else {
-            fatalError("LessonViewController not implemented in storyboard")
+        
+        //let viewController = storyboard!.instantiateViewController(withIdentifier: "Lesson") as? LessonViewController
+
+        guard let viewController = UIStoryboard(name: "Lesson", bundle: nil).instantiateViewController(identifier: "LessonViewController") as? LessonViewController else {
+            fatalError("ViewController not implemented in storyboard")
         }
         return viewController
     }
