@@ -40,22 +40,30 @@ class TestViewController: UIViewController, LessonElement {
         self.questionTextView.text = self.data.first
         
         // Handle stack views for different test types
+        self.leftStackView.distribution = .equalSpacing
+        self.rightStackView.distribution = .equalSpacing
+        
         switch testType {
             case .trueOrFalse:
             
             self.multipleChoice = false
+
+            // False button
+            let falseButton = UIButton()
+            falseButton.setTitle("False", for: .normal)
+            falseButton.backgroundColor = .red
+            falseButton.tag = 0
+            self.rightStackView.addArrangedSubview(falseButton)
+            falseButton.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
             
             // True button
             let trueButton = UIButton()
             trueButton.setTitle("True", for: .normal)
+            trueButton.backgroundColor = .green
+            trueButton.tag = 1
             self.leftStackView.addArrangedSubview(trueButton)
-            
-            // False button
-            let falseButton = UIButton()
-            falseButton.setTitle("True", for: .normal)
-            self.rightStackView.addArrangedSubview(falseButton)
-            
-            
+            trueButton.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
+
             default:
             
                 switch testType {
@@ -71,6 +79,9 @@ class TestViewController: UIViewController, LessonElement {
                 
                 let button = UIButton()
                 button.setTitle(data[i], for: .normal)
+                button.backgroundColor = .red
+                button.tag = i
+                button.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
                 
                 if i%2==0 {
                     self.leftStackView.addArrangedSubview(button)
@@ -89,8 +100,18 @@ class TestViewController: UIViewController, LessonElement {
     // MARK: - Actions
     
     @IBAction func nextButton(_ sender: Any) {
-        self.delegate.next()
+        if self.answer != nil {
+            self.delegate.next()
+        }
     }
+    
+    @objc func answerButton(sender: UIButton!) {
+        
+        if let buttonSender : UIButton = sender {
+            
+            self.answer = buttonSender.tag
+        }
+       }
     
     // MARK: - Protocol
     

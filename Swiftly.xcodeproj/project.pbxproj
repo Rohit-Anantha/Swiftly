@@ -38,6 +38,7 @@
 		9951F6802BA25E630004D597 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9951F67F2BA25E630004D597 /* FirebaseAnalyticsSwift */; };
 		9951F6822BA25E630004D597 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 9951F6812BA25E630004D597 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		9951F6842BA25E630004D597 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 9951F6832BA25E630004D597 /* FirebaseAppCheck */; };
+		9951F68A2BA264850004D597 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9951F6892BA264850004D597 /* GoogleService-Info.plist */; };
 		99EC11912B9F66D40023FEDE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 99EC11902B9F66D40023FEDE /* FirebaseAnalytics */; };
 		99EC11932B9F66D40023FEDE /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 99EC11922B9F66D40023FEDE /* FirebaseAnalyticsOnDeviceConversion */; };
 		99EC11952B9F66D40023FEDE /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 99EC11942B9F66D40023FEDE /* FirebaseAnalyticsSwift */; };
@@ -88,7 +89,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		207DC7812BA112160014C8A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		207DC7832BA115A50014C8A0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		207F067C2B9D705D0067778F /* Swiftly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swiftly.entitlements; sourceTree = "<group>"; };
 		207F067D2B9D725A0067778F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +102,7 @@
 		20FF62392BA201D700AFF6DD /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		9951F6752BA258E90004D597 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		9951F6792BA2596B0004D597 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
+		9951F6892BA264850004D597 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99EC11C12B9F68C20023FEDE /* Checkpoint.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Checkpoint.storyboard; sourceTree = "<group>"; };
 		99EC11C32B9F68D10023FEDE /* Results.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Results.storyboard; sourceTree = "<group>"; };
 		99EC11C52B9F69380023FEDE /* CheckpointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckpointViewController.swift; sourceTree = "<group>"; };
@@ -310,7 +311,7 @@
 				99F45DD22B9D1B43000753C4 /* Main.storyboard */,
 				C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */,
 				C9674BC52B8FE9ED00A50CCD /* Info.plist */,
-				207DC7812BA112160014C8A0 /* GoogleService-Info.plist */,
+				9951F6892BA264850004D597 /* GoogleService-Info.plist */,
 			);
 			path = Swiftly;
 			sourceTree = "<group>";
@@ -463,6 +464,7 @@
 				99F45DEC2B9D2201000753C4 /* DragAndDrop.storyboard in Resources */,
 				99EC11C42B9F68D10023FEDE /* Results.storyboard in Resources */,
 				99F45DD32B9D1B43000753C4 /* Main.storyboard in Resources */,
+				9951F68A2BA264850004D597 /* GoogleService-Info.plist in Resources */,
 				20F084E62B990479005FF676 /* Akin.storyboard in Resources */,
 				99F45DE92B9D21D7000753C4 /* FillTheBlank.storyboard in Resources */,
 				99EC11CE2B9F6AA20023FEDE /* Lecture.storyboard in Resources */,
