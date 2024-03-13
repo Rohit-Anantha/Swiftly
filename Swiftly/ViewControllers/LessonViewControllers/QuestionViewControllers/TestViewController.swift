@@ -41,7 +41,18 @@ class TestViewController: UIViewController, LessonElement {
         // Handle stack views for different test types
         switch testType {
             case .trueOrFalse:
-                
+            
+            // True button
+            let trueButton = UIButton()
+            button.setTitle("True", for: .normal)
+            self.leftStackView.addArrangedSubview(trueButton)
+            
+            // False button
+            let falseButton = UIButton()
+            button.setTitle("True", for: .normal)
+            self.rigthStackView.addArrangedSubview(falseButton)
+            
+            
             case .oneChoice:
             
             
