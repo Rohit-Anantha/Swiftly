@@ -26,7 +26,7 @@ class TestViewController: UIViewController, LessonElement {
     
     // Other variables
     var testType : QuestionTypes!
-    var answer : Int!
+    var answers : [Int] = []
     var multipleChoice : Bool!
     
     
@@ -45,27 +45,26 @@ class TestViewController: UIViewController, LessonElement {
         
         switch testType {
             case .trueOrFalse:
-            
-            self.multipleChoice = false
+                self.multipleChoice = false
 
-            // False button
-            let falseButton = UIButton()
-            falseButton.setTitle("False", for: .normal)
-            falseButton.backgroundColor = .red
-            falseButton.tag = 0
-            self.rightStackView.addArrangedSubview(falseButton)
-            falseButton.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
-            
-            // True button
-            let trueButton = UIButton()
-            trueButton.setTitle("True", for: .normal)
-            trueButton.backgroundColor = .green
-            trueButton.tag = 1
-            self.leftStackView.addArrangedSubview(trueButton)
-            trueButton.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
+                // False button
+                let falseButton = UIButton()
+                falseButton.setTitle("False", for: .normal)
+                falseButton.backgroundColor = .red
+                falseButton.tag = 0
+                self.rightStackView.addArrangedSubview(falseButton)
+                falseButton.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
+                
+                // True button
+                let trueButton = UIButton()
+                trueButton.setTitle("True", for: .normal)
+                trueButton.backgroundColor = .green
+                trueButton.tag = 1
+                self.leftStackView.addArrangedSubview(trueButton)
+                trueButton.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
 
             default:
-            
+                // Fot multiple or only one choice test questions
                 switch testType {
                     case .oneChoice:
                         self.multipleChoice = false
@@ -89,9 +88,6 @@ class TestViewController: UIViewController, LessonElement {
                     self.rightStackView.addArrangedSubview(button)
                 }
             }
-                
-            
-            
         }
         
     }
@@ -99,22 +95,25 @@ class TestViewController: UIViewController, LessonElement {
     
     // MARK: - Actions
     
+    // Next lesson element
     @IBAction func nextButton(_ sender: Any) {
-        if self.answer != nil {
-            self.delegate.next()
+        if self.answers.count > 0 {
+            self.delegate.next(result: self.answers)
         }
     }
     
+    // Action executed after user presses on a answer
     @objc func answerButton(sender: UIButton!) {
-        
         if let buttonSender : UIButton = sender {
-            
-            self.answer = buttonSender.tag
+            if self.multipleChoice || self.answers.count == 0 {
+                self.answers.append(buttonSender.tag)
+            }
         }
        }
     
     // MARK: - Protocol
     
+    // Set up the variables from which this lesson element creates itself
     func setup(data: [String], delegate: LessonViewController, counter: Int, type: LessonElementTypes) {
         
         self.delegate = delegate
@@ -128,7 +127,7 @@ class TestViewController: UIViewController, LessonElement {
             case .question(type: .oneChoice):
                 self.testType = .oneChoice
             case .question(type: .multipleChoice):
-                self.testType = .dragAndDrop
+                self.testType = .multipleChoice
             default:
                 print("Error, this shouldn't happen!")
         }

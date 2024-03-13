@@ -64,6 +64,9 @@ class LessonViewController: UIViewController {
         LessonElementTypes.question(type: .fillTheBlank),
     ]
     
+    // User's answers
+    var answers : [[Int]] = []
+    
     // Counter to know what lesson element we're displaying
     var counter = 0
     
@@ -80,7 +83,7 @@ class LessonViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
+}
     
     
     // MARK: - Actions
@@ -112,7 +115,10 @@ class LessonViewController: UIViewController {
     // MARK: - Protocols
     
     // next will be called from each lesson element to show the next lesson element
-    func next() {
+    // result will be the result of a given question.
+    func next(result : [Int]) {
+        
+        self.answers.append(result)
         
         if self.counter >= self.data.count {
             // Lesson ended, if result screen existed it was shown
@@ -158,35 +164,27 @@ class LessonViewController: UIViewController {
         switch self.elementTypes[self.counter]{
             
         case .question(type: .oneChoice):
-                        
             next = UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as? TestViewController
             
         case .question(type: .multipleChoice):
-            
             next = UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as? TestViewController
             
         case .question(type: .trueOrFalse):
-            
             next = UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as? TestViewController
             
         case .question(type: .fillTheBlank):
-            
             next = UIStoryboard(name: "FillTheBlank", bundle: nil).instantiateViewController(identifier: "Fill The Blank") as? FillTheBlankViewController
             
         case .question(type: .dragAndDrop):
-            
             next = UIStoryboard(name: "DragAndDrop", bundle: nil).instantiateViewController(identifier: "Drag And Drop") as? DragAndDropViewController
             
         case .lecture:
-            
             next = UIStoryboard(name: "Lecture", bundle: nil).instantiateViewController(identifier: "LectureViewController") as? LectureViewController
             
         case .checkpoint:
-            
             next = UIStoryboard(name: "CheckPoint", bundle: nil).instantiateViewController(identifier: "CheckpointViewController") as? CheckpointViewController
 
         case .results:
-            
             next = UIStoryboard(name: "Results", bundle: nil).instantiateViewController(identifier: "ResultsViewController") as? ResultsViewController
             
         }
