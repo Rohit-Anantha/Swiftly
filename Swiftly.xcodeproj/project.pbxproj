@@ -28,7 +28,7 @@
 		209FF8A82B990A5F000854A9 /* Eder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 209FF8A72B990A5F000854A9 /* Eder.storyboard */; };
 		209FF8AA2B990A85000854A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 209FF8A92B990A85000854A9 /* LaunchScreen.storyboard */; };
 		20F084E62B990479005FF676 /* Akin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20F084E52B990479005FF676 /* Akin.storyboard */; };
-		20F084E82B9904A8005FF676 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20F084E72B9904A8005FF676 /* Main.storyboard */; };
+		20F084E82B9904A8005FF676 /* Main1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20F084E72B9904A8005FF676 /* Main1.storyboard */; };
 		20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F084E92B9907CB005FF676 /* CustomTabBarController.swift */; };
 		20FF623A2BA201D700AFF6DD /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF62392BA201D700AFF6DD /* LeaderBoardViewController.swift */; };
 		9951F6762BA258E90004D597 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951F6752BA258E90004D597 /* TestViewController.swift */; };
@@ -68,7 +68,7 @@
 		99EC11C92B9F6A4A0023FEDE /* LectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC11C82B9F6A4A0023FEDE /* LectureViewController.swift */; };
 		99EC11CE2B9F6AA20023FEDE /* Lecture.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99EC11CD2B9F6AA20023FEDE /* Lecture.storyboard */; };
 		99F45DCA2B9D197A000753C4 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F45DC92B9D197A000753C4 /* LessonViewController.swift */; };
-		99F45DD32B9D1B43000753C4 /* Lesson.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F45DD22B9D1B43000753C4 /* Lesson.storyboard */; };
+		99F45DD32B9D1B43000753C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F45DD22B9D1B43000753C4 /* Main.storyboard */; };
 		99F45DD72B9D1D43000753C4 /* DragAndDropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F45DD62B9D1D43000753C4 /* DragAndDropViewController.swift */; };
 		99F45DDD2B9D1DAC000753C4 /* FillTheBlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F45DDC2B9D1DAC000753C4 /* FillTheBlankViewController.swift */; };
 		99F45DE02B9D1DC6000753C4 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F45DDF2B9D1DC6000753C4 /* ResultsViewController.swift */; };
@@ -97,7 +97,7 @@
 		209FF8A72B990A5F000854A9 /* Eder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Eder.storyboard; sourceTree = "<group>"; };
 		209FF8A92B990A85000854A9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20F084E52B990479005FF676 /* Akin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Akin.storyboard; sourceTree = "<group>"; };
-		20F084E72B9904A8005FF676 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		20F084E72B9904A8005FF676 /* Main1.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main1.storyboard; sourceTree = "<group>"; };
 		20F084E92B9907CB005FF676 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		20FF62392BA201D700AFF6DD /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		9951F6752BA258E90004D597 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		99EC11C82B9F6A4A0023FEDE /* LectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewController.swift; sourceTree = "<group>"; };
 		99EC11CD2B9F6AA20023FEDE /* Lecture.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lecture.storyboard; sourceTree = "<group>"; };
 		99F45DC92B9D197A000753C4 /* LessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
-		99F45DD22B9D1B43000753C4 /* Lesson.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lesson.storyboard; sourceTree = "<group>"; };
+		99F45DD22B9D1B43000753C4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		99F45DD62B9D1D43000753C4 /* DragAndDropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAndDropViewController.swift; sourceTree = "<group>"; };
 		99F45DDC2B9D1DAC000753C4 /* FillTheBlankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillTheBlankViewController.swift; sourceTree = "<group>"; };
 		99F45DDF2B9D1DC6000753C4 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
@@ -306,8 +306,8 @@
 				209FF8A72B990A5F000854A9 /* Eder.storyboard */,
 				209FF8A92B990A85000854A9 /* LaunchScreen.storyboard */,
 				20F084E52B990479005FF676 /* Akin.storyboard */,
-				20F084E72B9904A8005FF676 /* Main.storyboard */,
-				99F45DD22B9D1B43000753C4 /* Lesson.storyboard */,
+				20F084E72B9904A8005FF676 /* Main1.storyboard */,
+				99F45DD22B9D1B43000753C4 /* Main.storyboard */,
 				C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */,
 				C9674BC52B8FE9ED00A50CCD /* Info.plist */,
 				207DC7812BA112160014C8A0 /* GoogleService-Info.plist */,
@@ -459,15 +459,15 @@
 				99EC11C22B9F68C20023FEDE /* Checkpoint.storyboard in Resources */,
 				C9674BC12B8FE9ED00A50CCD /* Assets.xcassets in Resources */,
 				9951F67A2BA2596B0004D597 /* Test.storyboard in Resources */,
-				20F084E82B9904A8005FF676 /* Main.storyboard in Resources */,
+				20F084E82B9904A8005FF676 /* Main1.storyboard in Resources */,
 				99F45DEC2B9D2201000753C4 /* DragAndDrop.storyboard in Resources */,
 				99EC11C42B9F68D10023FEDE /* Results.storyboard in Resources */,
-				99F45DD32B9D1B43000753C4 /* Lesson.storyboard in Resources */,
+				99F45DD32B9D1B43000753C4 /* Main.storyboard in Resources */,
 				20F084E62B990479005FF676 /* Akin.storyboard in Resources */,
 				99F45DE92B9D21D7000753C4 /* FillTheBlank.storyboard in Resources */,
 				99EC11CE2B9F6AA20023FEDE /* Lecture.storyboard in Resources */,
 				209FF8AA2B990A85000854A9 /* LaunchScreen.storyboard in Resources */,
-				20F084E82B9904A8005FF676 /* Main.storyboard in Resources */,
+				20F084E82B9904A8005FF676 /* Main1.storyboard in Resources */,
 				20F084E62B990479005FF676 /* Akin.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -94,7 +94,7 @@ class LessonViewController: UIViewController {
         self.currentElement = self.instantiateNextElement()
         
         // Set it up
-        self.currentElement.setup(data: data.first!, delegate: self, counter: 0, type: elementTypes.first)
+        self.currentElement.setup(data: data.first!, delegate: self, counter: 0, type: elementTypes.first!)
         
         // It's a child!
         self.addChild(self.currentElement)

@@ -27,6 +27,7 @@ class TestViewController: UIViewController, LessonElement {
     // Other variables
     var testType : QuestionTypes!
     var answer : Int!
+    var multipleChoice : Bool!
     
     
     // MARK: - View Controller Events
@@ -35,33 +36,52 @@ class TestViewController: UIViewController, LessonElement {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.questionTittleLabel.text = "Question \(number)"
+        self.questionTittleLabel.text = "Question \(number!)"
         self.questionTextView.text = self.data.first
         
         // Handle stack views for different test types
         switch testType {
             case .trueOrFalse:
             
+            self.multipleChoice = false
+            
             // True button
             let trueButton = UIButton()
-            button.setTitle("True", for: .normal)
+            trueButton.setTitle("True", for: .normal)
             self.leftStackView.addArrangedSubview(trueButton)
             
             // False button
             let falseButton = UIButton()
-            button.setTitle("True", for: .normal)
-            self.rigthStackView.addArrangedSubview(falseButton)
-            
-            
-            case .oneChoice:
-            
-            
-            case.multipleChoice:
+            falseButton.setTitle("True", for: .normal)
+            self.rightStackView.addArrangedSubview(falseButton)
             
             
             default:
-                print("Error")
+            
+                switch testType {
+                    case .oneChoice:
+                        self.multipleChoice = false
+                    case.multipleChoice:
+                        self.multipleChoice = true
+                    default:
+                        print("Error, this shouldn't happen!")
+                }
+            
+            for i in 1..<self.data.count{
+                
+                let button = UIButton()
+                button.setTitle(data[i], for: .normal)
+                
+                if i%2==0 {
+                    self.leftStackView.addArrangedSubview(button)
+                } else {
+                    self.rightStackView.addArrangedSubview(button)
+                }
             }
+                
+            
+            
+        }
         
     }
     
@@ -80,7 +100,17 @@ class TestViewController: UIViewController, LessonElement {
         self.number = counter
         self.data = data
         
-        self.testType = type.type
+        switch type {
+                
+            case .question(type: .trueOrFalse):
+                self.testType = .trueOrFalse
+            case .question(type: .oneChoice):
+                self.testType = .oneChoice
+            case .question(type: .multipleChoice):
+                self.testType = .dragAndDrop
+            default:
+                print("Error, this shouldn't happen!")
+        }
     }
 
 }
