@@ -311,11 +311,8 @@
 				99F45DD22B9D1B43000753C4 /* Lesson.storyboard */,
 				C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */,
 				C9674BC52B8FE9ED00A50CCD /* Info.plist */,
-<<<<<<< HEAD
 				99C9AE1A2B9FC04100C85B09 /* GoogleService-Info.plist */,
-=======
 				207DC7812BA112160014C8A0 /* GoogleService-Info.plist */,
->>>>>>> refs/remotes/origin/main
 			);
 			path = Swiftly;
 			sourceTree = "<group>";
@@ -464,11 +461,7 @@
 				99F45DEC2B9D2201000753C4 /* DragAndDrop.storyboard in Resources */,
 				99EC11C42B9F68D10023FEDE /* Results.storyboard in Resources */,
 				99F45DD32B9D1B43000753C4 /* Lesson.storyboard in Resources */,
-<<<<<<< HEAD
 				99C9AE1B2B9FC04100C85B09 /* GoogleService-Info.plist in Resources */,
-=======
-				207DC7822BA112160014C8A0 /* GoogleService-Info.plist in Resources */,
->>>>>>> refs/remotes/origin/main
 				20F084E62B990479005FF676 /* Akin.storyboard in Resources */,
 				99F45DE92B9D21D7000753C4 /* FillTheBlank.storyboard in Resources */,
 				99EC11CE2B9F6AA20023FEDE /* Lecture.storyboard in Resources */,
