@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if Auth.auth().currentUser != nil {
             // User is already logged in, perform the segue to the home screen
             showHomeScreen()
+        
         }
 
         
