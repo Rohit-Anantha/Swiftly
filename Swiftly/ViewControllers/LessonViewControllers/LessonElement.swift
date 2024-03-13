@@ -37,5 +37,5 @@ protocol LessonElement : UIViewController {
     // possible answers, some color configuration if needed.
     // In the future it will ne fetched from Firebase and it'll be some dictionary or
     // JSON type object.
-    func setup(data : [String], delegate : LessonViewController, counter : Int)
+    func setup(data : [String], delegate : LessonViewController, counter : Int, type : LessonElementTypes)
 }

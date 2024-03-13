@@ -94,7 +94,7 @@ class LessonViewController: UIViewController {
         self.currentElement = self.instantiateNextElement()
         
         // Set it up
-        self.currentElement.setup(data: data.first!, delegate: self, counter: 0)
+        self.currentElement.setup(data: data.first!, delegate: self, counter: 0, type: elementTypes.first)
         
         // It's a child!
         self.addChild(self.currentElement)
@@ -123,7 +123,7 @@ class LessonViewController: UIViewController {
         let next = self.instantiateNextElement()
         
         // Set it up
-        next.setup(data: self.data[counter], delegate: self, counter: self.counter)
+        next.setup(data: self.data[counter], delegate: self, counter: self.counter, type: elementTypes[counter])
         
         // It's a child!
         self.addChild(next)
@@ -159,15 +159,15 @@ class LessonViewController: UIViewController {
             
         case .question(type: .oneChoice):
                         
-            next = UIStoryboard(name: "OneChoice", bundle: nil).instantiateViewController(identifier: "One Choice") as? OneChoiceViewController
+            next = UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as? TestViewController
             
         case .question(type: .multipleChoice):
             
-            next = UIStoryboard(name: "MultipleChoice", bundle: nil).instantiateViewController(identifier: "Multiple Choice") as? MultipleChoiceViewController
+            next = UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as? TestViewController
             
         case .question(type: .trueOrFalse):
             
-            next = UIStoryboard(name: "TrueOrFalse", bundle: nil).instantiateViewController(identifier: "True Or False") as? TrueOrFalseViewController
+            next = UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as? TestViewController
             
         case .question(type: .fillTheBlank):
             
