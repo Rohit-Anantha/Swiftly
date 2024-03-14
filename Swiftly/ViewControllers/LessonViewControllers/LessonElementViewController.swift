@@ -8,25 +8,26 @@
 import Foundation
 import UIKit
 
-protocol LessonElement : UIViewController {
+protocol LessonElementViewController: UIViewController{
+    
+    //typealias T = any LessonElement
     
     // MARK: - Documentation
-    
     /*/
      A lesson element will be anything showed within a lesson: checkpoint, result screen,
      question, or small lecture.
      
-     All these elements will inherit from this class.
+     All these elements will inherit from this class. This class should not be instantiated.
      */
     
     // MARK: - Variables
     
     // The Lesson View Controller that presented the lesson element
-    var delegate : LessonViewController! {get set}
+    var delegate : LessonViewController! { get set }
     // The number of the question (for example 3 if it's the third Lesson element)
-    var number : Int! {get set}
+    var number : Int! { get set }
     // The lesson element's data
-    var data : [String]! {get set}
+    //var data : T! { get set }
     
     
     // MARK: - Functions
@@ -37,5 +38,5 @@ protocol LessonElement : UIViewController {
     // possible answers, some color configuration if needed.
     // In the future it will ne fetched from Firebase and it'll be some dictionary or
     // JSON type object.
-    func setup(data : [String], delegate : LessonViewController, counter : Int, type : LessonElementTypes)
+    func setup(data : LessonElement, delegate : LessonViewController, counter : Int)
 }

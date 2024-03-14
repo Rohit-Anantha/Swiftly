@@ -7,19 +7,23 @@
 
 import UIKit
 
-class CheckpointViewController: UIViewController, LessonElement {
+class CheckpointViewController: UIViewController, LessonElementViewController {
     
     
     // MARK: - Variables
     
     // Protocol Variables
+    
     var delegate: LessonViewController!
     var number: Int!
-    var data: [String]!
+    
     
     // Storyboard Variables
     @IBOutlet weak var checkpointTittleLabel: UILabel!
     @IBOutlet weak var checkpointTextView: UITextView!
+    
+    // Other Variables
+    var data: CheckpointElement!
     
     // MARK: - View Controller Events
 
@@ -27,8 +31,8 @@ class CheckpointViewController: UIViewController, LessonElement {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.checkpointTittleLabel.text = self.data.first
-        self.checkpointTextView.text = self.data[1]
+        self.checkpointTittleLabel.text = self.data.tittle
+        self.checkpointTextView.text = self.data.message
         
     }
     
@@ -42,9 +46,9 @@ class CheckpointViewController: UIViewController, LessonElement {
     
     // MARK: - Protocols
     
-    func setup(data: [String], delegate: LessonViewController, counter: Int, type: LessonElementTypes) {
+    func setup(data: LessonElement, delegate: LessonViewController, counter: Int) {
         self.delegate = delegate
-        self.data = data
         self.number = counter
+        self.data = data as? CheckpointElement
     }
 }

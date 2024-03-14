@@ -9,14 +9,20 @@
 
 import UIKit
 
-class DragAndDropViewController: UIViewController, LessonElement {
+class DragAndDropViewController: UIViewController, LessonElementViewController {
     
     
     // MARK: - Variables
     
+    // Protocol Variables
     var delegate: LessonViewController!
     var number: Int!
-    var data: [String]!
+    
+    // Storyboard variables
+    
+    
+    // Other Variables
+    var data : DragAndDropElement!
     
     
     // MARK: - View Controller Events
@@ -34,10 +40,9 @@ class DragAndDropViewController: UIViewController, LessonElement {
     
     // MARK: - Protocols
     
-    func setup(data: [String], delegate: LessonViewController, counter: Int, type: LessonElementTypes) {
-        
+    func setup(data: LessonElement, delegate: LessonViewController, counter: Int) {
         self.delegate = delegate
-        
-        // Set it up
+        self.number = counter
+        self.data = data as? DragAndDropElement
     }
 }

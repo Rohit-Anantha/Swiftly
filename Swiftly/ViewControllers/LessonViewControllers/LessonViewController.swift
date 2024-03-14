@@ -13,63 +13,69 @@ class LessonViewController: UIViewController {
     
     /*
      Variable "data" will be used to store all the lesson's elements
-     (lectures, questions and checkpoints) information. The type for
-     now is [[String]], we will need to change it in the future to some
-     dictionary type structure. For now this variable will be populated
-     with questions, in the future this variable should be assined a
-     value to in the constructor.
+     (lectures, questions and checkpoints) information. For now this variable will be populated
+     with questions, in the future this variable should be assined a value obtained from firebase
+     through the constructor
      */
-    var data : [[String]] = [
+    var data : [any LessonElement] = [
         // Lecture type
-        ["Introduction to Swift!",
-            "Swift is a cool programing language and you'll learn more about ir soon!"],
+        LectureElement(type: .lecture(type: .lecture),
+                       tittle: "Introduction to Swift Programing language!",
+                       lecture: "Swift is a cool programing language used for iOS development an other stuff. Bla bla bla.."),
         // One Choice question type
-        ["What is an \"if else\" statement called?",
-                "Conditional Banching",
-                "Looping Construct",
-                "Protocol",
-                "Class"],
+        TestQuestionElement(type: .question(type: .oneChoice),
+                            question: "What is an \"if else\" statement called?",
+                            answers: 
+                                ["Conditional Banching",
+                                 "Looping Construct",
+                                 "Protocol",
+                                 "Class"],
+                            correctAnswers: [1]),
         // True or False question type
-        ["Is Swift an interpreted language?"],
+        TestQuestionElement(type: .question(type: .trueOrFalse),
+                            question: "Is Swift an interpreted language?",
+                            answers: [], // This is empty because the answers are obviously true or false (it's a true or false question)
+                            correctAnswers: [0]),
         //Checkpoint
-        ["You're doing good...", "idk what to say here, the design of checpoints is yet to be done"],
+        CheckpointElement(type: .checkpoint(type: .checkpoint),
+                          tittle: "You're doing good...",
+                          message: "idk what to say here, the design of checpoints is yet to be done"),
         // Multiple Choice question type
-        ["Which of these keywords belong to swift?",
-                "elif",
-                "while",
-                "protocol",
-                "Class",
-                "func",
-                "ret"],
-        // Results
-        []
-        /*// Fill in the Blank question type
-        ["for i "," 1..10{\n",
-                "(\"Hello, this is iteration \\(i)\")\n",
-                "if i","5{\n",
-                    "print(\"i=5!\")",
-                "} "," {\n",
-                    "print(\"i is not 5!\")",
-                "}"],
+        TestQuestionElement(type: .question(type: .multipleChoice),
+                            question: "Which of these keywords belong to swift?",
+                            answers: ["elif",
+                                        "while",
+                                        "protocol",
+                                        "Class",
+                                        "func",
+                                        "ret"],
+                            correctAnswers: [1,2,4]),
+
         // Drag and Drop
-        [...],
+        DragAndDropElement(type: .question(type: .dragAndDrop),
+                           question: ["""
+                                //Calculate factorial
+                                fact = 10
+                                _0 i in 1..<_1 {
+                                    fact _2 i
+                                    _3("fact is now \\(fact)")
+                                }
+                                _4("Result is \\(_5)")
+                                """],
+                           options: [["for", "if", "class", "while", "do", "then"],
+                                     ["10", "i", "fact", "main[1]", "nil"],
+                                     ["=", "+", "+=", "*=", "in"],
+                                     ["fact", "print", "do", "show", "send"],
+                                     ["for", "if", "show", "print", "now", "fact"],
+                                     ["result", "fact", "100", "fact(10)"]],
+                           correctOptions: [0, 2, 3, 1, 3, 1]),
+        // Fill in the Blank question type
+        //QuestionElement(...)
         // Results
-        [...]
-        */
-    ]
-    
-    /*
-     This variable will containe the type of the lesson elements
-     */
-    var elementTypes : [LessonElementTypes] = [
-        LessonElementTypes.lecture(type: .lecture),
-        LessonElementTypes.question(type: .oneChoice),
-        LessonElementTypes.question(type: .trueOrFalse),
-        LessonElementTypes.checkpoint(type: .checkpoint),
-        LessonElementTypes.question(type: .multipleChoice),
-        //LessonElementTypes.question(type: .fillTheBlank),
-        //LessonElementTypes.question(type: .dragAndDrop),
-        LessonElementTypes.results(type: .final)
+        ResultsElement(type: .results(type: .final),
+                       tittle: "Great job!",
+                       message: "You did great! you're results are... (Not implemented)",
+                       results: ["Yet to be implemented"])
     ]
     
     // User's answers
@@ -82,7 +88,7 @@ class LessonViewController: UIViewController {
     var lessonData : String = "Beginners lesson on Swift!!"
     
     // Current lesson element being displayed
-    var currentElement : LessonElement!
+    var currentElement : LessonElementViewController!
     
     
     // MARK: - View Controller Events
@@ -105,7 +111,7 @@ class LessonViewController: UIViewController {
         self.currentElement = self.instantiateNextElement()
         
         // Set it up
-        self.currentElement.setup(data: data.first!, delegate: self, counter: 0, type: elementTypes.first!)
+        self.currentElement.setup(data: data.first!, delegate: self, counter: 0)
         
         // It's a child!
         self.addChild(self.currentElement)
@@ -137,7 +143,7 @@ class LessonViewController: UIViewController {
         let next = self.instantiateNextElement()
         
         // Set it up
-        next.setup(data: self.data[counter], delegate: self, counter: self.counter, type: elementTypes[counter])
+        next.setup(data: self.data[counter], delegate: self, counter: self.counter)
         
         // It's a child!
         self.addChild(next)
@@ -165,39 +171,35 @@ class LessonViewController: UIViewController {
     
     // Function used to create next lesson element using counter, data and dataType
     // Maybe I should catch if elementTypes is empty
-    func instantiateNextElement() -> LessonElement {
-        
-        var next : LessonElement!
-        
-        switch self.elementTypes[self.counter]{
+    
+    func instantiateNextElement() -> any LessonElementViewController {
+                            
+        switch self.data[self.counter].type {
             
         case .question(type: .oneChoice):
-            next = UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as? TestViewController
+            return  UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as! TestViewController
             
         case .question(type: .multipleChoice):
-            next = UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as? TestViewController
+            return UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as! TestViewController
             
         case .question(type: .trueOrFalse):
-            next = UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as? TestViewController
+            return UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as! TestViewController
             
         case .question(type: .fillTheBlank):
-            next = UIStoryboard(name: "FillTheBlank", bundle: nil).instantiateViewController(identifier: "Fill The Blank") as? FillTheBlankViewController
+            return  UIStoryboard(name: "FillTheBlank", bundle: nil).instantiateViewController(identifier: "Fill The Blank") as! FillTheBlankViewController
             
         case .question(type: .dragAndDrop):
-            next = UIStoryboard(name: "DragAndDrop", bundle: nil).instantiateViewController(identifier: "Drag And Drop") as? DragAndDropViewController
+            return  UIStoryboard(name: "DragAndDrop", bundle: nil).instantiateViewController(identifier: "Drag And Drop") as! DragAndDropViewController
             
         case .lecture:
-            next = UIStoryboard(name: "Lecture", bundle: nil).instantiateViewController(identifier: "Lecture") as? LectureViewController
+            return  UIStoryboard(name: "Lecture", bundle: nil).instantiateViewController(identifier: "Lecture") as! LectureViewController
             
         case .checkpoint:
-            next = UIStoryboard(name: "Checkpoint", bundle: nil).instantiateViewController(identifier: "Checkpoint") as? CheckpointViewController
+            return  UIStoryboard(name: "Checkpoint", bundle: nil).instantiateViewController(identifier: "Checkpoint") as! CheckpointViewController
 
         case .results:
-            next = UIStoryboard(name: "Results", bundle: nil).instantiateViewController(identifier: "Results") as? ResultsViewController
-            
+            return  UIStoryboard(name: "Results", bundle: nil).instantiateViewController(identifier: "Results") as! ResultsViewController
         }
-        
-        return next
     }
 
 }

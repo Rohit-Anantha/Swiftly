@@ -7,20 +7,22 @@
 
 import UIKit
 
-class LectureViewController: UIViewController, LessonElement {
+class LectureViewController: UIViewController, LessonElementViewController {
     
-
+    
     // MARK: - Variables
     
     // Protocol Variables
+    
     var delegate: LessonViewController!
     var number: Int!
-    var data: [String]!
     
     // Storyboard Variables
     @IBOutlet weak var lectureTittleLabel: UILabel!
     @IBOutlet weak var lectureTittleTextView: UITextView!
     
+    // Other Variables
+    var data : LectureElement!
     
     // MARK: - View Controller Events
 
@@ -28,8 +30,8 @@ class LectureViewController: UIViewController, LessonElement {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.lectureTittleLabel.text = self.data.first
-        self.lectureTittleTextView.text = self.data[1]
+        self.lectureTittleLabel.text = self.data.tittle
+        self.lectureTittleTextView.text = self.data.lecture
     }
     
     
@@ -42,9 +44,9 @@ class LectureViewController: UIViewController, LessonElement {
     
     // MARK: - Protocols
     
-    func setup(data: [String], delegate: LessonViewController, counter: Int, type: LessonElementTypes) {
+    func setup(data: LessonElement, delegate: LessonViewController, counter: Int) {
         self.delegate = delegate
         self.number = counter
-        self.data = data
+        self.data = data as? LectureElement
     }
 }

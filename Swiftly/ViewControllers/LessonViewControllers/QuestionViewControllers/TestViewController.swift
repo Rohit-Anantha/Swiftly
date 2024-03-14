@@ -7,15 +7,14 @@
 
 import UIKit
 
-class TestViewController: UIViewController, LessonElement {
+class TestViewController: UIViewController, LessonElementViewController {
+    
 
-    
     // MARK: - Variables
-    
+        
     // Protocol Variables
     var delegate: LessonViewController!
-    var data: [String]!
-    var number : Int!
+    var number: Int!
     
     // Storyboard variables
     @IBOutlet weak var questionTittleLabel: UILabel!
@@ -25,7 +24,7 @@ class TestViewController: UIViewController, LessonElement {
     
     
     // Other variables
-    var testType : QuestionTypes!
+    var data: TestQuestionElement!
     var answers : [Int] = []
     var multipleChoice : Bool!
     
@@ -37,14 +36,14 @@ class TestViewController: UIViewController, LessonElement {
 
         // Do any additional setup after loading the view.
         self.questionTittleLabel.text = "Question \(number!)"
-        self.questionTextView.text = self.data.first
+        self.questionTextView.text = self.data.question
         
         // Handle stack views for different test types
         self.leftStackView.distribution = .equalSpacing
         self.rightStackView.distribution = .equalSpacing
         
-        switch testType {
-            case .trueOrFalse:
+        switch self.data.type {
+        case .question(type: .trueOrFalse):
                 self.multipleChoice = false
 
                 // False button
@@ -65,21 +64,22 @@ class TestViewController: UIViewController, LessonElement {
 
             default:
                 // Fot multiple or only one choice test questions
-                switch testType {
-                    case .oneChoice:
+            switch self.data.type {
+                    case .question(type: .oneChoice):
                         self.multipleChoice = false
-                    case.multipleChoice:
+                    case .question(type: .multipleChoice):
                         self.multipleChoice = true
                     default:
                         print("Error, this shouldn't happen!")
                 }
             
-            for i in 1..<self.data.count{
+            for i in 0..<self.data.answers.count{
                 
                 let button = UIButton()
-                button.setTitle(data[i], for: .normal)
+                button.setTitle(self.data.answers[i], for: .normal)
                 button.backgroundColor = .red
                 button.tag = i
+                
                 button.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
                 
                 if i%2==0 {
@@ -89,7 +89,6 @@ class TestViewController: UIViewController, LessonElement {
                 }
             }
         }
-        
     }
     
     
@@ -109,28 +108,14 @@ class TestViewController: UIViewController, LessonElement {
                 self.answers.append(buttonSender.tag)
             }
         }
-       }
+    }
     
     // MARK: - Protocol
     
     // Set up the variables from which this lesson element creates itself
-    func setup(data: [String], delegate: LessonViewController, counter: Int, type: LessonElementTypes) {
-        
+    func setup(data: LessonElement, delegate: LessonViewController, counter: Int) {
         self.delegate = delegate
         self.number = counter
-        self.data = data
-        
-        switch type {
-                
-            case .question(type: .trueOrFalse):
-                self.testType = .trueOrFalse
-            case .question(type: .oneChoice):
-                self.testType = .oneChoice
-            case .question(type: .multipleChoice):
-                self.testType = .multipleChoice
-            default:
-                print("Error, this shouldn't happen!")
-        }
+        self.data = data as? TestQuestionElement
     }
-
 }

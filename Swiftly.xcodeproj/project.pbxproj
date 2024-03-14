@@ -39,6 +39,11 @@
 		9951F6822BA25E630004D597 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 9951F6812BA25E630004D597 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		9951F6842BA25E630004D597 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 9951F6832BA25E630004D597 /* FirebaseAppCheck */; };
 		9951F68A2BA264850004D597 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9951F6892BA264850004D597 /* GoogleService-Info.plist */; };
+		9951F68E2BA34F940004D597 /* LessonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951F68D2BA34F940004D597 /* LessonElement.swift */; };
+		9951F6972BA350990004D597 /* QuestionElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951F6962BA350990004D597 /* QuestionElements.swift */; };
+		9951F6992BA353DC0004D597 /* LectureElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951F6982BA353DC0004D597 /* LectureElements.swift */; };
+		9951F69B2BA353EE0004D597 /* CheckpointElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951F69A2BA353EE0004D597 /* CheckpointElements.swift */; };
+		9951F69D2BA353FA0004D597 /* ResultsElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951F69C2BA353FA0004D597 /* ResultsElements.swift */; };
 		99EC11912B9F66D40023FEDE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 99EC11902B9F66D40023FEDE /* FirebaseAnalytics */; };
 		99EC11932B9F66D40023FEDE /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 99EC11922B9F66D40023FEDE /* FirebaseAnalyticsOnDeviceConversion */; };
 		99EC11952B9F66D40023FEDE /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 99EC11942B9F66D40023FEDE /* FirebaseAnalyticsSwift */; };
@@ -76,7 +81,7 @@
 		99F45DE92B9D21D7000753C4 /* FillTheBlank.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F45DE82B9D21D7000753C4 /* FillTheBlank.storyboard */; };
 		99F45DEC2B9D2201000753C4 /* DragAndDrop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F45DEB2B9D2201000753C4 /* DragAndDrop.storyboard */; };
 		99F45DF02B9D2780000753C4 /* LessonElementTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F45DEF2B9D2780000753C4 /* LessonElementTypes.swift */; };
-		99F45DF42B9D33A2000753C4 /* LessonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F45DF32B9D33A2000753C4 /* LessonElement.swift */; };
+		99F45DF42B9D33A2000753C4 /* LessonElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F45DF32B9D33A2000753C4 /* LessonElementViewController.swift */; };
 		C91BDD7C2B924F380013FCE5 /* Rohit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91BDD7B2B924F380013FCE5 /* Rohit.storyboard */; };
 		C9674BB82B8FE9EB00A50CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */; };
 		C9674BBA2B8FE9EB00A50CCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */; };
@@ -103,6 +108,11 @@
 		9951F6752BA258E90004D597 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		9951F6792BA2596B0004D597 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		9951F6892BA264850004D597 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9951F68D2BA34F940004D597 /* LessonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonElement.swift; sourceTree = "<group>"; };
+		9951F6962BA350990004D597 /* QuestionElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionElements.swift; sourceTree = "<group>"; };
+		9951F6982BA353DC0004D597 /* LectureElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureElements.swift; sourceTree = "<group>"; };
+		9951F69A2BA353EE0004D597 /* CheckpointElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckpointElements.swift; sourceTree = "<group>"; };
+		9951F69C2BA353FA0004D597 /* ResultsElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsElements.swift; sourceTree = "<group>"; };
 		99EC11C12B9F68C20023FEDE /* Checkpoint.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Checkpoint.storyboard; sourceTree = "<group>"; };
 		99EC11C32B9F68D10023FEDE /* Results.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Results.storyboard; sourceTree = "<group>"; };
 		99EC11C52B9F69380023FEDE /* CheckpointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckpointViewController.swift; sourceTree = "<group>"; };
@@ -116,7 +126,7 @@
 		99F45DE82B9D21D7000753C4 /* FillTheBlank.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FillTheBlank.storyboard; sourceTree = "<group>"; };
 		99F45DEB2B9D2201000753C4 /* DragAndDrop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DragAndDrop.storyboard; sourceTree = "<group>"; };
 		99F45DEF2B9D2780000753C4 /* LessonElementTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonElementTypes.swift; sourceTree = "<group>"; };
-		99F45DF32B9D33A2000753C4 /* LessonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonElement.swift; sourceTree = "<group>"; };
+		99F45DF32B9D33A2000753C4 /* LessonElementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonElementViewController.swift; sourceTree = "<group>"; };
 		C91BDD7B2B924F380013FCE5 /* Rohit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rohit.storyboard; sourceTree = "<group>"; };
 		C9674BB42B8FE9EB00A50CCD /* Swiftly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +194,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9951F68C2BA34ECB0004D597 /* LessonElementClasses */ = {
+			isa = PBXGroup;
+			children = (
+				9951F68D2BA34F940004D597 /* LessonElement.swift */,
+				9951F6962BA350990004D597 /* QuestionElements.swift */,
+				9951F6982BA353DC0004D597 /* LectureElements.swift */,
+				9951F69A2BA353EE0004D597 /* CheckpointElements.swift */,
+				9951F69C2BA353FA0004D597 /* ResultsElements.swift */,
+			);
+			path = LessonElementClasses;
+			sourceTree = "<group>";
+		};
 		99EC11C02B9F68950023FEDE /* QuestionsStoryboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,8 +251,9 @@
 		99F45DC82B9D132E000753C4 /* LessonViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9951F68C2BA34ECB0004D597 /* LessonElementClasses */,
 				99F45DEF2B9D2780000753C4 /* LessonElementTypes.swift */,
-				99F45DF32B9D33A2000753C4 /* LessonElement.swift */,
+				99F45DF32B9D33A2000753C4 /* LessonElementViewController.swift */,
 				99F45DC92B9D197A000753C4 /* LessonViewController.swift */,
 				99EC11C72B9F6A210023FEDE /* LectureViewControllers */,
 				99F45DCD2B9D19B7000753C4 /* ResultViewControllers */,
@@ -485,18 +508,23 @@
 				FC70B8F12B94290B00386D64 /* NextViewController.swift in Sources */,
 				99F45DE02B9D1DC6000753C4 /* ResultsViewController.swift in Sources */,
 				20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */,
+				9951F68E2BA34F940004D597 /* LessonElement.swift in Sources */,
 				20FF623A2BA201D700AFF6DD /* LeaderBoardViewController.swift in Sources */,
 				99F45DD72B9D1D43000753C4 /* DragAndDropViewController.swift in Sources */,
+				9951F69D2BA353FA0004D597 /* ResultsElements.swift in Sources */,
 				20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */,
 				C9674BBC2B8FE9EB00A50CCD /* ViewController.swift in Sources */,
+				9951F69B2BA353EE0004D597 /* CheckpointElements.swift in Sources */,
 				99F45DF02B9D2780000753C4 /* LessonElementTypes.swift in Sources */,
 				99EC11C62B9F69380023FEDE /* CheckpointViewController.swift in Sources */,
+				9951F6992BA353DC0004D597 /* LectureElements.swift in Sources */,
 				99F45DCA2B9D197A000753C4 /* LessonViewController.swift in Sources */,
 				99EC11C92B9F6A4A0023FEDE /* LectureViewController.swift in Sources */,
 				207DC7842BA115A50014C8A0 /* LoginViewController.swift in Sources */,
 				207F06802B9E57630067778F /* HomePageViewController.swift in Sources */,
 				C9674BB82B8FE9EB00A50CCD /* AppDelegate.swift in Sources */,
-				99F45DF42B9D33A2000753C4 /* LessonElement.swift in Sources */,
+				99F45DF42B9D33A2000753C4 /* LessonElementViewController.swift in Sources */,
+				9951F6972BA350990004D597 /* QuestionElements.swift in Sources */,
 				207F06822B9E581C0067778F /* SettingsViewController.swift in Sources */,
 				9951F6762BA258E90004D597 /* TestViewController.swift in Sources */,
 				FC70B8F62B94D2B000386D64 /* UserSettings.swift in Sources */,

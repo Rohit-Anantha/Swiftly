@@ -9,14 +9,20 @@
 
 import UIKit
 
-class FillTheBlankViewController: UIViewController, LessonElement {
+class FillTheBlankViewController: UIViewController, LessonElementViewController {
     
     
     // MARK: - Variables
     
+    // Protocol Variables
     var delegate: LessonViewController!
     var number: Int!
-    var data: [String]!
+    
+    // Storyboard variables
+    
+    // Other variables
+    var data : FillTheBlankElement!
+    
     
     // MARK: - View Controller Events
 
@@ -33,10 +39,9 @@ class FillTheBlankViewController: UIViewController, LessonElement {
     
     // MARK: - Protocols
     
-    func setup(data: [String], delegate: LessonViewController, counter: Int, type: LessonElementTypes) {
-        
+    func setup(data: LessonElement, delegate: LessonViewController, counter: Int) {
         self.delegate = delegate
-        
-        // Set it up
+        self.number = counter
+        self.data = data as? FillTheBlankElement
     }
 }

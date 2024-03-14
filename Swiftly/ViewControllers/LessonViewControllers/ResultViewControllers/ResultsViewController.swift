@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResultsViewController: UIViewController, LessonElement {
+class ResultsViewController: UIViewController, LessonElementViewController {
     
 
     // MARK: - Variables
@@ -15,15 +15,15 @@ class ResultsViewController: UIViewController, LessonElement {
     // Protocol Variables
     var delegate: LessonViewController!
     var number: Int!
-    var data: [String]!
+    
     
     // Storyboard Variables
     @IBOutlet weak var checkpointTittleLabel: UILabel!
     @IBOutlet weak var checkpointTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
     
-    // Other variables
-    var type : ResultsTypes!
+    // Other Variabls
+    var data : ResultsElement!
     
     
     // MARK: - View Controller Events
@@ -32,14 +32,14 @@ class ResultsViewController: UIViewController, LessonElement {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        switch self.type {
-            case .final:
+        switch self.data.type {
+            case .results(type: .final):
                 self.nextButton.setTitle("Back to Roadmap", for: .normal)
             
             self.checkpointTittleLabel.text = "You're results are..."
             self.checkpointTextView.text = "Implement results... I don't know how to go back to roadmap, idk if it's swiftui or storyboard. If you want you can give me the code and I'll write i down. For now if you press the button you will get an error"
             
-            case .intermediate:
+            case .results(type: .intermediate):
                 self.nextButton.setTitle("Keep Going", for: .normal)
             
                 self.checkpointTittleLabel.text = "You're going great (?)"
@@ -59,18 +59,9 @@ class ResultsViewController: UIViewController, LessonElement {
     
     // MARK: - Protocols
     
-    func setup(data: [String], delegate: LessonViewController, counter: Int, type: LessonElementTypes) {
+    func setup(data: LessonElement, delegate: LessonViewController, counter: Int) {
         self.delegate = delegate
-        self.data = data
         self.number = counter
-        
-        switch type{
-            case .results(type: .intermediate):
-                self.type = .intermediate
-            case .results(type: .final):
-                self.type = .final
-            default:
-                print("Error, this shouldn't happen!")
-        }
+        self.data = data as? ResultsElement
     }
 }
