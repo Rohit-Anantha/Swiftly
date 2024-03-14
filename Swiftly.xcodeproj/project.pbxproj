@@ -90,6 +90,7 @@
 		FC0E38862B901BC600B4405B /* RoadmapNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E38852B901BC600B4405B /* RoadmapNewView.swift */; };
 		FC70B8F12B94290B00386D64 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70B8F02B94290B00386D64 /* NextViewController.swift */; };
 		FC70B8F62B94D2B000386D64 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70B8F52B94D2B000386D64 /* UserSettings.swift */; };
+		FCB300F42BA39EB9005433C7 /* FillBlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB300F32BA39EB9005433C7 /* FillBlankViewController.swift */; };
 		FCC5AFF42B97E7BE00E99634 /* QuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC5AFF32B97E7BE00E99634 /* QuestionType.swift */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +138,7 @@
 		FC0E38852B901BC600B4405B /* RoadmapNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapNewView.swift; sourceTree = "<group>"; };
 		FC70B8F02B94290B00386D64 /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 		FC70B8F52B94D2B000386D64 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		FCB300F32BA39EB9005433C7 /* FillBlankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillBlankViewController.swift; sourceTree = "<group>"; };
 		FCC5AFF32B97E7BE00E99634 /* QuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -269,6 +271,7 @@
 				9951F6752BA258E90004D597 /* TestViewController.swift */,
 				99F45DD62B9D1D43000753C4 /* DragAndDropViewController.swift */,
 				99F45DDC2B9D1DAC000753C4 /* FillTheBlankViewController.swift */,
+				FCB300F32BA39EB9005433C7 /* FillBlankViewController.swift */,
 			);
 			path = QuestionViewControllers;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				FC0E38862B901BC600B4405B /* RoadmapNewView.swift in Sources */,
 				C9674BBA2B8FE9EB00A50CCD /* SceneDelegate.swift in Sources */,
 				FCC5AFF42B97E7BE00E99634 /* QuestionType.swift in Sources */,
+				FCB300F42BA39EB9005433C7 /* FillBlankViewController.swift in Sources */,
 				99F45DDD2B9D1DAC000753C4 /* FillTheBlankViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
