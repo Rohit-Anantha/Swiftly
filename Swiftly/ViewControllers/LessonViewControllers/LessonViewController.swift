@@ -21,8 +21,8 @@ class LessonViewController: UIViewController {
      */
     var data : [[String]] = [
         // Lecture type
-        /*["Introduction to Swift!",
-            "Swift is a cool programing language..."],*/
+        ["Introduction to Swift!",
+            "Swift is a cool programing language and you'll learn more about ir soon!"],
         // One Choice question type
         ["What is an \"if else\" statement called?",
                 "Conditional Banching",
@@ -31,6 +31,8 @@ class LessonViewController: UIViewController {
                 "Class"],
         // True or False question type
         ["Is Swift an interpreted language?"],
+        //Checkpoint
+        ["You're doing good...", "idk what to say here, the design of checpoints is yet to be done"],
         // Multiple Choice question type
         ["Which of these keywords belong to swift?",
                 "elif",
@@ -39,7 +41,9 @@ class LessonViewController: UIViewController {
                 "Class",
                 "func",
                 "ret"],
-        // Fill in the Blank question type
+        // Results
+        []
+        /*// Fill in the Blank question type
         ["for i "," 1..10{\n",
                 "(\"Hello, this is iteration \\(i)\")\n",
                 "if i","5{\n",
@@ -48,7 +52,7 @@ class LessonViewController: UIViewController {
                     "print(\"i is not 5!\")",
                 "}"],
         // Drag and Drop
-        /*[...],
+        [...],
         // Results
         [...]
         */
@@ -58,11 +62,18 @@ class LessonViewController: UIViewController {
      This variable will containe the type of the lesson elements
      */
     var elementTypes : [LessonElementTypes] = [
+        LessonElementTypes.lecture(type: .lecture),
         LessonElementTypes.question(type: .oneChoice),
         LessonElementTypes.question(type: .trueOrFalse),
+        LessonElementTypes.checkpoint(type: .checkpoint),
         LessonElementTypes.question(type: .multipleChoice),
-        LessonElementTypes.question(type: .fillTheBlank),
+        //LessonElementTypes.question(type: .fillTheBlank),
+        //LessonElementTypes.question(type: .dragAndDrop),
+        LessonElementTypes.results(type: .final)
     ]
+    
+    // User's answers
+    var answers : [[Int]] = []
     
     // Counter to know what lesson element we're displaying
     var counter = 0
@@ -80,7 +91,7 @@ class LessonViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
+}
     
     
     // MARK: - Actions
@@ -94,7 +105,7 @@ class LessonViewController: UIViewController {
         self.currentElement = self.instantiateNextElement()
         
         // Set it up
-        self.currentElement.setup(data: data.first!, delegate: self, counter: 0)
+        self.currentElement.setup(data: data.first!, delegate: self, counter: 0, type: elementTypes.first!)
         
         // It's a child!
         self.addChild(self.currentElement)
@@ -112,7 +123,10 @@ class LessonViewController: UIViewController {
     // MARK: - Protocols
     
     // next will be called from each lesson element to show the next lesson element
-    func next() {
+    // result will be the result of a given question.
+    func next(result : [Int]) {
+        
+        self.answers.append(result)
         
         if self.counter >= self.data.count {
             // Lesson ended, if result screen existed it was shown
@@ -123,7 +137,7 @@ class LessonViewController: UIViewController {
         let next = self.instantiateNextElement()
         
         // Set it up
-        next.setup(data: self.data[counter], delegate: self, counter: self.counter)
+        next.setup(data: self.data[counter], delegate: self, counter: self.counter, type: elementTypes[counter])
         
         // It's a child!
         self.addChild(next)
@@ -158,36 +172,28 @@ class LessonViewController: UIViewController {
         switch self.elementTypes[self.counter]{
             
         case .question(type: .oneChoice):
-                        
-            next = UIStoryboard(name: "OneChoice", bundle: nil).instantiateViewController(identifier: "One Choice") as? OneChoiceViewController
+            next = UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as? TestViewController
             
         case .question(type: .multipleChoice):
-            
-            next = UIStoryboard(name: "MultipleChoice", bundle: nil).instantiateViewController(identifier: "Multiple Choice") as? MultipleChoiceViewController
+            next = UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as? TestViewController
             
         case .question(type: .trueOrFalse):
-            
-            next = UIStoryboard(name: "TrueOrFalse", bundle: nil).instantiateViewController(identifier: "True Or False") as? TrueOrFalseViewController
+            next = UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as? TestViewController
             
         case .question(type: .fillTheBlank):
-            
             next = UIStoryboard(name: "FillTheBlank", bundle: nil).instantiateViewController(identifier: "Fill The Blank") as? FillTheBlankViewController
             
         case .question(type: .dragAndDrop):
-            
             next = UIStoryboard(name: "DragAndDrop", bundle: nil).instantiateViewController(identifier: "Drag And Drop") as? DragAndDropViewController
             
         case .lecture:
-            
-            next = UIStoryboard(name: "Lecture", bundle: nil).instantiateViewController(identifier: "LectureViewController") as? LectureViewController
+            next = UIStoryboard(name: "Lecture", bundle: nil).instantiateViewController(identifier: "Lecture") as? LectureViewController
             
         case .checkpoint:
-            
-            next = UIStoryboard(name: "CheckPoint", bundle: nil).instantiateViewController(identifier: "CheckpointViewController") as? CheckpointViewController
+            next = UIStoryboard(name: "Checkpoint", bundle: nil).instantiateViewController(identifier: "Checkpoint") as? CheckpointViewController
 
         case .results:
-            
-            next = UIStoryboard(name: "Results", bundle: nil).instantiateViewController(identifier: "ResultsViewController") as? ResultsViewController
+            next = UIStoryboard(name: "Results", bundle: nil).instantiateViewController(identifier: "Results") as? ResultsViewController
             
         }
         

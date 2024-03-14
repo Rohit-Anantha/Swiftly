@@ -33,7 +33,7 @@ class FillTheBlankViewController: UIViewController, LessonElement {
     
     // MARK: - Protocols
     
-    func setup(data: [String], delegate: LessonViewController, counter: Int) {
+    func setup(data: [String], delegate: LessonViewController, counter: Int, type: LessonElementTypes) {
         
         self.delegate = delegate
         
