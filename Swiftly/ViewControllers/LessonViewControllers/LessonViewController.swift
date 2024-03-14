@@ -21,8 +21,8 @@ class LessonViewController: UIViewController {
      */
     var data : [[String]] = [
         // Lecture type
-        /*["Introduction to Swift!",
-            "Swift is a cool programing language..."],*/
+        ["Introduction to Swift!",
+            "Swift is a cool programing language and you'll learn more about ir soon!"],
         // One Choice question type
         ["What is an \"if else\" statement called?",
                 "Conditional Banching",
@@ -31,6 +31,8 @@ class LessonViewController: UIViewController {
                 "Class"],
         // True or False question type
         ["Is Swift an interpreted language?"],
+        //Checkpoint
+        ["You're doing good...", "idk what to say here, the design of checpoints is yet to be done"],
         // Multiple Choice question type
         ["Which of these keywords belong to swift?",
                 "elif",
@@ -39,7 +41,9 @@ class LessonViewController: UIViewController {
                 "Class",
                 "func",
                 "ret"],
-        // Fill in the Blank question type
+        // Results
+        []
+        /*// Fill in the Blank question type
         ["for i "," 1..10{\n",
                 "(\"Hello, this is iteration \\(i)\")\n",
                 "if i","5{\n",
@@ -48,7 +52,7 @@ class LessonViewController: UIViewController {
                     "print(\"i is not 5!\")",
                 "}"],
         // Drag and Drop
-        /*[...],
+        [...],
         // Results
         [...]
         */
@@ -58,10 +62,14 @@ class LessonViewController: UIViewController {
      This variable will containe the type of the lesson elements
      */
     var elementTypes : [LessonElementTypes] = [
+        LessonElementTypes.lecture(type: .lecture),
         LessonElementTypes.question(type: .oneChoice),
         LessonElementTypes.question(type: .trueOrFalse),
+        LessonElementTypes.checkpoint(type: .checkpoint),
         LessonElementTypes.question(type: .multipleChoice),
-        LessonElementTypes.question(type: .fillTheBlank),
+        //LessonElementTypes.question(type: .fillTheBlank),
+        //LessonElementTypes.question(type: .dragAndDrop),
+        LessonElementTypes.results(type: .final)
     ]
     
     // User's answers
@@ -179,13 +187,13 @@ class LessonViewController: UIViewController {
             next = UIStoryboard(name: "DragAndDrop", bundle: nil).instantiateViewController(identifier: "Drag And Drop") as? DragAndDropViewController
             
         case .lecture:
-            next = UIStoryboard(name: "Lecture", bundle: nil).instantiateViewController(identifier: "LectureViewController") as? LectureViewController
+            next = UIStoryboard(name: "Lecture", bundle: nil).instantiateViewController(identifier: "Lecture") as? LectureViewController
             
         case .checkpoint:
-            next = UIStoryboard(name: "CheckPoint", bundle: nil).instantiateViewController(identifier: "CheckpointViewController") as? CheckpointViewController
+            next = UIStoryboard(name: "Checkpoint", bundle: nil).instantiateViewController(identifier: "Checkpoint") as? CheckpointViewController
 
         case .results:
-            next = UIStoryboard(name: "Results", bundle: nil).instantiateViewController(identifier: "ResultsViewController") as? ResultsViewController
+            next = UIStoryboard(name: "Results", bundle: nil).instantiateViewController(identifier: "Results") as? ResultsViewController
             
         }
         

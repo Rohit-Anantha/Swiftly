@@ -22,23 +22,24 @@ enum LessonElementTypes {
 }
 
 enum QuestionTypes : String {
-    case oneChoice      = "One Choice"
-    case multipleChoice = "Multiple Choice"
-    case trueOrFalse    = "True Or False"
-    case fillTheBlank   = "Fill The Blank"
-    case dragAndDrop    = "Drag And Drop"
+    case oneChoice
+    case multipleChoice
+    case trueOrFalse
+    case fillTheBlank
+    case dragAndDrop
 }
 
 
 enum LectureTypes : String {
-    case lecture = "Lecture"     //For now just one type
+    case lecture        //For now just one type
 }
 
 
 enum CheckpointTypes : String {
-    case checkpoint = "Checkpoint"  //For now just one type
+    case checkpoint  //For now just one type
 }
 
 enum ResultsTypes : String {
-    case results = "Results"     //For now just one type
+    case intermediate     //For now just one type
+    case final       //There are no more lesson elements after this
 }
