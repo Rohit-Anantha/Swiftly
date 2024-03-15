@@ -53,7 +53,7 @@ class LessonViewController: UIViewController {
 
         // Drag and Drop
         DragAndDropElement(type: .question(type: .dragAndDrop),
-                           question: ["""
+                           question: """
                                 //Calculate factorial
                                 fact = 10
                                 _0 i in 1..<_1 {
@@ -61,13 +61,13 @@ class LessonViewController: UIViewController {
                                     _3("fact is now \\(fact)")
                                 }
                                 _4("Result is \\(_5)")
-                                """],
-                           options: [["for", "if", "class", "while", "do", "then"],
-                                     ["10", "i", "fact", "main[1]", "nil"],
-                                     ["=", "+", "+=", "*=", "in"],
-                                     ["fact", "print", "do", "show", "send"],
-                                     ["for", "if", "show", "print", "now", "fact"],
-                                     ["result", "fact", "100", "fact(10)"]],
+                                """,
+                           options: ["for", "if", "while", "do", "then",
+                                     "10", "i", "fact", "main[1]", "nil",
+                                     "=", "+", "*=", "in",
+                                     "fact", "print", "do", "show",
+                                     "if", "show", "print", "now",
+                                     "result", "fact", "100", "fact(10)"],
                            correctOptions: [0, 2, 3, 1, 3, 1]),
         // Fill in the Blank question type
         //QuestionElement(...)

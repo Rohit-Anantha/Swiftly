@@ -29,19 +29,20 @@ class DragAndDropElement : LessonElement {
     // Protcol Varibales
     let type: LessonElementTypes
     
-    let question : [String]
-    let options : [[String]]
-    let correctOptions : [Int]
+    // Other Variables
+    let question : String
+    let answers : [String]
+    let correctAnswers : [Int]
     
     
     // MARK: - D&D Constructor
     
-    init(type : LessonElementTypes, question : [String], options : [[String]], correctOptions : [Int]){
+    init(type : LessonElementTypes, question : String, options : [String], correctOptions : [Int]){
         self.type = type
         
         self.question = question
-        self.options = options
-        self.correctOptions = correctOptions
+        self.answers = options
+        self.correctAnswers = correctOptions
     }
 }
 

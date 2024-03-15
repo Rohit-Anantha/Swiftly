@@ -8,9 +8,9 @@
 // View Controller for Lesson Questions with Drag and Drop style
 
 import UIKit
+import SwiftUI
 
-class DragAndDropViewController: UIViewController, LessonElementViewController {
-    
+class DragAndDropViewController: UIViewController, LessonElementViewController{
     
     // MARK: - Variables
     
@@ -18,24 +18,26 @@ class DragAndDropViewController: UIViewController, LessonElementViewController {
     var delegate: LessonViewController!
     var number: Int!
     
-    // Storyboard variables
-    
-    
     // Other Variables
     var data : DragAndDropElement!
-    
+    var hostingViewController : UIHostingController<DragAndDropSwiftUIView>!
+
     
     // MARK: - View Controller Events
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.hostingViewController = UIHostingController(rootView: DragAndDropSwiftUIView(data: self.data))
+        self.hostingViewController.modalPresentationStyle = .fullScreen
+        present(self.hostingViewController, animated: true)
     }
 
     
     // MARK: - Actions
 
+    
+    // MARK: - Functions
     
     
     // MARK: - Protocols
