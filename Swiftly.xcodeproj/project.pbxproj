@@ -92,6 +92,7 @@
 		FC70B8F12B94290B00386D64 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70B8F02B94290B00386D64 /* NextViewController.swift */; };
 		FC70B8F62B94D2B000386D64 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70B8F52B94D2B000386D64 /* UserSettings.swift */; };
 		FCB300F42BA39EB9005433C7 /* FillBlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB300F32BA39EB9005433C7 /* FillBlankViewController.swift */; };
+		FCB300FA2BA548F4005433C7 /* RoadmapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB300F92BA548F4005433C7 /* RoadmapViewController.swift */; };
 		FCC5AFF42B97E7BE00E99634 /* QuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC5AFF32B97E7BE00E99634 /* QuestionType.swift */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +142,7 @@
 		FC70B8F02B94290B00386D64 /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 		FC70B8F52B94D2B000386D64 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		FCB300F32BA39EB9005433C7 /* FillBlankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillBlankViewController.swift; sourceTree = "<group>"; };
+		FCB300F92BA548F4005433C7 /* RoadmapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoadmapViewController.swift; sourceTree = "<group>"; };
 		FCC5AFF32B97E7BE00E99634 /* QuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -357,6 +359,7 @@
 				207F06812B9E581C0067778F /* SettingsViewController.swift */,
 				207DC7832BA115A50014C8A0 /* LoginViewController.swift */,
 				20FF62392BA201D700AFF6DD /* LeaderBoardViewController.swift */,
+				FCB300F92BA548F4005433C7 /* RoadmapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				99F45DE02B9D1DC6000753C4 /* ResultsViewController.swift in Sources */,
 				20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */,
 				9951F68E2BA34F940004D597 /* LessonElement.swift in Sources */,
+				FCB300FA2BA548F4005433C7 /* RoadmapViewController.swift in Sources */,
 				20FF623A2BA201D700AFF6DD /* LeaderBoardViewController.swift in Sources */,
 				99F45DD72B9D1D43000753C4 /* DragAndDropViewController.swift in Sources */,
 				9951F69D2BA353FA0004D597 /* ResultsElements.swift in Sources */,
