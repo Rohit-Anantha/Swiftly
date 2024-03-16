@@ -62,13 +62,10 @@ class LessonViewController: UIViewController {
                                 }
                                 _4("Result is \\(_5)")
                                 """,
-                           options: ["for", "if", "while", "do", "then",
-                                     "10", "i", "fact", "main[1]", "nil",
-                                     "=", "+", "*=", "in",
-                                     "fact", "print", "do", "show",
-                                     "if", "show", "print", "now",
-                                     "result", "fact", "100", "fact(10)"],
-                           correctOptions: [0, 2, 3, 1, 3, 1]),
+                           options: ["for", "do", "fact", "i", "fact", "nil",
+                                     "=", "+", "*=", "in"],
+                           correctOptions: [0, 2, 3, 1, 3, 1],
+                          number: 6),
         // Fill in the Blank question type
         //QuestionElement(...)
         // Results
