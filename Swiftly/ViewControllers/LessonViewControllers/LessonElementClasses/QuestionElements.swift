@@ -30,7 +30,7 @@ class DragAndDropElement : LessonElement {
     let type: LessonElementTypes
     
     // Other Variables
-    let question : String
+    var question : String
     var options : [String]
     var correctAnswers : [Int]
     var numberAnswers : Int

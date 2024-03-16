@@ -12,28 +12,29 @@ struct DragAndDropSwiftUIView: View {
     @State var data : DragAndDropElement
     @State var answers : [String]
     @State var options : [String]
-    
+    @State var buttonDisabled = [true, true, true, true, true, true, true, true, true, true, true]
     
     var body: some View {
-        VStack(alignment: .leading, spacing : 10){
+        VStack(alignment: .leading, spacing: 0){
             HStack {
                 Text("Question 1")
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(alignment: .leading)
+                
                 Image(systemName: "timer")
                     .imageScale(.large)
                     .foregroundStyle(.tint)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .frame(alignment: .trailing)
             }
+            
             Text(data.question)
                 .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.leading)
                 .padding()
-                .frame(width: 300, height: 400)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
                         .frame(maxWidth: .infinity)
                         .foregroundColor(Color(.secondarySystemFill))
-            )
+                )
             
             HStack {
 
@@ -49,6 +50,7 @@ struct DragAndDropSwiftUIView: View {
                                         .foregroundStyle(.tint)
                                         .frame(maxWidth: .infinity, alignment: .trailing)
                                 }
+                                .disabled(buttonDisabled[i])
                                 
                                 Text(answers[i])
                                     .padding(12)
@@ -62,15 +64,15 @@ struct DragAndDropSwiftUIView: View {
                                         for dropped in droppedItems {
                                             options.removeAll(){$0 == dropped}
                                         }
+                                        buttonDisabled[i] = false
+                                        data.question = data.question.replacingOccurrences(of: "\(i+1). __", with: answers[i])
                                         return true
                                     }
                             }
                         }
                     }.background(
                         RoundedRectangle(cornerRadius: 12)
-                        .frame(width: 175, height: 200)
                         .foregroundColor(Color(.secondarySystemFill)))
-                    .frame(width: 150, height: 200)
                     
                 }
                 
@@ -96,9 +98,7 @@ struct DragAndDropSwiftUIView: View {
                     }
                     .background(
                         RoundedRectangle(cornerRadius: 12)
-                            .frame(width: 175, height: 200)//Make this automatic
                             .foregroundColor(Color(.secondarySystemFill)))
-                    .frame(width: 300, height: 200)//Make this automatic
                     
                 }
 
@@ -112,13 +112,27 @@ struct DragAndDropSwiftUIView: View {
     }
     
     func deleteButton(position : Int){
-        options.append(answers[position])
-        answers[position]="\(position) ___"
+        if !answers[position].contains(". __") {
+            data.question = data.question.replacingOccurrences(of: answers[position], with: "\(position+1). __")
+            options.append(answers[position])
+            answers[position]="\(position+1). __"
+            buttonDisabled[position] = true
+        }
     }
     
     
     func nextButton(){
         
+        var results : [Int] = []
+        
+        for i in 0..<answers.count {
+            if answers[i].contains(". __") {
+                return
+            } else {
+                results.append(data.options.firstIndex(of: answers[i])!)
+            }
+        }
+        delegate.next(result: results)
     }
 }
 
@@ -137,7 +151,7 @@ var data = DragAndDropElement(
                 "10", "i", "fact", "main[1]"],
     correctOptions: [0, 2, 3, 1, 3, 1], number: 6)
 
-var emptyAnswers : [String] = ["1__","2__","3__","4__","5__","6__"]
+var emptyAnswers : [String] = ["1. __","2. __","3. __","4. __","5. __","6. __"]
 
 
 #Preview {

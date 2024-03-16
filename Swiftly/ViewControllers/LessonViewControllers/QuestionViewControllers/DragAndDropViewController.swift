@@ -30,7 +30,7 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
         
         var answerList : [String] = []
         for i in 1...self.data.numberAnswers {
-            answerList.append("\(i).___")
+            answerList.append("\(i). __")
         }
         
         self.hostingViewController = UIHostingController(rootView: DragAndDropSwiftUIView(delegate: self.delegate, data: self.data, answers: answerList, options: self.data.options))

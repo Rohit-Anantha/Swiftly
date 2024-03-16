@@ -56,16 +56,16 @@ class LessonViewController: UIViewController {
                            question: """
                                 //Calculate factorial
                                 fact = 10
-                                _0 i in 1..<_1 {
-                                    fact _2 i
-                                    _3("fact is now \\(fact)")
+                                1. __ i in 1..<2. __ {
+                                    fact 3. __ i
+                                    print("fact is now \\(fact)")
                                 }
-                                _4("Result is \\(_5)")
+                                4. __("Result is \\(fact)")
                                 """,
-                           options: ["for", "do", "fact", "i", "fact", "nil",
-                                     "=", "+", "*=", "in"],
-                           correctOptions: [0, 2, 3, 1, 3, 1],
-                          number: 6),
+                           options: ["for", "do", "fact", "print", "nil",
+                                     "=", "+", "*=", "print"],
+                           correctOptions: [0, 3, 3, 1, 3, 1],
+                          number: 5),
         // Fill in the Blank question type
         //QuestionElement(...)
         // Results
@@ -133,7 +133,9 @@ class LessonViewController: UIViewController {
         
         if self.counter >= self.data.count {
             // Lesson ended, if result screen existed it was shown
+            // Handle results
             // Now just go back to roadmap
+            return
         }
         
         // This will be the next lesson element
