@@ -85,7 +85,6 @@
 		C91BDD7C2B924F380013FCE5 /* Rohit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91BDD7B2B924F380013FCE5 /* Rohit.storyboard */; };
 		C9674BB82B8FE9EB00A50CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */; };
 		C9674BBA2B8FE9EB00A50CCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */; };
-		C9674BBC2B8FE9EB00A50CCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BBB2B8FE9EB00A50CCD /* ViewController.swift */; };
 		C9674BC12B8FE9ED00A50CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */; };
 		FC70B8F62B94D2B000386D64 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70B8F52B94D2B000386D64 /* UserSettings.swift */; };
 		FCB300F42BA39EB9005433C7 /* FillBlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB300F32BA39EB9005433C7 /* FillBlankViewController.swift */; };
@@ -132,7 +131,6 @@
 		C9674BB42B8FE9EB00A50CCD /* Swiftly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C9674BBB2B8FE9EB00A50CCD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9674BC52B8FE9ED00A50CCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC70B8F52B94D2B000386D64 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -347,7 +345,6 @@
 			isa = PBXGroup;
 			children = (
 				99F45DC82B9D132E000753C4 /* LessonViewControllers */,
-				C9674BBB2B8FE9EB00A50CCD /* ViewController.swift */,
 				20F084E92B9907CB005FF676 /* CustomTabBarController.swift */,
 				207F067D2B9D725A0067778F /* CreateAccountViewController.swift */,
 				207F067F2B9E57630067778F /* HomePageViewController.swift */,
@@ -516,7 +513,6 @@
 				99F45DD72B9D1D43000753C4 /* DragAndDropViewController.swift in Sources */,
 				9951F69D2BA353FA0004D597 /* ResultsElements.swift in Sources */,
 				20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */,
-				C9674BBC2B8FE9EB00A50CCD /* ViewController.swift in Sources */,
 				9951F69B2BA353EE0004D597 /* CheckpointElements.swift in Sources */,
 				99F45DF02B9D2780000753C4 /* LessonElementTypes.swift in Sources */,
 				99EC11C62B9F69380023FEDE /* CheckpointViewController.swift in Sources */,
