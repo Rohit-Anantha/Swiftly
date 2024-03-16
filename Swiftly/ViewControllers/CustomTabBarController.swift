@@ -17,7 +17,7 @@ class CustomTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let roadmapVC = UIHostingController(rootView: RoadmapNewView())
+        let roadmapVC = RoadmapViewController()
         roadmapVC.title = "Your Progress"
 
         guard let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: homeVCID) as? HomePageViewController else {

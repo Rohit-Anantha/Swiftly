@@ -40,7 +40,6 @@
 		9951F6802BA25E630004D597 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9951F67F2BA25E630004D597 /* FirebaseAnalyticsSwift */; };
 		9951F6822BA25E630004D597 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 9951F6812BA25E630004D597 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		9951F6842BA25E630004D597 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 9951F6832BA25E630004D597 /* FirebaseAppCheck */; };
-		9951F68A2BA264850004D597 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9951F6892BA264850004D597 /* GoogleService-Info.plist */; };
 		9951F68E2BA34F940004D597 /* LessonElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951F68D2BA34F940004D597 /* LessonElement.swift */; };
 		9951F6972BA350990004D597 /* QuestionElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951F6962BA350990004D597 /* QuestionElements.swift */; };
 		9951F6992BA353DC0004D597 /* LectureElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951F6982BA353DC0004D597 /* LectureElements.swift */; };
@@ -86,12 +85,11 @@
 		C91BDD7C2B924F380013FCE5 /* Rohit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91BDD7B2B924F380013FCE5 /* Rohit.storyboard */; };
 		C9674BB82B8FE9EB00A50CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */; };
 		C9674BBA2B8FE9EB00A50CCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */; };
-		C9674BBC2B8FE9EB00A50CCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BBB2B8FE9EB00A50CCD /* ViewController.swift */; };
 		C9674BC12B8FE9ED00A50CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */; };
-		FC0E38862B901BC600B4405B /* RoadmapNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0E38852B901BC600B4405B /* RoadmapNewView.swift */; };
-		FC70B8F12B94290B00386D64 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70B8F02B94290B00386D64 /* NextViewController.swift */; };
 		FC70B8F62B94D2B000386D64 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70B8F52B94D2B000386D64 /* UserSettings.swift */; };
 		FCB300F42BA39EB9005433C7 /* FillBlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB300F32BA39EB9005433C7 /* FillBlankViewController.swift */; };
+		FCB300FA2BA548F4005433C7 /* RoadmapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB300F92BA548F4005433C7 /* RoadmapViewController.swift */; };
+		FCB300FC2BA549AC005433C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCB300FB2BA549AC005433C7 /* GoogleService-Info.plist */; };
 		FCC5AFF42B97E7BE00E99634 /* QuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC5AFF32B97E7BE00E99634 /* QuestionType.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +109,6 @@
 		993B11392BA4BA1D00546802 /* DragAndDrop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DragAndDrop.storyboard; sourceTree = "<group>"; };
 		9951F6752BA258E90004D597 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		9951F6792BA2596B0004D597 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
-		9951F6892BA264850004D597 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9951F68D2BA34F940004D597 /* LessonElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonElement.swift; sourceTree = "<group>"; };
 		9951F6962BA350990004D597 /* QuestionElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionElements.swift; sourceTree = "<group>"; };
 		9951F6982BA353DC0004D597 /* LectureElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureElements.swift; sourceTree = "<group>"; };
@@ -134,13 +131,12 @@
 		C9674BB42B8FE9EB00A50CCD /* Swiftly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C9674BBB2B8FE9EB00A50CCD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9674BC52B8FE9ED00A50CCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FC0E38852B901BC600B4405B /* RoadmapNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapNewView.swift; sourceTree = "<group>"; };
-		FC70B8F02B94290B00386D64 /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 		FC70B8F52B94D2B000386D64 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		FCB300F32BA39EB9005433C7 /* FillBlankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillBlankViewController.swift; sourceTree = "<group>"; };
+		FCB300F92BA548F4005433C7 /* RoadmapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoadmapViewController.swift; sourceTree = "<group>"; };
+		FCB300FB2BA549AC005433C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FCC5AFF32B97E7BE00E99634 /* QuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -340,7 +336,7 @@
 				C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */,
 				C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */,
 				C9674BC52B8FE9ED00A50CCD /* Info.plist */,
-				9951F6892BA264850004D597 /* GoogleService-Info.plist */,
+				FCB300FB2BA549AC005433C7 /* GoogleService-Info.plist */,
 			);
 			path = Swiftly;
 			sourceTree = "<group>";
@@ -349,14 +345,13 @@
 			isa = PBXGroup;
 			children = (
 				99F45DC82B9D132E000753C4 /* LessonViewControllers */,
-				C9674BBB2B8FE9EB00A50CCD /* ViewController.swift */,
-				FC70B8F02B94290B00386D64 /* NextViewController.swift */,
 				20F084E92B9907CB005FF676 /* CustomTabBarController.swift */,
 				207F067D2B9D725A0067778F /* CreateAccountViewController.swift */,
 				207F067F2B9E57630067778F /* HomePageViewController.swift */,
 				207F06812B9E581C0067778F /* SettingsViewController.swift */,
 				207DC7832BA115A50014C8A0 /* LoginViewController.swift */,
 				20FF62392BA201D700AFF6DD /* LeaderBoardViewController.swift */,
+				FCB300F92BA548F4005433C7 /* RoadmapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -364,7 +359,6 @@
 		FC70B8ED2B94229500386D64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FC0E38852B901BC600B4405B /* RoadmapNewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -492,10 +486,10 @@
 				20F084E82B9904A8005FF676 /* Main.storyboard in Resources */,
 				99EC11C42B9F68D10023FEDE /* Results.storyboard in Resources */,
 				99F45DD32B9D1B43000753C4 /* Lesson.storyboard in Resources */,
-				9951F68A2BA264850004D597 /* GoogleService-Info.plist in Resources */,
 				20F084E62B990479005FF676 /* Akin.storyboard in Resources */,
 				99F45DE92B9D21D7000753C4 /* FillTheBlank.storyboard in Resources */,
 				99EC11CE2B9F6AA20023FEDE /* Lecture.storyboard in Resources */,
+				FCB300FC2BA549AC005433C7 /* GoogleService-Info.plist in Resources */,
 				209FF8AA2B990A85000854A9 /* LaunchScreen.storyboard in Resources */,
 				20F084E82B9904A8005FF676 /* Main.storyboard in Resources */,
 				993B113A2BA4BA1D00546802 /* DragAndDrop.storyboard in Resources */,
@@ -511,15 +505,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				207F067E2B9D725A0067778F /* CreateAccountViewController.swift in Sources */,
-				FC70B8F12B94290B00386D64 /* NextViewController.swift in Sources */,
 				99F45DE02B9D1DC6000753C4 /* ResultsViewController.swift in Sources */,
 				20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */,
 				9951F68E2BA34F940004D597 /* LessonElement.swift in Sources */,
+				FCB300FA2BA548F4005433C7 /* RoadmapViewController.swift in Sources */,
 				20FF623A2BA201D700AFF6DD /* LeaderBoardViewController.swift in Sources */,
 				99F45DD72B9D1D43000753C4 /* DragAndDropViewController.swift in Sources */,
 				9951F69D2BA353FA0004D597 /* ResultsElements.swift in Sources */,
 				20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */,
-				C9674BBC2B8FE9EB00A50CCD /* ViewController.swift in Sources */,
 				9951F69B2BA353EE0004D597 /* CheckpointElements.swift in Sources */,
 				99F45DF02B9D2780000753C4 /* LessonElementTypes.swift in Sources */,
 				99EC11C62B9F69380023FEDE /* CheckpointViewController.swift in Sources */,
@@ -534,7 +527,6 @@
 				207F06822B9E581C0067778F /* SettingsViewController.swift in Sources */,
 				9951F6762BA258E90004D597 /* TestViewController.swift in Sources */,
 				FC70B8F62B94D2B000386D64 /* UserSettings.swift in Sources */,
-				FC0E38862B901BC600B4405B /* RoadmapNewView.swift in Sources */,
 				993B11382BA4A97500546802 /* DragAndDropSwiftUIView.swift in Sources */,
 				C9674BBA2B8FE9EB00A50CCD /* SceneDelegate.swift in Sources */,
 				FCC5AFF42B97E7BE00E99634 /* QuestionType.swift in Sources */,
