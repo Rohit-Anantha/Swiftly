@@ -31,18 +31,20 @@ class DragAndDropElement : LessonElement {
     
     // Other Variables
     let question : String
-    let answers : [String]
-    let correctAnswers : [Int]
+    var options : [String]
+    var correctAnswers : [Int]
+    var numberAnswers : Int
     
     
     // MARK: - D&D Constructor
     
-    init(type : LessonElementTypes, question : String, options : [String], correctOptions : [Int]){
+    init(type : LessonElementTypes, question : String, options : [String], correctOptions : [Int], number : Int){
         self.type = type
         
         self.question = question
-        self.answers = options
+        self.options = options
         self.correctAnswers = correctOptions
+        self.numberAnswers = number
     }
 }
 

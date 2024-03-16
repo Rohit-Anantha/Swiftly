@@ -28,7 +28,12 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.hostingViewController = UIHostingController(rootView: DragAndDropSwiftUIView(data: self.data))
+        var answerList : [String] = []
+        for i in 1...self.data.numberAnswers {
+            answerList.append("\(i).___")
+        }
+        
+        self.hostingViewController = UIHostingController(rootView: DragAndDropSwiftUIView(delegate: self.delegate, data: self.data, answers: answerList, options: self.data.options))
         self.hostingViewController.modalPresentationStyle = .fullScreen
         present(self.hostingViewController, animated: true)
     }
