@@ -10,8 +10,7 @@ import FirebaseAuth
 
 let settings = [
 "Account",
-"Theme",
-"Language",
+"App",
 "Rate us",
 "Sign out"
 ]
@@ -33,11 +32,29 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         let setting = settings[indexPath.row]
         
         switch setting {
-        case "Account": break
-//            showAccountAlert()
-        case "Theme": break
-//            showThemeAlert()
-        case "Language":break
+        case "Account":
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let accountViewController = storyboard.instantiateViewController(withIdentifier: "accountID") as! AccountViewController
+
+            
+            
+        
+            navigationController?.pushViewController(accountViewController, animated: false)
+            
+            accountViewController.loadViewIfNeeded()
+
+
+        case "App":
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let settingsVC = storyboard.instantiateViewController(withIdentifier: "settingsID") as! AppSettingsViewController
+
+            
+            
+        
+            navigationController?.pushViewController(settingsVC, animated: false)
+            
+            settingsVC.loadViewIfNeeded()
+//        case "Language":break
 //            showLanguageAlert()
         case "Rate us":break
 //            showRateUsAlert()
@@ -72,10 +89,14 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var settingsOverview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         settingsOverview.delegate = self
         settingsOverview.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
     
 
