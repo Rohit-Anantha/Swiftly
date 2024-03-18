@@ -26,7 +26,7 @@ class CheckpointViewController: UIViewController, LessonElementViewController {
     
     
     // Storyboard Variables
-    @IBOutlet weak var checkpointTittleLabel: UILabel!
+    @IBOutlet weak var checkpointTitleLabel: UILabel!
     @IBOutlet weak var checkpointTextView: UITextView!
     
     // Other Variables
@@ -38,7 +38,7 @@ class CheckpointViewController: UIViewController, LessonElementViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.checkpointTittleLabel.text = self.data.tittle
+        self.checkpointTitleLabel.text = self.data.title
         self.checkpointTextView.text = self.data.message
         
     }

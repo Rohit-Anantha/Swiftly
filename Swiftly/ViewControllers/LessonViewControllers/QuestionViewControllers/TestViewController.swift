@@ -25,7 +25,7 @@ class TestViewController: UIViewController, LessonElementViewController {
     var number: Int!
     
     // Storyboard variables
-    @IBOutlet weak var questionTittleLabel: UILabel!
+    @IBOutlet weak var questionTitleLabel: UILabel!
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var leftStackView: UIStackView!
     @IBOutlet weak var rightStackView: UIStackView!
@@ -43,7 +43,7 @@ class TestViewController: UIViewController, LessonElementViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.questionTittleLabel.text = "Question \(number!)"
+        self.questionTitleLabel.text = "Question \(number!)"
         self.questionTextView.text = self.data.question
         
         // Handle stack views for different test types

@@ -21,17 +21,17 @@ class ResultsElement : LessonElement {
     let type: LessonElementTypes
     
     // Other Variables
-    let tittle : String
+    let title : String
     let message : String
     let results : [String]
     
     // MARK: - Constructor
     
-    init(type : LessonElementTypes, tittle : String, message : String, results : [String]){
+    init(type : LessonElementTypes, title : String, message : String, results : [String]){
         
         self.type = type
         
-        self.tittle = tittle
+        self.title = title
         self.message = message
         self.results = results
     }

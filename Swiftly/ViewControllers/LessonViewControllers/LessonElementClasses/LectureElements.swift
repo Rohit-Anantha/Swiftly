@@ -12,7 +12,7 @@ class LectureElement : LessonElement {
     // MARK: - Documentation
 
     /*
-     These classes will contain the information of each lecture: tittle, text and possible code snippets
+     These classes will contain the information of each lecture: title, text and possible code snippets
     */
     
     
@@ -22,16 +22,16 @@ class LectureElement : LessonElement {
     let type: LessonElementTypes
     
     // Other Variables
-    let tittle : String
+    let title : String
     let lecture : String
     
     // MARK: - Constructor
     
-    init(type : LessonElementTypes, tittle : String, lecture : String){
+    init(type : LessonElementTypes, title : String, lecture : String){
         
         self.type = type
         
-        self.tittle = tittle
+        self.title = title
         self.lecture = lecture
     }
     

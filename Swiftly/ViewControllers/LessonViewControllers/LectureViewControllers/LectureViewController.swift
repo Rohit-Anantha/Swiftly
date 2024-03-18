@@ -37,7 +37,7 @@ class LectureViewController: UIViewController, LessonElementViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.lectureTitleLabel.text = self.data.tittle
+        self.lectureTitleLabel.text = self.data.title
         self.lectureTitleTextView.text = self.data.lecture
     }
     

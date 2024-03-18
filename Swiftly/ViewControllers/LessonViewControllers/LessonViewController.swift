@@ -32,7 +32,7 @@ class LessonViewController: UIViewController {
     var data : [any LessonElement] = [
         // Lecture type
         LectureElement(type: .lecture(type: .lecture),
-                       tittle: "Introduction to Swift Programing language!",
+                       title: "Introduction to Swift Programing language!",
                        lecture: "Swift is a cool programing language used for iOS development an other stuff. Bla bla bla.."),
         // One Choice question type
         TestQuestionElement(type: .question(type: .oneChoice),
@@ -50,7 +50,7 @@ class LessonViewController: UIViewController {
                             correctAnswers: [0]),
         //Checkpoint
         CheckpointElement(type: .checkpoint(type: .checkpoint),
-                          tittle: "You're doing good...",
+                          title: "You're doing good...",
                           message: "idk what to say here, the design of checpoints is yet to be done"),
         // Multiple Choice question type
         TestQuestionElement(type: .question(type: .multipleChoice),
@@ -80,7 +80,7 @@ class LessonViewController: UIViewController {
         //QuestionElement(...)
         // Results
         ResultsElement(type: .results(type: .final),
-                       tittle: "Great job!",
+                       title: "Great job!",
                        message: "You did great! you're results are... (Not implemented)",
                        results: ["Yet to be implemented"])
     ]

@@ -24,7 +24,7 @@ class ResultsViewController: UIViewController, LessonElementViewController {
     
     
     // Storyboard Variables
-    @IBOutlet weak var checkpointTittleLabel: UILabel!
+    @IBOutlet weak var checkpointTitleLabel: UILabel!
     @IBOutlet weak var checkpointTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
     
@@ -42,14 +42,14 @@ class ResultsViewController: UIViewController, LessonElementViewController {
             case .results(type: .final):
                 self.nextButton.setTitle("Back to Roadmap", for: .normal)
             
-            self.checkpointTittleLabel.text = "You're results are..."
+            self.checkpointTitleLabel.text = "You're results are..."
             self.checkpointTextView.text = "These screens ahve not been designed yet, in the future here the results (time and erros) will be shown"
             
             case .results(type: .intermediate):
                 self.nextButton.setTitle("Keep Going", for: .normal)
             
-                self.checkpointTittleLabel.text = "You're going great (?)"
-                self.checkpointTittleLabel.text = "Implement intermediate checkpoint"
+                self.checkpointTitleLabel.text = "You're going great (?)"
+                self.checkpointTitleLabel.text = "Implement intermediate checkpoint"
             default:
                 print("Error, this shouldn't occur!")
         }
