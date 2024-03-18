@@ -46,8 +46,8 @@ class TestViewController: UIViewController, LessonElementViewController {
         self.questionTextView.text = self.data.question
         
         // Handle stack views for different test types
-        self.leftStackView.distribution = .equalSpacing
-        self.rightStackView.distribution = .equalSpacing
+        self.leftStackView.distribution = .fillEqually
+        self.rightStackView.distribution = .fillEqually
         
         switch self.data.type {
         case .question(type: .trueOrFalse):
@@ -64,7 +64,7 @@ class TestViewController: UIViewController, LessonElementViewController {
                 // True button
                 let trueButton = UIButton()
                 trueButton.setTitle("True", for: .normal)
-                trueButton.backgroundColor = .green
+                trueButton.backgroundColor = .red
                 trueButton.tag = 1
                 self.leftStackView.addArrangedSubview(trueButton)
                 trueButton.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
@@ -85,6 +85,7 @@ class TestViewController: UIViewController, LessonElementViewController {
                 let button = UIButton()
                 button.setTitle(self.data.answers[i], for: .normal)
                 button.backgroundColor = .red
+                button.titleLabel?.numberOfLines = 0
                 button.tag = i
                 
                 button.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
@@ -109,6 +110,7 @@ class TestViewController: UIViewController, LessonElementViewController {
     }
     
     // clear all the colors to red
+    // later will need to have some kind of "deselected color", "selected color"
     func clearColors(){
         for button in self.leftStackView.subviews{
             button.backgroundColor = .red
