@@ -8,6 +8,12 @@
 import UIKit
 import FirebaseAuth
 
+/*
+ MARK: - Account
+ 
+This screen, the user will be able to change their username and password. it is accessed by pressing "Account" on the Settings tab.
+ */
+
 class AccountViewController: UIViewController {
     
     var password = ""

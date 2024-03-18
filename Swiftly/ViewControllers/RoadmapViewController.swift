@@ -50,6 +50,10 @@ class RoadmapViewController: UIViewController {
             navigationController!.pushViewController(vc, animated: true)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

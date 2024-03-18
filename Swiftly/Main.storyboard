@@ -52,7 +52,7 @@
                                 </connections>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bdx-4k-LXo">
-                                <rect key="frame" x="76" y="88.666666666666686" width="241" height="236.99999999999994"/>
+                                <rect key="frame" x="76" y="29.666666666666657" width="241" height="236.99999999999997"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="241" id="Cji-17-N2h"/>
                                     <constraint firstAttribute="height" constant="232" id="Nhr-57-yi7"/>
@@ -75,6 +75,15 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Create Account"/>
                                 <connections>
                                     <action selector="tryCreateAccount:" destination="FuG-bR-rCQ" eventType="touchUpInside" id="NPj-SU-9Zy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeE-25-VMO">
+                                <rect key="frame" x="31" y="81" width="62" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back"/>
+                                <connections>
+                                    <segue destination="ns8-HB-34T" kind="presentation" modalPresentationStyle="fullScreen" id="YKR-ZN-bBo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -105,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7Q-Iy-TFi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2439" y="-800"/>
+            <point key="canvasLocation" x="2438.9312977099235" y="-800"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fRu-0F-UP8">
@@ -201,7 +210,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Create Account"/>
                                 <connections>
-                                    <segue destination="ws5-o8-u3h" kind="presentation" identifier="NoAnimationSegue" animates="NO" modalPresentationStyle="fullScreen" id="WSa-r2-JGY"/>
+                                    <segue destination="FuG-bR-rCQ" kind="presentation" modalPresentationStyle="fullScreen" id="6tj-YX-smC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVb-7i-NZw">
@@ -379,7 +388,7 @@
                     <navigationItem key="navigationItem" id="UkT-8U-fHe"/>
                     <connections>
                         <outlet property="settingsOverview" destination="e0Y-bZ-hoz" id="mC7-vY-NFJ"/>
-                        <segue destination="ns8-HB-34T" kind="presentation" identifier="LoggedOutSegue" modalPresentationStyle="fullScreen" id="1dD-md-a3l"/>
+                        <segue destination="ns8-HB-34T" kind="presentation" identifier="LoggedOutSegue" modalPresentationStyle="fullScreen" id="QEc-E3-OZg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfT-A4-unc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -958,7 +967,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WSa-r2-JGY"/>
+        <segue reference="Nhq-Cl-RD9"/>
+        <segue reference="QEc-E3-OZg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="flame" catalog="system" width="106" height="128"/>
@@ -966,7 +976,7 @@
         <image name="medal.fill" catalog="system" width="121" height="128"/>
         <image name="swift" catalog="system" width="128" height="108"/>
         <namedColor name="AccentColor">
-            <color red="0.792156862745098" green="0.88627450980392153" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryTheme">
             <color red="0.41960784313725491" green="0.792156862745098" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

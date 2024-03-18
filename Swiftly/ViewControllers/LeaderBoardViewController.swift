@@ -16,6 +16,11 @@ class Person{
     }
 }
 
+/*
+ MARK: - LeaderBoard
+ 
+Here the user will be able to compare themselves with the rest of the users. This page is accessed through the Leaderboard button on the home tab.
+ */
 class CustomTableViewCell: UITableViewCell {
     // Declare outlets for the labels
     @IBOutlet weak var nameLabel: UILabel!

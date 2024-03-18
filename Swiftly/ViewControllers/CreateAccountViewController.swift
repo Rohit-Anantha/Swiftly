@@ -14,6 +14,11 @@ enum AuthenticationError: Error {
     case passwordTooShort
 }
 
+/*
+ MARK: - Create Account
+ 
+ Screen for users that are creating an account. Accessed via the "Create Account" button on the Login Page
+ */
 class CreateAccountViewController: UIViewController {
     
     

@@ -15,6 +15,11 @@ let settings = [
 "Sign out"
 ]
 
+/*
+// MARK: - Settings
+This class represents the settings tab in the tab view controller. it holds a tableview for different content
+ as well as sign out.
+ */
 class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settings.count
@@ -77,6 +82,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 // Sign-out successful.
                 // You can perform any additional actions after sign-out here, like navigating to another view controller.
                 self.performSegue(withIdentifier: "LoggedOutSegue", sender: nil)
+
+    
+                
             } catch let signOutError as NSError {
                 print("Error signing out: %@", signOutError)
                 // Handle sign-out errors if any.

@@ -8,6 +8,11 @@
 import UIKit
 import FirebaseAuth
 
+/*
+ MARK: - Login
+ 
+ This is the initial screen to login into the app, it will auto call the segue if the user is already logged in.
+ */
 class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -19,13 +24,16 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if Auth.auth().currentUser != nil{
-            print("\n\nalready logged in!!!!\n\n\n")
-            self.performSegue(withIdentifier: "NoAnimationSegue", sender: nil)
-        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if(user != nil){
+                self.performSegue(withIdentifier: "LoggedInSegue", sender: nil)
+            }
+        }
        
     }
     

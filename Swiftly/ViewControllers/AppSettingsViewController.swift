@@ -8,10 +8,11 @@
 import UIKit
 
 
-
-
-
-
+/*
+ MARK: - App Settnigs
+ 
+Here the user will be able to customize their app from changing the language to changing the theme. NOT IMPLEMENTED. Accessed via "App" on Settings tab.
+ */
 class AppSettingsViewController: UIViewController {
     
     var password = ""
