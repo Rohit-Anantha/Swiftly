@@ -33,7 +33,7 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
             answerList.append("\(i). __")
         }
         
-        self.hostingViewController = UIHostingController(rootView: DragAndDropSwiftUIView(delegate: self.delegate, data: self.data, answers: answerList, options: self.data.options))
+        self.hostingViewController = UIHostingController(rootView: DragAndDropSwiftUIView(delegate: self, data: self.data, answers: answerList, options: self.data.options))
         self.hostingViewController.modalPresentationStyle = .fullScreen
         present(self.hostingViewController, animated: true)
     }
@@ -44,6 +44,10 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
     
     // MARK: - Functions
     
+    func next(){
+        self.hostingViewController.dismiss(animated: true)
+        self.delegate.next(result: [0])
+    }
     
     // MARK: - Protocols
     

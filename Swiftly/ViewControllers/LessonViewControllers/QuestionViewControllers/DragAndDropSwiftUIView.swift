@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DragAndDropSwiftUIView: View {
-    @State var delegate : LessonViewController
+    @State var delegate : DragAndDropViewController
     @State var data : DragAndDropElement
     @State var answers : [String]
     @State var options : [String]
@@ -26,7 +26,7 @@ struct DragAndDropSwiftUIView: View {
                     .frame(alignment: .trailing)
             }
             
-            Text(data.question)
+            Text(getText())
                 .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.leading)
                 .padding()
@@ -62,10 +62,15 @@ struct DragAndDropSwiftUIView: View {
                                     .dropDestination(for: String.self) {droppedItems, location in
                                         answers[i] = droppedItems.first!
                                         for dropped in droppedItems {
-                                            options.removeAll(){$0 == dropped}
+                                            for index in 0..<options.count {
+                                                if options[index] == dropped {
+                                                    options.remove(at: index)
+                                                    break
+                                                }
+                                            }
                                         }
                                         buttonDisabled[i] = false
-                                        data.question = data.question.replacingOccurrences(of: "\(i+1). __", with: answers[i])
+                                        //data.question = data.question.replacingOccurrences(of: "\(i+1). __", with: answers[i])
                                         return true
                                     }
                             }
@@ -113,7 +118,7 @@ struct DragAndDropSwiftUIView: View {
     
     func deleteButton(position : Int){
         if !answers[position].contains(". __") {
-            data.question = data.question.replacingOccurrences(of: answers[position], with: "\(position+1). __")
+            //data.question = data.question.replacingOccurrences(of: answers[position], with: "\(position+1). __")
             options.append(answers[position])
             answers[position]="\(position+1). __"
             buttonDisabled[position] = true
@@ -132,21 +137,24 @@ struct DragAndDropSwiftUIView: View {
                 results.append(data.options.firstIndex(of: answers[i])!)
             }
         }
-        delegate.next(result: results)
+        delegate.next()
+    }
+    
+    func getText() -> String{
+        var q = data.question.first
+        for i in 0..<data.question.count-1 {
+            q! += answers[i] + data.question[i+1]
+        }
+        return q!
     }
 }
 
 var data = DragAndDropElement(
     type: .question(type: .dragAndDrop),
-    question: """
-           //Calculate factorial
-           fact = 10
-           _0 i in 1..<_1 {
-               fact _2 i
-               _3("fact is now \\(fact)")
-           }
-           _4("Result is \\(_5)")
-           """,
+    question:  ["//Calculate factorial\nfact = 10\n",
+                "i in 1..<", "{\nfact ",
+                " i\nprint(\"fact is now \\(fact)\")}\n",
+                "(\"Result is \\(fact)\")"],
       options: ["for", "if", "while", "do", "then",
                 "10", "i", "fact", "main[1]"],
     correctOptions: [0, 2, 3, 1, 3, 1], number: 6)
@@ -156,7 +164,7 @@ var emptyAnswers : [String] = ["1. __","2. __","3. __","4. __","5. __","6. __"]
 
 #Preview {
     DragAndDropSwiftUIView(
-        delegate: LessonViewController(),
+        delegate: DragAndDropViewController(),
         data: data,
         answers: emptyAnswers,
         options: data.options

@@ -37,7 +37,7 @@ class ResultsViewController: UIViewController, LessonElementViewController {
                 self.nextButton.setTitle("Back to Roadmap", for: .normal)
             
             self.checkpointTittleLabel.text = "You're results are..."
-            self.checkpointTextView.text = "Implement results... I don't know how to go back to roadmap, idk if it's swiftui or storyboard. If you want you can give me the code and I'll write i down. For now if you press the button you will get an error"
+            self.checkpointTextView.text = "These screens ahve not been designed yet, in the future here the results (time and erros) will be shown"
             
             case .results(type: .intermediate):
                 self.nextButton.setTitle("Keep Going", for: .normal)

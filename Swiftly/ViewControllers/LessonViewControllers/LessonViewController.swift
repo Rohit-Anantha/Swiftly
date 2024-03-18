@@ -53,18 +53,16 @@ class LessonViewController: UIViewController {
 
         // Drag and Drop
         DragAndDropElement(type: .question(type: .dragAndDrop),
-                           question: """
-                                //Calculate factorial
-                                fact = 10
-                                1. __ i in 1..<2. __ {
-                                    fact 3. __ i
-                                    print("fact is now \\(fact)")
-                                }
-                                4. __("Result is \\(fact)")
-                                """,
+                           question:
+                                ["//Calculate factorial\nfact = 10\n",//for
+                                 " i in 1..< ",//fact
+                                 " {\n\tfact ",//*=
+                                 " i\n\tprint(\"fact is now \\(fact)\")\n}\n",//print
+                                 "(\"Result is \\(",//fact
+                                 ")\")"],
                            options: ["for", "do", "fact", "print", "nil",
-                                     "=", "+", "*=", "print"],
-                           correctOptions: [0, 3, 3, 1, 3, 1],
+                                     "=", "+", "*=", "fact"],
+                           correctOptions: [0, 2, 7, 3, 8],
                           number: 5),
         // Fill in the Blank question type
         //QuestionElement(...)
@@ -94,6 +92,8 @@ class LessonViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.isNavigationBarHidden = true
 }
     
     
@@ -131,10 +131,13 @@ class LessonViewController: UIViewController {
         
         self.answers.append(result)
         
-        if self.counter >= self.data.count {
-            // Lesson ended, if result screen existed it was shown
-            // Handle results
-            // Now just go back to roadmap
+        if self.counter == self.data.count {
+            self.currentElement.viewWillDisappear(true)
+            self.currentElement.willMove(toParent: nil)
+            self.currentElement.dismiss(animated: false)
+            self.navigationController?.isNavigationBarHidden = false
+            self.tabBarController?.tabBar.isHidden = false
+            self.navigationController?.popToRootViewController(animated: true)
             return
         }
         

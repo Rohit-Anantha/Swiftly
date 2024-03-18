@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "9F46CD90-45BE-4E16-86AD-B5CD8AAC7EDF"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Swiftly/ViewControllers/NextViewController.swift"
@@ -46,8 +46,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -279,22 +279,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "14CA7769-ADD0-453D-B05E-29DE3ECEDE13"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "next(result:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "1DDC60B0-A410-4C06-9031-4E54DF3803E5"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -318,14 +302,14 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "instantiateNextElement()"
             landmarkType = "7">
             <Locations>
                <Location
                   uuid = "4B32670E-D943-4B30-B2A8-9E87AAF72410 - 9d0d5eafe7bca393"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Swiftly.LessonViewController.instantiateNextElement() -&gt; Swiftly.LessonElement"
@@ -340,7 +324,7 @@
                </Location>
                <Location
                   uuid = "4B32670E-D943-4B30-B2A8-9E87AAF72410 - 9d0d5eafe7bca3d5"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Swiftly.LessonViewController.instantiateNextElement() -&gt; Swiftly.LessonElement"
@@ -381,8 +365,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
             landmarkName = "instantiateNextElement()"
             landmarkType = "7">
          </BreakpointContent>
@@ -397,10 +381,122 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "instantiateNextElement()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B989B7EE-5A18-45AD-B516-EBEFEC1E5F54"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/QuestionViewControllers/DragAndDropSwiftUIView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "getText()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B989B7EE-5A18-45AD-B516-EBEFEC1E5F54 - 3fa6b004822c91df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.DragAndDropSwiftUIView.getText() -&gt; Swift.String"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/QuestionViewControllers/DragAndDropSwiftUIView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141"
+                  offsetFromSymbolStart = "652">
+               </Location>
+               <Location
+                  uuid = "B989B7EE-5A18-45AD-B516-EBEFEC1E5F54 - 3fa6b004822c91df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.DragAndDropSwiftUIView.getText() -&gt; Swift.String"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/QuestionViewControllers/DragAndDropSwiftUIView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141"
+                  offsetFromSymbolStart = "772">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BEA9250-FF43-4E00-AC54-E853FE74C079"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/ResultViewControllers/ResultsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "nextButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A990330-148C-400B-B197-EECC519D2DE6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "next(result:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2A990330-148C-400B-B197-EECC519D2DE6 - 9c69f0791576ac8d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.LessonViewController.next(result: Swift.Array&lt;Swift.Int&gt;) -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "648">
+               </Location>
+               <Location
+                  uuid = "2A990330-148C-400B-B197-EECC519D2DE6 - 9c69f0791576ac8d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.LessonViewController.next(result: Swift.Array&lt;Swift.Int&gt;) -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "704">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

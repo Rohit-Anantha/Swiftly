@@ -30,7 +30,7 @@ class DragAndDropElement : LessonElement {
     let type: LessonElementTypes
     
     // Other Variables
-    var question : String
+    var question : [String]
     var options : [String]
     var correctAnswers : [Int]
     var numberAnswers : Int
@@ -38,7 +38,7 @@ class DragAndDropElement : LessonElement {
     
     // MARK: - D&D Constructor
     
-    init(type : LessonElementTypes, question : String, options : [String], correctOptions : [Int], number : Int){
+    init(type : LessonElementTypes, question : [String], options : [String], correctOptions : [Int], number : Int){
         self.type = type
         
         self.question = question
