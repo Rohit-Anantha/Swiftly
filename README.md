@@ -16,6 +16,12 @@ Rohit Anantha:
     4. Added the automatic login feature
     5. Added the colors for the circles based on whether the lesson is completed or not
 
+Eder Martinez:
+
+    1. I created the roadmap view controller and all the code for setting it up programmatically.
+    2. I worked in creating the TabBar controller.
+    3. I worked on an a specific element (fill in the blank) and have added constrants.
+
 
 # Deviations
 
