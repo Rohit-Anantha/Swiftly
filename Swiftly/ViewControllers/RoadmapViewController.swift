@@ -63,6 +63,7 @@ class RoadmapViewController: UIViewController {
         
         let scroll = UIScrollView(frame: view.bounds)
         scroll.contentSize = CGSizeMake(view.frame.size.width, CGFloat(circleDiameter * circleCount + (paddingTop * (circleCount - 1))))
+        scroll.backgroundColor = .lightGray
         
         view.addSubview(scroll)
         

@@ -38,7 +38,7 @@ class LessonViewController: UIViewController {
         TestQuestionElement(type: .question(type: .oneChoice),
                             question: "What is an \"if else\" statement called?",
                             answers: 
-                                ["Conditional Banching",
+                                ["Conditional Branching",
                                  "Looping Construct",
                                  "Protocol",
                                  "Class"],
@@ -50,11 +50,11 @@ class LessonViewController: UIViewController {
                             correctAnswers: [0]),
         //Checkpoint
         CheckpointElement(type: .checkpoint(type: .checkpoint),
-                          title: "You're doing good...",
-                          message: "You could add here aditional information, will be redesigned in the future"),
+                          title: "You're doing good... keep it up!!",
+                          message: "Here, we may add more sub-lessons, a check-in, or similar."),
         // Multiple Choice question type
         TestQuestionElement(type: .question(type: .multipleChoice),
-                            question: "Which of these keywords belong to swift?",
+                            question: "Which of these keywords belong to Swift?",
                             answers: ["elif",
                                         "while",
                                         "protocol",
@@ -116,8 +116,8 @@ class LessonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var debug = false
+        // changing this varible changes whether it's the debug lesson or not.
+        var debug = true
         if !debug {
             data = optional_lesson
         }
@@ -164,9 +164,9 @@ class LessonViewController: UIViewController {
         self.answers.append(result)
         
         if self.counter == self.data.count {
-            self.currentElement.viewWillDisappear(true)
-            self.currentElement.willMove(toParent: nil)
-            self.currentElement.dismiss(animated: false)
+            //self.currentElement.viewWillDisappear(true)
+            //self.currentElement.willMove(toParent: nil)
+            //self.currentElement.dismiss(animated: false)
             self.navigationController?.isNavigationBarHidden = false
             self.tabBarController?.tabBar.isHidden = false
             self.navigationController?.popToRootViewController(animated: true)

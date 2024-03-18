@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="naS-Uq-qQ9">
-                                <rect key="frame" x="109" y="142" width="207" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="naS-Uq-qQ9">
+                                <rect key="frame" x="176" y="142" width="41.333333333333343" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,6 +43,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="naS-Uq-qQ9" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="83" id="boR-Lv-cxk"/>
+                            <constraint firstItem="naS-Uq-qQ9" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="srV-4E-8oz"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="checkpointTextView" destination="ogo-Dm-B15" id="XRa-mc-LtN"/>
