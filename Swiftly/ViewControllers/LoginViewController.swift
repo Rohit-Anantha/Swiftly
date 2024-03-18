@@ -16,9 +16,12 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBOutlet weak var usernameField: UITextField!
     
-    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var usernameField: RoundedTextField!
+    @IBOutlet weak var passwordField: RoundedTextField!
+    
+    
+    
     /*
     // MARK: - Navigation
 
@@ -42,12 +45,21 @@ class LoginViewController: UIViewController {
             }
             Auth.auth().signIn(
                 withEmail: email,
-                password: password)
+                password: password){ (user, error) in
+                    
+                    if let error = error as NSError? {
+                        
+                        print("Login failed")
+                        
+                    }else{
+                        self.performSegue(withIdentifier: "LoggedInSegue", sender: nil)
+                    }
+                }
             /*
              Create Segue to home Page
              }
              */
-            self.performSegue(withIdentifier: "LoggedInSegue", sender: nil)
+
             
             
             

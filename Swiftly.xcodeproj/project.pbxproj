@@ -27,6 +27,9 @@
 		207F06822B9E581C0067778F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F06812B9E581C0067778F /* SettingsViewController.swift */; };
 		209FF8A82B990A5F000854A9 /* Eder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 209FF8A72B990A5F000854A9 /* Eder.storyboard */; };
 		209FF8AA2B990A85000854A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 209FF8A92B990A85000854A9 /* LaunchScreen.storyboard */; };
+		20C8D45C2BA7B8B7001AA5EF /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8D45B2BA7B8B7001AA5EF /* AccountViewController.swift */; };
+		20C8D45E2BA7B8D6001AA5EF /* AppSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8D45D2BA7B8D6001AA5EF /* AppSettingsViewController.swift */; };
+		20C8D4602BA7B91F001AA5EF /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8D45F2BA7B91F001AA5EF /* Styles.swift */; };
 		20F084E62B990479005FF676 /* Akin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20F084E52B990479005FF676 /* Akin.storyboard */; };
 		20F084E82B9904A8005FF676 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20F084E72B9904A8005FF676 /* Main.storyboard */; };
 		20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F084E92B9907CB005FF676 /* CustomTabBarController.swift */; };
@@ -101,6 +104,9 @@
 		207F06812B9E581C0067778F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		209FF8A72B990A5F000854A9 /* Eder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Eder.storyboard; sourceTree = "<group>"; };
 		209FF8A92B990A85000854A9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		20C8D45B2BA7B8B7001AA5EF /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		20C8D45D2BA7B8D6001AA5EF /* AppSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewController.swift; sourceTree = "<group>"; };
+		20C8D45F2BA7B91F001AA5EF /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		20F084E52B990479005FF676 /* Akin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Akin.storyboard; sourceTree = "<group>"; };
 		20F084E72B9904A8005FF676 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		20F084E92B9907CB005FF676 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
@@ -336,6 +342,7 @@
 				C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */,
 				C9674BC52B8FE9ED00A50CCD /* Info.plist */,
 				992830082BA5FCF9005AB073 /* GoogleService-Info.plist */,
+				20C8D45F2BA7B91F001AA5EF /* Styles.swift */,
 			);
 			path = Swiftly;
 			sourceTree = "<group>";
@@ -351,6 +358,8 @@
 				207DC7832BA115A50014C8A0 /* LoginViewController.swift */,
 				20FF62392BA201D700AFF6DD /* LeaderBoardViewController.swift */,
 				FCB300F92BA548F4005433C7 /* RoadmapViewController.swift */,
+				20C8D45B2BA7B8B7001AA5EF /* AccountViewController.swift */,
+				20C8D45D2BA7B8D6001AA5EF /* AppSettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -502,7 +511,9 @@
 				9951F68E2BA34F940004D597 /* LessonElement.swift in Sources */,
 				FCB300FA2BA548F4005433C7 /* RoadmapViewController.swift in Sources */,
 				20FF623A2BA201D700AFF6DD /* LeaderBoardViewController.swift in Sources */,
+				20C8D4602BA7B91F001AA5EF /* Styles.swift in Sources */,
 				99F45DD72B9D1D43000753C4 /* DragAndDropViewController.swift in Sources */,
+				20C8D45E2BA7B8D6001AA5EF /* AppSettingsViewController.swift in Sources */,
 				9951F69D2BA353FA0004D597 /* ResultsElements.swift in Sources */,
 				20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */,
 				9951F69B2BA353EE0004D597 /* CheckpointElements.swift in Sources */,
@@ -516,6 +527,7 @@
 				C9674BB82B8FE9EB00A50CCD /* AppDelegate.swift in Sources */,
 				99F45DF42B9D33A2000753C4 /* LessonElementViewController.swift in Sources */,
 				9951F6972BA350990004D597 /* QuestionElements.swift in Sources */,
+				20C8D45C2BA7B8B7001AA5EF /* AccountViewController.swift in Sources */,
 				207F06822B9E581C0067778F /* SettingsViewController.swift in Sources */,
 				9951F6762BA258E90004D597 /* TestViewController.swift in Sources */,
 				FC70B8F62B94D2B000386D64 /* UserSettings.swift in Sources */,

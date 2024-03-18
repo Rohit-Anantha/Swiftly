@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HomePageViewController: UIViewController {
     
@@ -23,6 +24,8 @@ class HomePageViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        email.text = Auth.auth().currentUser?.email
     }
     
     
