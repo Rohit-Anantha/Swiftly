@@ -12,6 +12,20 @@ import SwiftUI
 
 class DragAndDropViewController: UIViewController, LessonElementViewController{
     
+    // MARK: - Documentation
+    
+    /*
+     VC for drag and drop question type. Coding this in stoyboard seemed awfull so I did it in SwiftUI. This VC presents a UIHostingViewController,
+     a VC meant for displaying swiftUI views.
+     
+     It acts as a middle man and gives some parameters to SwiftUI, the reason all the functionality is not done in SwiftUI is because I'm not familiar
+     with SwiftUI!
+     
+     When the SwiftUI view is dismissed, this is the VC that does it. SiftUI does not call LessonViewController's 'next' function, it calls this VC's
+     'next' function.
+     */
+    
+    
     // MARK: - Variables
     
     // Protocol Variables

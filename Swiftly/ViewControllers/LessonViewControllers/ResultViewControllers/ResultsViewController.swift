@@ -9,7 +9,13 @@ import UIKit
 
 class ResultsViewController: UIViewController, LessonElementViewController {
     
-
+    // MARK: - Documentation
+    
+    /*
+     VC for results, not implemeted for now, only basics. In the future this will show the results and some additional info like 'You're doing great!'.
+     */
+    
+    
     // MARK: - Variables
     
     // Protocol Variables

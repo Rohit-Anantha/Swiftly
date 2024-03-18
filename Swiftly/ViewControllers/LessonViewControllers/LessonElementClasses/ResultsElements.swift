@@ -8,8 +8,14 @@
 import Foundation
 
 class ResultsElement : LessonElement {
+    
+    // MARK: - Documentation
+
+    /*
+     These classes will contain the information of each results screen: what results to display and message or info
+    */
  
-    // MARK: - Tst Variables
+    // MARK: - Variables
     
     // Protocol Variables
     let type: LessonElementTypes
@@ -19,7 +25,7 @@ class ResultsElement : LessonElement {
     let message : String
     let results : [String]
     
-    // MARK: - Tst Constructor
+    // MARK: - Constructor
     
     init(type : LessonElementTypes, tittle : String, message : String, results : [String]){
         

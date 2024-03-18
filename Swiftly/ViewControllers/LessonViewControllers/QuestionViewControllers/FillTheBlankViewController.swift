@@ -11,6 +11,12 @@ import UIKit
 
 class FillTheBlankViewController: UIViewController, LessonElementViewController {
     
+    // MARK: - Documentation
+    
+    /*
+     Eder did this VC in a another file, I didn't have enough time to do this myself. Thanks Eder! Idk how it works, we still have to integrate it.
+     */
+    
     
     // MARK: - Variables
     

@@ -9,6 +9,13 @@ import UIKit
 
 class CheckpointViewController: UIViewController, LessonElementViewController {
     
+    // MARK: - Documentation
+    
+    /*
+     VC for checkpoints, not implemeted for now, only basics. In the future this will show a message and adttional info.
+     The user will be allowed to go back to roadmap from here.
+     */
+    
     
     // MARK: - Variables
     

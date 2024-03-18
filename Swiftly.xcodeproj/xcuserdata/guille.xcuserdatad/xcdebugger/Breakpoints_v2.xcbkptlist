@@ -46,8 +46,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -302,8 +302,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "instantiateNextElement()"
             landmarkType = "7">
             <Locations>
@@ -365,8 +365,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "instantiateNextElement()"
             landmarkType = "7">
          </BreakpointContent>
@@ -381,8 +381,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "instantiateNextElement()"
             landmarkType = "7">
          </BreakpointContent>
@@ -397,8 +397,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/QuestionViewControllers/DragAndDropSwiftUIView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "getText()"
             landmarkType = "7">
             <Locations>
@@ -445,8 +445,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/ResultViewControllers/ResultsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "nextButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -461,8 +461,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "next(result:)"
             landmarkType = "7">
             <Locations>

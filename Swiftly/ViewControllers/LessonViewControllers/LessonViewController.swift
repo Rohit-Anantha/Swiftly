@@ -9,13 +9,25 @@ import UIKit
 
 class LessonViewController: UIViewController {
     
+    // MARK: - Documantation
+    
+    /*
+     This view controller will be shown once a lesson is clicked in the roadmap. It will show a bried description of the lesson (not implemented)
+     and allow the user to go back to the roadmap or start the lesson.
+     
+     This VC has a function called 'next', this is the function used to transition from lesson element to lesson element. For example, when a user
+     answers a question and presses the 'next question' button the question VC calls delegate.next(). 'next' makes sure the current VC that is
+     showing the question/lecture/checkpoint/results is dismissed and the next VC is displayed.
+     
+     The action 'start' will take the user to the first lesson element.
+     */
+    
     // MARK: - Variables
     
     /*
-     Variable "data" will be used to store all the lesson's elements
-     (lectures, questions and checkpoints) information. For now this variable will be populated
-     with questions, in the future this variable should be assined a value obtained from firebase
-     through the constructor
+     Variable "data" will be used to store all the lesson's elements (lectures, questions and checkpoints) information.
+     For now this variable will be hardcoded, in the future this variable should be assined a value obtained from
+     firebase in the constructor through the constructor.
      */
     var data : [any LessonElement] = [
         // Lecture type
@@ -79,7 +91,7 @@ class LessonViewController: UIViewController {
     // Counter to know what lesson element we're displaying
     var counter = 0
     
-    // A bit of info about the lesson
+    // A bit of info about the lesson, will be implemented in the future
     var lessonData : String = "Beginners lesson on Swift!!"
     
     // Current lesson element being displayed
@@ -93,7 +105,6 @@ class LessonViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.isNavigationBarHidden = true
 }
     
     
@@ -103,6 +114,8 @@ class LessonViewController: UIViewController {
     // element.
     // Maybe I should check if elementTypes is not empty
     @IBAction func start(_ sender: Any) {
+        
+        self.navigationController?.isNavigationBarHidden = true
         
         // Instantiate the next element
         self.currentElement = self.instantiateNextElement()

@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+// MARK: - Documentation
+
+/*
+SwiftUI VC for drag and drop. The actual Drag and Drop is implemented in the
+ .draggable and .dropDestination. Needs redesigning so it looks nice and works better.
+ */
+
 struct DragAndDropSwiftUIView: View {
     @State var delegate : DragAndDropViewController
     @State var data : DragAndDropElement

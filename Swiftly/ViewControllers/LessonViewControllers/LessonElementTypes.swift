@@ -7,11 +7,10 @@
 
 import Foundation
 
+// MARK: - Documentation
+
 /*
- This type strucutre will be used for creating lessons' elements
- 
- Notes:
-    - The rawType should be the same as the storyboard id of the according storyboard view
+ This type strucutre will be used for creating lessons' elements. It's used to transition from lesson element to lesson element
  */
 
 enum LessonElementTypes {
@@ -31,7 +30,7 @@ enum QuestionTypes : String {
 
 
 enum LectureTypes : String {
-    case lecture        //For now just one type
+    case lecture     //For now just one type
 }
 
 
@@ -40,6 +39,6 @@ enum CheckpointTypes : String {
 }
 
 enum ResultsTypes : String {
-    case intermediate     //For now just one type
-    case final       //There are no more lesson elements after this
+    case intermediate
+    case final       //There are no more lesson elements after this results screen
 }

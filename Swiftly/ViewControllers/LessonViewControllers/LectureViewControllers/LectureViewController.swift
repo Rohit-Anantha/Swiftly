@@ -9,6 +9,13 @@ import UIKit
 
 class LectureViewController: UIViewController, LessonElementViewController {
     
+    // MARK: - Documentation
+    
+    /*
+     VC for lectures, not implemeted for now, only basics. In the future this will have a scrollable text view with the info and code snippets.
+     User will be allowed to go back to roadmap from lectures. Won't be hard to implement.
+     */
+    
     
     // MARK: - Variables
     

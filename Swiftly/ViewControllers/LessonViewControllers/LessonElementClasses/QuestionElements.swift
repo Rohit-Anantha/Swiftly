@@ -7,6 +7,13 @@
 
 import Foundation
 
+// MARK: - Documentation
+
+/*
+ These classes will contain the information of each question type: the question, the possible answers, the correct answer... 
+ Note: Fill in the blank is not implemented
+ */
+
 class FillTheBlankElement : LessonElement {
     
     // MARK: - FTB Variables

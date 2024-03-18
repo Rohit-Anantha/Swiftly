@@ -9,7 +9,14 @@ import Foundation
 
 class LectureElement : LessonElement {
  
-    // MARK: - Tst Variables
+    // MARK: - Documentation
+
+    /*
+     These classes will contain the information of each lecture: tittle, text and possible code snippets
+    */
+    
+    
+    // MARK: - Variables
     
     // Protocol Variables
     let type: LessonElementTypes
@@ -18,7 +25,7 @@ class LectureElement : LessonElement {
     let tittle : String
     let lecture : String
     
-    // MARK: - Tst Constructor
+    // MARK: - Constructor
     
     init(type : LessonElementTypes, tittle : String, lecture : String){
         

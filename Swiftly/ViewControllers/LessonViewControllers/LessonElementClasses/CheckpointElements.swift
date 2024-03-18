@@ -9,7 +9,15 @@ import Foundation
 
 class CheckpointElement : LessonElement {
  
-    // MARK: - Tst Variables
+    // MARK: - Documentation
+
+    /*
+     These classes will contain the information of each checkpoint: message to be displayed if user does good or bad,
+     alert that next questions will be timed...
+    */
+    
+    
+    // MARK: - Variables
     
     // Protocol Variables
     let type: LessonElementTypes
@@ -18,7 +26,7 @@ class CheckpointElement : LessonElement {
     let tittle : String
     let message : String
     
-    // MARK: - Tst Constructor
+    // MARK: - Constructor
     
     init(type : LessonElementTypes, tittle : String, message : String){
         
