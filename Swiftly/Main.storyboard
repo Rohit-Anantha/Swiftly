@@ -16,7 +16,7 @@
             <objects>
                 <viewController id="FuG-bR-rCQ" customClass="CreateAccountViewController" customModule="Swiftly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IFn-o3-plR">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wu5-0f-v5q" customClass="RoundedTextField" customModule="Swiftly" customModuleProvider="target">
@@ -52,7 +52,7 @@
                                 </connections>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bdx-4k-LXo">
-                                <rect key="frame" x="76" y="29.666666666666657" width="241" height="236.99999999999997"/>
+                                <rect key="frame" x="76" y="88.666666666666686" width="241" height="236.99999999999994"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="241" id="Cji-17-N2h"/>
                                     <constraint firstAttribute="height" constant="232" id="Nhr-57-yi7"/>
@@ -201,7 +201,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Create Account"/>
                                 <connections>
-                                    <segue destination="FuG-bR-rCQ" kind="presentation" id="srI-3F-GqE"/>
+                                    <segue destination="ws5-o8-u3h" kind="presentation" identifier="NoAnimationSegue" animates="NO" modalPresentationStyle="fullScreen" id="WSa-r2-JGY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVb-7i-NZw">
@@ -958,7 +958,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Nhq-Cl-RD9"/>
+        <segue reference="WSa-r2-JGY"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="flame" catalog="system" width="106" height="128"/>

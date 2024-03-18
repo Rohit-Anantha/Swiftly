@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil{
             print("\n\nalready logged in!!!!\n\n\n")
-            self.performSegue(withIdentifier: "LoggedInSegue", sender: nil)
+            self.performSegue(withIdentifier: "NoAnimationSegue", sender: nil)
         }
     }
     
