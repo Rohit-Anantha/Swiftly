@@ -12,10 +12,22 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil{
+            print("\n\nalready logged in!!!!\n\n\n")
+            self.performSegue(withIdentifier: "LoggedInSegue", sender: nil)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       
+    }
     
     @IBOutlet weak var usernameField: RoundedTextField!
     @IBOutlet weak var passwordField: RoundedTextField!
@@ -60,11 +72,6 @@ class LoginViewController: UIViewController {
              }
              */
 
-            
-            
-            
-            
-            
             
         } catch {
             // Handle any other unexpected errors

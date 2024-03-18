@@ -116,6 +116,11 @@ class LessonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var debug = false
+        if !debug {
+            data = optional_lesson
+        }
 
         // Do any additional setup after loading the view.
         self.tabBarController?.tabBar.isHidden = true
