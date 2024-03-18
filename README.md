@@ -22,9 +22,21 @@ Eder Martinez:
     2. I worked in creating the TabBar controller.
     3. I worked on an a specific element (fill in the blank) and have added constrants.
 
+Akin Bilen:
+    1. I worked in creating the TabBar controller.
+    2. I corrected the login, sign up pages as they were missing constraints.
+    3. I created the screens for home page, leaderboard page, settings page.
+    4. I implemented all the functionality for the pages I created.
+    5. I created the styles file for the rounded buttons and rounded textFields on the login page and home page.
+    6. I also implemented Firebase login, create account, sign out and change password.
 
 # Deviations
 
 Guillermo Garcia Perez:
 
     1. Added checkpoints and lectures to the lessons. Timers haven't been implemented yet.
+
+Akin Bilen:
+    1. Leaderboard page doesn't have user score.
+    2. Username is not stored yet in the firebase.
+    3. Chapter overview on home page hasn't been implemented.
