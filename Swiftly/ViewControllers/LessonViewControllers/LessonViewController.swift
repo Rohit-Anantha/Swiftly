@@ -93,9 +93,11 @@ class LessonViewController: UIViewController {
         
         LectureElement(type: .lecture(type: .lecture), title: "Unwrapping Optionals", lecture: "To access the value inside an optional, you need to unwrap it. There are several ways to do this, including optional binding and forced unwrapping."),
         
-        LectureElement(type: .lecture(type: .lecture), title: "Declaring Optionals", lecture: "Optional binding is a safe way to unwrap optionals. It uses if let or guard let syntax to conditionally unwrap the optional and assign its value to a constant or variable."),
+        LectureElement(type: .lecture(type: .lecture), title: "Optional Binding", lecture: "Optional binding is a safe way to unwrap optionals. It uses if let or guard let syntax to conditionally unwrap the optional and assign its value to a constant or variable.if let unwrappedValue = optionalValue {\n// Value exists, use unwrappedValue here\n} else {\n// Value doesn't exist\n}"),
+        TestQuestionElement(type: .question(type: .oneChoice), question: "What is an optional variable in Swift?", answers: ["A variable that cannot be changed after initialization", "A variable that can hold either a value or no value", "A variable that automatically adjusts its type based on assigned values", "A variable that requires explicit declaration of its type"], correctAnswers: [1])
         
     ]
+    
     
     // User's answers
     var answers : [[Int]] = []

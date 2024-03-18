@@ -108,7 +108,7 @@ class TestViewController: UIViewController, LessonElementViewController {
         }
     }
     
-    
+    // clear all the colors to red
     func clearColors(){
         for button in self.leftStackView.subviews{
             button.backgroundColor = .red
@@ -121,22 +121,24 @@ class TestViewController: UIViewController, LessonElementViewController {
     // Action executed after user presses on a answer
     @objc func answerButton(sender: UIButton!) {
         if let buttonSender : UIButton = sender {
+            // if a button is already selected, remove it from the list of answers and make it green
             if buttonSender.backgroundColor == .green {
                 self.answers.removeAll(where: {$0 == buttonSender.tag})
                 buttonSender.backgroundColor = .red
             }
+            // if this is a multiple choice question or we haven't selected an answer
             else if self.multipleChoice || self.answers.count == 0 {
                 self.answers.append(buttonSender.tag)
                 buttonSender.backgroundColor = .green
             }
+            // if we are in a single answer question and we've already got one selected
+            // override the selection and choose the new one.
             else if !self.multipleChoice && self.answers.count == 1 {
                 clearColors()
                 self.answers = [buttonSender.tag]
                 buttonSender.backgroundColor = .green
             }
             
-            
-
         }
     }
     
