@@ -42,8 +42,8 @@ class ResultsViewController: UIViewController, LessonElementViewController {
             case .results(type: .final):
                 self.nextButton.setTitle("Back to Roadmap", for: .normal)
             
-            self.checkpointTitleLabel.text = "You're results are..."
-            self.checkpointTextView.text = "These screens ahve not been designed yet, in the future here the results (time and erros) will be shown"
+            self.checkpointTitleLabel.text = "Your results are..."
+            self.checkpointTextView.text = "These screens have not been designed yet, in the future here the results (time and errors) will be shown"
             
             case .results(type: .intermediate):
                 self.nextButton.setTitle("Keep Going", for: .normal)
