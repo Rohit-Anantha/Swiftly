@@ -36,7 +36,6 @@ class TestViewController: UIViewController, LessonElementViewController {
     var answers : [Int] = []
     var multipleChoice : Bool!
     
-    
     // MARK: - View Controller Events
     
     override func viewDidLoad() {
@@ -109,12 +108,35 @@ class TestViewController: UIViewController, LessonElementViewController {
         }
     }
     
+    
+    func clearColors(){
+        for button in self.leftStackView.subviews{
+            button.backgroundColor = .red
+        }
+        for button in self.rightStackView.subviews{
+            button.backgroundColor = .red
+        }
+    }
+    
     // Action executed after user presses on a answer
     @objc func answerButton(sender: UIButton!) {
         if let buttonSender : UIButton = sender {
-            if self.multipleChoice || self.answers.count == 0 {
-                self.answers.append(buttonSender.tag)
+            if buttonSender.backgroundColor == .green {
+                self.answers.removeAll(where: {$0 == buttonSender.tag})
+                buttonSender.backgroundColor = .red
             }
+            else if self.multipleChoice || self.answers.count == 0 {
+                self.answers.append(buttonSender.tag)
+                buttonSender.backgroundColor = .green
+            }
+            else if !self.multipleChoice && self.answers.count == 1 {
+                clearColors()
+                self.answers = [buttonSender.tag]
+                buttonSender.backgroundColor = .green
+            }
+            
+            
+
         }
     }
     

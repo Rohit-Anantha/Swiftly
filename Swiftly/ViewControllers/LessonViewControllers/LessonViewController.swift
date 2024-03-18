@@ -85,6 +85,18 @@ class LessonViewController: UIViewController {
                        results: ["Yet to be implemented"])
     ]
     
+    var optional_lesson : [any LessonElement] = [
+    
+        LectureElement(type: .lecture(type: .lecture), title: "What are Optionals?", lecture: "An optional in Swift is a type that represents a value that may or may not exist. It is denoted by adding a question mark (?) after the type declaration."),
+        
+        LectureElement(type: .lecture(type: .lecture), title: "Declaring Optionals", lecture: "To declare an optional, you simply append a question mark (?) to the type. For example: \nvar optionalInt: Int?\nvar optionalString: String?"),
+        
+        LectureElement(type: .lecture(type: .lecture), title: "Unwrapping Optionals", lecture: "To access the value inside an optional, you need to unwrap it. There are several ways to do this, including optional binding and forced unwrapping."),
+        
+        LectureElement(type: .lecture(type: .lecture), title: "Declaring Optionals", lecture: "Optional binding is a safe way to unwrap optionals. It uses if let or guard let syntax to conditionally unwrap the optional and assign its value to a constant or variable."),
+        
+    ]
+    
     // User's answers
     var answers : [[Int]] = []
     
