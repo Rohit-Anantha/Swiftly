@@ -13,8 +13,8 @@ Rohit Anantha:
     2. I coded the ability for colors to be selected for multiple choice, single choice, and
         true false.
     3. I wrote questions for different lessons and created lectures as well.
-    4. I was out of country for spring break and wasn't able to contribute as much to the coding this release. I'll make it up during the next release
-    
+    4. Added the automatic login feature
+    5. Added the colors for the circles based on whether the lesson is completed or not
 
 
 # Deviations
