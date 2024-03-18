@@ -33,7 +33,7 @@ class LessonViewController: UIViewController {
         // Lecture type
         LectureElement(type: .lecture(type: .lecture),
                        title: "Introduction to Swift Programing language!",
-                       lecture: "Swift is a cool programing language used for iOS development an other stuff. Bla bla bla.."),
+                       lecture: "Swift is a cool programing language used for iOS development an other stuff. This first lesson is hardcoded in to the app and it's just used to test the app. In the future screens like this will actually teach things..."),
         // One Choice question type
         TestQuestionElement(type: .question(type: .oneChoice),
                             question: "What is an \"if else\" statement called?",
@@ -51,7 +51,7 @@ class LessonViewController: UIViewController {
         //Checkpoint
         CheckpointElement(type: .checkpoint(type: .checkpoint),
                           title: "You're doing good...",
-                          message: "idk what to say here, the design of checpoints is yet to be done"),
+                          message: "You could add here aditional information, will be redesigned in the future"),
         // Multiple Choice question type
         TestQuestionElement(type: .question(type: .multipleChoice),
                             question: "Which of these keywords belong to swift?",
@@ -81,8 +81,8 @@ class LessonViewController: UIViewController {
         // Results
         ResultsElement(type: .results(type: .final),
                        title: "Great job!",
-                       message: "You did great! you're results are... (Not implemented)",
-                       results: ["Yet to be implemented"])
+                       message: "You did great! you're results are... A++",
+                       results: ["a"])
     ]
     
     var optional_lesson : [any LessonElement] = [

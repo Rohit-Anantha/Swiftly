@@ -12,7 +12,7 @@ class TestViewController: UIViewController, LessonElementViewController {
     // MARK: - Documentation
     
     /*
-     VC for test question types. There are three types: true or falce, multiple choice, only one choice.
+     VC for test question types. There are three types: true or false, multiple choice, only one choice.
      
      Needs redesigning to make it look pretty, but basics are there.
      */
