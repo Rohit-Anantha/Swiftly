@@ -10,25 +10,27 @@
 import UIKit
 
 class RoadmapViewController: UIViewController {
+    // Amount of lessons
     private let circleCount = 10
+    // Highest lesson for user
     private let currLesson = 1
-    
+    // Height (or width) of a circle
     private let circleDiameter = 125
+    // Space between each circle
     private let paddingTop = 20
     
+    // Custom class used only for giving UITapGestureRecognizer a property
     class CustomTapGestureRecognizer: UITapGestureRecognizer {
         var lessonNumber: Int = -1
     }
-        
+    
     @objc func imageTapped(sender: CustomTapGestureRecognizer) {
-        // Use navigation here
-        
-        
         // Gets the view controller from Lesson storyboard
         guard let vc = UIStoryboard(name: "Lesson", bundle: nil).instantiateViewController(identifier: "Lesson") as? LessonViewController else {
             return
         }
         
+        // User has not unlocked these lessons
         if sender.lessonNumber > currLesson {
             let alert = UIAlertController(
                 title: "Lesson Locked",
@@ -85,7 +87,7 @@ class RoadmapViewController: UIViewController {
             }
             circle.translatesAutoresizingMaskIntoConstraints = false
             
-//            // Action for UIImageView
+            // Action for UIImageView
             let tapGestureRecognizer = CustomTapGestureRecognizer(target: self, action: #selector(imageTapped))
             tapGestureRecognizer.lessonNumber = i
             
@@ -103,7 +105,7 @@ class RoadmapViewController: UIViewController {
                 constraints.append(circle.topAnchor.constraint(equalTo: parent.topAnchor))
             }
             
-            // Width constraints
+            // Horizontal constraints
             if i % 2 == 0 {
                 constraints.append(circle.centerXAnchor.constraint(equalTo: parent.centerXAnchor))
             } else if i % 4 == 1 {
