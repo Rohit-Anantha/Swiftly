@@ -10,8 +10,8 @@
 import UIKit
 
 class RoadmapViewController: UIViewController {
-    private let circleCount = 34
-    private let currLesson = 22
+    private let circleCount = 10
+    private let currLesson = 1
     
     private let circleDiameter = 125
     private let paddingTop = 20
@@ -70,7 +70,15 @@ class RoadmapViewController: UIViewController {
         for i in 0..<circleCount {
             
             let circle = UIImageView(image: UIImage(systemName: "circle.fill"))
-            circle.tintColor = UIColor.green
+            if i < currLesson{
+                circle.tintColor = UIColor.green
+            }
+            if i == currLesson {
+                circle.tintColor = UIColor.yellow
+            }
+            if i > currLesson{
+                circle.tintColor = UIColor.red
+            }
             circle.translatesAutoresizingMaskIntoConstraints = false
             
 //            // Action for UIImageView
