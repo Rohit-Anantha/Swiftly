@@ -25,8 +25,8 @@ class LectureViewController: UIViewController, LessonElementViewController {
     var number: Int!
     
     // Storyboard Variables
-    @IBOutlet weak var lectureTittleLabel: UILabel!
-    @IBOutlet weak var lectureTittleTextView: UITextView!
+    @IBOutlet weak var lectureTitleLabel: UILabel!
+    @IBOutlet weak var lectureTitleTextView: UITextView!
     
     // Other Variables
     var data : LectureElement!
@@ -37,8 +37,8 @@ class LectureViewController: UIViewController, LessonElementViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.lectureTittleLabel.text = self.data.tittle
-        self.lectureTittleTextView.text = self.data.lecture
+        self.lectureTitleLabel.text = self.data.tittle
+        self.lectureTitleTextView.text = self.data.lecture
     }
     
     
