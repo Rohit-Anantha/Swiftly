@@ -28,6 +28,8 @@ protocol LessonElementViewController: UIViewController{
     var number : Int! { get set }
     // The lesson element's data
     //var data : T! { get set }
+    var timer : Int { get }
+    var stopTimer : Bool { get }
     
     
     // MARK: - Functions
@@ -38,5 +40,5 @@ protocol LessonElementViewController: UIViewController{
     // possible answers, some color configuration if needed.
     // In the future it will ne fetched from Firebase and it'll be some dictionary or
     // JSON type object.
-    func setup(data : LessonElement, delegate : LessonViewController, counter : Int)
+    func setup(data : LessonElement, delegate : LessonViewController, counter : Int, timer : Int)
 }

@@ -20,14 +20,26 @@ class FillTheBlankElement : LessonElement {
     
     // Protocol Variables
     let type: LessonElementTypes
+    let isTimed : Bool
+    let timer : Int
     
     // Other Variables
     var question: [(FillTheBlankViewType, String)]
     
+    
     // MARK: - FTB Constructor
-    init(type: LessonElementTypes, question: [(FillTheBlankViewType, String)]) {
+    
+    init(type : LessonElementTypes, question: [(FillTheBlankViewType, String)], isTimed : Bool, timer : Int){
         self.type = type
+        self.isTimed = isTimed
+        self.timer = timer
         self.question = question
+    }
+    
+    // MARK: - FTB Functions
+    
+    func getResults(_ results: [[Int]]) -> [[Int]] {
+        return [[0]]
     }
 }
 
@@ -40,6 +52,8 @@ class DragAndDropElement : LessonElement {
     let type: LessonElementTypes
     
     // Other Variables
+    let isTimed : Bool
+    let timer : Int
     var question : [String]
     var options : [String]
     var correctAnswers : [Int]
@@ -48,9 +62,11 @@ class DragAndDropElement : LessonElement {
     
     // MARK: - D&D Constructor
     
-    init(type : LessonElementTypes, question : [String], options : [String], correctOptions : [Int], number : Int){
+
+    init(type : LessonElementTypes, isTimed : Bool, timer : Int, question : [String], options : [String], correctOptions : [Int], number : Int){
         self.type = type
-        
+        self.isTimed = isTimed
+        self.timer = timer
         self.question = question
         self.options = options
         self.correctAnswers = correctOptions
@@ -66,19 +82,29 @@ class TestQuestionElement : LessonElement {
     let type: LessonElementTypes
     
     // Other Variables
+    let isTimed : Bool
+    let timer : Int
     let question : String
     let answers : [String]
     let correctAnswers : [Int]
     
+    
     // MARK: - Tst Constructor
     
-    init(type : LessonElementTypes, question : String, answers : [String], correctAnswers : [Int]){
+    init(type : LessonElementTypes, isTimed : Bool, timer : Int, question : String, answers : [String], correctAnswers : [Int]){
         
         self.type = type
-        
+        self.isTimed = isTimed
+        self.timer = timer
         self.question = question
         self.answers = answers
         self.correctAnswers = correctAnswers
     }
+     
     
+    // MARK: - TsT Functions
+    
+    func getResults(_ results: [[Int]]) -> [[Int]] {
+        return [[0]]
+    }
 }

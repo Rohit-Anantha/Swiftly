@@ -36,6 +36,7 @@ class LessonViewController: UIViewController {
                        lecture: "Swift is a cool programing language used for iOS development an other stuff. This first lesson is hardcoded in to the app and it's just used to test the app. In the future screens like this will actually teach things..."),
         // One Choice question type
         TestQuestionElement(type: .question(type: .oneChoice),
+                            isTimed: true, timer: 100,
                             question: "What is an \"if else\" statement called?",
                             answers: 
                                 ["Conditional Branching",
@@ -43,8 +44,36 @@ class LessonViewController: UIViewController {
                                  "Protocol",
                                  "Class"],
                             correctAnswers: [1]),
+        TestQuestionElement(type: .question(type: .oneChoice),
+                            isTimed: true, timer: 0,
+                            question: "Another1 timed question",
+                            answers:
+                                ["Conditional Branching",
+                                 "Looping Construct",
+                                 "Protocol",
+                                 "Class"],
+                            correctAnswers: [1]),
+        TestQuestionElement(type: .question(type: .oneChoice),
+                            isTimed: true, timer: 0,
+                            question: "Another2 timed question",
+                            answers:
+                                ["Conditional Branching",
+                                 "Looping Construct",
+                                 "Protocol",
+                                 "Class"],
+                            correctAnswers: [1]),
+        TestQuestionElement(type: .question(type: .oneChoice),
+                            isTimed: true, timer: 0,
+                            question: "Another3 timed question",
+                            answers:
+                                ["Conditional Branching",
+                                 "Looping Construct",
+                                 "Protocol",
+                                 "Class"],
+                            correctAnswers: [1]),
         // True or False question type
         TestQuestionElement(type: .question(type: .trueOrFalse),
+                            isTimed: false, timer: 0,
                             question: "Is Swift an interpreted language?",
                             answers: [], // This is empty because the answers are obviously true or false (it's a true or false question)
                             correctAnswers: [0]),
@@ -54,6 +83,7 @@ class LessonViewController: UIViewController {
                           message: "Here, we may add more sub-lessons, a check-in, or similar."),
         // Multiple Choice question type
         TestQuestionElement(type: .question(type: .multipleChoice),
+                            isTimed: false, timer: 0,
                             question: "Which of these keywords belong to Swift?",
                             answers: ["elif",
                                         "while",
@@ -65,6 +95,7 @@ class LessonViewController: UIViewController {
 
         // Drag and Drop
         DragAndDropElement(type: .question(type: .dragAndDrop),
+                           isTimed: false, timer: 0,
                            question:
                                 ["//Calculate factorial\nfact = 10\n",//for
                                  " i in 1..< ",//fact
@@ -82,7 +113,8 @@ class LessonViewController: UIViewController {
                                 [
                                     (.label, "Optionals represent a type that may or may"),
                                     (.field, "not"),
-                                    (.label, "exist")]
+                                    (.label, "exist")],
+                            isTimed: false, timer: 0
                            ),
         //QuestionElement(...)
         // Results
@@ -101,20 +133,27 @@ class LessonViewController: UIViewController {
         LectureElement(type: .lecture(type: .lecture), title: "Unwrapping Optionals", lecture: "To access the value inside an optional, you need to unwrap it. There are several ways to do this, including optional binding and forced unwrapping."),
         
         LectureElement(type: .lecture(type: .lecture), title: "Optional Binding", lecture: "Optional binding is a safe way to unwrap optionals. It uses if let or guard let syntax to conditionally unwrap the optional and assign its value to a constant or variable.if let unwrappedValue = optionalValue {\n// Value exists, use unwrappedValue here\n} else {\n// Value doesn't exist\n}"),
-        TestQuestionElement(type: .question(type: .oneChoice), question: "What is an optional variable in Swift?", answers: ["A variable that cannot be changed after initialization", "A variable that can hold either a value or no value", "A variable that automatically adjusts its type based on assigned values", "A variable that requires explicit declaration of its type"], correctAnswers: [1]),
+        TestQuestionElement(type: .question(type: .oneChoice), isTimed: false, timer: -1, question: "What is an optional variable in Swift?", answers: ["A variable that cannot be changed after initialization", "A variable that can hold either a value or no value", "A variable that automatically adjusts its type based on assigned values", "A variable that requires explicit declaration of its type"], correctAnswers: [1]),
+        
         FillTheBlankElement(type: .question(type: .fillTheBlank),
                             question:
                                 [
                                     (.label, "Optionals represent a type that may or may"),
                                     (.field, "not"),
                                     (.label, "exist")
-                                ]
+                                ],
+                            isTimed: false, timer: 0
                            )
     ]
     
     
-    // User's answers
-    var answers : [[Int]] = []
+    // User's Answers
+    var userAnswers : [[Int]] = []
+    // User's Timer Results, for now we are storing here the time remaining:
+    // the more time remainging the better the user did.
+    // For now I'm also not storing the time taken per each question,
+    // just the time it remaininf for a section of questions.
+    var timerResults : [Int] = []
     
     // Counter to know what lesson element we're displaying
     var counter = 0
@@ -125,13 +164,17 @@ class LessonViewController: UIViewController {
     // Current lesson element being displayed
     var currentElement : LessonElementViewController!
     
+    // Variables used to handle the question timers
+    var wasPreviousTimed  = false
+    var timer = -1
+    
     
     // MARK: - View Controller Events
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // changing this varible changes whether it's the debug lesson or not.
-        var debug = false
+        var debug = true
         if !debug {
             data = optional_lesson
         }
@@ -153,8 +196,9 @@ class LessonViewController: UIViewController {
         // Instantiate the next element
         self.currentElement = self.instantiateNextElement()
         
-        // Set it up
-        self.currentElement.setup(data: data.first!, delegate: self, counter: 0)
+        // Set it up, the first element will never be a timed question,
+        // so set the timer to -1.
+        self.currentElement.setup(data: data.first!, delegate: self, counter: 0, timer: -1)
         
         // It's a child!
         self.addChild(self.currentElement)
@@ -173,9 +217,11 @@ class LessonViewController: UIViewController {
     
     // next will be called from each lesson element to show the next lesson element
     // result will be the result of a given question.
-    func next(result : [Int]) {
+    func next(result : [Int], timer : Int) {
         
-        self.answers.append(result)
+        self.timer = timer
+        
+        self.userAnswers.append(result)
         
         if self.counter == self.data.count {
             //self.currentElement.viewWillDisappear(true)
@@ -190,8 +236,25 @@ class LessonViewController: UIViewController {
         // This will be the next lesson element
         let next = self.instantiateNextElement()
         
-        // Set it up
-        next.setup(data: self.data[counter], delegate: self, counter: self.counter)
+        // Set it up and pass the according timer value
+        if wasPreviousTimed {
+            // If the oprevious question was timed pass the current timer
+            next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: self.timer)
+            // If the timed question section has ended, add the time remaining to timerResults
+            if !self.data[self.counter].isTimed {
+                self.timerResults.append(self.timer)
+                self.wasPreviousTimed = false
+            }
+        } else {
+            if self.data[counter].isTimed {
+                // If the previous question wasn't timed check if this one should be
+                next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: self.data[counter].timer)
+                self.wasPreviousTimed = true
+            } else {
+                // If it shouldn't be then pass -1 as a timer value
+                next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: -1)
+            }
+        }
         
         // It's a child!
         self.addChild(next)

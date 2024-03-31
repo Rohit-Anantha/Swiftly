@@ -8,6 +8,7 @@
 import Foundation
 
 class LectureElement : LessonElement {
+    
  
     // MARK: - Documentation
 
@@ -20,6 +21,8 @@ class LectureElement : LessonElement {
     
     // Protocol Variables
     let type: LessonElementTypes
+    var isTimed = false
+    var timer = -1
     
     // Other Variables
     let title : String

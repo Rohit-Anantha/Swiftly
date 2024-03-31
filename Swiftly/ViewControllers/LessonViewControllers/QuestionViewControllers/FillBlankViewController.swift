@@ -15,15 +15,22 @@ enum FillTheBlankViewType {
 
 class FillBlankViewController: UIViewController, LessonElementViewController {
     
+    
     var delegate: LessonViewController!
     
     var number: Int!
     
-    func setup(data: any LessonElement, delegate: LessonViewController, counter: Int) {
+    var timer = 0
+    
+    var stopTimer = true
+    
+    func setup(data: any LessonElement, delegate: LessonViewController, counter: Int, timer : Int) {
         guard let data = data as? FillTheBlankElement else { return }
         question = data.question
         self.delegate = delegate
         self.number = counter
+        // Timer part
+        self.timer = timer
     }
     
     private var fields: [UITextField] = []
@@ -70,7 +77,7 @@ class FillBlankViewController: UIViewController, LessonElementViewController {
                 result.append(userAnswer == answers[i].lowercased())
             }
             print(result)
-            self.delegate.next(result: [])
+            self.delegate.next(result: [], timer: self.timer)
         }
         
         let submit = UIButton(primaryAction: action)

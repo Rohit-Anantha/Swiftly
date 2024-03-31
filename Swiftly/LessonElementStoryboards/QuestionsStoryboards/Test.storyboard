@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXd-If-Fc9">
-                                <rect key="frame" x="16" y="59" width="361" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXd-If-Fc9">
+                                <rect key="frame" x="16" y="59" width="265" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="DuI-ei-nz7"/>
                                 </constraints>
@@ -53,13 +53,24 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="r8u-f5-mt7">
                                 <rect key="frame" x="206" y="457" width="171" height="297"/>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TO3-77-IW8">
+                                <rect key="frame" x="318" y="59" width="59" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DYe-D4-Wq0">
+                                <rect key="frame" x="289" y="60" width="28" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="fIS-9m-vVR" firstAttribute="top" secondItem="eMh-qZ-oVL" secondAttribute="bottom" constant="8" id="0eN-72-SGU"/>
                             <constraint firstItem="eMh-qZ-oVL" firstAttribute="trailing" secondItem="r8u-f5-mt7" secondAttribute="trailing" id="9a3-67-ijI"/>
-                            <constraint firstItem="BXd-If-Fc9" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="FG6-HP-h8E"/>
+                            <constraint firstItem="BXd-If-Fc9" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" constant="-96" id="FG6-HP-h8E"/>
                             <constraint firstItem="eMh-qZ-oVL" firstAttribute="leading" secondItem="fIS-9m-vVR" secondAttribute="leading" id="JlN-EE-aiN"/>
                             <constraint firstItem="fIS-9m-vVR" firstAttribute="width" secondItem="r8u-f5-mt7" secondAttribute="width" multiplier="1.05233" id="KQ6-Y3-E1M"/>
                             <constraint firstItem="BXd-If-Fc9" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="MZE-42-w1v"/>
@@ -72,7 +83,7 @@
                             <constraint firstItem="fIS-9m-vVR" firstAttribute="bottom" secondItem="r8u-f5-mt7" secondAttribute="bottom" id="pI5-Cg-8KP"/>
                             <constraint firstItem="fIS-9m-vVR" firstAttribute="top" secondItem="r8u-f5-mt7" secondAttribute="top" id="sSD-FY-jWd"/>
                             <constraint firstItem="G8X-xw-IIN" firstAttribute="top" secondItem="fIS-9m-vVR" secondAttribute="bottom" constant="8" id="uYx-2l-g2y"/>
-                            <constraint firstItem="BXd-If-Fc9" firstAttribute="trailing" secondItem="eMh-qZ-oVL" secondAttribute="trailing" id="xKZ-gy-Dbu"/>
+                            <constraint firstItem="BXd-If-Fc9" firstAttribute="trailing" secondItem="eMh-qZ-oVL" secondAttribute="trailing" constant="-96" id="xKZ-gy-Dbu"/>
                             <constraint firstItem="r8u-f5-mt7" firstAttribute="trailing" secondItem="G8X-xw-IIN" secondAttribute="trailing" id="xNh-6k-q21"/>
                         </constraints>
                     </view>
@@ -81,6 +92,8 @@
                         <outlet property="questionTextView" destination="eMh-qZ-oVL" id="EhV-VR-83h"/>
                         <outlet property="questionTitleLabel" destination="BXd-If-Fc9" id="stA-JT-ZAE"/>
                         <outlet property="rightStackView" destination="r8u-f5-mt7" id="7z9-QU-rJQ"/>
+                        <outlet property="timerLabel" destination="TO3-77-IW8" id="H9b-wa-h1z"/>
+                        <outlet property="timerSymbol" destination="DYe-D4-Wq0" id="7R7-Oz-VyD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -89,6 +102,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="timer" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
