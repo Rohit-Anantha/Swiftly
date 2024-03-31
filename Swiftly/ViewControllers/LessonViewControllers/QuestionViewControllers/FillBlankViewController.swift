@@ -9,7 +9,23 @@
 
 import UIKit
 
-class FillBlankViewController: UIViewController {
+enum FillTheBlankViewType {
+    case field, label
+}
+
+class FillBlankViewController: UIViewController, LessonElementViewController {
+    
+    var delegate: LessonViewController!
+    
+    var number: Int!
+    
+    func setup(data: any LessonElement, delegate: LessonViewController, counter: Int) {
+        guard let data = data as? FillTheBlankElement else { return }
+        question = data.question
+        self.delegate = delegate
+        self.number = counter
+    }
+    
     private var fields: [UITextField] = []
     
     private var step = CGFloat(0)
@@ -22,7 +38,8 @@ class FillBlankViewController: UIViewController {
     private var currY: CGFloat!
     
     
-
+    var question: [(FillTheBlankViewType, String)]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         maxWidth = view.frame.maxX - minWidth
@@ -31,28 +48,29 @@ class FillBlankViewController: UIViewController {
         
         step = CGFloat(50)
         
-        putView(text: "Swift is a", isLabel: true)
-        putView(isLabel: false)
-        putView(text: "language developed by Apple for", isLabel: true)
-        putView(isLabel: false)
-        putView(text: "development. It replaced Objective", isLabel: true)
-        putView(isLabel: false)
+        var answers: [String] = []
         
-        
-        let answers = ["programming", "iOS", "C"]
-        let action = UIAction { _ in
-            var wrongText = false
-            for i in 0..<self.fields.count {
-                guard let fieldText = self.fields[i].text else {
-                    wrongText = true
-                    break
-                }
-                if fieldText.lowercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) != answers[i].lowercased() {
-                    wrongText = true
-                    break
-                }
+        for i in question {
+            switch i.0 {
+            case .label:
+                putView(text: i.1, isLabel: true)
+            case .field:
+                putView(isLabel: false)
+                answers.append(i.1)
             }
-            print(wrongText ? "Incorrect" : "Correct")
+        }
+        
+        let action = UIAction { _ in
+            var result: [Bool] = []
+            for i in 0..<self.fields.count {
+                // Ignores leading and trailing whitespace and is case insensitive
+                guard let userAnswer = self.fields[i].text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).lowercased() else { return }
+                // Forces user to answer
+                guard !userAnswer.isEmpty else { return }
+                result.append(userAnswer == answers[i].lowercased())
+            }
+            print(result)
+            self.delegate.next(result: [])
         }
         
         let submit = UIButton(primaryAction: action)

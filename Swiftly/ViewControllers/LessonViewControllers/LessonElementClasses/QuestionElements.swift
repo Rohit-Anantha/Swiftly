@@ -21,10 +21,13 @@ class FillTheBlankElement : LessonElement {
     // Protocol Variables
     let type: LessonElementTypes
     
-    // MARK: - FTB Constructor
+    // Other Variables
+    var question: [(FillTheBlankViewType, String)]
     
-    init(type : LessonElementTypes){
+    // MARK: - FTB Constructor
+    init(type: LessonElementTypes, question: [(FillTheBlankViewType, String)]) {
         self.type = type
+        self.question = question
     }
 }
 

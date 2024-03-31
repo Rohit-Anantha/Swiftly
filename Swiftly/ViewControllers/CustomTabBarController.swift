@@ -49,6 +49,8 @@ class CustomTabBarController: UITabBarController {
         
         modalPresentationStyle = .fullScreen
         
+        // Sets home as initial screen
+        selectedIndex = 1
         
 
         // Do any additional setup after loading the view.
