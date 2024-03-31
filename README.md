@@ -23,6 +23,7 @@ Eder Martinez: (25%)
     3. I worked on an a specific element (fill in the blank) and have added constrants.
 
 Akin Bilen: (25%)
+
     1. I worked in creating the TabBar controller.
     2. I corrected the login, sign up pages as they were missing constraints.
     3. I created the screens for home page, leaderboard page, settings page.
