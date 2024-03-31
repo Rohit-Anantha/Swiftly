@@ -95,6 +95,7 @@
 		C9674BB82B8FE9EB00A50CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */; };
 		C9674BBA2B8FE9EB00A50CCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */; };
 		C9674BC12B8FE9ED00A50CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */; };
+		FC5AB0AC2BB5F2D400C6156A /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5AB0AB2BB5F23300C6156A /* LoadingViewController.swift */; };
 		FC70B8F62B94D2B000386D64 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70B8F52B94D2B000386D64 /* UserSettings.swift */; };
 		FCB300F42BA39EB9005433C7 /* FillBlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB300F32BA39EB9005433C7 /* FillBlankViewController.swift */; };
 		FCB300FA2BA548F4005433C7 /* RoadmapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB300F92BA548F4005433C7 /* RoadmapViewController.swift */; };
@@ -146,6 +147,7 @@
 		C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9674BC52B8FE9ED00A50CCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC5AB0AB2BB5F23300C6156A /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		FC70B8F52B94D2B000386D64 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		FCB300F32BA39EB9005433C7 /* FillBlankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillBlankViewController.swift; sourceTree = "<group>"; };
 		FCB300F92BA548F4005433C7 /* RoadmapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoadmapViewController.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				207F06812B9E581C0067778F /* SettingsViewController.swift */,
 				207DC7832BA115A50014C8A0 /* LoginViewController.swift */,
 				20FF62392BA201D700AFF6DD /* LeaderBoardViewController.swift */,
+				FC5AB0AB2BB5F23300C6156A /* LoadingViewController.swift */,
 				FCB300F92BA548F4005433C7 /* RoadmapViewController.swift */,
 				20C8D45B2BA7B8B7001AA5EF /* AccountViewController.swift */,
 				20C8D45D2BA7B8D6001AA5EF /* AppSettingsViewController.swift */,
@@ -541,6 +544,7 @@
 				99EC11C92B9F6A4A0023FEDE /* LectureViewController.swift in Sources */,
 				207DC7842BA115A50014C8A0 /* LoginViewController.swift in Sources */,
 				207F06802B9E57630067778F /* HomePageViewController.swift in Sources */,
+				FC5AB0AC2BB5F2D400C6156A /* LoadingViewController.swift in Sources */,
 				C9674BB82B8FE9EB00A50CCD /* AppDelegate.swift in Sources */,
 				99F45DF42B9D33A2000753C4 /* LessonElementViewController.swift in Sources */,
 				9951F6972BA350990004D597 /* QuestionElements.swift in Sources */,
