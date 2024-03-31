@@ -8,16 +8,11 @@
 import UIKit
 import FirebaseCore
 import FirebaseFirestore
-import FirebaseDatabaseInternal
-
-enum RoadmapError: Error {
-    case NetworkFailed
-    case TypeConversionFailure
-}
+import FirebaseAuth
 
 class RoadmapViewController: UIViewController {
     
-    let ref = Database.database().reference()
+    let db = Firestore.firestore()
     // Amount of lessons
     private var circleCount: Int!
     // Highest lesson for user
@@ -71,35 +66,23 @@ class RoadmapViewController: UIViewController {
         view.backgroundColor = .primaryTheme
         scroll = UIScrollView(frame: view.bounds)
         view.addSubview(scroll)
-        let useNetwork = false
-        if useNetwork {
-            Task {
-                do {
-                    // Get total lessons here
-                    let count = try await ref.child("lessonCount").getData()
-                    guard let data = count.value as? Int else {
-                        throw RoadmapError.TypeConversionFailure
-                    }
-                    circleCount = data
-                    
-                    // Get user currentLevel here
-                    let current = try await ref.child("currentLesson").getData()
-                    guard let currentData = current.value as? Int else {
-                        throw RoadmapError.TypeConversionFailure
-                    }
-                    currLesson = currentData
-                    
-                    DispatchQueue.main.async {
-                        self.addCircles()
-                    }
-                } catch {
-                    print(error.localizedDescription)
+        Task {
+            do {
+                // Get total lessons here
+                let metadata = try await db.collection("lessons").document("metadata").getDocument()
+                circleCount = metadata.data()!["count"] as? Int
+                
+                // Get user currentLevel here
+                let userID = Auth.auth().currentUser!.uid
+                let user = try await db.collection("users").document(userID).getDocument()
+                currLesson = user.data()!["currentLevel"] as? Int
+                
+                DispatchQueue.main.async {
+                    self.addCircles()
                 }
+            } catch {
+                print(error.localizedDescription)
             }
-        } else {
-            circleCount = 10
-            currLesson = 1
-            addCircles()
         }
     }
     
@@ -122,7 +105,6 @@ class RoadmapViewController: UIViewController {
             label.sizeToFit()
             label.translatesAutoresizingMaskIntoConstraints = false
             height += label.frame.height
-
             
             // Action for UIView
             let tapGestureRecognizer = CustomTapGestureRecognizer(target: self, action: #selector(viewTapped))
@@ -159,7 +141,6 @@ class RoadmapViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
         // can set without first being initialized
-        guard let scroll = scroll else { return }
         scroll.contentSize.width = size.width
         scroll.frame.size = size
     }

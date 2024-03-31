@@ -8,7 +8,6 @@
 import UIKit
 import FirebaseCore
 import FirebaseFirestore
-import FirebaseDatabaseInternal
 
 class LoadingSymbolView: UIView {
     private var count: Int!
@@ -21,7 +20,7 @@ class LoadingSymbolView: UIView {
         self.count = count
         self.innerCircleRadius = innerRadius
         self.circleRadius = radius
-        self.frame.size = CGSize(width: innerRadius + radius, height: innerRadius + radius)
+        self.frame.size = CGSize(width: (innerRadius + radius) * 2, height: (innerRadius + radius) * 2)
         self.color = color
         createCircles()
     }
@@ -63,15 +62,12 @@ class LoadingSymbolView: UIView {
 }
 
 class LoadingViewController: UIViewController {
-
+    private let db = Firestore.firestore()
     var lessonNumber: Int!
-    var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .primaryTheme
-//        ref = Database.database().reference()
-//
         let label = UILabel()
         label.text = "Loading Questions"
         label.font = UIFont.boldSystemFont(ofSize: CGFloat(20))
@@ -88,30 +84,18 @@ class LoadingViewController: UIViewController {
         loadingSymbol.center = view.center
         loadingSymbol.enableAnimations()
         view.addSubview(loadingSymbol)
-        DispatchQueue.global().async {
-            let useNetwork = false
+        Task {
             guard let vc = UIStoryboard(name: "Lesson", bundle: nil).instantiateViewController(identifier: "Lesson") as? LessonViewController else { return }
-            // Too show loading screen
-            usleep(2000000)
-            if useNetwork {
-                Task {
-                    do {
-                        let snapshot = try await self.ref.child("lessons/\(self.lessonNumber!)").getData()
-                        guard let data = snapshot.value as? String else {
-                            throw ValueError.invalidType
-                        }
-                        DispatchQueue.main.async {
-                            self.navigationController!.pushViewController(vc, animated: true)
-                        }
-                    } catch {
-                        DispatchQueue.main.async {
-                            self.navigationController!.popToRootViewController(animated: true)
-                        }
-                    }
-                }
-            } else {
+            usleep(2500000)
+            do {
+//                let snapshot = try await self.db.collection("lesson").document("\(lessonNumber!)").getDocument()
+//                guard let allLessons = snapshot.value as? String else { throw ValueError.invalidType }
                 DispatchQueue.main.async {
                     self.navigationController!.pushViewController(vc, animated: true)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.navigationController!.popToRootViewController(animated: true)
                 }
             }
         }

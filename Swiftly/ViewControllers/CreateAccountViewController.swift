@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 enum AuthenticationError: Error {
     case invalidEmail
@@ -98,6 +99,15 @@ class CreateAccountViewController: UIViewController {
                      Create Segue to home Page
                      }
                      */
+                    let db = Firestore.firestore()
+                    let newUserData = [
+                        "currentLevel": 0
+                    ]
+                    Task {
+                        do {
+                            try await db.collection("users").document(Auth.auth().currentUser!.uid).setData(newUserData)
+                        } catch { print("Error") }
+                    }
                     self.performSegue(withIdentifier: "AccountCreatedSegue", sender: nil)
                     
                 }
