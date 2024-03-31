@@ -41,6 +41,10 @@ class TestViewController: UIViewController, LessonElementViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if self.data.isTimed {
+            // Set the timer up
+        }
+        
         // Do any additional setup after loading the view.
         self.questionTitleLabel.text = "Question \(number!)"
         self.questionTextView.text = self.data.question

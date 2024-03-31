@@ -36,6 +36,7 @@ class LessonViewController: UIViewController {
                        lecture: "Swift is a cool programing language used for iOS development an other stuff. This first lesson is hardcoded in to the app and it's just used to test the app. In the future screens like this will actually teach things..."),
         // One Choice question type
         TestQuestionElement(type: .question(type: .oneChoice),
+                            isTimed: false,
                             question: "What is an \"if else\" statement called?",
                             answers: 
                                 ["Conditional Branching",
@@ -45,6 +46,7 @@ class LessonViewController: UIViewController {
                             correctAnswers: [1]),
         // True or False question type
         TestQuestionElement(type: .question(type: .trueOrFalse),
+                            isTimed: false,
                             question: "Is Swift an interpreted language?",
                             answers: [], // This is empty because the answers are obviously true or false (it's a true or false question)
                             correctAnswers: [0]),
@@ -54,6 +56,7 @@ class LessonViewController: UIViewController {
                           message: "Here, we may add more sub-lessons, a check-in, or similar."),
         // Multiple Choice question type
         TestQuestionElement(type: .question(type: .multipleChoice),
+                            isTimed: false,
                             question: "Which of these keywords belong to Swift?",
                             answers: ["elif",
                                         "while",
@@ -65,6 +68,7 @@ class LessonViewController: UIViewController {
 
         // Drag and Drop
         DragAndDropElement(type: .question(type: .dragAndDrop),
+                           isTimed: false,
                            question:
                                 ["//Calculate factorial\nfact = 10\n",//for
                                  " i in 1..< ",//fact
