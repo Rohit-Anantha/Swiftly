@@ -21,7 +21,8 @@ class ResultsViewController: UIViewController, LessonElementViewController {
     // Protocol Variables
     var delegate: LessonViewController!
     var number: Int!
-    
+    var timer = 0 // Results aren't times
+    var stopTimer = true
     
     // Storyboard Variables
     @IBOutlet weak var checkpointTitleLabel: UILabel!
@@ -59,13 +60,13 @@ class ResultsViewController: UIViewController, LessonElementViewController {
     // MARK: - Actions
     
     @IBAction func nextButton(_ sender: Any) {
-        self.delegate.next(result: [])
+        self.delegate.next(result: [], timer: -1)
     }
     
     
     // MARK: - Protocols
     
-    func setup(data: LessonElement, delegate: LessonViewController, counter: Int) {
+    func setup(data: LessonElement, delegate: LessonViewController, counter: Int, timer : Int) {
         self.delegate = delegate
         self.number = counter
         self.data = data as? ResultsElement

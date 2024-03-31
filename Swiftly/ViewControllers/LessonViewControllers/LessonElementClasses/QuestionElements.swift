@@ -20,30 +20,26 @@ class FillTheBlankElement : LessonElement {
     
     // Protocol Variables
     let type: LessonElementTypes
+    let isTimed : Bool
+    let timer : Int
     
     // Other Variables
-<<<<<<< HEAD
     var question: [(FillTheBlankViewType, String)]
     
-    // MARK: - FTB Constructor
-    init(type: LessonElementTypes, question: [(FillTheBlankViewType, String)]) {
-        self.type = type
-        self.question = question
-=======
-    let isTimed : Bool
     
     // MARK: - FTB Constructor
     
-    init(type : LessonElementTypes, isTimed : Bool){
+    init(type : LessonElementTypes, question: [(FillTheBlankViewType, String)], isTimed : Bool, timer : Int){
         self.type = type
         self.isTimed = isTimed
+        self.timer = timer
+        self.question = question
     }
     
     // MARK: - FTB Functions
     
     func getResults(_ results: [[Int]]) -> [[Int]] {
         return [[0]]
->>>>>>> d700cf2 (results)
     }
 }
 
@@ -57,6 +53,7 @@ class DragAndDropElement : LessonElement {
     
     // Other Variables
     let isTimed : Bool
+    let timer : Int
     var question : [String]
     var options : [String]
     var correctAnswers : [Int]
@@ -65,19 +62,15 @@ class DragAndDropElement : LessonElement {
     
     // MARK: - D&D Constructor
     
-    init(type : LessonElementTypes, isTimed : Bool, question : [String], options : [String], correctOptions : [Int], number : Int){
+
+    init(type : LessonElementTypes, isTimed : Bool, timer : Int, question : [String], options : [String], correctOptions : [Int], number : Int){
         self.type = type
         self.isTimed = isTimed
+        self.timer = timer
         self.question = question
         self.options = options
         self.correctAnswers = correctOptions
         self.numberAnswers = number
-    }
-    
-    // MARK: - D&D Functions
-    
-    func getResults(_ results: [[Int]]) -> [[Int]] {
-        return [[0]]
     }
 }
 
@@ -90,6 +83,7 @@ class TestQuestionElement : LessonElement {
     
     // Other Variables
     let isTimed : Bool
+    let timer : Int
     let question : String
     let answers : [String]
     let correctAnswers : [Int]
@@ -97,10 +91,11 @@ class TestQuestionElement : LessonElement {
     
     // MARK: - Tst Constructor
     
-    init(type : LessonElementTypes, isTimed : Bool, question : String, answers : [String], correctAnswers : [Int]){
+    init(type : LessonElementTypes, isTimed : Bool, timer : Int, question : String, answers : [String], correctAnswers : [Int]){
         
         self.type = type
         self.isTimed = isTimed
+        self.timer = timer
         self.question = question
         self.answers = answers
         self.correctAnswers = correctAnswers

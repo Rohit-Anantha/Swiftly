@@ -9,6 +9,7 @@ import UIKit
 
 class LectureViewController: UIViewController, LessonElementViewController {
     
+    
     // MARK: - Documentation
     
     /*
@@ -20,9 +21,10 @@ class LectureViewController: UIViewController, LessonElementViewController {
     // MARK: - Variables
     
     // Protocol Variables
-    
     var delegate: LessonViewController!
     var number: Int!
+    var timer = 0 // Lecture aren't times
+    var stopTimer = true
     
     // Storyboard Variables
     @IBOutlet weak var lectureTitleLabel: UILabel!
@@ -45,13 +47,13 @@ class LectureViewController: UIViewController, LessonElementViewController {
     // MARK: - Actions
     
     @IBAction func startButton(_ sender: Any) {
-        self.delegate.next(result: [])
+        self.delegate.next(result: [], timer: -1)
     }
     
     
     // MARK: - Protocols
     
-    func setup(data: LessonElement, delegate: LessonViewController, counter: Int) {
+    func setup(data: LessonElement, delegate: LessonViewController, counter: Int, timer : Int) {
         self.delegate = delegate
         self.number = counter
         self.data = data as? LectureElement

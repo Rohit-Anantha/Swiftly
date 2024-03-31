@@ -23,5 +23,7 @@ protocol LessonElement {
     
     // MARK: - Variables
     
-    var type : LessonElementTypes {get}
+    var type : LessonElementTypes { get }
+    var isTimed : Bool { get }
+    var timer : Int { get }
 }

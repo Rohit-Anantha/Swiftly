@@ -12,6 +12,7 @@ import SwiftUI
 
 class DragAndDropViewController: UIViewController, LessonElementViewController{
     
+    
     // MARK: - Documentation
     
     /*
@@ -31,6 +32,9 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
     // Protocol Variables
     var delegate: LessonViewController!
     var number: Int!
+    var timer = 0 //CHANGE
+    var stopTimer = false //CHANGE
+
     
     // Other Variables
     var data : DragAndDropElement!
@@ -60,12 +64,12 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
     
     func next(){
         self.hostingViewController.dismiss(animated: true)
-        self.delegate.next(result: [0])
+        self.delegate.next(result: [0], timer: self.timer)
     }
     
     // MARK: - Protocols
     
-    func setup(data: LessonElement, delegate: LessonViewController, counter: Int) {
+    func setup(data: LessonElement, delegate: LessonViewController, counter: Int, timer : Int) {
         self.delegate = delegate
         self.number = counter
         self.data = data as? DragAndDropElement

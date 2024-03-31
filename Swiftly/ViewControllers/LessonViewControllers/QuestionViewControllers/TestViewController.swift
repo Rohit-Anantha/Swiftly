@@ -23,12 +23,16 @@ class TestViewController: UIViewController, LessonElementViewController {
     // Protocol Variables
     var delegate: LessonViewController!
     var number: Int!
+    var timer = 0
+    var stopTimer = false
     
     // Storyboard variables
     @IBOutlet weak var questionTitleLabel: UILabel!
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var leftStackView: UIStackView!
     @IBOutlet weak var rightStackView: UIStackView!
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var timerSymbol: UIImageView!
     
     
     // Other variables
@@ -43,6 +47,26 @@ class TestViewController: UIViewController, LessonElementViewController {
 
         if self.data.isTimed {
             // Set the timer up
+            self.timerLabel.text = "\(self.timer)"
+            
+            // Add the task that will decrease the timer
+            let queue = DispatchQueue(label: "TimerQueue", qos: .default)
+            queue.async {
+                while !self.stopTimer && self.timer > 0{
+                    usleep(1000000)
+                    DispatchQueue.main.async{
+                        self.timer -= 1
+                        self.timerLabel.text = "\(self.timer)"
+                    }
+                }
+                if self.timer <= 0 {
+                    // User ran out of time, what do you do?
+                }
+            }
+            
+        } else {
+            self.timerLabel.isHidden = true
+            self.timerSymbol.isHidden = true
         }
         
         // Do any additional setup after loading the view.
@@ -103,13 +127,16 @@ class TestViewController: UIViewController, LessonElementViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.stopTimer = true
+    }
     
     // MARK: - Actions
     
     // Next lesson element
     @IBAction func nextButton(_ sender: Any) {
         if self.answers.count > 0 {
-            self.delegate.next(result: self.answers)
+            self.delegate.next(result: self.answers, timer: self.timer)
         }
     }
     
@@ -151,9 +178,10 @@ class TestViewController: UIViewController, LessonElementViewController {
     // MARK: - Protocol
     
     // Set up the variables from which this lesson element creates itself
-    func setup(data: LessonElement, delegate: LessonViewController, counter: Int) {
+    func setup(data: LessonElement, delegate: LessonViewController, counter: Int, timer : Int) {
         self.delegate = delegate
         self.number = counter
         self.data = data as? TestQuestionElement
+        self.timer = timer
     }
 }

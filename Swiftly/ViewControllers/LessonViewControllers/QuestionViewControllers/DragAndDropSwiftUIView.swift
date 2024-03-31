@@ -157,7 +157,7 @@ struct DragAndDropSwiftUIView: View {
 }
 
 var data = DragAndDropElement(
-    type: .question(type: .dragAndDrop), isTimed: false,
+    type: .question(type: .dragAndDrop), isTimed: false, timer: 100,
     question:  ["//Calculate factorial\nfact = 10\n",
                 "i in 1..<", "{\nfact ",
                 " i\nprint(\"fact is now \\(fact)\")}\n",

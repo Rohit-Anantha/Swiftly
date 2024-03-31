@@ -11,6 +11,7 @@ import UIKit
 
 class FillTheBlankViewController: UIViewController, LessonElementViewController {
     
+    
     // MARK: - Documentation
     
     /*
@@ -23,6 +24,8 @@ class FillTheBlankViewController: UIViewController, LessonElementViewController 
     // Protocol Variables
     var delegate: LessonViewController!
     var number: Int!
+    var timer = 0 //CHANGE
+    var stopTimer = false //CHANGE
     
     // Storyboard variables
     
@@ -45,7 +48,7 @@ class FillTheBlankViewController: UIViewController, LessonElementViewController 
     
     // MARK: - Protocols
     
-    func setup(data: LessonElement, delegate: LessonViewController, counter: Int) {
+    func setup(data: LessonElement, delegate: LessonViewController, counter: Int, timer : Int) {
         self.delegate = delegate
         self.number = counter
         self.data = data as? FillTheBlankElement
