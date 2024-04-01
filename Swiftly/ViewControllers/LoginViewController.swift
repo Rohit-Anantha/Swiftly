@@ -15,6 +15,7 @@ import FirebaseAuth
  */
 class LoginViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,5 +87,6 @@ class LoginViewController: UIViewController {
             print("An unexpected error occurred: \(error.localizedDescription)")
         }
     }
+    
     
 }

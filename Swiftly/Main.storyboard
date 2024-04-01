@@ -109,7 +109,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="nkg-Z5-dqL"/>
                     <connections>
-                        <segue destination="ws5-o8-u3h" kind="presentation" identifier="AccountCreatedSegue" modalPresentationStyle="fullScreen" id="q7r-yT-rHm"/>
+                        <segue destination="ws5-o8-u3h" kind="presentation" identifier="AccountCreatedSegue" animates="NO" modalPresentationStyle="fullScreen" id="q7r-yT-rHm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7Q-Iy-TFi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -267,17 +267,17 @@
                     <connections>
                         <outlet property="passwordField" destination="dwb-GH-QXs" id="z5Z-3P-v2B"/>
                         <outlet property="usernameField" destination="eas-HI-vFI" id="61E-OI-Vbw"/>
-                        <segue destination="ws5-o8-u3h" kind="presentation" identifier="LoggedInSegue" modalPresentationStyle="fullScreen" id="Nhq-Cl-RD9"/>
+                        <segue destination="ws5-o8-u3h" kind="presentation" identifier="LoggedInSegue" animates="NO" modalPresentationStyle="fullScreen" id="Nhq-Cl-RD9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YeZ-bX-Rc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1087.7862595419847" y="-800"/>
         </scene>
-        <!--SettingsVC-->
+        <!--Settings-->
         <scene sceneID="BoZ-jb-nUm">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" title="SettingsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RTw-VT-TFG" customClass="SettingsViewController" customModule="Swiftly" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" title="Settings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RTw-VT-TFG" customClass="SettingsViewController" customModule="Swiftly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PpK-Kn-Y5q">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -682,6 +682,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="TabBarViewController" automaticallyAdjustsScrollViewInsets="NO" id="ws5-o8-u3h" customClass="CustomTabBarController" customModule="Swiftly" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="kpA-HA-QKb"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vky-GB-I5y">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -977,8 +978,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Nhq-Cl-RD9"/>
-        <segue reference="YKR-ZN-bBo"/>
+        <segue reference="q7r-yT-rHm"/>
+        <segue reference="QEc-E3-OZg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="flame" catalog="system" width="106" height="128"/>
@@ -986,7 +987,7 @@
         <image name="medal.fill" catalog="system" width="121" height="128"/>
         <image name="swift" catalog="system" width="128" height="108"/>
         <namedColor name="AccentColor">
-            <color red="0.792156862745098" green="0.88627450980392153" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryTheme">
             <color red="0.41960784313725491" green="0.792156862745098" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
