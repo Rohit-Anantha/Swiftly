@@ -8,12 +8,17 @@
 
 import UIKit
 import SwiftUI
+import FirebaseFirestore
+
+
+private let db = Firestore.firestore()
 
 class CustomTabBarController: UITabBarController {
     
     private let homeVCID = "HomePageViewController"
     private let settingsVCID = "SettingsViewController"
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -32,7 +32,14 @@ class CreateAccountViewController: UIViewController {
     }
     
     
-    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if(segue.identifier == "AccountCreatedSegue"){
+//            if let destinationVC = segue.destination as? CustomTabBarController {
+//                destinationVC.userUid = Auth.auth().currentUser!.uid
+//            }
+//            
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +51,8 @@ class CreateAccountViewController: UIViewController {
     var userName: String = ""
     var password: String = ""
     var confirmPassword: String = ""
+    
+
     
     @IBAction func finishedEditing(_ sender: UITextField) {
         email = sender.text!
@@ -100,12 +109,12 @@ class CreateAccountViewController: UIViewController {
                      }
                      */
                     let db = Firestore.firestore()
-                    let newUserData = [
-                        "currentLevel": 0
-                    ]
+                    let newUserData = User(userName: self.userName, streakCount: 0, currentLevel: 0, totalScore: 0, chapterScores: [])
+                    
                     Task {
                         do {
-                            try await db.collection("users").document(Auth.auth().currentUser!.uid).setData(newUserData)
+                            try await db.collection("users").document(Auth.auth().currentUser!.uid).setData(from: newUserData)
+//                            currentUser = newUserData
                         } catch { print("Error") }
                     }
                     self.performSegue(withIdentifier: "AccountCreatedSegue", sender: nil)
@@ -127,6 +136,11 @@ class CreateAccountViewController: UIViewController {
             }
         }
         
+        
+
+
+        
+       
         /*
          // MARK: - Navigation
          

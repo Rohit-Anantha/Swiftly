@@ -24,6 +24,16 @@ enum QuestionType: Int, Codable {
 }
 
 
+struct User: Codable{
+    var userName: String
+    var streakCount: Int = 0
+    var currentLevel: Int = 0
+    var totalScore:Int = 0
+    var chapterScores:[Int]
+}
+
+
+
 
 struct Chapter: Codable{
     @DocumentID var id:String?
