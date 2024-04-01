@@ -20,6 +20,10 @@ struct DragAndDropSwiftUIView: View {
     @State var answers : [String]
     @State var options : [String]
     @State var buttonDisabled = [true, true, true, true, true, true, true, true, true, true, true]
+    @State var timer : Int
+    @State var isTimed : Bool
+    
+    let timerDecrease = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
@@ -27,10 +31,21 @@ struct DragAndDropSwiftUIView: View {
                 Text("Question 1")
                     .frame(alignment: .leading)
                 
-                Image(systemName: "timer")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                    .frame(alignment: .trailing)
+                if isTimed {
+                    Image(systemName: "timer")
+                        .imageScale(.large)
+                        .foregroundStyle(.tint)
+                        .frame(alignment: .trailing)
+                    
+                    Text("\(timer)")
+                        .onReceive(timerDecrease) { _ in
+                            if timer > 0 {
+                                timer -= 1
+                            } else {
+                                // Time ran out
+                            }
+                    }
+                }
             }
             
             Text(getText())
@@ -111,12 +126,8 @@ struct DragAndDropSwiftUIView: View {
                     .background(
                         RoundedRectangle(cornerRadius: 12)
                             .foregroundColor(Color(.secondarySystemFill)))
-                    
                 }
-
-                
             }
-            
             Button("Next", action: nextButton)
                 .labelStyle(.iconOnly)
         }
@@ -144,7 +155,7 @@ struct DragAndDropSwiftUIView: View {
                 results.append(data.options.firstIndex(of: answers[i])!)
             }
         }
-        delegate.next()
+        delegate.next(userAnswers: results, timer: timer)
     }
     
     func getText() -> String{
@@ -174,7 +185,6 @@ var emptyAnswers : [String] = ["1. __","2. __","3. __","4. __","5. __","6. __"]
         delegate: DragAndDropViewController(),
         data: data,
         answers: emptyAnswers,
-        options: data.options
-        
+        options: data.options, timer: 30, isTimed: false
     )
 }

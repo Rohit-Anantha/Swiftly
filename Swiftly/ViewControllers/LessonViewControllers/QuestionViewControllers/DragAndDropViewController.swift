@@ -32,8 +32,8 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
     // Protocol Variables
     var delegate: LessonViewController!
     var number: Int!
-    var timer = 0 //CHANGE
-    var stopTimer = false //CHANGE
+    var timer = 0
+    var stopTimer = false // This will not be used but we needed to conform to protocol
 
     
     // Other Variables
@@ -51,7 +51,7 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
             answerList.append("\(i). __")
         }
         
-        self.hostingViewController = UIHostingController(rootView: DragAndDropSwiftUIView(delegate: self, data: self.data, answers: answerList, options: self.data.options))
+        self.hostingViewController = UIHostingController(rootView: DragAndDropSwiftUIView(delegate: self, data: self.data, answers: answerList, options: self.data.options, timer: self.timer, isTimed: data.isTimed))
         self.hostingViewController.modalPresentationStyle = .fullScreen
         present(self.hostingViewController, animated: true)
     }
@@ -62,9 +62,9 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
     
     // MARK: - Functions
     
-    func next(){
+    func next(userAnswers : [Int], timer : Int){
         self.hostingViewController.dismiss(animated: true)
-        self.delegate.next(result: [0], timer: self.timer)
+        self.delegate.next(result: [0], timer: timer)
     }
     
     // MARK: - Protocols
@@ -73,5 +73,6 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
         self.delegate = delegate
         self.number = counter
         self.data = data as? DragAndDropElement
+        self.timer = timer
     }
 }

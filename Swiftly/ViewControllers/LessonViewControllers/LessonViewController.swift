@@ -95,7 +95,7 @@ class LessonViewController: UIViewController {
 
         // Drag and Drop
         DragAndDropElement(type: .question(type: .dragAndDrop),
-                           isTimed: false, timer: 0,
+                           isTimed: true, timer: 30,
                            question:
                                 ["//Calculate factorial\nfact = 10\n",//for
                                  " i in 1..< ",//fact
