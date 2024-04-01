@@ -10,11 +10,11 @@ import FirebaseCore
 import FirebaseFirestore
 
 class LoadingSymbolView: UIView {
-    private var count: Int!
-    private var innerCircleRadius: CGFloat!
-    private var circleRadius: CGFloat!
-    private var children: [UIView] = []
-    private var color: UIColor!
+    var count: Int!
+    var innerCircleRadius: CGFloat!
+    var circleRadius: CGFloat!
+    var children: [UIView] = []
+    var color: UIColor!
     
     func setValues(count: Int, innerRadius: CGFloat, radius: CGFloat, color: UIColor) {
         self.count = count
@@ -25,26 +25,35 @@ class LoadingSymbolView: UIView {
         createCircles()
     }
     
+    func setValues(count: Int, frame: CGRect, radius: CGFloat, color: UIColor) {
+        self.count = count
+        self.innerCircleRadius = frame.height / 2 - radius
+        self.circleRadius = radius
+        self.frame = frame
+        self.color = color
+        createCircles()
+    }
+    
     private func createCircles() {
         for i in 0..<count {
             let circle = UIView()
-            circle.frame.size = CGSize(width: circleRadius, height: circleRadius)
+            circle.frame.size = CGSize(width: circleRadius * 2, height: circleRadius * 2)
             circle.translatesAutoresizingMaskIntoConstraints = false
             circle.backgroundColor = color
-            circle.frame.origin = getCircleOrigin(circleNumber: i)
-            circle.layer.cornerRadius = circleRadius / 2
+            circle.center = getCircleCenter(circleNumber: i)
+            circle.layer.cornerRadius = circleRadius
             circle.alpha = 0.0
             addSubview(circle)
             children.append(circle)
         }
     }
     
-    private func getCircleOrigin(circleNumber i: Int) -> CGPoint {
-        let viewMidPoint = center
+    private func getCircleCenter(circleNumber i: Int) -> CGPoint {
         // Gets radian angle
         let angle = (Double(i * 2) / Double(count)) * CGFloat.pi
-        let x = innerCircleRadius * cos(angle) + viewMidPoint.x
-        let y = innerCircleRadius * sin(angle) + viewMidPoint.y
+        let x = innerCircleRadius * cos(angle) + (frame.width / CGFloat(2))
+        let y = innerCircleRadius * sin(angle) + (frame.width / CGFloat(2))
+        let point = CGPoint(x: x, y: y)
         return CGPoint(x: x, y: y)
     }
     
@@ -80,9 +89,10 @@ class LoadingViewController: UIViewController {
         tabBarController!.tabBar.isHidden = true
         
         let loadingSymbol = LoadingSymbolView()
-        loadingSymbol.setValues(count: 30, innerRadius: CGFloat(150), radius: CGFloat(20), color: .accent)
-        loadingSymbol.center = view.center
+        let newFrame = CGRect(origin: CGPoint(x: 0, y: view.center.y - view.frame.width / 2), size: CGSize(width: view.frame.width, height: view.frame.width))
+        loadingSymbol.setValues(count: 25, frame: newFrame, radius: CGFloat(20), color: .accent)
         loadingSymbol.enableAnimations()
+        
         view.addSubview(loadingSymbol)
         Task {
             guard let vc = UIStoryboard(name: "Lesson", bundle: nil).instantiateViewController(identifier: "Lesson") as? LessonViewController else { return }
