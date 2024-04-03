@@ -44,20 +44,25 @@ struct Chapter: Codable{
     
     var lessons: [Lesson]
     var questions: [Question]
-    var answers: [Int]
     
-    var pointsEarned:Int?
+    
+    init(){
+        title = ""
+        status = Completion.locked
+        lessons = []
+        questions = []
+    }
     
 }
 
 
 struct Lesson: Codable{
     
-    var titles: [String]
-    var content: [String]
+    var title: String
+    var content: String
     
-//    Key = LessonIndex, Value = Code Example
-    var examples: [Int : String]
+
+    var example: String?
     
 }
 
@@ -70,6 +75,6 @@ struct Question: Codable{
     var options: [String]
     
 //    Design Question
-    var answer:Int?
+    var answer:[Int]
     
 }
