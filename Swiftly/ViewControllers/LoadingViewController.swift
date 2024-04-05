@@ -92,14 +92,14 @@ class LoadingViewController: UIViewController {
         let newFrame = CGRect(origin: CGPoint(x: 0, y: view.center.y - view.frame.width / 2), size: CGSize(width: view.frame.width, height: view.frame.width))
         loadingSymbol.setValues(count: 25, frame: newFrame, radius: CGFloat(20), color: .accent)
         loadingSymbol.enableAnimations()
-        
         view.addSubview(loadingSymbol)
         Task {
             guard let vc = UIStoryboard(name: "Lesson", bundle: nil).instantiateViewController(identifier: "Lesson") as? LessonViewController else { return }
-            usleep(2500000)
             do {
-//                let snapshot = try await self.db.collection("lesson").document("\(lessonNumber!)").getDocument()
-//                guard let allLessons = snapshot.value as? String else { throw ValueError.invalidType }
+                let snapshot = try await self.db.collection("chapters").getDocuments().documents[0]
+                let chapter = try snapshot.data(as: Chapter.self)
+                vc.chapter = chapter
+                
                 DispatchQueue.main.async {
                     self.navigationController!.pushViewController(vc, animated: true)
                 }

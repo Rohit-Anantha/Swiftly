@@ -29,6 +29,8 @@ class LessonViewController: UIViewController {
      For now this variable will be hardcoded, in the future this variable should be assined a value obtained from
      firebase in the constructor through the constructor.
      */
+    var chapter: Chapter!
+    
     var data : [any LessonElement] = [
         // Lecture type
         LectureElement(type: .lecture(type: .lecture),
