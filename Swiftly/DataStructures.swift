@@ -44,9 +44,13 @@ struct Chapter: Codable{
     
     var lessons: [Lesson]
     var questions: [Question]
-//    var answers: [Int]
-    
-    var pointsEarned:Int?
+
+    init(){
+        title = ""
+        status = Completion.locked
+        lessons = []
+        questions = []
+    }
     
 }
 
