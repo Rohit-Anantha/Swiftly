@@ -30,6 +30,8 @@ struct User: Codable{
     var currentLevel: Int = 0
     var totalScore:Int = 0
     var chapterScores:[Int]
+    
+    var lastLogIn: TimeInterval
 }
 
 

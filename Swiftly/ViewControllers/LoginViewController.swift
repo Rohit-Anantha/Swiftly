@@ -29,7 +29,11 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+//        do{
+//            try Auth.auth().signOut()
+//        }catch{
+//            print(error)
+//        }
         Auth.auth().addStateDidChangeListener { auth, user in
             if(user != nil){
                 self.performSegue(withIdentifier: "LoggedInSegue", sender: nil)

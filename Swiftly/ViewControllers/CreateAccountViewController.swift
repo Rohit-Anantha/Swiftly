@@ -109,7 +109,7 @@ class CreateAccountViewController: UIViewController {
                      }
                      */
                     let db = Firestore.firestore()
-                    let newUserData = User(userName: self.userName, streakCount: 0, currentLevel: 0, totalScore: 0, chapterScores: [])
+                    let newUserData = User(userName: self.userName, streakCount: 1, currentLevel: 0, totalScore: 0, chapterScores: [], lastLogIn: Date().timeIntervalSince1970)
                     
                     Task {
                         do {
@@ -119,6 +119,8 @@ class CreateAccountViewController: UIViewController {
                     }
                     self.performSegue(withIdentifier: "AccountCreatedSegue", sender: nil)
                     
+                }else{
+                    print("error creating account: " + error!.localizedDescription)
                 }
                 
 

@@ -425,16 +425,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="flame" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2x6-gy-vSy">
-                                <rect key="frame" x="322" y="84.666666666666686" width="30" height="26"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2x6-gy-vSy">
+                                <rect key="frame" x="328.66666666666669" y="72" width="49" height="52"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="CYh-Yj-NJd"/>
+                                    <constraint firstAttribute="height" constant="45.329999999999998" id="Vtx-42-hXX"/>
+                                </constraints>
+                                <imageReference key="image" image="flame.fill" catalog="system" symbolScale="large"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6P-EB-QQr">
-                                <rect key="frame" x="309" y="88" width="12" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAa-pd-kYb">
                                 <rect key="frame" x="38.000000000000007" y="117" width="100.66666666666669" height="15.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -635,6 +634,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6P-EB-QQr">
+                                <rect key="frame" x="297" y="73" width="19" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xjS-In-ym7"/>
                         <color key="backgroundColor" name="PrimaryTheme"/>
@@ -982,12 +987,12 @@
         <segue reference="QEc-E3-OZg"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="flame" catalog="system" width="106" height="128"/>
+        <image name="flame.fill" catalog="system" width="106" height="128"/>
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="medal.fill" catalog="system" width="121" height="128"/>
         <image name="swift" catalog="system" width="128" height="108"/>
         <namedColor name="AccentColor">
-            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.792156862745098" green="0.88627450980392153" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryTheme">
             <color red="0.41960784313725491" green="0.792156862745098" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
