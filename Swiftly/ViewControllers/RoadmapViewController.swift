@@ -63,8 +63,15 @@ class RoadmapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Your progress"
+        if let font = UIFont(name: "Avenir-Book", size: 17) {
+                navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font]
+            }
+        if let font = UIFont(name: "Avenir-Book", size: 17) {
+                UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+            }
         view.backgroundColor = .primaryTheme
         scroll = UIScrollView(frame: view.bounds)
+        scroll.backgroundColor = .lightGray
         view.addSubview(scroll)
         Task {
             do {
@@ -98,12 +105,18 @@ class RoadmapViewController: UIViewController {
             dot.backgroundColor = i < currLesson ? .green : i > currLesson ? .red : .yellow
 //            dot.backgroundColor = .accent
             dot.translatesAutoresizingMaskIntoConstraints = false
+            dot.layer.shadowColor = UIColor.black.cgColor
+            dot.clipsToBounds = false
+            dot.layer.shadowOpacity = 0.5
+            dot.layer.shadowOffset = CGSizeMake(10, 10)
+            dot.layer.shadowRadius = 10
             
             // Initializes Label
             let label = UILabel()
             label.text = "Optionals"
             label.sizeToFit()
             label.translatesAutoresizingMaskIntoConstraints = false
+            label.font = UIFont(name:"Avenir-Book", size:17)
             height += label.frame.height
             
             // Action for UIView
@@ -126,10 +139,10 @@ class RoadmapViewController: UIViewController {
                 constraints.append(label.centerXAnchor.constraint(equalTo: dot.centerXAnchor))
             } else if i % 4 == 1 {
                 constraints.append(dot.leadingAnchor.constraint(equalTo: scroll.safeAreaLayoutGuide.leadingAnchor, constant: CGFloat(paddingTop)))
-                constraints.append(label.leadingAnchor.constraint(equalTo: dot.leadingAnchor))
+                constraints.append(label.centerXAnchor.constraint(equalTo: dot.centerXAnchor))
             } else {
                 constraints.append(dot.trailingAnchor.constraint(equalTo: scroll.safeAreaLayoutGuide.trailingAnchor, constant: CGFloat(-paddingTop)))
-                constraints.append(label.trailingAnchor.constraint(equalTo: dot.trailingAnchor))
+                constraints.append(label.centerXAnchor.constraint(equalTo: dot.centerXAnchor))
             }
             oldAnchor = dot.bottomAnchor
             scroll.addSubview(dot)

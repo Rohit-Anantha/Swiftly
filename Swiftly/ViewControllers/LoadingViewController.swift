@@ -79,7 +79,7 @@ class LoadingViewController: UIViewController {
         view.backgroundColor = .primaryTheme
         let label = UILabel()
         label.text = "Loading Questions"
-        label.font = UIFont.boldSystemFont(ofSize: CGFloat(20))
+        label.font = UIFont(name: "Avenir-Heavy", size: 25)
         label.sizeToFit()
         label.center = view.center
         view.addSubview(label)

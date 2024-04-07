@@ -52,10 +52,16 @@ extension UIColor {
 
 class LeaderBoardViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var leaderBoardTableView: UITableView!
-    var ds: [Person] = []
+    var ds: [User] = []{
+        didSet{
+            leaderBoardTableView.reloadData()
+            
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        ds.count
+        print("ds count " + String(ds.count))
+        return ds.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,8 +70,8 @@ class LeaderBoardViewController: UIViewController, UITableViewDataSource, UITabl
         let row = indexPath.row + 1
         var cell: CustomTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "GoldPlaceCell", for: indexPath)as? CustomTableViewCell)!
         
-        cell.nameLabel.text = ds[indexPath.row].name
-        cell.scoreLabel.text = String(ds[indexPath.row].score)
+        cell.nameLabel.text = ds[indexPath.row].userName
+        cell.scoreLabel.text = String(ds[indexPath.row].totalScore)
         switch (row) {
         case 1:
             cell.medalImage.tintColor = UIColor.goldColor

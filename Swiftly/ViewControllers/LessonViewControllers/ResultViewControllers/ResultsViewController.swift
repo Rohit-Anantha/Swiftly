@@ -26,7 +26,6 @@ class ResultsViewController: UIViewController, LessonElementViewController {
     
     // Storyboard Variables
     @IBOutlet weak var checkpointTitleLabel: UILabel!
-    @IBOutlet weak var checkpointTextView: UITextView!
     @IBOutlet weak var nextButton: UIButton!
     
     // Other Variabls
@@ -37,14 +36,26 @@ class ResultsViewController: UIViewController, LessonElementViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // Do any additional setup after loading the view.
+        let rtv = RoundedTextView()
+        view.addSubview(rtv)
+        rtv.constrain(width: 350, height: 500)
+        rtv.isHidden = false
+        
+        NSLayoutConstraint.activate([
+            // Center the RoundedTextView horizontally
+            rtv.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            // Set the distance between the top of the view and the top of the RoundedTextView to 100 points
+            rtv.topAnchor.constraint(equalTo: view.topAnchor, constant: 100)
+        ])
+        rtv.sizeToFit()
         // Do any additional setup after loading the view.
         switch self.data.type {
             case .results(type: .final):
                 self.nextButton.setTitle("Back to Roadmap", for: .normal)
             
             self.checkpointTitleLabel.text = "Your results are..."
-            self.checkpointTextView.text = "These screens have not been designed yet, in the future here the results (time and errors) will be shown"
+            rtv.text = "These screens have not been designed yet, in the future here the results (time and errors) will be shown"
             
             case .results(type: .intermediate):
                 self.nextButton.setTitle("Keep Going", for: .normal)

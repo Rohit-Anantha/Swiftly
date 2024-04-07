@@ -60,7 +60,7 @@ class TestViewController: UIViewController, LessonElementViewController {
                     }
                 }
                 if self.timer <= 0 {
-                    // User ran out of time, what do you do?
+                    // TODO: User ran out of time, what do you do?
                 }
             }
             
@@ -70,29 +70,41 @@ class TestViewController: UIViewController, LessonElementViewController {
         }
         
         // Do any additional setup after loading the view.
+        let rtv = RoundedTextView()
+        rtv.constrain(width: 300, height: 300)
+        view.addSubview(rtv)
+        rtv.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            // Center the RoundedTextView horizontally
+            rtv.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            // Set the distance between the top of the view and the top of the RoundedTextView to 100 points
+            rtv.topAnchor.constraint(equalTo: view.topAnchor, constant: 100)
+        ])
+        rtv.text = self.data.question
+        
         self.questionTitleLabel.text = "Question \(number!)"
-        self.questionTextView.text = self.data.question
+        // self.questionTextView.text = self.data.question
         
         // Handle stack views for different test types
         self.leftStackView.distribution = .fillEqually
         self.rightStackView.distribution = .fillEqually
+        self.leftStackView.spacing = 20
+        self.rightStackView.spacing = 20
         
         switch self.data.type {
         case .question(type: .trueOrFalse):
                 self.multipleChoice = false
 
                 // False button
-                let falseButton = UIButton()
+                let falseButton = RoundedButton()
                 falseButton.setTitle("False", for: .normal)
-                falseButton.backgroundColor = .red
                 falseButton.tag = 0
                 self.rightStackView.addArrangedSubview(falseButton)
                 falseButton.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
                 
                 // True button
-                let trueButton = UIButton()
+                let trueButton = RoundedButton()
                 trueButton.setTitle("True", for: .normal)
-                trueButton.backgroundColor = .red
                 trueButton.tag = 1
                 self.leftStackView.addArrangedSubview(trueButton)
                 trueButton.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
@@ -110,10 +122,8 @@ class TestViewController: UIViewController, LessonElementViewController {
             
             for i in 0..<self.data.answers.count{
                 
-                let button = UIButton()
+                let button = RoundedButton()
                 button.setTitle(self.data.answers[i], for: .normal)
-                button.backgroundColor = .red
-                button.titleLabel?.numberOfLines = 0
                 button.tag = i
                 
                 button.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
@@ -144,32 +154,39 @@ class TestViewController: UIViewController, LessonElementViewController {
     // later will need to have some kind of "deselected color", "selected color"
     func clearColors(){
         for button in self.leftStackView.subviews{
-            button.backgroundColor = .red
+            button.backgroundColor = UIColor(named: "offSelect")
         }
         for button in self.rightStackView.subviews{
-            button.backgroundColor = .red
+            button.backgroundColor = UIColor(named: "offSelect")
         }
     }
     
     // Action executed after user presses on a answer
     @objc func answerButton(sender: UIButton!) {
+        UIView.animate(withDuration: 0.15, animations: {
+                    sender.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+                }) { (_) in
+                    UIView.animate(withDuration: 0.1, animations: {
+                        sender.transform = .identity
+                    })
+                }
         if let buttonSender : UIButton = sender {
             // if a button is already selected, remove it from the list of answers and make it green
-            if buttonSender.backgroundColor == .green {
+            if buttonSender.backgroundColor == UIColor(named: "onSelect") {
                 self.answers.removeAll(where: {$0 == buttonSender.tag})
-                buttonSender.backgroundColor = .red
+                buttonSender.backgroundColor = UIColor(named: "offSelect")
             }
             // if this is a multiple choice question or we haven't selected an answer
             else if self.multipleChoice || self.answers.count == 0 {
                 self.answers.append(buttonSender.tag)
-                buttonSender.backgroundColor = .green
+                buttonSender.backgroundColor = UIColor(named: "onSelect")
             }
             // if we are in a single answer question and we've already got one selected
             // override the selection and choose the new one.
             else if !self.multipleChoice && self.answers.count == 1 {
                 clearColors()
                 self.answers = [buttonSender.tag]
-                buttonSender.backgroundColor = .green
+                buttonSender.backgroundColor = UIColor(named: "onSelect")
             }
             
         }
