@@ -28,7 +28,6 @@ class LectureViewController: UIViewController, LessonElementViewController {
     
     // Storyboard Variables
     @IBOutlet weak var lectureTitleLabel: UILabel!
-    @IBOutlet weak var lectureTitleTextView: UITextView!
     
     // Other Variables
     var data : LectureElement!
@@ -37,10 +36,23 @@ class LectureViewController: UIViewController, LessonElementViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // Do any additional setup after loading the view.
+        let rtv = RoundedTextView()
+        view.addSubview(rtv)
+        rtv.constrain(width: 350, height: 500)
+        rtv.isHidden = false
+        
+        NSLayoutConstraint.activate([
+            // Center the RoundedTextView horizontally
+            rtv.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            // Set the distance between the top of the view and the top of the RoundedTextView to 100 points
+            rtv.topAnchor.constraint(equalTo: view.topAnchor, constant: 100)
+        ])
+        rtv.text = self.data.lecture
+        rtv.sizeToFit()
         // Do any additional setup after loading the view.
         self.lectureTitleLabel.text = self.data.title
-        self.lectureTitleTextView.text = self.data.lecture
+
     }
     
     
