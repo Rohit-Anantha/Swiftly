@@ -90,7 +90,7 @@ class HomePageViewController: UIViewController {
         
         //        Create DB
         
-        addChapter2()
+        // addChapter2()
         
         
         
