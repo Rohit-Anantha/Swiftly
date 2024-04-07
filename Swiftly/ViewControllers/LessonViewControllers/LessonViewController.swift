@@ -112,10 +112,8 @@ class LessonViewController: UIViewController {
         // Fill in the Blank question type
         FillTheBlankElement(type: .question(type: .fillTheBlank),
                             question:
-                                [
-                                    (.label, "Optionals represent a type that may or may"),
-                                    (.field, "not"),
-                                    (.label, "exist")],
+                                "Optional variables in Swift are values that may or may not exist. This means that a variable of type 'Int?' may contain an Int or contain nil.".components(separatedBy: .whitespacesAndNewlines),
+                            answers: [1, 16, 23],
                             isTimed: false, timer: 0
                            ),
         //QuestionElement(...)
@@ -139,11 +137,8 @@ class LessonViewController: UIViewController {
         
         FillTheBlankElement(type: .question(type: .fillTheBlank),
                             question:
-                                [
-                                    (.label, "Optionals represent a type that may or may"),
-                                    (.field, "not"),
-                                    (.label, "exist")
-                                ],
+                                "Optional variables in Swift are values that may or may not exist. This means that a variable of type 'Int?' may contain an Int or contain nil.".components(separatedBy: .whitespacesAndNewlines),
+                            answers: [1, 16, 23],
                             isTimed: false, timer: 0
                            )
     ]
@@ -299,7 +294,7 @@ class LessonViewController: UIViewController {
             return UIStoryboard(name: "Test", bundle: nil).instantiateViewController(identifier: "Test") as! TestViewController
             
         case .question(type: .fillTheBlank):
-            return FillBlankViewController()
+            return FillTheBlankViewController()
             
         case .question(type: .dragAndDrop):
             return  UIStoryboard(name: "DragAndDrop", bundle: nil).instantiateViewController(identifier: "Drag And Drop") as! DragAndDropViewController

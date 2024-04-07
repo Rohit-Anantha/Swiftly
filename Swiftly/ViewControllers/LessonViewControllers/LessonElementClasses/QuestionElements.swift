@@ -24,16 +24,18 @@ class FillTheBlankElement : LessonElement {
     let timer : Int
     
     // Other Variables
-    var question: [(FillTheBlankViewType, String)]
+    var question: [String]
+    var answers: [Int]
     
     
     // MARK: - FTB Constructor
     
-    init(type : LessonElementTypes, question: [(FillTheBlankViewType, String)], isTimed : Bool, timer : Int){
+    init(type : LessonElementTypes, question: [String], answers: [Int], isTimed : Bool, timer : Int){
         self.type = type
         self.isTimed = isTimed
         self.timer = timer
         self.question = question
+        self.answers = answers
     }
     
     // MARK: - FTB Functions
