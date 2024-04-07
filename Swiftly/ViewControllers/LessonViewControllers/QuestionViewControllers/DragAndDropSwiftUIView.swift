@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: - Documentation
 
 /*
-SwiftUI VC for drag and drop. The actual Drag and Drop is implemented in the
+ SwiftUI VC for drag and drop. The actual Drag and Drop is implemented in the
  .draggable and .dropDestination. Needs redesigning so it looks nice and works better.
  */
 
@@ -23,14 +23,14 @@ struct DragAndDropSwiftUIView: View {
     @State var timer : Int
     @State var isTimed : Bool
     
+    
+    
     let timerDecrease = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    var body: some View {
-        VStack(alignment: .leading, spacing: 0){
-            HStack {
-                Text("Question 1")
-                    .frame(alignment: .leading)
-                
+    var body: some View{
+        VStack(alignment: .center, spacing: 30){
+            HStack{
+                Text("Question 1").frame(alignment: .leading)
                 if isTimed {
                     Image(systemName: "timer")
                         .imageScale(.large)
@@ -44,94 +44,94 @@ struct DragAndDropSwiftUIView: View {
                             } else {
                                 // Time ran out
                             }
-                    }
+                        }
                 }
             }
             
-            Text(getText())
-                .fixedSize(horizontal: false, vertical: true)
-                .multilineTextAlignment(.leading)
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(Color(.secondarySystemFill))
-                )
+            // Question Text
             
-            HStack {
-
-                VStack{
-                    Text("Answers")
-                    
-                    VStack (alignment: .center) {
-                        ForEach(0..<answers.count, id: \.self) { i in
-                            HStack {
-                                Button(action: { deleteButton(position: i) }) {
-                                    Image(systemName: "trash")
-                                        .imageScale(.large)
-                                        .foregroundStyle(.tint)
-                                        .frame(maxWidth: .infinity, alignment: .trailing)
-                                }
-                                .disabled(buttonDisabled[i])
-                                
-                                Text(answers[i])
-                                    .padding(12)
-                                    .frame(width: 80)
-                                    .background(Color(uiColor: .secondarySystemGroupedBackground))
-                                    .cornerRadius(8)
-                                    .shadow(radius: 1, x: 1, y: 1)
-                                    .draggable(answers[i])
-                                    .dropDestination(for: String.self) {droppedItems, location in
-                                        answers[i] = droppedItems.first!
-                                        for dropped in droppedItems {
-                                            for index in 0..<options.count {
-                                                if options[index] == dropped {
-                                                    options.remove(at: index)
-                                                    break
-                                                }
-                                            }
-                                        }
-                                        buttonDisabled[i] = false
-                                        //data.question = data.question.replacingOccurrences(of: "\(i+1). __", with: answers[i])
-                                        return true
-                                    }
-                            }
-                        }
-                    }.background(
-                        RoundedRectangle(cornerRadius: 12)
-                        .foregroundColor(Color(.secondarySystemFill)))
-                    
-                }
-                
-                VStack{
-                    
-                    Text("Options")
-                    
-                    Grid {
-                        ForEach(0..<3, id: \.self) { i in
-                            GridRow {
-                                ForEach(0...3, id: \.self) { j in
-                                    if i*3+j < options.count{
-                                        Text(options[i*3+j])
-                                            .padding(12)
-                                            .background(Color(uiColor: .secondarySystemGroupedBackground))
-                                            .cornerRadius(8)
-                                            .shadow(radius: 1, x: 1, y: 1)
-                                            .draggable(options[i*3+j])
-                                    }
-                                }
-                            }
-                        }
-                    }
+            VStack(alignment: .center, spacing: 10){
+                Text("Drop the Correct Answers Here")
+                    .padding()
+                    .font(.custom("Avenir-Heavy", size: 17))
                     .background(
                         RoundedRectangle(cornerRadius: 12)
                             .foregroundColor(Color(.secondarySystemFill)))
-                }
+                getText()
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .foregroundColor(Color(.secondarySystemFill)))
+                
             }
-            Button("Next", action: nextButton)
-                .labelStyle(.iconOnly)
+            
+            // drop locations
+            
+            VStack(alignment: .center, spacing: 10){
+                Text("Blank Spaces").font(.custom("Avenir-Heavy", size: 19))
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 8)], spacing: 8) {
+                    ForEach(0..<answers.count, id: \.self) { index in
+                        DropLocation(text: $answers[index], index: index, answers: $answers)
+                    }
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 12)
+                        .foregroundColor(Color(.secondarySystemFill)))
+            }
+            
+            // answer choices
+            VStack(alignment: .center, spacing: 10){
+                Text("Options").font(.custom("Avenir-Heavy", size: 19))
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 8)], spacing: 8) {
+                    ForEach(options, id: \.self) { option in
+                        Text(option)
+                            .padding(12)
+                            .background(Color(.secondarySystemGroupedBackground))
+                            .cornerRadius(8)
+                            .font(.custom("Avenir-Book", size: 17))
+                            .shadow(radius: 1, x: 1, y: 1)
+                            .draggable(option)
+                    }
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 12)
+                        .foregroundColor(Color(.secondarySystemFill)))
+                Button("Next", action: nextButton)
+                    .padding(10)
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .foregroundColor(Color("onSelect"))
+                            .shadow(color: Color.black.opacity(0.5), radius: 2, x: 5, y: 5)
+                    )
+                    .foregroundColor(Color("textColor"))
+                    .font(Font.custom("Avenir-Book", size: 17))
+                    .multilineTextAlignment(.center)
+            }
+            .padding()
         }
-        .padding()
+    }
+    
+    struct DropLocation: View {
+        @Binding var text: String
+        let index: Int
+        @Binding var answers: [String]
+        
+        var body: some View {
+            Text("\(text)")
+                .padding(12)
+                .background(Color("onSelect"))
+                .font(.custom("Avenir-Book", size: 17))
+                .cornerRadius(8)
+                .shadow(radius: 1, x: 1, y: 1)
+                .dropDestination(for: String.self){droppedItems,location in
+                    self.text = droppedItems.first!
+                    self.answers[index] = droppedItems.first!
+                    print(answers)
+                    return true
+                }
+        }
     }
     
     func deleteButton(position : Int){
@@ -158,26 +158,30 @@ struct DragAndDropSwiftUIView: View {
         delegate.next(userAnswers: results, timer: timer)
     }
     
-    func getText() -> String{
-        var q = data.question.first
-        for i in 0..<data.question.count-1 {
-            q! += answers[i] + data.question[i+1]
+    func getText() -> Text {
+        var text = Text("")
+        for i in 0..<data.question.count {
+            if i < answers.count {
+                text = text + Text(data.question[i]).font(.custom("Avenir-Book", size: 17)) + Text(answers[i]).font(.custom("Avenir-Heavy", size: 17))
+            } else {
+                text = text + Text(data.question[i]).font(.custom("Avenir-Book", size: 17))
+            }
         }
-        return q!
+        return text
     }
 }
 
 var data = DragAndDropElement(
     type: .question(type: .dragAndDrop), isTimed: false, timer: 100,
-    question:  ["//Calculate factorial\nfact = 10\n",
-                "i in 1..<", "{\nfact ",
-                " i\nprint(\"fact is now \\(fact)\")}\n",
-                "(\"Result is \\(fact)\")"],
-      options: ["for", "if", "while", "do", "then",
-                "10", "i", "fact", "main[1]"],
-    correctOptions: [0, 2, 3, 1, 3, 1], number: 6)
+    question:  ["var ", " = 0\n",
+                " number in 1...10 {\n",
+                " += number\n}\n",
+                "(\"The sum of numbers 1 to 10 is: \\(sum)\")"
+               ],
+    options: ["sum", "if", "for", "print"],
+    correctOptions: [0, 2, 0, 3], number: 4)
 
-var emptyAnswers : [String] = ["1. __","2. __","3. __","4. __","5. __","6. __"]
+var emptyAnswers : [String] = ["1. __","2. __","3. __","4. __"]
 
 
 #Preview {

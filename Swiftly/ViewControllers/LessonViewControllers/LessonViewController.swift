@@ -36,6 +36,17 @@ class LessonViewController: UIViewController {
         LectureElement(type: .lecture(type: .lecture),
                        title: "Introduction to Swift Programing language!",
                        lecture: "Swift is a cool programing language used for iOS development an other stuff. This first lesson is hardcoded in to the app and it's just used to test the app. In the future screens like this will actually teach things..."),
+        DragAndDropElement(type: .question(type: .dragAndDrop),
+                           isTimed: true, timer: 30,
+                           question:
+                            ["var ", " = 0\n",
+                                            " number in 1...10 {\n\t",
+                                                " += number\n}\n",
+                                            "(\"The sum of numbers 1 to 10 is: \\(sum)\")"
+                        ],
+                           options: ["sum", "if", "for", "print"],
+                           correctOptions: [0, 2, 0, 3],
+                          number: 4),
         // One Choice question type
         TestQuestionElement(type: .question(type: .oneChoice),
                             isTimed: true, timer: 100,
@@ -96,19 +107,7 @@ class LessonViewController: UIViewController {
                             correctAnswers: [1,2,4]),
 
         // Drag and Drop
-        DragAndDropElement(type: .question(type: .dragAndDrop),
-                           isTimed: true, timer: 30,
-                           question:
-                                ["//Calculate factorial\nfact = 10\n",//for
-                                 " i in 1..< ",//fact
-                                 " {\n\tfact ",//*=
-                                 " i\n\tprint(\"fact is now \\(fact)\")\n}\n",//print
-                                 "(\"Result is \\(",//fact
-                                 ")\")"],
-                           options: ["for", "do", "fact", "print", "nil",
-                                     "=", "+", "*=", "fact"],
-                           correctOptions: [0, 2, 7, 3, 8],
-                          number: 5),
+        
         // Fill in the Blank question type
         FillTheBlankElement(type: .question(type: .fillTheBlank),
                             question:
@@ -116,8 +115,7 @@ class LessonViewController: UIViewController {
                                     (.label, "Optionals represent a type that may or may"),
                                     (.field, "not"),
                                     (.label, "exist")],
-                            isTimed: false, timer: 0
-                           ),
+                            isTimed: false, timer: 0),
         //QuestionElement(...)
         // Results
         ResultsElement(type: .results(type: .final),
@@ -125,29 +123,6 @@ class LessonViewController: UIViewController {
                        message: "You did great! you're results are... A++",
                        results: ["a"])
     ]
-    
-    var optional_lesson : [any LessonElement] = [
-    
-        LectureElement(type: .lecture(type: .lecture), title: "What are Optionals?", lecture: "An optional in Swift is a type that represents a value that may or may not exist. It is denoted by adding a question mark (?) after the type declaration."),
-        
-        LectureElement(type: .lecture(type: .lecture), title: "Declaring Optionals", lecture: "To declare an optional, you simply append a question mark (?) to the type. For example: \nvar optionalInt: Int?\nvar optionalString: String?"),
-        
-        LectureElement(type: .lecture(type: .lecture), title: "Unwrapping Optionals", lecture: "To access the value inside an optional, you need to unwrap it. There are several ways to do this, including optional binding and forced unwrapping."),
-        
-        LectureElement(type: .lecture(type: .lecture), title: "Optional Binding", lecture: "Optional binding is a safe way to unwrap optionals. It uses if let or guard let syntax to conditionally unwrap the optional and assign its value to a constant or variable.if let unwrappedValue = optionalValue {\n// Value exists, use unwrappedValue here\n} else {\n// Value doesn't exist\n}"),
-        TestQuestionElement(type: .question(type: .oneChoice), isTimed: false, timer: -1, question: "What is an optional variable in Swift?", answers: ["A variable that cannot be changed after initialization", "A variable that can hold either a value or no value", "A variable that automatically adjusts its type based on assigned values", "A variable that requires explicit declaration of its type"], correctAnswers: [1]),
-        
-        FillTheBlankElement(type: .question(type: .fillTheBlank),
-                            question:
-                                [
-                                    (.label, "Optionals represent a type that may or may"),
-                                    (.field, "not"),
-                                    (.label, "exist")
-                                ],
-                            isTimed: false, timer: 0
-                           )
-    ]
-    
     
     // User's Answers
     var userAnswers : [[Int]] = []
@@ -176,11 +151,6 @@ class LessonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // changing this varible changes whether it's the debug lesson or not.
-        var debug = true
-        if !debug {
-            data = optional_lesson
-        }
-
         // Do any additional setup after loading the view.
         self.tabBarController?.tabBar.isHidden = true
 }
@@ -268,13 +238,14 @@ class LessonViewController: UIViewController {
         // Show the new element, I'm not sure how the parameters duration
         // and animations affect this
         self.transition(from: self.currentElement, to: next, duration: TimeInterval(1), animations: {})
-        
+
         // Remove the previous element from the view
         self.currentElement.view.removeFromSuperview()
         self.currentElement.removeFromParent()
         
         // Update this
         self.currentElement = next
+        print(view.subviews)
         
         counter+=1
     }

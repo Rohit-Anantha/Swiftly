@@ -48,7 +48,9 @@ class FillBlankViewController: UIViewController, LessonElementViewController {
     var question: [(FillTheBlankViewType, String)]!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        print(view.subviews)
         maxWidth = view.frame.maxX - minWidth
         currX = minWidth
         currY = CGFloat(100)
@@ -84,6 +86,7 @@ class FillBlankViewController: UIViewController, LessonElementViewController {
         submit.setTitle("Submit", for: .normal)
         submit.frame.size = CGSize(width: 50, height: 30)
         submit.center = view.center
+        print(view.subviews)
         view.addSubview(submit)
     }
     
