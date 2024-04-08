@@ -32,18 +32,18 @@ class FillTheBlankElement : QuestionElement {
     
     // Other Variables
     var question: [String]
-    var answers: [Int]
+    var index: [Int]
     
     
     // MARK: - FTB Constructor
     
-    init(type : LessonElementTypes, question: [String], answers: [Int], isTimed : Bool, timer : Int){
+    init(type : LessonElementTypes, question: [String], index: [Int], correctAnswers : [Int], isTimed : Bool, timer : Int){
         self.type = type
         self.isTimed = isTimed
         self.timer = timer
         self.question = question
-        self.answers = answers
-        self.correctAnswers = [] // Not used
+        self.correctAnswers = correctAnswers
+        self.index = index
     }
     
     // MARK: - FTB Functions

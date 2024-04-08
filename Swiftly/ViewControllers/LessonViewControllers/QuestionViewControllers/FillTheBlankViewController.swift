@@ -45,7 +45,7 @@ class FillTheBlankViewController: UIViewController, LessonElementViewController 
         backgroundView.backgroundColor = .lightGray
         backgroundView.layer.cornerRadius = 10
         view.addSubview(backgroundView)
-        addText(text: data.question, fieldIndexes: data.answers, parent: backgroundView)
+        addText(text: data.question, fieldIndexes: data.index, parent: backgroundView)
         
         let action = UIAction() { _ in
             let results = self.buttonAction()
@@ -84,7 +84,7 @@ class FillTheBlankViewController: UIViewController, LessonElementViewController 
         var results: [Bool] = []
         for i in 0..<fields.count {
             guard let text = fields[i].text else { return results }
-            let answer = data.question[data.answers[i]]
+            let answer = data.question[data.index[i]]
             guard !text.isEmpty else { return results }
             results.append(text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() == answer.trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
         }

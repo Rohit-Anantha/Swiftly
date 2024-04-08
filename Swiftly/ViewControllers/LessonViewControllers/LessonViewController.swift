@@ -209,7 +209,7 @@ class LessonViewController: UIViewController {
             //self.currentElement.viewWillDisappear(true)
             //self.currentElement.willMove(toParent: nil)
             //self.currentElement.dismiss(animated: false)
-            self.storeScore(score: self.calculateScore())
+            Task {await self.storeScore(score: self.calculateScore())}
             self.navigationController?.isNavigationBarHidden = false
             self.tabBarController?.tabBar.isHidden = false
             self.navigationController?.popToRootViewController(animated: true)
@@ -271,15 +271,25 @@ class LessonViewController: UIViewController {
         
         // Get User
         var userName = Auth.auth().currentUser!.uid
-        var currentUser : User = try await db.collection("users").document(userName).getDocument(as: User.self)
-
-        // Change user's stats
-        currentUser.currentLevel += 1
-        currentUser.totalScore += score
+        do {
+            var currentUser : User = try await db.collection("users").document(userName).getDocument(as: User.self)
+            
+            let dbUser = db.collection("users").document(Auth.auth().currentUser!.uid)
+            
+            // Change user's stats
+            currentUser.currentLevel += 1
+            currentUser.totalScore += score
+            
+            // Save user
+            try dbUser.setData(from: currentUser)
         
-        // Save user
-        
+            
+        } catch {
+            //Handle error
+            print("error")
+        }
     }
+    
     
     // Computes results for the whole lesson
     
