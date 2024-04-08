@@ -115,7 +115,8 @@ class LessonViewController: UIViewController {
         FillTheBlankElement(type: .question(type: .fillTheBlank),
                             question:
                                 "Optional variables in Swift are values that may or may not exist. This means that a variable of type 'Int?' may contain an Int or contain nil.".components(separatedBy: .whitespacesAndNewlines),
-                            answers: [1, 16, 23],
+                            index: [1, 16, 23],
+                            correctAnswers: [],
                             isTimed: false, timer: 0
                            ),
         //QuestionElement(...)
@@ -270,7 +271,7 @@ class LessonViewController: UIViewController {
     func storeScore(score : Double) async {
         
         // Get User
-        var userName = Auth.auth().currentUser!.uid
+        let userName = Auth.auth().currentUser!.uid
         do {
             var currentUser : User = try await db.collection("users").document(userName).getDocument(as: User.self)
             
@@ -300,7 +301,7 @@ class LessonViewController: UIViewController {
         
         // Indices
         var dataIndex = 0
-        var timedIndex = 0
+        var isFillInTheBlank = false
         
         for item in self.userAnswers {
             
@@ -309,33 +310,48 @@ class LessonViewController: UIViewController {
             
             ///     The Index for the questions in the 'data' variable
             var isQuestion = false
-            while !isQuestion {
+            while !isQuestion && dataIndex < self.data.count{
                 switch self.data[dataIndex].type {
+                case .question(type: .fillTheBlank):
+                        isQuestion = true
+                        isFillInTheBlank = true
                     case .question(type: _):
                         isQuestion = true
+                        isFillInTheBlank = false
                     default:
                         dataIndex+=1
                 }
             }
+            if dataIndex >= self.data.count { break }
             
             ///     Here we fetch the correct answers to compare them to the user's reuslts
             let correctAnswers = (self.data[dataIndex] as! QuestionElement).correctAnswers
             let wasTimed = (self.data[dataIndex] as! QuestionElement).isTimed
             
-            ///     Here we compute the score
-            for (response,target) in zip(item, correctAnswers) {
-                if response == target {
-                    questionScore += LessonViewController.pointsForCorrectAnswer
+            ///     Here we compute the part of the score that the user recieves for correct answers
+            if isFillInTheBlank {
+                for response in correctAnswers {
+                    if response == 1 {
+                        questionScore += LessonViewController.pointsForCorrectAnswer
+                    }
                 }
-            }
-            if wasTimed {
-                questionScore += Double(self.timerResults[timedIndex]) * LessonViewController.pointsForTimeRemaining
-                timedIndex += 1
+            } else {
+                for (response,target) in zip(item, correctAnswers) {
+                    if response == target {
+                        questionScore += LessonViewController.pointsForCorrectAnswer
+                    }
+                }
             }
             
             score += questionScore
             dataIndex += 1
         }
+        
+        ///     Here we add the part of the result the user get's for the time it took him to answer the timed questions
+        for time in self.timerResults {
+            score += Double(time) * LessonViewController.pointsForTimeRemaining
+        }
+        
         return score
     }
     
