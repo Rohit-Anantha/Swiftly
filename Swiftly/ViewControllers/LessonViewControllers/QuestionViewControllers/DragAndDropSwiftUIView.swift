@@ -30,7 +30,9 @@ struct DragAndDropSwiftUIView: View {
     var body: some View{
         VStack(alignment: .center, spacing: 30){
             HStack{
-                Text("Question 1").frame(alignment: .leading)
+                Text("Question 1")
+                    .frame(alignment: .leading)
+                    .font(.custom("Avenir-Heavy", size: 17))
                 if isTimed {
                     Image(systemName: "timer")
                         .imageScale(.large)
@@ -44,7 +46,7 @@ struct DragAndDropSwiftUIView: View {
                             } else {
                                 // Time ran out
                             }
-                        }
+                        }.font(.custom("Avenir-Heavy", size: 17))
                 }
             }
             

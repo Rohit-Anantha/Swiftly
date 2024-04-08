@@ -63,7 +63,7 @@ class RoadmapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Your progress"
-        if let font = UIFont(name: "Avenir-Book", size: 17) {
+        if let font = UIFont(name: "Avenir-Heavy", size: 17) {
                 navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font]
             }
         if let font = UIFont(name: "Avenir-Book", size: 17) {
@@ -103,13 +103,7 @@ class RoadmapViewController: UIViewController {
             let dot = UIView()
             dot.layer.cornerRadius = CGFloat(circleDiameter) / CGFloat(2)
             dot.backgroundColor = i < currLesson ? UIColor(named:"AccentColor") : i > currLesson ? UIColor(named:"paleBlueGrey") : UIColor(named: "paleYellow")
-//            dot.backgroundColor = .accent
             dot.translatesAutoresizingMaskIntoConstraints = false
-            //dot.layer.shadowColor = UIColor.black.cgColor
-            //dot.clipsToBounds = false
-            //dot.layer.shadowOpacity = 0.5
-            //dot.layer.shadowOffset = CGSizeMake(10, 10)
-            //dot.layer.shadowRadius = 10
             
             // Initializes Label
             let label = UILabel()

@@ -36,17 +36,7 @@ class LessonViewController: UIViewController {
         LectureElement(type: .lecture(type: .lecture),
                        title: "Introduction to Swift Programing language!",
                        lecture: "Swift is a cool programing language used for iOS development an other stuff. This first lesson is hardcoded in to the app and it's just used to test the app. In the future screens like this will actually teach things..."),
-        DragAndDropElement(type: .question(type: .dragAndDrop),
-                           isTimed: true, timer: 30,
-                           question:
-                            ["var ", " = 0\n",
-                                            " number in 1...10 {\n\t",
-                                                " += number\n}\n",
-                                            "(\"The sum of numbers 1 to 10 is: \\(sum)\")"
-                        ],
-                           options: ["sum", "if", "for", "print"],
-                           correctOptions: [0, 2, 0, 3],
-                          number: 4),
+        
         // One Choice question type
         TestQuestionElement(type: .question(type: .oneChoice),
                             isTimed: true, timer: 100,
@@ -107,6 +97,17 @@ class LessonViewController: UIViewController {
                             correctAnswers: [1,2,4]),
 
         // Drag and Drop
+        DragAndDropElement(type: .question(type: .dragAndDrop),
+                           isTimed: true, timer: 30,
+                           question:
+                            ["var ", " = 0\n",
+                                            " number in 1...10 {\n\t",
+                                                " += number\n}\n",
+                                            "(\"The sum of numbers 1 to 10 is: \\(sum)\")"
+                        ],
+                           options: ["sum", "if", "for", "print"],
+                           correctOptions: [0, 2, 0, 3],
+                          number: 4),
         
         // Fill in the Blank question type
         FillTheBlankElement(type: .question(type: .fillTheBlank),
