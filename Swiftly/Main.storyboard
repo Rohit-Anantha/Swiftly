@@ -72,7 +72,9 @@
                                 <rect key="frame" x="115" y="700" width="142.33333333333337" height="34.333333333333371"/>
                                 <color key="tintColor" systemColor="systemBackgroundColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Create Account"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Create Account">
+                                    <color key="baseBackgroundColor" name="AccentColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="tryCreateAccount:" destination="FuG-bR-rCQ" eventType="touchUpInside" id="NPj-SU-9Zy"/>
                                 </connections>
@@ -142,7 +144,7 @@
                                     <constraint firstItem="wfk-FV-87F" firstAttribute="centerX" secondItem="yUu-oe-BkE" secondAttribute="centerX" id="SgB-xX-Bkl"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsE-8K-W9v">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsE-8K-W9v" customClass="RoundedButton" customModule="Swiftly" customModuleProvider="target">
                                 <rect key="frame" x="125.66666666666669" y="560.66666666666663" width="142" height="37.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Reset Password">
@@ -169,12 +171,12 @@
                         <color key="tintColor" name="AccentColor"/>
                         <constraints>
                             <constraint firstItem="PsE-8K-W9v" firstAttribute="centerX" secondItem="snS-Ia-7fV" secondAttribute="centerX" id="5OO-So-mTp"/>
-                            <constraint firstItem="hLi-UE-tkK" firstAttribute="bottom" secondItem="PsE-8K-W9v" secondAttribute="bottom" constant="244" id="E5V-Lc-d5n"/>
                             <constraint firstItem="AAw-NL-IOw" firstAttribute="top" secondItem="hLi-UE-tkK" secondAttribute="top" constant="371" id="I1I-hJ-qLk"/>
-                            <constraint firstItem="hLi-UE-tkK" firstAttribute="bottom" secondItem="wfk-FV-87F" secondAttribute="bottom" constant="325" id="SGJ-1r-8gS"/>
                             <constraint firstItem="vPi-2B-3Uf" firstAttribute="centerX" secondItem="snS-Ia-7fV" secondAttribute="centerX" id="TOK-li-Ski"/>
                             <constraint firstItem="AAw-NL-IOw" firstAttribute="centerX" secondItem="snS-Ia-7fV" secondAttribute="centerX" id="U4D-wN-MWA"/>
+                            <constraint firstItem="wfk-FV-87F" firstAttribute="top" secondItem="AAw-NL-IOw" secondAttribute="bottom" constant="77.666666666666686" id="Zr4-3v-nZF"/>
                             <constraint firstItem="vPi-2B-3Uf" firstAttribute="centerX" secondItem="snS-Ia-7fV" secondAttribute="centerX" id="nMX-hf-3ky"/>
+                            <constraint firstItem="PsE-8K-W9v" firstAttribute="top" secondItem="wfk-FV-87F" secondAttribute="bottom" constant="43.666666666666515" id="pY2-Zt-lnO"/>
                             <constraint firstItem="vPi-2B-3Uf" firstAttribute="top" secondItem="hLi-UE-tkK" secondAttribute="top" constant="90.999999999999986" id="piw-4F-1yu"/>
                             <constraint firstItem="yUu-oe-BkE" firstAttribute="centerX" secondItem="snS-Ia-7fV" secondAttribute="centerX" id="wJv-Nh-e8E"/>
                         </constraints>
@@ -207,38 +209,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJ8-3k-6aJ" customClass="RoundedButton" customModule="Swiftly" customModuleProvider="target">
-                                <rect key="frame" x="163" y="627" width="67" height="41"/>
-                                <color key="tintColor" systemColor="systemBackgroundColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Login">
-                                    <fontDescription key="titleFontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                    <color key="baseBackgroundColor" name="AccentColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="loginButtonPressed:" destination="ns8-HB-34T" eventType="touchUpInside" id="9Fy-jE-yxW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75q-P5-MD5">
-                                <rect key="frame" x="125.33333333333333" y="774.66666666666663" width="142.33333333333337" height="37.333333333333371"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Create Account">
-                                    <fontDescription key="titleFontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="FuG-bR-rCQ" kind="presentation" modalPresentationStyle="fullScreen" id="6tj-YX-smC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVb-7i-NZw">
-                                <rect key="frame" x="117.00000000000001" y="704.66666666666663" width="159.33333333333337" height="37.333333333333371"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Forgot Password?">
-                                    <fontDescription key="titleFontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="EYd-Fm-7hT" kind="show" id="SRB-bO-6T6"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Db-zT-N8c">
                                 <rect key="frame" x="76" y="29.666666666666657" width="241" height="236.99999999999997"/>
                                 <constraints>
@@ -252,24 +222,61 @@
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="Elb-4u-4LT">
+                                <rect key="frame" x="117.00000000000001" y="617" width="159.33333333333337" height="180"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJ8-3k-6aJ" customClass="RoundedButton" customModule="Swiftly" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="159.33333333333334" height="37.333333333333336"/>
+                                        <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Login">
+                                            <fontDescription key="titleFontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                            <color key="baseBackgroundColor" name="AccentColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="ns8-HB-34T" eventType="touchUpInside" id="9Fy-jE-yxW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVb-7i-NZw" customClass="RoundedButton" customModule="Swiftly" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="71.333333333333371" width="159.33333333333334" height="37.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Forgot Password?">
+                                            <fontDescription key="titleFontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="EYd-Fm-7hT" kind="show" id="SRB-bO-6T6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75q-P5-MD5" customClass="RoundedButton" customModule="Swiftly" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="142.66666666666663" width="159.33333333333334" height="37.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Create Account">
+                                            <fontDescription key="titleFontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="FuG-bR-rCQ" kind="presentation" modalPresentationStyle="fullScreen" id="6tj-YX-smC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="EVb-7i-NZw" firstAttribute="width" secondItem="LJ8-3k-6aJ" secondAttribute="width" id="2BM-0E-Gyo"/>
+                                    <constraint firstItem="75q-P5-MD5" firstAttribute="width" secondItem="LJ8-3k-6aJ" secondAttribute="width" id="bVi-qT-jjT"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ETM-SV-iXo"/>
                         <color key="backgroundColor" name="PrimaryTheme"/>
                         <color key="tintColor" name="AccentColor"/>
                         <constraints>
-                            <constraint firstItem="EVb-7i-NZw" firstAttribute="centerX" secondItem="Uqe-18-Yl5" secondAttribute="centerX" id="9MP-je-Z6D"/>
-                            <constraint firstItem="ETM-SV-iXo" firstAttribute="bottom" secondItem="LJ8-3k-6aJ" secondAttribute="bottom" constant="184" id="A7J-i5-5l3"/>
                             <constraint firstItem="dwb-GH-QXs" firstAttribute="top" secondItem="eas-HI-vFI" secondAttribute="bottom" constant="25" id="CMz-i9-mF5"/>
                             <constraint firstItem="bzI-pG-HsJ" firstAttribute="top" secondItem="ETM-SV-iXo" secondAttribute="top" constant="312" id="Cir-Ac-tef"/>
+                            <constraint firstItem="ETM-SV-iXo" firstAttribute="bottom" secondItem="Elb-4u-4LT" secondAttribute="bottom" constant="55" id="Gdx-se-bHE"/>
                             <constraint firstItem="bzI-pG-HsJ" firstAttribute="centerX" secondItem="Uqe-18-Yl5" secondAttribute="centerX" id="RXg-Ba-Y5O"/>
                             <constraint firstItem="dwb-GH-QXs" firstAttribute="centerX" secondItem="ETM-SV-iXo" secondAttribute="centerX" id="WTj-BK-82P"/>
                             <constraint firstItem="eas-HI-vFI" firstAttribute="top" secondItem="bzI-pG-HsJ" secondAttribute="bottom" constant="40" id="Y0m-8a-nn2"/>
-                            <constraint firstItem="ETM-SV-iXo" firstAttribute="bottom" secondItem="EVb-7i-NZw" secondAttribute="bottom" constant="110" id="Ybd-8R-eoK"/>
                             <constraint firstItem="eas-HI-vFI" firstAttribute="centerX" secondItem="ETM-SV-iXo" secondAttribute="centerX" id="Zpv-fv-32M"/>
-                            <constraint firstItem="LJ8-3k-6aJ" firstAttribute="centerX" secondItem="ETM-SV-iXo" secondAttribute="centerX" id="aw4-gi-opW"/>
-                            <constraint firstItem="75q-P5-MD5" firstAttribute="centerX" secondItem="Uqe-18-Yl5" secondAttribute="centerX" id="dBS-Nz-trk"/>
-                            <constraint firstItem="ETM-SV-iXo" firstAttribute="bottom" secondItem="75q-P5-MD5" secondAttribute="bottom" constant="40" id="n4l-6d-V8l"/>
                             <constraint firstItem="6Db-zT-N8c" firstAttribute="centerX" secondItem="Uqe-18-Yl5" secondAttribute="centerX" id="psO-6f-gOA"/>
+                            <constraint firstItem="Elb-4u-4LT" firstAttribute="centerX" secondItem="Uqe-18-Yl5" secondAttribute="centerX" id="rRb-4y-Yuj"/>
                             <constraint firstItem="6Db-zT-N8c" firstAttribute="centerX" secondItem="Uqe-18-Yl5" secondAttribute="centerX" id="slc-wG-OE1"/>
                             <constraint firstItem="6Db-zT-N8c" firstAttribute="top" secondItem="ETM-SV-iXo" secondAttribute="top" constant="32.000000000000014" id="v4l-BH-sFi"/>
                         </constraints>
@@ -994,7 +1001,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="q7r-yT-rHm"/>
+        <segue reference="Nhq-Cl-RD9"/>
         <segue reference="YKR-ZN-bBo"/>
     </inferredMetricsTieBreakers>
     <resources>
