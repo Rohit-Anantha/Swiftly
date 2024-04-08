@@ -71,7 +71,7 @@ class RoadmapViewController: UIViewController {
             }
         view.backgroundColor = .primaryTheme
         scroll = UIScrollView(frame: view.bounds)
-        scroll.backgroundColor = .lightGray
+        scroll.backgroundColor = UIColor(named: "PrimaryTheme")
         view.addSubview(scroll)
         Task {
             do {
@@ -102,14 +102,14 @@ class RoadmapViewController: UIViewController {
             // Initializes Circle View
             let dot = UIView()
             dot.layer.cornerRadius = CGFloat(circleDiameter) / CGFloat(2)
-            dot.backgroundColor = i < currLesson ? .green : i > currLesson ? .red : .yellow
+            dot.backgroundColor = i < currLesson ? UIColor(named:"AccentColor") : i > currLesson ? UIColor(named:"paleBlueGrey") : UIColor(named: "paleYellow")
 //            dot.backgroundColor = .accent
             dot.translatesAutoresizingMaskIntoConstraints = false
-            dot.layer.shadowColor = UIColor.black.cgColor
-            dot.clipsToBounds = false
-            dot.layer.shadowOpacity = 0.5
-            dot.layer.shadowOffset = CGSizeMake(10, 10)
-            dot.layer.shadowRadius = 10
+            //dot.layer.shadowColor = UIColor.black.cgColor
+            //dot.clipsToBounds = false
+            //dot.layer.shadowOpacity = 0.5
+            //dot.layer.shadowOffset = CGSizeMake(10, 10)
+            //dot.layer.shadowRadius = 10
             
             // Initializes Label
             let label = UILabel()
