@@ -26,22 +26,15 @@ class CreateAccountViewController: UIViewController {
     
     
     
+    @IBOutlet weak var newPasswordField: RoundedTextField!
+    @IBOutlet weak var confirmPasswordField: RoundedTextField!
+    
     func isValidEmail(_ email: String) -> Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailPredicate.evaluate(with: email)
     }
-    
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if(segue.identifier == "AccountCreatedSegue"){
-//            if let destinationVC = segue.destination as? CustomTabBarController {
-//                destinationVC.userUid = Auth.auth().currentUser!.uid
-//            }
-//
-//        }
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +75,7 @@ class CreateAccountViewController: UIViewController {
                 throw AuthenticationError.invalidEmail
             }
             
-            guard password == confirmPassword else {
+            guard newPasswordField.text == confirmPasswordField.text else {
                 throw AuthenticationError.passwordsDoNotMatch
             }
             
@@ -114,6 +107,8 @@ class CreateAccountViewController: UIViewController {
             
             // Show alert with error message
             showAlert(errorMessage)
+            // stop creating the user
+            return
         } catch {
             // Handle any other unexpected errors
             print("An unexpected error occurred: \(error.localizedDescription)")
