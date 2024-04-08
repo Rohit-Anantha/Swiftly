@@ -47,9 +47,46 @@ class FillTheBlankViewController: UIViewController, LessonElementViewController 
         view.addSubview(backgroundView)
         addText(text: data.question, fieldIndexes: data.answers, parent: backgroundView)
         
-        let button = UIButton()
+        let action = UIAction() { _ in
+            let results = self.buttonAction()
+            if results.count == self.fields.count {
+//                results.map
+                
+                self.delegate.next(result: [], timer: self.timer)
+            }
+        }
         
+        let button = UIButton(primaryAction: action)
+        view.addSubview(button)
+        button.setTitle("Next", for: .normal)
+        button.backgroundColor = .accent
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        var constraints: [NSLayoutConstraint] = []
+        
+        constraints.append(button.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor))
+        constraints.append(button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor))
+        constraints.append(button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor))
+        
+        // Height
+        constraints.append(button.heightAnchor.constraint(equalToConstant: CGFloat(50)))
+        
+        button.setTitle("Next", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        NSLayoutConstraint.activate(constraints)
     }
+    
+    func buttonAction() -> [Bool] {
+        var results: [Bool] = []
+        for i in 0..<fields.count {
+            guard let text = fields[i].text else { return results }
+            let answer = data.question[data.answers[i]]
+            guard !text.isEmpty else { return results }
+            results.append(text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() == answer.trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
+        }
+        return results
+    }
+    
     
     func addText(text: [String], fieldIndexes: [Int], parent: UIView, padding: CGFloat = CGFloat(15), outsidePadding: CGFloat = CGFloat(40)) {
         let minWidth = outsidePadding

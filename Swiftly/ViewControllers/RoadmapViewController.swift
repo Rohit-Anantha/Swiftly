@@ -24,6 +24,8 @@ class RoadmapViewController: UIViewController {
     // UIScrollView object
     private var scroll: UIScrollView!
     
+    private var titles: [String] = []
+    
     private var height: CGFloat!
     
     // Custom class used only for giving UITapGestureRecognizer a property
@@ -76,8 +78,9 @@ class RoadmapViewController: UIViewController {
         Task {
             do {
                 // Get total lessons here
-                let metadata = try await db.collection("lessons").document("metadata").getDocument()
-                circleCount = metadata.data()!["count"] as? Int
+                let metadata = try await db.collection("chapters").document("metadata").getDocument()
+                titles = metadata.data()!["titles"] as! [String]
+                circleCount = titles.count
                 
                 // Get user currentLevel here
                 let userID = Auth.auth().currentUser!.uid
@@ -113,7 +116,7 @@ class RoadmapViewController: UIViewController {
             
             // Initializes Label
             let label = UILabel()
-            label.text = "Optionals"
+            label.text = titles[i]
             label.sizeToFit()
             label.translatesAutoresizingMaskIntoConstraints = false
             label.font = UIFont(name:"Avenir-Book", size:17)
