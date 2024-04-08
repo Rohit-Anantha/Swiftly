@@ -74,7 +74,7 @@ class LoginViewController: UIViewController {
                     
                     if let error = error as NSError? {
                         
-                        print("Login failed")
+                        self.showAlert("User does not exist!")
                         
                     }else{
                         self.performSegue(withIdentifier: "LoggedInSegue", sender: nil)
@@ -86,9 +86,41 @@ class LoginViewController: UIViewController {
              */
 
             
-        } catch {
-            // Handle any other unexpected errors
-            print("An unexpected error occurred: \(error.localizedDescription)")
+        } catch let error as AuthenticationError {
+            var errorMessage: String
+            
+            switch error {
+            case .invalidEmail:
+                errorMessage = "Invalid email address"
+            case .passwordsDoNotMatch:
+                errorMessage = "Passwords do not match"
+            case .passwordTooShort:
+                errorMessage = "Password is too short. It should be at least 8 characters long."
+            case .loginFailed:
+                errorMessage = "Login failed. Please try again later."
+            case .emptyUsername:
+                errorMessage = "Username cannot be empty."
+            }
+            
+            // Show alert with error message
+            showAlert(errorMessage)
+        }catch{
+            print(error)
+        }
+    }
+    
+    func showAlert(_ message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        // Get the top-most view controller
+        if var topController = UIApplication.shared.windows.first?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            
+            // Present the alert on the top-most view controller
+            topController.present(alertController, animated: true, completion: nil)
         }
     }
     

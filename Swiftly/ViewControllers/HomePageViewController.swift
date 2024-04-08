@@ -49,11 +49,13 @@ class HomePageViewController: UIViewController {
                 
                 let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
                 
-                if(currentUser.lastLogIn - Date().timeIntervalSince1970 > dayInSeconds){
+                if(currentUser.lastLogIn - Date().timeIntervalSince1970 > dayInSeconds * 2){
                     
                     currentUser.streakCount = 0
+                }else if(currentUser.lastLogIn - Date().timeIntervalSince1970 > dayInSeconds){
+                    currentUser.streakCount += 1
                 }
-                currentUser.streakCount = 1
+
                 
                 currentUser.lastLogIn = Date().timeIntervalSince1970
                 
