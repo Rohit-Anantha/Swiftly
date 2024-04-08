@@ -27,7 +27,13 @@ class HomePageViewController: UIViewController {
     var currentUser: User!
     override func viewWillAppear(_ animated: Bool){
         
-        
+        Task{
+            do {
+                currentUser = try await db.collection("users").document(Auth.auth().currentUser!.uid).getDocument(as: User.self)
+                // Update UI or perform further actions based on the retrieved data
+                userName.text = currentUser.userName
+            }
+        }
     }
     
     override func viewDidLoad() {

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 /*
  MARK: - Account
@@ -91,6 +92,29 @@ class AccountViewController: UIViewController {
         
     }
     @IBAction func changeUsernamePressed(_ sender: Any) {
+        let controller = UIAlertController(
+            title: "Change Username",
+            message: "What do you want your new username to be?",
+            preferredStyle: UIAlertController.Style.alert)
+        controller.addTextField{(textField) in
+            textField.placeholder = "New Username"
+        }
+        let attemptChange = UIAlertAction(title: "Change Username", style: .default){ (alertAction) in
+            let username = controller.textFields![0].text
+            let db = Firestore.firestore()
+            Task {
+                do {
+                    var currentUser = try await db.collection("users").document(Auth.auth().currentUser!.uid).getDocument(as: User.self)
+                    currentUser.userName = username!
+                    try db.collection("users").document(Auth.auth().currentUser!.uid).setData(from: currentUser)
+                } catch {
+                    print("Error occured when changing username!")
+                }
+            }
+            
+        }
+        controller.addAction(attemptChange)
+        present(controller, animated: false)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
