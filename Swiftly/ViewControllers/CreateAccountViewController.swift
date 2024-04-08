@@ -13,6 +13,8 @@ enum AuthenticationError: Error {
     case invalidEmail
     case passwordsDoNotMatch
     case passwordTooShort
+    case loginFailed
+    case emptyUsername
 }
 
 /*
@@ -37,7 +39,7 @@ class CreateAccountViewController: UIViewController {
 //            if let destinationVC = segue.destination as? CustomTabBarController {
 //                destinationVC.userUid = Auth.auth().currentUser!.uid
 //            }
-//            
+//
 //        }
 //    }
     
@@ -88,10 +90,30 @@ class CreateAccountViewController: UIViewController {
                 throw AuthenticationError.passwordTooShort
             }
             
+            guard userName != "" else{
+                throw AuthenticationError.emptyUsername
+            }
+            
             // Code to register the user if all validations pass
             
         } catch let error as AuthenticationError {
-            handleAuthenticationError(error)
+            var errorMessage: String
+            
+            switch error {
+            case .invalidEmail:
+                errorMessage = "Invalid email address"
+            case .passwordsDoNotMatch:
+                errorMessage = "Passwords do not match"
+            case .passwordTooShort:
+                errorMessage = "Password is too short. It should be at least 8 characters long."
+            case .loginFailed:
+                errorMessage = "Login failed. Please try again later."
+            case .emptyUsername:
+                errorMessage = "Username cannot be empty."
+            }
+            
+            // Show alert with error message
+            showAlert(errorMessage)
         } catch {
             // Handle any other unexpected errors
             print("An unexpected error occurred: \(error.localizedDescription)")
@@ -115,7 +137,9 @@ class CreateAccountViewController: UIViewController {
                         do {
                             try await db.collection("users").document(Auth.auth().currentUser!.uid).setData(from: newUserData)
 //                            currentUser = newUserData
-                        } catch { print("Error") }
+                        } catch {
+                            showAlert("Error occured when creating account!")
+                        }
                     }
                     self.performSegue(withIdentifier: "AccountCreatedSegue", sender: nil)
                     
@@ -135,6 +159,10 @@ class CreateAccountViewController: UIViewController {
                 print("Passwords do not match")
             case .passwordTooShort:
                 print("Password is too short")
+            case .loginFailed:
+                print("Here1")
+            case .emptyUsername:
+                print("Here2")
             }
         }
         
@@ -152,6 +180,21 @@ class CreateAccountViewController: UIViewController {
          // Pass the selected object to the new view controller.
          }
          */
+        
+        func showAlert(_ message: String) {
+            let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            // Get the top-most view controller
+            if var topController = UIApplication.shared.windows.first?.rootViewController {
+                while let presentedViewController = topController.presentedViewController {
+                    topController = presentedViewController
+                }
+                
+                // Present the alert on the top-most view controller
+                topController.present(alertController, animated: true, completion: nil)
+            }
+        }
         
     }
 }

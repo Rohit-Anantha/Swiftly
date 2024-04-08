@@ -38,7 +38,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D83-uT-fDh" customClass="RoundedTextField" customModule="Swiftly" customModuleProvider="target">
                                 <rect key="frame" x="96" y="537" width="200" height="34"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                                 <connections>
                                     <action selector="filledPassword:" destination="FuG-bR-rCQ" eventType="editingDidEnd" id="fZO-OQ-yWN"/>
                                 </connections>
@@ -46,7 +46,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ed1-El-Jm3" customClass="RoundedTextField" customModule="Swiftly" customModuleProvider="target">
                                 <rect key="frame" x="96" y="609" width="200" height="34"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                                 <connections>
                                     <action selector="filledConfirmPassword:" destination="FuG-bR-rCQ" eventType="editingDidEnd" id="1FA-13-wy4"/>
                                 </connections>
@@ -250,7 +250,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dwb-GH-QXs" customClass="RoundedTextField" customModule="Swiftly" customModuleProvider="target">
                                 <rect key="frame" x="153.33333333333334" y="445.33333333333331" width="86.666666666666657" height="34"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ETM-SV-iXo"/>
@@ -995,7 +995,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="q7r-yT-rHm"/>
-        <segue reference="QEc-E3-OZg"/>
+        <segue reference="YKR-ZN-bBo"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="flame.fill" catalog="system" width="106" height="128"/>
