@@ -122,10 +122,10 @@
             </objects>
             <point key="canvasLocation" x="2438.9312977099235" y="-800"/>
         </scene>
-        <!--View Controller-->
+        <!--Forgot Password View Controller-->
         <scene sceneID="fRu-0F-UP8">
             <objects>
-                <viewController id="EYd-Fm-7hT" sceneMemberID="viewController">
+                <viewController id="EYd-Fm-7hT" customClass="ForgotPasswordViewController" customModule="Swiftly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="snS-Ia-7fV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,7 +133,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="yUu-oe-BkE">
                                 <rect key="frame" x="96.666666666666686" y="483" width="200" height="34"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email / username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wfk-FV-87F">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wfk-FV-87F">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="wJT-R1-zlJ"/>
@@ -152,6 +152,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Reset Password">
                                     <fontDescription key="titleFontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="forgotPasswordPressed:" destination="EYd-Fm-7hT" eventType="touchUpInside" id="9tQ-eG-Fou"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vPi-2B-3Uf">
                                 <rect key="frame" x="76" y="88.666666666666686" width="241" height="237"/>
@@ -184,6 +187,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SUW-gl-rbt"/>
+                    <connections>
+                        <outlet property="emailBox" destination="wfk-FV-87F" id="kse-to-Sh2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUV-yR-ahH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -671,7 +677,7 @@
                             <constraint firstItem="rY6-jC-oRD" firstAttribute="leading" secondItem="UAU-AH-Uef" secondAttribute="trailing" constant="5" id="KqL-Bg-dMN"/>
                             <constraint firstItem="ezt-fX-LPG" firstAttribute="top" secondItem="GAa-pd-kYb" secondAttribute="bottom" constant="23" id="Mhd-Xg-A5F"/>
                             <constraint firstItem="GAa-pd-kYb" firstAttribute="top" secondItem="rY6-jC-oRD" secondAttribute="bottom" constant="8" symbolic="YES" id="NrV-SF-bDC"/>
-                            <constraint firstItem="H6P-EB-QQr" firstAttribute="leading" secondItem="rY6-jC-oRD" secondAttribute="trailing" constant="148" id="SVO-wS-o4H"/>
+                            <constraint firstItem="xjS-In-ym7" firstAttribute="trailing" secondItem="2x6-gy-vSy" secondAttribute="trailing" constant="26.666666666666686" id="PSu-s6-cuW"/>
                             <constraint firstItem="UAU-AH-Uef" firstAttribute="leading" secondItem="xjS-In-ym7" secondAttribute="leading" constant="38" id="UcZ-81-ziC"/>
                             <constraint firstItem="2x6-gy-vSy" firstAttribute="centerY" secondItem="rY6-jC-oRD" secondAttribute="centerY" id="XNH-aj-nIb"/>
                             <constraint firstItem="Nuy-34-eXJ" firstAttribute="top" secondItem="ezt-fX-LPG" secondAttribute="bottom" constant="51.333333333333343" id="cSH-7K-Q0P"/>
