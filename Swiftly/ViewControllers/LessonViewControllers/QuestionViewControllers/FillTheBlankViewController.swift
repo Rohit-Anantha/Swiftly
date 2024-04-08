@@ -50,9 +50,13 @@ class FillTheBlankViewController: UIViewController, LessonElementViewController 
         let action = UIAction() { _ in
             let results = self.buttonAction()
             if results.count == self.fields.count {
-//                results.map
-                
-                self.delegate.next(result: [], timer: self.timer)
+                // Guillermo, a '1' represents that the user is correct.
+                // A '0' represents that the user is incorrect.
+                var userCorrectAnswers: [Int] = []
+                for i in results {
+                    userCorrectAnswers.append(i ? 1 : 0)
+                }
+                self.delegate.next(result: userCorrectAnswers, timer: self.timer)
             }
         }
         
