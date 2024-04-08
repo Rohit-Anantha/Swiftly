@@ -46,8 +46,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "data"
             landmarkType = "24">
          </BreakpointContent>
@@ -302,9 +302,9 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
-            landmarkName = "start(_:)"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "next(result:timer:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -365,9 +365,9 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "start(_:)"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
+            landmarkName = "next(result:timer:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -381,9 +381,9 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
-            landmarkName = "start(_:)"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "next(result:timer:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -461,8 +461,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "LessonViewController"
             landmarkType = "3">
             <Locations>
@@ -509,8 +509,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
             landmarkName = "next(result:timer:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -14,7 +14,13 @@ import Foundation
  Note: Fill in the blank is not implemented
  */
 
-class FillTheBlankElement : LessonElement {
+protocol QuestionElement : LessonElement {
+    
+    var correctAnswers : [Int] { get }
+    
+}
+
+class FillTheBlankElement : QuestionElement {
     
     // MARK: - FTB Variables
     
@@ -22,6 +28,7 @@ class FillTheBlankElement : LessonElement {
     let type: LessonElementTypes
     let isTimed : Bool
     let timer : Int
+    let correctAnswers : [Int]
     
     // Other Variables
     var question: [String]
@@ -36,6 +43,7 @@ class FillTheBlankElement : LessonElement {
         self.timer = timer
         self.question = question
         self.answers = answers
+        self.correctAnswers = [] // Not used
     }
     
     // MARK: - FTB Functions
@@ -45,7 +53,7 @@ class FillTheBlankElement : LessonElement {
     }
 }
 
-class DragAndDropElement : LessonElement {
+class DragAndDropElement : QuestionElement {
     
     
     // MARK: - D&D Variables
@@ -58,7 +66,7 @@ class DragAndDropElement : LessonElement {
     let timer : Int
     var question : [String]
     var options : [String]
-    var correctAnswers : [Int]
+    let correctAnswers : [Int]
     var numberAnswers : Int
     
     
@@ -76,7 +84,7 @@ class DragAndDropElement : LessonElement {
     }
 }
 
-class TestQuestionElement : LessonElement {
+class TestQuestionElement : QuestionElement {
  
     // MARK: - Tst Variables
     

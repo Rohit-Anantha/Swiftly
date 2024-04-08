@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class LessonViewController: UIViewController {
     
@@ -145,6 +147,14 @@ class LessonViewController: UIViewController {
     var wasPreviousTimed  = false
     var timer = -1
     
+    // Scalars for calculating score, for now they are static:
+    // all lessons will have the same scoring scalars.
+    static let pointsForCorrectAnswer = 5.0
+    static let pointsForTimeRemaining = 0.1
+    
+    // Firestore for storing user's results
+    let db = Firestore.firestore()
+
     
     // MARK: - View Controller Events
     
@@ -199,6 +209,7 @@ class LessonViewController: UIViewController {
             //self.currentElement.viewWillDisappear(true)
             //self.currentElement.willMove(toParent: nil)
             //self.currentElement.dismiss(animated: false)
+            self.storeScore(score: self.calculateScore())
             self.navigationController?.isNavigationBarHidden = false
             self.tabBarController?.tabBar.isHidden = false
             self.navigationController?.popToRootViewController(animated: true)
@@ -252,6 +263,71 @@ class LessonViewController: UIViewController {
     
     
     // MARK: - Functions
+    
+    // Function for storing the user's results in Firestore after lesson ends. The results aren't computer before this
+    // function, they are computed with computeResults()
+    
+    func storeScore(score : Double) async {
+        
+        // Get User
+        var userName = Auth.auth().currentUser!.uid
+        var currentUser : User = try await db.collection("users").document(userName).getDocument(as: User.self)
+
+        // Change user's stats
+        currentUser.currentLevel += 1
+        currentUser.totalScore += score
+        
+        // Save user
+        
+    }
+    
+    // Computes results for the whole lesson
+    
+    func calculateScore() -> Double {
+        
+        // The user's score on this lesson
+        var score = 0.0
+        
+        // Indices
+        var dataIndex = 0
+        var timedIndex = 0
+        
+        for item in self.userAnswers {
+            
+            // Score on this question
+            var questionScore = 0.0
+            
+            ///     The Index for the questions in the 'data' variable
+            var isQuestion = false
+            while !isQuestion {
+                switch self.data[dataIndex].type {
+                    case .question(type: _):
+                        isQuestion = true
+                    default:
+                        dataIndex+=1
+                }
+            }
+            
+            ///     Here we fetch the correct answers to compare them to the user's reuslts
+            let correctAnswers = (self.data[dataIndex] as! QuestionElement).correctAnswers
+            let wasTimed = (self.data[dataIndex] as! QuestionElement).isTimed
+            
+            ///     Here we compute the score
+            for (response,target) in zip(item, correctAnswers) {
+                if response == target {
+                    questionScore += LessonViewController.pointsForCorrectAnswer
+                }
+            }
+            if wasTimed {
+                questionScore += Double(self.timerResults[timedIndex]) * LessonViewController.pointsForTimeRemaining
+                timedIndex += 1
+            }
+            
+            score += questionScore
+            dataIndex += 1
+        }
+        return score
+    }
     
     // Function used to create next lesson element using counter, data and dataType
     // Maybe I should catch if elementTypes is empty
