@@ -73,6 +73,7 @@ class LoadingSymbolView: UIView {
 class LoadingViewController: UIViewController {
     private let db = Firestore.firestore()
     var lessonNumber: Int!
+    var updateCircleCountDelegate: UpdateCircleCount!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,6 +100,7 @@ class LoadingViewController: UIViewController {
                 let snapshot = try await self.db.collection("chapters").getDocuments().documents[0]
                 let chapter = try snapshot.data(as: Chapter.self)
                 vc.chapter = chapter
+                vc.updateCircleCountDelegate = updateCircleCountDelegate
                 
                 DispatchQueue.main.async {
                     self.navigationController!.pushViewController(vc, animated: true)

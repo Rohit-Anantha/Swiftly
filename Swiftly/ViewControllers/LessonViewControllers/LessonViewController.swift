@@ -147,6 +147,7 @@ class LessonViewController: UIViewController {
     // Variables used to handle the question timers
     var wasPreviousTimed  = false
     var timer = -1
+    var updateCircleCountDelegate: UpdateCircleCount!
     
     // Scalars for calculating score, for now they are static:
     // all lessons will have the same scoring scalars.
@@ -283,6 +284,7 @@ class LessonViewController: UIViewController {
             
             // Save user
             try dbUser.setData(from: currentUser)
+            updateCircleCountDelegate.update(newCircle: currentUser.currentLevel)
         
             
         } catch {

@@ -10,7 +10,11 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 
-class RoadmapViewController: UIViewController {
+protocol UpdateCircleCount {
+    func update(newCircle: Int)
+}
+
+class RoadmapViewController: UIViewController, UpdateCircleCount {
     
     let db = Firestore.firestore()
     // Amount of lessons
@@ -28,6 +32,8 @@ class RoadmapViewController: UIViewController {
     
     private var height: CGFloat!
     
+    private var circles: [UIView] = []
+    
     // Custom class used only for giving UITapGestureRecognizer a property
     class CustomTapGestureRecognizer: UITapGestureRecognizer {
         var lessonNumber: Int = -1
@@ -37,6 +43,7 @@ class RoadmapViewController: UIViewController {
         // Gets the view controller from Lesson storyboard
         let loadingVC = LoadingViewController()
         loadingVC.lessonNumber = sender.lessonNumber
+        loadingVC.updateCircleCountDelegate = self
         // User has not unlocked these lessons
         if sender.lessonNumber > currLesson {
             let alert = UIAlertController(
@@ -75,6 +82,7 @@ class RoadmapViewController: UIViewController {
         scroll = UIScrollView(frame: view.bounds)
         scroll.backgroundColor = UIColor(named: "PrimaryTheme")
         view.addSubview(scroll)
+        let userID = Auth.auth().currentUser!.uid
         Task {
             do {
                 // Get total lessons here
@@ -83,7 +91,6 @@ class RoadmapViewController: UIViewController {
                 circleCount = titles.count
                 
                 // Get user currentLevel here
-                let userID = Auth.auth().currentUser!.uid
                 let user = try await db.collection("users").document(userID).getDocument()
                 currLesson = user.data()!["currentLevel"] as? Int
                 
@@ -96,6 +103,7 @@ class RoadmapViewController: UIViewController {
         }
     }
     
+    
     func addCircles() {
         height = CGFloat((circleDiameter + paddingTop) * circleCount)
         
@@ -104,6 +112,7 @@ class RoadmapViewController: UIViewController {
         for i in 0..<circleCount {
             // Initializes Circle View
             let dot = UIView()
+            circles.append(dot)
             dot.layer.cornerRadius = CGFloat(circleDiameter) / CGFloat(2)
             dot.backgroundColor = i < currLesson ? UIColor(named:"AccentColor") : i > currLesson ? UIColor(named:"paleBlueGrey") : UIColor(named: "paleYellow")
             dot.translatesAutoresizingMaskIntoConstraints = false
@@ -153,5 +162,13 @@ class RoadmapViewController: UIViewController {
         // can set without first being initialized
         scroll.contentSize.width = size.width
         scroll.frame.size = size
+    }
+    
+    func update(newCircle: Int) {
+        currLesson = newCircle
+        for i in 0..<circleCount {
+            let dot = circles[i]
+            dot.backgroundColor = i < currLesson ? UIColor(named:"AccentColor") : i > currLesson ? UIColor(named:"paleBlueGrey") : UIColor(named: "paleYellow")
+        }
     }
 }
