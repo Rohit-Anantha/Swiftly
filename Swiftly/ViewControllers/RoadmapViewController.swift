@@ -160,6 +160,8 @@ class RoadmapViewController: UIViewController, UpdateCircleCount {
     
     override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
         // can set without first being initialized
+        // for some reason viewWillTransition called before viewDidLoad
+        guard let scroll = scroll else { return }
         scroll.contentSize.width = size.width
         scroll.frame.size = size
     }

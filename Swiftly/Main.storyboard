@@ -884,7 +884,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="66" translatesAutoresizingMaskIntoConstraints="NO" id="42W-wb-Ccp">
-                                <rect key="frame" x="113.66666666666667" y="325.66666666666669" width="165.66666666666663" height="200.66666666666669"/>
+                                <rect key="frame" x="113.66666666666667" y="275.66666666666669" width="165.66666666666663" height="301.00000000000006"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVU-Yn-ZyB" customClass="RoundedButton" customModule="Swiftly" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="165.66666666666666" height="34.333333333333336"/>
@@ -906,8 +906,18 @@
                                             <action selector="changeUsernamePressed:" destination="ScF-w2-5Vm" eventType="touchUpInside" id="XY6-oP-8W4"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMu-GV-drr" customClass="RoundedButton" customModule="Swiftly" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="200.66666666666663" width="165.66666666666666" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Delete Account">
+                                            <color key="baseBackgroundColor" name="AccentColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="deleteAccountPressed:" destination="ScF-w2-5Vm" eventType="touchUpInside" id="lQf-D0-twV"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEw-VY-Gbt">
-                                        <rect key="frame" x="0.0" y="200.66666666666669" width="165.66666666666666" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="300.99999999999994" width="165.66666666666666" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -929,6 +939,7 @@
                     </view>
                     <connections>
                         <outlet property="textLabel" destination="XEw-VY-Gbt" id="LEI-wf-hW0"/>
+                        <segue destination="ns8-HB-34T" kind="presentation" identifier="DeleteAccountSegue" modalPresentationStyle="fullScreen" id="9gG-Nk-2Lt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JRK-bJ-3uN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -990,8 +1001,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="q7r-yT-rHm"/>
-        <segue reference="YKR-ZN-bBo"/>
+        <segue reference="Nhq-Cl-RD9"/>
+        <segue reference="9gG-Nk-2Lt"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="flame.fill" catalog="system" width="106" height="128"/>

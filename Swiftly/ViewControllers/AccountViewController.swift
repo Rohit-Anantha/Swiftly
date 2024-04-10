@@ -120,4 +120,34 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         
     }
+    
+    @IBAction func deleteAccountPressed(_ sender: Any) {
+        let alert = UIAlertController(
+            title: "Delete Account",
+            message: "Are you sure you want to delete your account? This will permanently erase your account. All your date will be lost. This action is irreversible.",
+            preferredStyle: .alert)
+        let ok = UIAlertAction(
+            title: "Delete",
+            style: .destructive) { _ in
+                // Erase data in firestore
+                let userID = Auth.auth().currentUser!.uid
+                let db = Firestore.firestore()
+                db.collection("users").document(userID).delete() { error in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        Auth.auth().currentUser!.delete() { _ in
+                            self.performSegue(withIdentifier: "DeleteAccountSegue", sender: nil)
+                        }
+                    }
+                }
+                
+            }
+        let cancel = UIAlertAction(
+            title: "Cancel",
+            style: .cancel)
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        present(alert, animated: false)
+    }
 }
