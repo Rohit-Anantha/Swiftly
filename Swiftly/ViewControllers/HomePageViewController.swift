@@ -243,6 +243,84 @@ class HomePageViewController: UIViewController {
         }
     }
     
+    func addChapter3(){
+        var ch = Chapter()
+        
+        ch.title = "Operators"
+        
+        var tmpLessons: [Lesson] = []
+        
+        tmpLessons.append(Lesson(title: "What are Operators?", content: "An operator is a special symbol or phrase that can be used to check, change, or combine values."))
+        
+        tmpLessons.append(Lesson(title: "Types of Operators", content: "Swift has unary, binary, and ternary operators that work similar to other langauges. Unary operators can come before a value, prefix, or after, postfix. Binary operators come between two values. In Swift, there is only 1 ternary operator. The following example uses all three types of operators.", example: "let absoluteValue = value >= 0 ? value : -value"))
+        
+        tmpLessons.append(Lesson(title: "Assignment operator", content: "The assignment operator, =, is an operator that initializes or updates some variable. Unlike some languages, the assignment operator in Swift does not return a value. Swift supports assigning a tuple of values to a tuple of variables.", example: "var index = 0\nindex += 1\nlet (x, y) = (32, 19)"))
+        
+        tmpLessons.append(Lesson(title: "Arithmetic Operators", content: "Swift supports addition, subtraction, multiplication, and division. You can add, subtract, multiply, and divide Ints or Doubles. Do note that diving Integers, called Integer Division, results in an Integer. The only arithmetic operator define for strings is addition which appends the second string.",
+                                 example: "let addition = 5 + 4 // 9\nlet subtraction = 5 - 4 // 1\nlet multiplication = 5 * 4 // 20\nlet division = 5 / 4 // 1"))
+        
+        tmpLessons.append(Lesson(title: "Remainder Operator", content: "The remainder operator, %, which is also known as the modulo operator in other languages returns the remainder when dividing.",
+                                 example: "let remainder = value % 2 // notice that remainder is 1 if value is odd and 0 is value is even"))
+        
+        tmpLessons.append(Lesson(title: "Unary Minus/Plus Operator", content: "The Unary Minus Operator is the character '-' prepended to value with no whitespace.The Unary Plus Operator is the character '+' prepended to a value with no whitespace. Note however that Unary Plus Operator only returns the value unchanged", example: "let negativeNumber = -5\nlet positiveNumber = -negativeNumber // 5\nlet stillNegativeNumber = +negativeNumber // -5"))
+        
+        tmpLessons.append(Lesson(title: "Compound Assignment Operators", content: "You can combine assignment with another operation, such as addition, subtraction, multiplication, or division. Instead of writing 'let x = x + y', you could write the shorter x += y. Note that Swift does not support pre and post increment operators.", example: "var index = 0\nindex += 1"))
+        
+        tmpLessons.append(Lesson(title: "Comparison Operators", content: "To compare if two values are equal or not equal, use == and !=. To compare if some value is less than or less than or equal some value, use < and <=. The same is true for comparing if a value is greater than or greater than or equal to, > and >=. The comparison operators return a Bool value making them useful for if else, or while loops. Swift supports identity operators === and !== that compares whether two object references refer to the same object instance.", example: "let max = a > b ? a : b"))
+        
+        tmpLessons.append(Lesson(title: "Ternary Operator", content: "The ternary operator is of the form 'question ? answer1 : answer2' where question is a Bool and answer1 is evaluated if true else answer2 is evaluated. The ternary operator is short for 'if question { answer1 } else { answer2 }", example: "let max = a > b ? a : b"))
+        
+        tmpLessons.append(Lesson(title: "Nil Coalescing Operator", content: "The nil coalescing operator (??) provides a default value when unwrapping an optional that is nil. Nil-coalesing operator is shorthand for 'a != nil ? a! : b'", example: "var name: String?\nlet greeting = \"Hello \" + name ?? \"unknown\""))
+        
+        tmpLessons.append(Lesson(title: "Range Operators", content: "Swift supports 3 types of range operators. The closed range operator, a...b, defines a range from 'a' to 'b' inclusive. The half-open range operator, a..<b defines a range from 'a' inclusive to 'b' exclusive. The one-sided range operator, a... or ...b, only defines a or b. This is used in arrays when you want to use only a subset.", example: "let numbers = [1, 2, 2, 34]\nlet newNumbers = numbers[..<2]\nprint(newNumbers) // this prints [1, 2]"))
+        
+        tmpLessons.append(Lesson(title: "Logical Operators", content: "Logical operators in Swift are logical NOT, !a, logical AND, a && b, and logical OR, a || b", example: "let isValidPassword = password.length >= 8 && password.length <= 12"))
+        
+        
+        ch.lessons = tmpLessons
+        
+        
+        var tmpQuestions: [Question] = []
+        
+        tmpQuestions.append(Question(type: .trueFalse, questionString: "Let someInt be an Int. The value of +someInt is the absolute value of someInt", options: ["True", "False"], answer: [1]))
+        
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Which arithmetic operator is not defined for string? Choose all that apply.", options: ["addition", "subtraction", "multiplication", "division"], answer: [1, 2, 3]))
+        
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the type of the first argument in the ternary conditional operator", options: ["Bool", "Int", "String", "Any"], answer: [1]))
+        
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the result of '34 / 10", options: ["4", "3", "0.4", "30"], answer: [1]))
+        
+        tmpQuestions.append(Question(type: .trueFalse, questionString: "5 / 2 in Swift is 2.5", options: ["True", "False"], answer: [1]))
+        
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the value of num in the following Swift code?\nlet index = -1\nlet num = -index", options: ["-1", "1", "0", "error"], answer: [1]))
+        
+        tmpQuestions.append(Question(type: .trueFalse, questionString: "Swift supports pre and post increment", options: ["True", "False"], answer: [1]))
+        
+        tmpQuestions.append(Question(type: .trueFalse, questionString: "x += 1 is the same as x = x + 1", options: ["True", "False"], answer: [0]))
+        
+        tmpQuestions.append(Question(type: .trueFalse, questionString: "In the ternary conditional operator, arg1 ? arg2 : arg3, both arg2 and arg3 are evaluated.", options: ["True", "False"], answer: [1]))
+        
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Which of the following produces a range from 3 inclusive to 8 exclusive", options: ["3...8", "8...3", "3..<8", "3..<9"], answer: [0, 3]))
+        
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What makes the following true?\nif 3 [] 3 {\n...\n}", options: ["<", ">", "==", "="], answer: [2]))
+        
+        tmpQuestions.append(Question(type: .trueFalse, questionString: "The assignment operator returns a value", options: ["True", "False"], answer: [1]))
+        
+        ch.questions = tmpQuestions
+        
+        
+        let collectionRef = db.collection("chapters")
+        do {
+//            let newDocReference = try collectionRef.addDocument(from: ch1)
+            let newDocReference = try collectionRef.document(ch.title).setData(from: ch)
+            print("Book stored with new document reference: \(newDocReference)")
+        }
+        catch {
+            print(error)
+        }
+    }
+
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
