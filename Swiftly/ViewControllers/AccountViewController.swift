@@ -87,7 +87,8 @@ class AccountViewController: UIViewController {
             
         }
         controller.addAction(login)
-        
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive)
+        controller.addAction(cancel)
         present(controller, animated: false)
         
     }
@@ -114,6 +115,8 @@ class AccountViewController: UIViewController {
             
         }
         controller.addAction(attemptChange)
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive)
+        controller.addAction(cancel)
         present(controller, animated: false)
     }
     override func viewDidLoad() {
