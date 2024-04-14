@@ -115,12 +115,12 @@
                     <connections>
                         <outlet property="confirmPasswordField" destination="ed1-El-Jm3" id="Fvw-7p-kFZ"/>
                         <outlet property="newPasswordField" destination="D83-uT-fDh" id="1tF-c4-A9W"/>
-                        <segue destination="ws5-o8-u3h" kind="presentation" identifier="AccountCreatedSegue" animates="NO" modalPresentationStyle="fullScreen" id="q7r-yT-rHm"/>
+                        <segue destination="3P4-gp-T3t" kind="presentation" identifier="AccountCreatedSegue" modalPresentationStyle="fullScreen" id="jj8-sC-nqI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7Q-Iy-TFi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2438.9312977099235" y="-800"/>
+            <point key="canvasLocation" x="3856" y="-1658"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="fRu-0F-UP8">
@@ -193,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUV-yR-ahH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1784" y="-1523"/>
+            <point key="canvasLocation" x="2439" y="-1632"/>
         </scene>
         <!--Login-->
         <scene sceneID="7f7-gu-F79">
@@ -293,7 +293,7 @@
                     <connections>
                         <outlet property="passwordField" destination="dwb-GH-QXs" id="z5Z-3P-v2B"/>
                         <outlet property="usernameField" destination="eas-HI-vFI" id="61E-OI-Vbw"/>
-                        <segue destination="ws5-o8-u3h" kind="presentation" identifier="LoggedInSegue" animates="NO" modalPresentationStyle="fullScreen" id="Nhq-Cl-RD9"/>
+                        <segue destination="3P4-gp-T3t" kind="presentation" identifier="LoggedInSegue" modalPresentationStyle="fullScreen" id="u0G-ZF-45h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YeZ-bX-Rc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1009,10 +1009,59 @@
             </objects>
             <point key="canvasLocation" x="-538.16793893129773" y="862.67605633802816"/>
         </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="nL7-9h-3np">
+            <objects>
+                <viewController id="3P4-gp-T3t" customClass="SplashViewController" customModule="Swiftly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uqJ-cR-v6P">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WhR-yO-gxL">
+                                <rect key="frame" x="76" y="243.66666666666697" width="241" height="237.00000000000011"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="241" id="Kj7-fU-7eY"/>
+                                    <constraint firstAttribute="height" constant="232" id="MiD-4d-9AW"/>
+                                </constraints>
+                                <imageReference key="image" image="swift" catalog="system" symbolScale="large"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swiftly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nee-56-zTt">
+                                <rect key="frame" x="157" y="543" width="79" height="34.333333333333371"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOF-1w-N7e">
+                                <rect key="frame" x="157" y="760" width="79" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oi7-Gg-x9k"/>
+                        <color key="backgroundColor" name="PrimaryTheme"/>
+                        <constraints>
+                            <constraint firstItem="WhR-yO-gxL" firstAttribute="centerY" secondItem="oi7-Gg-x9k" secondAttribute="centerY" id="7OA-o1-PqK"/>
+                            <constraint firstItem="Nee-56-zTt" firstAttribute="centerX" secondItem="uqJ-cR-v6P" secondAttribute="centerX" id="H63-L7-nCf"/>
+                            <constraint firstItem="oi7-Gg-x9k" firstAttribute="bottom" secondItem="lOF-1w-N7e" secondAttribute="bottom" constant="71" id="crb-NZ-KRW"/>
+                            <constraint firstItem="lOF-1w-N7e" firstAttribute="centerX" secondItem="uqJ-cR-v6P" secondAttribute="centerX" id="m3X-pS-vN7"/>
+                            <constraint firstItem="Nee-56-zTt" firstAttribute="top" secondItem="WhR-yO-gxL" secondAttribute="bottom" priority="2" constant="1" id="sTN-th-j4X"/>
+                            <constraint firstItem="WhR-yO-gxL" firstAttribute="centerX" secondItem="oi7-Gg-x9k" secondAttribute="centerX" id="vLo-0R-8kn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="ws5-o8-u3h" kind="presentation" identifier="DataLoadedSegue" modalPresentationStyle="fullScreen" id="DGx-Qw-azq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Qi-fV-PQf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2573" y="-818"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Nhq-Cl-RD9"/>
-        <segue reference="9gG-Nk-2Lt"/>
+        <segue reference="jj8-sC-nqI"/>
+        <segue reference="YKR-ZN-bBo"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="flame.fill" catalog="system" width="106" height="128"/>

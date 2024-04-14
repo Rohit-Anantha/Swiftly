@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		203949722BCB868400FF39B4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203949712BCB868400FF39B4 /* SplashViewController.swift */; };
 		207DC7842BA115A50014C8A0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207DC7832BA115A50014C8A0 /* LoginViewController.swift */; };
 		207F065F2B9D680F0067778F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 207F065E2B9D680F0067778F /* FirebaseAnalytics */; };
 		207F06612B9D680F0067778F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 207F06602B9D680F0067778F /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -101,6 +102,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		203949712BCB868400FF39B4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		207DC7832BA115A50014C8A0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		207F067C2B9D705D0067778F /* Swiftly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swiftly.entitlements; sourceTree = "<group>"; };
 		207F067D2B9D725A0067778F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				FCB300F92BA548F4005433C7 /* RoadmapViewController.swift */,
 				20C8D45B2BA7B8B7001AA5EF /* AccountViewController.swift */,
 				20C8D45D2BA7B8D6001AA5EF /* AppSettingsViewController.swift */,
+				203949712BCB868400FF39B4 /* SplashViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				9951F6972BA350990004D597 /* QuestionElements.swift in Sources */,
 				20C8D45C2BA7B8B7001AA5EF /* AccountViewController.swift in Sources */,
 				207F06822B9E581C0067778F /* SettingsViewController.swift in Sources */,
+				203949722BCB868400FF39B4 /* SplashViewController.swift in Sources */,
 				9951F6762BA258E90004D597 /* TestViewController.swift in Sources */,
 				993B11382BA4A97500546802 /* DragAndDropSwiftUIView.swift in Sources */,
 				C9674BBA2B8FE9EB00A50CCD /* SceneDelegate.swift in Sources */,

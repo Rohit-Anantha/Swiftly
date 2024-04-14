@@ -24,17 +24,7 @@ class HomePageViewController: UIViewController {
     private let db = Firestore.firestore()
     
     
-    var currentUser: User!
-    override func viewWillAppear(_ animated: Bool){
-        
-        Task{
-            do {
-                currentUser = try await db.collection("users").document(Auth.auth().currentUser!.uid).getDocument(as: User.self)
-                // Update UI or perform further actions based on the retrieved data
-                userName.text = currentUser.userName
-            }
-        }
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,53 +36,39 @@ class HomePageViewController: UIViewController {
         email.text = Auth.auth().currentUser?.email
         let dayInSeconds: TimeInterval = TimeInterval(60 * 60 * 24)
         
-        Task{
-            do {
-                currentUser = try await db.collection("users").document(Auth.auth().currentUser!.uid).getDocument(as: User.self)
-                // Update UI or perform further actions based on the retrieved data
-                userName.text = currentUser.userName
-                
-                
-                let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
-                
-                if(currentUser.lastLogIn - Date().timeIntervalSince1970 > dayInSeconds * 2){
-                    
-                    currentUser.streakCount = 0
-                }else if(currentUser.lastLogIn - Date().timeIntervalSince1970 > dayInSeconds){
-                    currentUser.streakCount += 1
-                }
-
-                
-                currentUser.lastLogIn = Date().timeIntervalSince1970
-                
-                do {
-                    try userRef.setData(from: currentUser)
-                }
-                catch {
-                    print(error)
-                }
-                
-                streakCount.text = String(currentUser.streakCount)
-                
-                
-                if(currentUser.streakCount < 3){
-                    streakLabel.tintColor = .yellow
-                    
-                }else if(currentUser.streakCount > 3){
-                    streakLabel.tintColor = .orange
-                }
-                
-                
-                
-                
-                
-                
-            } catch {
-                print("Error fetching user data: \(error)")
-                // Handle the error appropriately, e.g., display an alert to the user
-            }
+        
+        userName.text = currentUser.userName
+        
+        let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        
+        if(currentUser.lastLogIn - Date().timeIntervalSince1970 > dayInSeconds * 2){
             
+            currentUser.streakCount = 0
+        }else if(currentUser.lastLogIn - Date().timeIntervalSince1970 > dayInSeconds){
+            currentUser.streakCount += 1
         }
+
+        
+        currentUser.lastLogIn = Date().timeIntervalSince1970
+        
+        do {
+            try userRef.setData(from: currentUser)
+        }
+        catch {
+            print(error)
+        }
+        
+        
+        streakCount.text = String(currentUser.streakCount)
+        
+        
+        if(currentUser.streakCount < 3){
+            streakLabel.tintColor = .yellow
+            
+        }else if(currentUser.streakCount > 3){
+            streakLabel.tintColor = .orange
+        }
+        
         
         
         
