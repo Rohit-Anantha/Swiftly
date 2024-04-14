@@ -11,6 +11,9 @@ import FirebaseFirestore
 
 var currentUser: User!
 
+//MARK: SplashViewController
+//This VC is to load data before loading the app features, any additional data pull can be done here
+//currentUser variable is initiated here!
 class SplashViewController: UIViewController {
 
     private let db = Firestore.firestore()
