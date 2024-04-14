@@ -22,22 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         
-        if Auth.auth().currentUser != nil {
-            // User is already logged in, perform the segue to the home screen
-            showHomeScreen()
+        print("Loading theme " + (getSavedTheme()?.rawValue.description ?? "nil"))
         
+        // Retrieve the saved theme from UserDefaults
+        if let savedThemeRawValue = UserDefaults.standard.value(forKey: "swiftly_theme") as? Int,
+           
+
+           let savedTheme = UIUserInterfaceStyle(rawValue: savedThemeRawValue) {
+            print("Setting to user saved theme")
+            setTheme(savedTheme)
+        } else {
+            // If there is no saved theme or it's invalid, default to dark mode
+            print("Setting to default theme")
+            setTheme(.dark)
         }
 
-        
-        Task {
-          let center = UNUserNotificationCenter.current()
-          try await center.requestAuthorization(options: [.badge, .sound, .alert])
-
-          // 3
-          await MainActor.run {
-            application.registerForRemoteNotifications()
-          }
-        }
         
         return true
     }
@@ -65,7 +64,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = homeViewController
         window?.makeKeyAndVisible()
     }
-
+    
+    func setTheme(_ theme: UIUserInterfaceStyle) {
+        if #available(iOS 13.0, *) {
+            print("Changed theme: " + theme.rawValue.description)
+            UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = theme
+            
+            // Save the selected theme to user defaults
+            UserDefaults.standard.set(theme.rawValue, forKey: "swiftly_theme")
+            
+        } else {
+            // Fallback on earlier versions
+            print("IOS version is lower than 13 and can't override theme")
+        }
+    }
+    
+    func getSavedTheme() -> UIUserInterfaceStyle? {
+        if let savedTheme = UserDefaults.standard.value(forKey: "swiftly_theme") as? Int {
+            return UIUserInterfaceStyle(rawValue: savedTheme)
+        }
+        return nil
+    }
 
 
 }

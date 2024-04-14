@@ -21,7 +21,7 @@ class AccountViewController: UIViewController {
     
     @IBOutlet weak var textLabel: UILabel!
     override func viewWillAppear(_ animated: Bool) {
-        view.backgroundColor = UIColor.white
+//        view.backgroundColor = UIColor.white
         self.tabBarController?.tabBar.isHidden = true
     }
     
