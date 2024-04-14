@@ -468,21 +468,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezt-fX-LPG" customClass="RoundedButton" customModule="Swiftly" customModuleProvider="target">
-                                <rect key="frame" x="136" y="160.66666666666666" width="121" height="35"/>
+                                <rect key="frame" x="136" y="160.66666666666666" width="121.33333333333331" height="37.333333333333343"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Leaderboard"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Leaderboard">
+                                    <fontDescription key="titleFontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="TUM-I9-lnB" kind="presentation" identifier="LeaderboardSegue" id="J8V-ia-MPA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nuy-34-eXJ">
-                                <rect key="frame" x="164" y="247.00000000000003" width="65" height="23.333333333333343"/>
+                                <rect key="frame" x="164" y="249.33333333333334" width="65" height="23.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Iv5-ol-pcg">
-                                <rect key="frame" x="39.666666666666657" y="276.33333333333331" width="314" height="299.99999999999994"/>
+                                <rect key="frame" x="39.666666666666657" y="278.66666666666669" width="314" height="300.00000000000006"/>
                                 <color key="backgroundColor" name="PrimaryTheme"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <constraints>
@@ -1060,7 +1062,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jj8-sC-nqI"/>
+        <segue reference="u0G-ZF-45h"/>
         <segue reference="YKR-ZN-bBo"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -1069,16 +1071,16 @@
         <image name="medal.fill" catalog="system" width="121" height="128"/>
         <image name="swift" catalog="system" width="128" height="108"/>
         <namedColor name="AccentColor">
-            <color red="0.792156862745098" green="0.88627450980392153" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryTheme">
             <color red="0.41960784313725491" green="0.792156862745098" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="separatorColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

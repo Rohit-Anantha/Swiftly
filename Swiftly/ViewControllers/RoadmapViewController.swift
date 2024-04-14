@@ -122,7 +122,7 @@ class RoadmapViewController: UIViewController, UpdateCircleCount {
             label.text = titles[i]
             label.sizeToFit()
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.font = UIFont(name:"Avenir-Book", size:17)
+            label.font = i == currLesson ? UIFont(name:"Avenir-Heavy", size:17) : UIFont(name:"Avenir-Book", size:17)
             height += label.frame.height
             
             // Action for UIView

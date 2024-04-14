@@ -36,9 +36,7 @@ class RoundedButton: UIButton {
             layer.shadowRadius = 2
             self.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
             titleLabel?.textAlignment = .center
-            if let font = UIFont(name: "Avenir-Book", size: 17) {
-                self.titleLabel?.font = font
-                }
+            self.titleLabel?.font = UIFont(name: "Avenir-Book", size: 17)
                     
         }
     /*
@@ -84,6 +82,19 @@ class RoundedTextField: UITextField {
         // Apply rounded corners
         layer.cornerRadius = 8 // You can adjust the corner radius as needed
         layer.masksToBounds = true
+        self.backgroundColor = .white
+        let originalTextColor = UIColor(named: "textColor")
+        let lowerOpacityColor = originalTextColor?.withAlphaComponent(0.5)
+        self.textColor = originalTextColor
+
+        if let placeholderText = self.placeholder {
+                    // Create an attributed string for placeholder text with desired color
+            let attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: lowerOpacityColor ?? .black])
+                    
+                    // Set the attributed placeholder text
+                    self.attributedPlaceholder = attributedPlaceholder
+                }
+                
         
         // Set up Auto Layout constraints to fill superview horizontally with margins
         translatesAutoresizingMaskIntoConstraints = false // Ensure that Auto Layout constraints are used
@@ -123,6 +134,7 @@ class RoundedTextView: UITextView {
     private func commonInit(){
         layer.cornerRadius = 6
         layer.shadowColor = UIColor.black.cgColor
+        self.textColor = UIColor(named: "textColor")
         clipsToBounds = false
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSizeMake(5, 5)
