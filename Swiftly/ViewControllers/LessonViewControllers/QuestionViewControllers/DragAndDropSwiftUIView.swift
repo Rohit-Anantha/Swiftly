@@ -75,7 +75,7 @@ struct DragAndDropSwiftUIView: View {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 8)], spacing: 8) {
                     ForEach(0..<answers.count, id: \.self) { index in
                         let dropLocation = DropLocation(text: $answers[index], index: index, answers: $answers, flashColor: $flashColors[index])
-                        return dropLocation
+                        dropLocation
                     }
                 }
                 .padding()
