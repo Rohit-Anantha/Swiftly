@@ -144,7 +144,7 @@ class RoundedTextView: UITextView {
         isSelectable = false
         translatesAutoresizingMaskIntoConstraints = false
         textAlignment = .center
-        font = UIFont(name: "Avenir-Book", size: 25)
+        font = UIFont(name: "Avenir-Book", size: 20)
         
         backgroundColor = UIColor(named: "textBoxBackground")
     }

@@ -33,11 +33,25 @@ class LessonViewController: UIViewController {
      */
     var chapter: Chapter!
     
+    @IBOutlet weak var lessonLabel: UILabel!
+    var currentChapter = -1
     var data : [any LessonElement] = [
         // Lecture type
         LectureElement(type: .lecture(type: .lecture),
                        title: "Introduction to Swift Programing language!",
                        lecture: "Swift is a cool programing language used for iOS development an other stuff. This first lesson is hardcoded in to the app and it's just used to test the app. In the future screens like this will actually teach things..."),
+        // Drag and Drop
+        DragAndDropElement(type: .question(type: .dragAndDrop),
+                           isTimed: true, timer: 30,
+                           question:
+                            ["var ", " = 0\n",
+                                            " number in 1...10 {\n\t",
+                                                " += number\n}\n",
+                                            "(\"The sum of numbers 1 to 10 is: \\(sum)\")"
+                        ],
+                           options: ["sum", "if", "for", "print"],
+                           correctOptions: [0, 2, 0, 3],
+                          number: 4),
         
         // One Choice question type
         TestQuestionElement(type: .question(type: .oneChoice),
@@ -48,7 +62,7 @@ class LessonViewController: UIViewController {
                                  "Looping Construct",
                                  "Protocol",
                                  "Class"],
-                            correctAnswers: [1]),
+                            correctAnswers: [0]),
         TestQuestionElement(type: .question(type: .oneChoice),
                             isTimed: true, timer: 0,
                             question: "Another1 timed question",
@@ -75,7 +89,7 @@ class LessonViewController: UIViewController {
                                  "Looping Construct",
                                  "Protocol",
                                  "Class"],
-                            correctAnswers: [1]),
+                            correctAnswers: [2]),
         // True or False question type
         TestQuestionElement(type: .question(type: .trueOrFalse),
                             isTimed: false, timer: 0,
@@ -97,19 +111,6 @@ class LessonViewController: UIViewController {
                                         "func",
                                         "ret"],
                             correctAnswers: [1,2,4]),
-
-        // Drag and Drop
-        DragAndDropElement(type: .question(type: .dragAndDrop),
-                           isTimed: true, timer: 30,
-                           question:
-                            ["var ", " = 0\n",
-                                            " number in 1...10 {\n\t",
-                                                " += number\n}\n",
-                                            "(\"The sum of numbers 1 to 10 is: \\(sum)\")"
-                        ],
-                           options: ["sum", "if", "for", "print"],
-                           correctOptions: [0, 2, 0, 3],
-                          number: 4),
         
         // Fill in the Blank question type
         FillTheBlankElement(type: .question(type: .fillTheBlank),
@@ -165,6 +166,8 @@ class LessonViewController: UIViewController {
         // changing this varible changes whether it's the debug lesson or not.
         // Do any additional setup after loading the view.
         self.tabBarController?.tabBar.isHidden = true
+        lessonLabel.text = "Lesson \(self.currentChapter + 1)"
+        data = chapter.toLessonElementArray()
 }
     
     
@@ -258,7 +261,6 @@ class LessonViewController: UIViewController {
         
         // Update this
         self.currentElement = next
-        print(view.subviews)
         
         counter+=1
     }
@@ -278,9 +280,11 @@ class LessonViewController: UIViewController {
             
             let dbUser = db.collection("users").document(Auth.auth().currentUser!.uid)
             
-            // Change user's stats
-            currentUser.currentLevel += 1
-            currentUser.totalScore += score
+            // Change user's stats only if they've completed their current lesson
+            if self.currentChapter == currentUser.currentLevel{
+                currentUser.currentLevel += 1
+                currentUser.totalScore += score
+            }
             
             // Save user
             try dbUser.setData(from: currentUser)

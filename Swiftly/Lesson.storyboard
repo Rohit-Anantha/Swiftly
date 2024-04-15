@@ -41,6 +41,9 @@
                             <constraint firstItem="GDP-v8-nrB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="188" id="mMI-Ye-8yB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lessonLabel" destination="GDP-v8-nrB" id="isO-f4-7au"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

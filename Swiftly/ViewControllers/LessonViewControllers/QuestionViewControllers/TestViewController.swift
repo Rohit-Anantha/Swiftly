@@ -17,9 +17,9 @@ class TestViewController: UIViewController, LessonElementViewController {
      Needs redesigning to make it look pretty, but basics are there.
      */
     
-
+    
     // MARK: - Variables
-        
+    
     // Protocol Variables
     var delegate: LessonViewController!
     var number: Int!
@@ -39,12 +39,14 @@ class TestViewController: UIViewController, LessonElementViewController {
     var data: TestQuestionElement!
     var answers : [Int] = []
     var multipleChoice : Bool!
+    var correctAnswers : [Int] = []
     
     // MARK: - View Controller Events
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.correctAnswers = data.correctAnswers
+        
         if self.data.isTimed {
             // Set the timer up
             self.timerLabel.text = "\(self.timer)"
@@ -93,32 +95,34 @@ class TestViewController: UIViewController, LessonElementViewController {
         
         switch self.data.type {
         case .question(type: .trueOrFalse):
-                self.multipleChoice = false
-
-                // False button
-                let falseButton = RoundedButton()
-                falseButton.setTitle("False", for: .normal)
-                falseButton.tag = 0
-                self.rightStackView.addArrangedSubview(falseButton)
-                falseButton.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
-                
-                // True button
-                let trueButton = RoundedButton()
-                trueButton.setTitle("True", for: .normal)
-                trueButton.tag = 1
-                self.leftStackView.addArrangedSubview(trueButton)
-                trueButton.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
-
-            default:
-                // Fot multiple or only one choice test questions
+            self.multipleChoice = false
+            
+            // True button
+            let trueButton = RoundedButton()
+            trueButton.setTitle("True", for: .normal)
+            trueButton.tag = 0
+            self.leftStackView.addArrangedSubview(trueButton)
+            trueButton.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
+            
+            // False button
+            let falseButton = RoundedButton()
+            falseButton.setTitle("False", for: .normal)
+            falseButton.tag = 1
+            self.rightStackView.addArrangedSubview(falseButton)
+            falseButton.addTarget(self, action: #selector(answerButton), for: .touchUpInside)
+            
+            
+            
+        default:
+            // Fot multiple or only one choice test questions
             switch self.data.type {
-                    case .question(type: .oneChoice):
-                        self.multipleChoice = false
-                    case .question(type: .multipleChoice):
-                        self.multipleChoice = true
-                    default:
-                        print("Error, this shouldn't happen!")
-                }
+            case .question(type: .oneChoice):
+                self.multipleChoice = false
+            case .question(type: .multipleChoice):
+                self.multipleChoice = true
+            default:
+                print("Error, this shouldn't happen!")
+            }
             
             for i in 0..<self.data.answers.count{
                 
@@ -145,8 +149,37 @@ class TestViewController: UIViewController, LessonElementViewController {
     
     // Next lesson element
     @IBAction func nextButton(_ sender: Any) {
-        if self.answers.count > 0 {
-            self.delegate.next(result: self.answers, timer: self.timer)
+        self.flashCorrectWrong {
+            // After the animations complete, wait for a while before calling next
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                if self.answers.count > 0 {
+                    self.delegate.next(result: self.answers, timer: self.timer)
+                }
+            }
+        }
+    }
+    
+    func flashCorrectWrong(completion: (() -> Void)? = nil){
+        UIView.animate(withDuration: 0.5, animations: {
+            for button in self.leftStackView.subviews{
+                if self.correctAnswers.contains(button.tag) {
+                    button.backgroundColor = UIColor(named: "correctAnswer")
+                }
+                else {
+                    button.backgroundColor = UIColor(named: "wrongAnswer")
+                }
+            }
+            for button in self.rightStackView.subviews{
+                if self.correctAnswers.contains(button.tag) {
+                    button.backgroundColor = UIColor(named: "correctAnswer")
+                }
+                else {
+                    button.backgroundColor = UIColor(named: "wrongAnswer")
+                }
+            }
+        }) { (_) in
+            // Call the completion closure after the animation completes
+            completion?()
         }
     }
     
@@ -164,12 +197,12 @@ class TestViewController: UIViewController, LessonElementViewController {
     // Action executed after user presses on a answer
     @objc func answerButton(sender: UIButton!) {
         UIView.animate(withDuration: 0.15, animations: {
-                    sender.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-                }) { (_) in
-                    UIView.animate(withDuration: 0.1, animations: {
-                        sender.transform = .identity
-                    })
-                }
+            sender.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        }) { (_) in
+            UIView.animate(withDuration: 0.1, animations: {
+                sender.transform = .identity
+            })
+        }
         if let buttonSender : UIButton = sender {
             // if a button is already selected, remove it from the list of answers and make it green
             if buttonSender.backgroundColor == UIColor(named: "onSelect") {

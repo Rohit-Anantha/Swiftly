@@ -101,7 +101,7 @@ class LoadingViewController: UIViewController {
                 let chapter = try snapshot.data(as: Chapter.self)
                 vc.chapter = chapter
                 vc.updateCircleCountDelegate = updateCircleCountDelegate
-                
+                vc.currentChapter = lessonNumber
                 DispatchQueue.main.async {
                     self.navigationController!.pushViewController(vc, animated: true)
                 }

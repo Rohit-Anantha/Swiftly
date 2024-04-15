@@ -17,13 +17,15 @@ import SwiftUI
 struct DragAndDropSwiftUIView: View {
     @State var delegate : DragAndDropViewController
     @State var data : DragAndDropElement
-    @State var answers : [String]
+    @State var answers: [String] = [] 
     @State var options : [String]
     @State var buttonDisabled = [true, true, true, true, true, true, true, true, true, true, true]
     @State var timer : Int
     @State var isTimed : Bool
     
-    
+    @State var flashColors: [Color?] = []
+
+    var answerIndexes : [Int] = []
     
     let timerDecrease = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -53,7 +55,7 @@ struct DragAndDropSwiftUIView: View {
             // Question Text
             
             VStack(alignment: .center, spacing: 10){
-                Text("Drop the Correct Answers Here")
+                Text("Drop the Correct Answers in the Blanks")
                     .padding()
                     .font(.custom("Avenir-Heavy", size: 17))
                     .background(
@@ -73,7 +75,8 @@ struct DragAndDropSwiftUIView: View {
                 Text("Blank Spaces").font(.custom("Avenir-Heavy", size: 19))
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 8)], spacing: 8) {
                     ForEach(0..<answers.count, id: \.self) { index in
-                        DropLocation(text: $answers[index], index: index, answers: $answers)
+                        let dropLocation = DropLocation(text: $answers[index], index: index, answers: $answers, flashColor: $flashColors[index])
+                        return dropLocation
                     }
                 }
                 .padding()
@@ -100,6 +103,8 @@ struct DragAndDropSwiftUIView: View {
                 .background(
                     RoundedRectangle(cornerRadius: 12)
                         .foregroundColor(Color(.secondarySystemFill)))
+                
+                // next button
                 Button("Next", action: nextButton)
                     .padding(10)
                     .background(
@@ -119,32 +124,27 @@ struct DragAndDropSwiftUIView: View {
         @Binding var text: String
         let index: Int
         @Binding var answers: [String]
+        @Binding var flashColor: Color?
         
         var body: some View {
             Text("\(text)")
                 .padding(12)
-                .background(Color("onSelect"))
+                .background(flashColor.animation(.easeInOut(duration: 0.5)))
                 .font(.custom("Avenir-Book", size: 17))
                 .cornerRadius(8)
                 .shadow(radius: 1, x: 1, y: 1)
                 .dropDestination(for: String.self){droppedItems,location in
                     self.text = droppedItems.first!
                     self.answers[index] = droppedItems.first!
+                    
                     print(answers)
                     return true
                 }
+                
+
         }
     }
-    
-    func deleteButton(position : Int){
-        if !answers[position].contains(". __") {
-            //data.question = data.question.replacingOccurrences(of: answers[position], with: "\(position+1). __")
-            options.append(answers[position])
-            answers[position]="\(position+1). __"
-            buttonDisabled[position] = true
-        }
-    }
-    
+
     
     func nextButton(){
         
@@ -157,7 +157,15 @@ struct DragAndDropSwiftUIView: View {
                 results.append(data.options.firstIndex(of: answers[i])!)
             }
         }
-        delegate.next(userAnswers: results, timer: timer)
+        
+        for index in 0..<flashColors.count{
+            flashColors[index] = data.correctAnswers[index] == options.firstIndex(of: answers[index])  ? Color("correctAnswer") : Color("wrongAnswer")
+            print(data.correctAnswers, options, answers[index], options.firstIndex(of: answers[index]) ?? 0)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                delegate.next(userAnswers: results, timer: timer)
+        }
     }
     
     func getText() -> Text {
@@ -171,26 +179,4 @@ struct DragAndDropSwiftUIView: View {
         }
         return text
     }
-}
-
-var data = DragAndDropElement(
-    type: .question(type: .dragAndDrop), isTimed: false, timer: 100,
-    question:  ["var ", " = 0\n",
-                " number in 1...10 {\n",
-                " += number\n}\n",
-                "(\"The sum of numbers 1 to 10 is: \\(sum)\")"
-               ],
-    options: ["sum", "if", "for", "print"],
-    correctOptions: [0, 2, 0, 3], number: 4)
-
-var emptyAnswers : [String] = ["1. __","2. __","3. __","4. __"]
-
-
-#Preview {
-    DragAndDropSwiftUIView(
-        delegate: DragAndDropViewController(),
-        data: data,
-        answers: emptyAnswers,
-        options: data.options, timer: 30, isTimed: false
-    )
 }

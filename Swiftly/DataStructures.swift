@@ -54,6 +54,18 @@ struct Chapter: Codable{
         questions = []
     }
     
+    func toLessonElementArray() -> [LessonElement]{
+        var lessonElements : [LessonElement] =  []
+        for lesson in lessons{
+            lessonElements.append(lesson.toLessonElement())
+        }
+        
+        for question in questions {
+            lessonElements.append(question.toQuestionElement())
+        }
+        return lessonElements
+    }
+    
 }
 
 
@@ -64,7 +76,9 @@ struct Lesson: Codable {
     
 //    Key = LessonIndex, Value = Code Example
     var example: String?
-    
+    func toLessonElement() -> LectureElement{
+        return LectureElement(type: .lecture(type: .lecture), title: title, lecture: content)
+    }
 }
 
 
@@ -77,5 +91,16 @@ struct Question: Codable{
     
 //    Design Question
     var answer: [Int]
-    
+    func toQuestionElement() -> LessonElement{
+        switch type{
+        case QuestionType.multipleChoice :
+            return TestQuestionElement(type: .question(type: .multipleChoice), isTimed: false, timer: 0, question: questionString, answers: options, correctAnswers: answer)
+        case QuestionType.trueFalse :
+            return TestQuestionElement(type: .question(type: .trueOrFalse), isTimed: false, timer: 0, question: questionString, answers: options, correctAnswers: answer)
+        case QuestionType.dragAndDrop :
+            return DragAndDropElement(type: .question(type: .dragAndDrop), isTimed: false, timer: 0, question: [questionString], options: options, correctOptions: answer, number: answer.count)
+        default :
+            return CheckpointElement(type: .checkpoint(type: .checkpoint), title: "Load Error", message: "Load Error")
+        }
+    }
 }

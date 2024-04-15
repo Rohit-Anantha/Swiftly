@@ -51,7 +51,7 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
             answerList.append("\(i). __")
         }
         
-        self.hostingViewController = UIHostingController(rootView: DragAndDropSwiftUIView(delegate: self, data: self.data, answers: answerList, options: self.data.options, timer: self.timer, isTimed: data.isTimed))
+        self.hostingViewController = UIHostingController(rootView: DragAndDropSwiftUIView(delegate: self, data: self.data, answers: answerList, options: self.data.options, timer: self.timer, isTimed: data.isTimed, flashColors: Array(repeating: Color("onSelect"), count: answerList.count)))
         self.hostingViewController.modalPresentationStyle = .fullScreen
         present(self.hostingViewController, animated: true)
     }
