@@ -104,9 +104,6 @@ class RoundedTextField: UITextField {
         heightAnchor.constraint(equalToConstant: 40).isActive = true // Fixed height
         
     }
-    
-    
-
 }
 
 class RoundedTextView: UITextView {

@@ -13,16 +13,29 @@ import FirebaseAuth
  
  This is the initial screen to login into the app, it will auto call the segue if the user is already logged in.
  */
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        usernameField.delegate = self
+        passwordField.delegate = self
 
         // Do any additional setup after loading the view.
     }
+    
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+         textField.resignFirstResponder()
+         return true
+     }
+     
+     // Called when the user clicks on the view outside of the UITextField
+
+     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+         self.view.endEditing(true)
+     }
+
     
     override func viewDidAppear(_ animated: Bool) {
 

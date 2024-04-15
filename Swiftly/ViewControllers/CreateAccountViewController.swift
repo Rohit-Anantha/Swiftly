@@ -22,10 +22,12 @@ enum AuthenticationError: Error {
  
  Screen for users that are creating an account. Accessed via the "Create Account" button on the Login Page
  */
-class CreateAccountViewController: UIViewController {
+class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     
     
+    @IBOutlet weak var emailField: RoundedTextField!
+    @IBOutlet weak var usernameField: RoundedTextField!
     @IBOutlet weak var newPasswordField: RoundedTextField!
     @IBOutlet weak var confirmPasswordField: RoundedTextField!
     
@@ -38,8 +40,22 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        newPasswordField.delegate = self
+        confirmPasswordField.delegate = self
+        usernameField.delegate = self
+        emailField.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Called when the user clicks on the view outside of the UITextField
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     var email: String = ""
@@ -47,7 +63,7 @@ class CreateAccountViewController: UIViewController {
     var password: String = ""
     var confirmPassword: String = ""
     
-
+    
     
     @IBAction func finishedEditing(_ sender: UITextField) {
         email = sender.text!
@@ -131,7 +147,7 @@ class CreateAccountViewController: UIViewController {
                     Task {
                         do {
                             try await db.collection("users").document(Auth.auth().currentUser!.uid).setData(from: newUserData)
-//                            currentUser = newUserData
+                            //                            currentUser = newUserData
                         } catch {
                             showAlert("Error occured when creating account!")
                         }
@@ -140,9 +156,10 @@ class CreateAccountViewController: UIViewController {
                     
                 }else{
                     print("error creating account: " + error!.localizedDescription)
+                    showAlert(error!.localizedDescription)
                 }
                 
-
+                
                 
             }
         
@@ -162,10 +179,10 @@ class CreateAccountViewController: UIViewController {
         }
         
         
-
-
         
-       
+        
+        
+        
         /*
          // MARK: - Navigation
          

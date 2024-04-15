@@ -25,10 +25,21 @@ class HomePageViewController: UIViewController {
     
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        print("homepage appeared")
+        Task {
+            do {
+                let currentUser = try await db.collection("users").document(Auth.auth().currentUser!.uid).getDocument(as: User.self)
+                userName.text = currentUser.userName
+                print(currentUser.userName)
+            }
+        }
+    }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
+        print("loaded the homepages")
         // Do any additional setup after loading the view.
         
         //        let count:Int? = currentUser?.streakCount
