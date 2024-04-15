@@ -94,6 +94,7 @@
 		99F45DF02B9D2780000753C4 /* LessonElementTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F45DEF2B9D2780000753C4 /* LessonElementTypes.swift */; };
 		99F45DF42B9D33A2000753C4 /* LessonElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F45DF32B9D33A2000753C4 /* LessonElementViewController.swift */; };
 		C91BDD7C2B924F380013FCE5 /* Rohit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91BDD7B2B924F380013FCE5 /* Rohit.storyboard */; };
+		C9526E762BCDB6F900705CA3 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9526E752BCDB6F900705CA3 /* ForgotPasswordViewController.swift */; };
 		C9674BB82B8FE9EB00A50CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */; };
 		C9674BBA2B8FE9EB00A50CCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */; };
 		C9674BC12B8FE9ED00A50CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9674BC02B8FE9ED00A50CCD /* Assets.xcassets */; };
@@ -143,6 +144,7 @@
 		99F45DEF2B9D2780000753C4 /* LessonElementTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonElementTypes.swift; sourceTree = "<group>"; };
 		99F45DF32B9D33A2000753C4 /* LessonElementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonElementViewController.swift; sourceTree = "<group>"; };
 		C91BDD7B2B924F380013FCE5 /* Rohit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rohit.storyboard; sourceTree = "<group>"; };
+		C9526E752BCDB6F900705CA3 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		C9674BB42B8FE9EB00A50CCD /* Swiftly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				20FF62392BA201D700AFF6DD /* LeaderBoardViewController.swift */,
 				FC5AB0AB2BB5F23300C6156A /* LoadingViewController.swift */,
 				FCB300F92BA548F4005433C7 /* RoadmapViewController.swift */,
+				C9526E752BCDB6F900705CA3 /* ForgotPasswordViewController.swift */,
 				20C8D45B2BA7B8B7001AA5EF /* AccountViewController.swift */,
 				20C8D45D2BA7B8D6001AA5EF /* AppSettingsViewController.swift */,
 				203949712BCB868400FF39B4 /* SplashViewController.swift */,
@@ -514,6 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9526E762BCDB6F900705CA3 /* ForgotPasswordViewController.swift in Sources */,
 				207F067E2B9D725A0067778F /* CreateAccountViewController.swift in Sources */,
 				99F45DE02B9D1DC6000753C4 /* ResultsViewController.swift in Sources */,
 				20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */,
