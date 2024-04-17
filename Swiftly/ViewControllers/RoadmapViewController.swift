@@ -43,6 +43,7 @@ class RoadmapViewController: UIViewController, UpdateCircleCount {
         // Gets the view controller from Lesson storyboard
         let loadingVC = LoadingViewController()
         loadingVC.lessonNumber = sender.lessonNumber
+        loadingVC.lessonTitle = titles[sender.lessonNumber]
         loadingVC.updateCircleCountDelegate = self
         // User has not unlocked these lessons
         if sender.lessonNumber > currLesson {
