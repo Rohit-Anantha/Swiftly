@@ -40,8 +40,6 @@ struct DragAndDropSwiftUIView: View {
                     Text("Question:")
                         .frame(alignment: .leading)
                         .font(.custom("Avenir-Heavy", size: 17))
-                    
-<<<<<<< HEAD
                     if isTimed {
                         Image(systemName: "timer")
                             .imageScale(.large)
@@ -51,7 +49,6 @@ struct DragAndDropSwiftUIView: View {
                         Text(formattedTimer)
                             .font(.custom("Avenir-Heavy", size: 17))
                     }
-=======
                     Text("\(timer)")
                         .onReceive(timerDecrease) { _ in
                             if timer > 0 {
@@ -60,7 +57,6 @@ struct DragAndDropSwiftUIView: View {
                                 self.delegate.userRanOutOfTime()
                             }
                         }.font(.custom("Avenir-Heavy", size: 17))
->>>>>>> 67a765c (Fixing score, and time out features)
                 }
             // Question Text
             
