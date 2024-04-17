@@ -25,7 +25,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8X-xw-IIN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8X-xw-IIN" customClass="RoundedButton" customModule="Swiftly" customModuleProvider="target">
                                 <rect key="frame" x="16" y="762" width="361" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="RPc-fw-sdo"/>
@@ -80,6 +80,7 @@
                     </view>
                     <connections>
                         <outlet property="leftStackView" destination="fIS-9m-vVR" id="K3o-Fp-09f"/>
+                        <outlet property="nextButton" destination="G8X-xw-IIN" id="IZO-Tc-NeG"/>
                         <outlet property="questionTitleLabel" destination="BXd-If-Fc9" id="stA-JT-ZAE"/>
                         <outlet property="rightStackView" destination="r8u-f5-mt7" id="7z9-QU-rJQ"/>
                         <outlet property="timerLabel" destination="TO3-77-IW8" id="H9b-wa-h1z"/>

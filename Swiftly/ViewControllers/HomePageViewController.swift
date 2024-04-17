@@ -80,20 +80,14 @@ class HomePageViewController: UIViewController {
             streakLabel.tintColor = .orange
         }
         
-        
-        
-        
         //        Create DB
-                
-        
-        
     }
     
     
     
     func addChapter1(){
         var ch1 = Chapter()
-        
+        ch1.numId = 1
         ch1.title = "Optional Variables"
         
         var tmpLessons: [Lesson] = []
@@ -125,7 +119,7 @@ class HomePageViewController: UIViewController {
         
         var tmpQuestions: [Question] = []
         
-        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "What is an optional variable in Swift?", options: ["A. A variable that cannot be changed after initialization", "B. A variable that can hold either a value or no value", "C. A variable that automatically adjusts its type based on assigned values", "D. A variable that requires explicit declaration of its type"], answer: [1]))
+        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "What is an optional variable in Swift?", options: ["A. A variable that cannot be changed after initialization", "B. A variable that can hold either a value or no value", "C. A variable that automatically adjusts its type based on assigned values", "D. A variable that requires explicit declaration of its type"], time: 60, answer: [1]))
         
         tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "Which symbol is used to unwrap an optional variable safely in Swift?", options: ["A. !", "B. #", "C. ?", "D. ~"], answer: [2]))
         
@@ -165,7 +159,7 @@ class HomePageViewController: UIViewController {
     
     func addChapter2(){
         var ch2 = Chapter()
-        
+        ch2.numId = 2
         ch2.title = "Type Safety"
         
         var tmpLessons: [Lesson] = []
@@ -231,9 +225,9 @@ class HomePageViewController: UIViewController {
     }
     
     func addChapter3(){
-        var ch = Chapter()
-        
-        ch.title = "Operators"
+        var ch3 = Chapter()
+        ch3.numId = 3
+        ch3.title = "Operators"
         
         var tmpLessons: [Lesson] = []
         
@@ -264,7 +258,7 @@ class HomePageViewController: UIViewController {
         tmpLessons.append(Lesson(title: "Logical Operators", content: "Logical operators in Swift are logical NOT, !a, logical AND, a && b, and logical OR, a || b", example: "let isValidPassword = password.length >= 8 && password.length <= 12"))
         
         
-        ch.lessons = tmpLessons
+        ch3.lessons = tmpLessons
         
         
         var tmpQuestions: [Question] = []
@@ -273,9 +267,9 @@ class HomePageViewController: UIViewController {
         
         tmpQuestions.append(Question(type: .multipleChoice, questionString: "Which arithmetic operator is not defined for string? Choose all that apply.", options: ["addition", "subtraction", "multiplication", "division"], answer: [1, 2, 3]))
         
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the type of the first argument in the ternary conditional operator", options: ["Bool", "Int", "String", "Any"], answer: [1]))
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the type of the first argument in the ternary conditional operator", options: ["Bool", "Int", "String", "Any"], answer: [0]))
         
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the result of '34 / 10", options: ["4", "3", "0.4", "30"], answer: [1]))
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the result of '34 / 10'", options: ["4", "3", "0.4", "30"], answer: [1]))
         
         tmpQuestions.append(Question(type: .trueFalse, questionString: "5 / 2 in Swift is 2.5", options: ["True", "False"], answer: [1]))
         
@@ -287,19 +281,19 @@ class HomePageViewController: UIViewController {
         
         tmpQuestions.append(Question(type: .trueFalse, questionString: "In the ternary conditional operator, arg1 ? arg2 : arg3, both arg2 and arg3 are evaluated.", options: ["True", "False"], answer: [1]))
         
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Which of the following produces a range from 3 inclusive to 8 exclusive", options: ["3...8", "8...3", "3..<8", "3..<9"], answer: [0, 3]))
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Which of the following produces a range from 3 inclusive to 8 inclusive", options: ["3...8", "8...3", "3..<8", "3..<9"], answer: [0, 3]))
         
         tmpQuestions.append(Question(type: .multipleChoice, questionString: "What makes the following true?\nif 3 [] 3 {\n...\n}", options: ["<", ">", "==", "="], answer: [2]))
         
         tmpQuestions.append(Question(type: .trueFalse, questionString: "The assignment operator returns a value", options: ["True", "False"], answer: [1]))
         
-        ch.questions = tmpQuestions
+        ch3.questions = tmpQuestions
         
         
         let collectionRef = db.collection("chapters")
         do {
 //            let newDocReference = try collectionRef.addDocument(from: ch1)
-            let newDocReference = try collectionRef.document(ch.title).setData(from: ch)
+            let newDocReference = try collectionRef.document(ch3.title).setData(from: ch3)
             print("Book stored with new document reference: \(newDocReference)")
         }
         catch {
