@@ -81,7 +81,8 @@ class HomePageViewController: UIViewController {
         }
         
         //        Create DB
-        
+        // addChapterDemo()
+        // addBlankChapters()
     }
     
     
@@ -306,6 +307,7 @@ class HomePageViewController: UIViewController {
         var ch = Chapter()
         
         ch.title = "Methods"
+        ch.numId = 4
         
         var tmpLessons: [Lesson] = []
         
@@ -383,6 +385,7 @@ class HomePageViewController: UIViewController {
         var ch = Chapter()
         
         ch.title = "Demo"
+        ch.numId = 5
         
         var tmpLessons: [Lesson] = []
         
@@ -397,27 +400,11 @@ class HomePageViewController: UIViewController {
         
         tmpQuestions.append(Question(type: .trueFalse, questionString: "Let someInt be an Int. The value of +someInt is the absolute value of someInt", options: ["True", "False"],time: 300, answer: [1]))
         
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Which arithmetic operator is not defined for string? Choose all that apply.", options: ["addition", "subtraction", "multiplication", "division"],time: 300, answer: [1, 2, 3]))
-        
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the type of the first argument in the ternary conditional operator", options: ["Bool", "Int", "String", "Any"],time: 300, answer: [1]))
-        
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the result of '34 / 10", options: ["4", "3", "0.4", "30"], answer: [1]))
-        
-        tmpQuestions.append(Question(type: .trueFalse, questionString: "5 / 2 in Swift is 2.5", options: ["True", "False"], answer: [1]))
         
         tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the value of num in the following Swift code?\nlet index = -1\nlet num = -index", options: ["-1", "1", "0", "error"], answer: [1]))
         
-        tmpQuestions.append(Question(type: .trueFalse, questionString: "Swift supports pre and post increment", options: ["True", "False"], answer: [1]))
+        tmpQuestions.append(Question(type: QuestionType.dragAndDrop, questionString: "   Rearrange the code snippets to create an optional variable `name` of type `String` that is initially set to `nil`, and then print its value if it exists.", options: ["var name: String?", "print(name)", "name = \"John\""],time: 300, answer: [0,2,1]))
         
-        tmpQuestions.append(Question(type: .trueFalse, questionString: "x += 1 is the same as x = x + 1", options: ["True", "False"], answer: [0]))
-        
-        tmpQuestions.append(Question(type: .trueFalse, questionString: "In the ternary conditional operator, arg1 ? arg2 : arg3, both arg2 and arg3 are evaluated.", options: ["True", "False"], answer: [1]))
-        
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Which of the following produces a range from 3 inclusive to 8 exclusive", options: ["3...8", "8...3", "3..<8", "3..<9"], answer: [0, 3]))
-        
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What makes the following true?\nif 3 [] 3 {\n...\n}", options: ["<", ">", "==", "="], answer: [2]))
-        
-        tmpQuestions.append(Question(type: .trueFalse, questionString: "The assignment operator returns a value", options: ["True", "False"], answer: [1]))
         
         ch.questions = tmpQuestions
         
@@ -433,6 +420,37 @@ class HomePageViewController: UIViewController {
         }
     }
     
+    
+    func addBlankChapters(){
+        for i in 0...5{
+            var ch = Chapter()
+            
+            ch.title = "Blank Chapter \(i)"
+            ch.numId = i + 10
+            
+            var tmpLessons: [Lesson] = []
+            
+            
+            ch.lessons = tmpLessons
+            
+            
+            var tmpQuestions: [Question] = []
+            
+            
+            ch.questions = tmpQuestions
+            
+            
+            let collectionRef = db.collection("chapters")
+            do {
+                //            let newDocReference = try collectionRef.addDocument(from: ch1)
+                let newDocReference: () = try collectionRef.document(ch.title).setData(from: ch)
+                print("Book stored with new document reference: \(newDocReference)")
+            }
+            catch {
+                print(error)
+            }
+        }
+    }
     
     
     

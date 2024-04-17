@@ -101,9 +101,16 @@ class RoadmapViewController: UIViewController, UpdateCircleCount {
         let userID = Auth.auth().currentUser!.uid
         Task {
             do {
+                
+                let chapters = try await db.collection("chapters").order(by: "numId").getDocuments().documents
+                for chapter in chapters{
+                    if let title = chapter.data()["title"] as? String {
+                        titles.append(title)
+                    } else {
+                        print("chapterwithout title")
+                    }
+                }
                 // Get total lessons here
-                let metadata = try await db.collection("chapters").document("metadata").getDocument()
-                titles = metadata.data()!["titles"] as! [String]
                 circleCount = titles.count
                 
                 // Get user currentLevel here
