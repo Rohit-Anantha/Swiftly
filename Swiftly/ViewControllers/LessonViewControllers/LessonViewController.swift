@@ -157,6 +157,9 @@ class LessonViewController: UIViewController {
     
     // Firestore for storing user's results
     let db = Firestore.firestore()
+    
+    // The user has completed or not
+    var isReview: Bool!
 
     
     // MARK: - View Controller Events

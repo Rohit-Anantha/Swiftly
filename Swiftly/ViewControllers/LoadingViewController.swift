@@ -101,6 +101,7 @@ class LoadingViewController: UIViewController {
                 vc.chapter = chapter
                 vc.updateCircleCountDelegate = updateCircleCountDelegate
                 vc.currentChapter = lessonNumber
+                vc.isReview = isReview
                 DispatchQueue.main.async {
                     self.navigationController!.pushViewController(vc, animated: true)
                 }
