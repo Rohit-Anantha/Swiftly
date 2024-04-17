@@ -29,6 +29,7 @@ class LectureViewController: UIViewController, LessonElementViewController {
     // Storyboard Variables
     @IBOutlet weak var lectureTitleLabel: UILabel!
     
+    @IBOutlet weak var nextButton: RoundedButton!
     // Other Variables
     var data : LectureElement!
     
@@ -36,20 +37,46 @@ class LectureViewController: UIViewController, LessonElementViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
+        
         let rtv = RoundedTextView()
         view.addSubview(rtv)
         rtv.constrain(width: 350, height: 500)
-        rtv.isHidden = false
         
         NSLayoutConstraint.activate([
             // Center the RoundedTextView horizontally
+            lectureTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            lectureTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             rtv.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             // Set the distance between the top of the view and the top of the RoundedTextView to 100 points
-            rtv.topAnchor.constraint(equalTo: view.topAnchor, constant: 100)
+            rtv.topAnchor.constraint(equalTo: lectureTitleLabel.bottomAnchor, constant: 30)
         ])
         rtv.text = self.data.lecture
-        rtv.sizeToFit()
+        
+        
+        if data.example != "" {
+            let codeView = CodeTextView()
+            view.addSubview(codeView)
+            codeView.constrain(width: 350, height: 150)
+            
+            NSLayoutConstraint.activate([
+                // Center the RoundedTextView horizontally
+                codeView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                // Set the distance between the top of the view and the top of the RoundedTextView to 100 points
+                codeView.topAnchor.constraint(equalTo: rtv.bottomAnchor, constant: 50)
+            ])
+            codeView.text = self.data.example
+            NSLayoutConstraint.activate([
+                nextButton.topAnchor.constraint(equalTo: codeView.bottomAnchor, constant: 30)
+            ])
+        }
+        else{
+            NSLayoutConstraint.activate([
+                nextButton.topAnchor.constraint(equalTo: rtv.bottomAnchor, constant: 30)
+            ])
+        }
+        
         // Do any additional setup after loading the view.
         self.lectureTitleLabel.text = self.data.title
 

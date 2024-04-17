@@ -3,17 +3,14 @@
 //  Swiftly
 //
 //  Created by Guillermo Garcia Perez on 15/3/24.
-//
+//  Redone, Completed by Rohit Anantha on 4/17/24
 
 import SwiftUI
 
 // MARK: - Documentation
 
-/*
- SwiftUI VC for drag and drop. The actual Drag and Drop is implemented in the
- .draggable and .dropDestination. Needs redesigning so it looks nice and works better.
- */
 
+/// Swift UI VC that uses the draggable properties to have a drag and drop question
 struct DragAndDropSwiftUIView: View {
     @State var delegate : DragAndDropViewController
     @State var data : DragAndDropElement
@@ -29,6 +26,8 @@ struct DragAndDropSwiftUIView: View {
     
     let timerDecrease = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
+    
+    /// Formats a time into mm:ss format
     var formattedTimer: String {
         let minutes = timer / 60
         let seconds = timer % 60
@@ -120,6 +119,10 @@ struct DragAndDropSwiftUIView: View {
         }
     }
     
+    
+    /// A location to drop a dragged object
+    /// automatically updates color using the flashcolor object
+    /// updates a certain position in the answers array with the answer dropped on it
     struct DropLocation: View {
         @Binding var text: String
         let index: Int
@@ -136,7 +139,7 @@ struct DragAndDropSwiftUIView: View {
                 .dropDestination(for: String.self){droppedItems,location in
                     self.text = droppedItems.first!
                     self.answers[index] = droppedItems.first!
-                    
+
                     print(answers)
                     return true
                 }
@@ -146,6 +149,7 @@ struct DragAndDropSwiftUIView: View {
     }
 
     
+    /// Moves to the next page if all the answer boxes have been filled.
     func nextButton(){
         
         var results : [Int] = []
@@ -168,6 +172,9 @@ struct DragAndDropSwiftUIView: View {
         }
     }
     
+    
+    /// Formats a question and it's answers into a displayable single Text element
+    /// - Returns: returns a Text object that is formatted to automatically update when we drag and drop later
     func getText() -> Text {
         var text = Text("")
         for i in 0..<data.question.count {

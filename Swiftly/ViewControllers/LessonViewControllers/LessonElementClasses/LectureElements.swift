@@ -27,15 +27,16 @@ class LectureElement : LessonElement {
     // Other Variables
     let title : String
     let lecture : String
-    
+    var example : String
     // MARK: - Constructor
     
-    init(type : LessonElementTypes, title : String, lecture : String){
+    init(type : LessonElementTypes, title : String, lecture : String, example: String = ""){
         
         self.type = type
         
         self.title = title
         self.lecture = lecture
+        self.example = example
     }
     
 }

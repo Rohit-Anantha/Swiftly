@@ -85,7 +85,7 @@ struct Lesson: Codable {
     /// Converts the Lesson to a LectureElement, its equivalent in Swiftly
     /// - Returns: A Lecture Element
     func toLectureElement() -> LectureElement{
-        return LectureElement(type: .lecture(type: .lecture), title: title, lecture: content)
+        return LectureElement(type: .lecture(type: .lecture), title: title, lecture: content, example: example ?? "")
     }
 }
 
