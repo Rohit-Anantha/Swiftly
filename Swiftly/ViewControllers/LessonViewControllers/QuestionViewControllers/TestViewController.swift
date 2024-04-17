@@ -49,16 +49,16 @@ class TestViewController: UIViewController, LessonElementViewController {
         
         if self.data.isTimed {
             // Set the timer up
-            self.timerLabel.text = "\(self.timer)"
-            
+            self.timerLabel.text = formatTime(timer)
+
             // Add the task that will decrease the timer
             let queue = DispatchQueue(label: "TimerQueue", qos: .default)
             queue.async {
-                while !self.stopTimer && self.timer > 0{
+                while !self.stopTimer && self.timer > 0 {
                     usleep(1000000)
-                    DispatchQueue.main.async{
+                    DispatchQueue.main.async {
                         self.timer -= 1
-                        self.timerLabel.text = "\(self.timer)"
+                        self.timerLabel.text = self.formatTime(self.timer)
                     }
                 }
                 if self.timer <= 0 {
@@ -139,6 +139,13 @@ class TestViewController: UIViewController, LessonElementViewController {
                 }
             }
         }
+    }
+    
+    // Function to format time as mm:ss
+    func formatTime(_ seconds: Int) -> String {
+        let minutes = seconds / 60
+        let remainingSeconds = seconds % 60
+        return String(format: "%02d:%02d", minutes, remainingSeconds)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

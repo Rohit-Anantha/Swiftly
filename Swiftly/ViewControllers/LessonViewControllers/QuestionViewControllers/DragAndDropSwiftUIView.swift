@@ -29,29 +29,29 @@ struct DragAndDropSwiftUIView: View {
     
     let timerDecrease = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
+    var formattedTimer: String {
+        let minutes = timer / 60
+        let seconds = timer % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
     var body: some View{
         VStack(alignment: .center, spacing: 30){
-            HStack{
-                Text("Question 1")
-                    .frame(alignment: .leading)
-                    .font(.custom("Avenir-Heavy", size: 17))
-                if isTimed {
-                    Image(systemName: "timer")
-                        .imageScale(.large)
-                        .foregroundStyle(.tint)
-                        .frame(alignment: .trailing)
+            HStack {
+                    Text("Question:")
+                        .frame(alignment: .leading)
+                        .font(.custom("Avenir-Heavy", size: 17))
                     
-                    Text("\(timer)")
-                        .onReceive(timerDecrease) { _ in
-                            if timer > 0 {
-                                timer -= 1
-                            } else {
-                                // Time ran out
-                            }
-                        }.font(.custom("Avenir-Heavy", size: 17))
+                    if isTimed {
+                        Image(systemName: "timer")
+                            .imageScale(.large)
+                            .foregroundStyle(.tint)
+                            .frame(alignment: .trailing)
+                        
+                        Text(formattedTimer)
+                            .font(.custom("Avenir-Heavy", size: 17))
+                    }
                 }
-            }
-            
             // Question Text
             
             VStack(alignment: .center, spacing: 10){

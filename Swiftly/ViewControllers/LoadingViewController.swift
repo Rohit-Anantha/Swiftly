@@ -97,7 +97,7 @@ class LoadingViewController: UIViewController {
         Task {
             guard let vc = UIStoryboard(name: "Lesson", bundle: nil).instantiateViewController(identifier: "Lesson") as? LessonViewController else { return }
             do {
-                let snapshot = try await self.db.collection("chapters").getDocuments().documents[0]
+                let snapshot = try await self.db.collection("chapters").getDocuments().documents[lessonNumber]
                 let chapter = try snapshot.data(as: Chapter.self)
                 vc.chapter = chapter
                 vc.updateCircleCountDelegate = updateCircleCountDelegate

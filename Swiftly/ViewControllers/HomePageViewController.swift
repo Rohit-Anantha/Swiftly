@@ -58,7 +58,7 @@ class HomePageViewController: UIViewController {
         }else if(currentUser.lastLogIn - Date().timeIntervalSince1970 > dayInSeconds){
             currentUser.streakCount += 1
         }
-
+        
         
         currentUser.lastLogIn = Date().timeIntervalSince1970
         
@@ -81,6 +81,7 @@ class HomePageViewController: UIViewController {
         }
         
         //        Create DB
+        
     }
     
     
@@ -119,35 +120,35 @@ class HomePageViewController: UIViewController {
         
         var tmpQuestions: [Question] = []
         
-        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "What is an optional variable in Swift?", options: ["A. A variable that cannot be changed after initialization", "B. A variable that can hold either a value or no value", "C. A variable that automatically adjusts its type based on assigned values", "D. A variable that requires explicit declaration of its type"], time: 60, answer: [1]))
+        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "What is an optional variable in Swift?", options: ["A. A variable that cannot be changed after initialization", "B. A variable that can hold either a value or no value", "C. A variable that automatically adjusts its type based on assigned values", "D. A variable that requires explicit declaration of its type"], time: 300, answer: [1]))
         
-        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "Which symbol is used to unwrap an optional variable safely in Swift?", options: ["A. !", "B. #", "C. ?", "D. ~"], answer: [2]))
-        
-        
-        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "What is the purpose of optional chaining in Swift?", options: ["A. To provide default values for optional variables","B. To safely access properties and methods of optional variables", "C. To convert optional variables to non-optional ones", "D. To force unwrap optional variables"], answer: [1]))
-        
-        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "Which of the following statements is true about implicitly unwrapped optionals in Swift?", options: ["A. They must be initialized with a non-nil value", "B. They cannot be nil", "C. They require explicit unwrapping using the ! operator", "D. They automatically unwrap themselves when accessed"], answer: [0]))
+        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "Which symbol is used to unwrap an optional variable safely in Swift?", options: ["A. !", "B. #", "C. ?", "D. ~"],time: 300, answer: [2]))
         
         
-        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "What is the purpose of the guard let statement in Swift?", options: ["A. To safely unwrap an optional variable and provide a default value", "B. To force unwrap an optional variable and handle any resulting errors", "C. To create a new optional variable with an assigned value", "D. To check if an optional variable is nil and handle the case gracefully"], answer: [3]))
+        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "What is the purpose of optional chaining in Swift?", options: ["A. To provide default values for optional variables","B. To safely access properties and methods of optional variables", "C. To convert optional variables to non-optional ones", "D. To force unwrap optional variables"],time: 300, answer: [1]))
+        
+        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "Which of the following statements is true about implicitly unwrapped optionals in Swift?", options: ["A. They must be initialized with a non-nil value", "B. They cannot be nil", "C. They require explicit unwrapping using the ! operator", "D. They automatically unwrap themselves when accessed"], time: 300, answer: [0]))
         
         
-        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: "Optionals in Swift represent values that may or may not be present.", options: ["True", "False"], answer: [0]))
+        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "What is the purpose of the guard let statement in Swift?", options: ["A. To safely unwrap an optional variable and provide a default value", "B. To force unwrap an optional variable and handle any resulting errors", "C. To create a new optional variable with an assigned value", "D. To check if an optional variable is nil and handle the case gracefully"],time: 300, answer: [3]))
         
-        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: "Forced unwrapping of an optional is safe and always returns a valid value.", options: ["True", "False"], answer: [1]))
         
-        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: " Implicitly unwrapped optionals in Swift are similar to regular optionals, but they automatically unwrap when accessed.", options: ["True", "False"], answer: [0]))
+        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: "Optionals in Swift represent values that may or may not be present.", options: ["True", "False"],time: 300, answer: [0]))
         
-        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: "Optionals can only be used with certain types like Int, String, and Double in Swift..", options: ["True", "False"], answer: [1]))
+        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: "Forced unwrapping of an optional is safe and always returns a valid value.", options: ["True", "False"],time: 300, answer: [1]))
         
-        tmpQuestions.append(Question(type: QuestionType.dragAndDrop, questionString: "   Rearrange the code snippets to create an optional variable `name` of type `String` that is initially set to `nil`, and then print its value if it exists.", options: ["var name: String?", "print(name)", "name = \"John\""], answer: [0,2,1]))
+        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: " Implicitly unwrapped optionals in Swift are similar to regular optionals, but they automatically unwrap when accessed.", options: ["True", "False"],time: 300, answer: [0]))
+        
+        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: "Optionals can only be used with certain types like Int, String, and Double in Swift..", options: ["True", "False"],time: 300, answer: [1]))
+        
+        tmpQuestions.append(Question(type: QuestionType.dragAndDrop, questionString: "   Rearrange the code snippets to create an optional variable `name` of type `String` that is initially set to `nil`, and then print its value if it exists.", options: ["var name: String?", "print(name)", "name = \"John\""],time: 300, answer: [0,2,1]))
         
         ch1.questions = tmpQuestions
         
         
         let collectionRef = db.collection("chapters")
         do {
-//            let newDocReference = try collectionRef.addDocument(from: ch1)
+            //            let newDocReference = try collectionRef.addDocument(from: ch1)
             let newDocReference = try collectionRef.document("\(ch1.title)").setData(from: ch1)
             print("Book stored with new document reference: \(newDocReference)")
         }
@@ -189,33 +190,33 @@ class HomePageViewController: UIViewController {
         
         var tmpQuestions: [Question] = []
         
-        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "What does \"type safety\" mean in Swift??", options: ["A. Ensuring that all variables have the same type", "B. Allowing variables to change their type dynamically", "C.Preventing errors by enforcing strict adherence to data types", "D.Ignoring data types altogether during compilation"], answer: [2]))
+        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "What does \"type safety\" mean in Swift??", options: ["A. Ensuring that all variables have the same type", "B. Allowing variables to change their type dynamically", "C.Preventing errors by enforcing strict adherence to data types", "D.Ignoring data types altogether during compilation"], time: 300, answer: [2]))
         
-        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "In Swift, each variable and constant must have a specific type known at:", options: ["A.  Runtime", "B. Initialization", "C. Compilation", "D. Execution"], answer: [1]))
-        
-        
-        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "Which statement about type safety and Objective-C interoperability in Swift is true?", options: ["A. Swift's type safety is compromised when interoperating with Objective-C code","B. Objective-C code can only be called from Swift if it follows Swift's strict type safety rules", "C. Swift provides seamless interoperability with Objective-C code without sacrificing type safety", "D. Type safety is irrelevant when working with Objective-C code in Swift"], answer: [2]))
-        
-        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "Which Swift feature allows you to define custom data types with specific properties and methods?", options: ["A. Type inference", "B. Optionals", "C. Structs and classes", "D. Generics"], answer: [3]))
+        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "In Swift, each variable and constant must have a specific type known at:", options: ["A.  Runtime", "B. Initialization", "C. Compilation", "D. Execution"],time: 300, answer: [1]))
         
         
+        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "Which statement about type safety and Objective-C interoperability in Swift is true?", options: ["A. Swift's type safety is compromised when interoperating with Objective-C code","B. Objective-C code can only be called from Swift if it follows Swift's strict type safety rules", "C. Swift provides seamless interoperability with Objective-C code without sacrificing type safety", "D. Type safety is irrelevant when working with Objective-C code in Swift"],time: 300, answer: [2]))
         
-        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: "Swift allows implicit type conversion between different data types without requiring explicit casting.", options: ["True", "False"], answer: [0]))
+        tmpQuestions.append(Question(type: QuestionType.multipleChoice, questionString: "Which Swift feature allows you to define custom data types with specific properties and methods?", options: ["A. Type inference", "B. Optionals", "C. Structs and classes", "D. Generics"],time: 300, answer: [3]))
         
-        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: "In Swift, type safety means that once a variable is assigned a certain type, its type can be changed later.", options: ["True", "False"], answer: [1]))
         
-        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: " In Swift, it is possible to mix different types in arithmetic operations without causing any compile-time errors.", options: ["True", "False"], answer: [1]))
         
-        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: "Swift's type inference feature allows developers to omit explicit type declarations for variables and still maintain type safety.", options: ["True", "False"], answer: [0]))
+        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: "Swift allows implicit type conversion between different data types without requiring explicit casting.", options: ["True", "False"],time: 300, answer: [0]))
         
-        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: "Optional types in Swift contribute to type safety by explicitly indicating the possibility of a value being absent.", options: ["True", "False"], answer: [0]))
+        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: "In Swift, type safety means that once a variable is assigned a certain type, its type can be changed later.", options: ["True", "False"],time: 300, answer: [1]))
+        
+        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: " In Swift, it is possible to mix different types in arithmetic operations without causing any compile-time errors.", options: ["True", "False"],time: 300, answer: [1]))
+        
+        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: "Swift's type inference feature allows developers to omit explicit type declarations for variables and still maintain type safety.", options: ["True", "False"],time: 300, answer: [0]))
+        
+        tmpQuestions.append(Question(type: QuestionType.trueFalse, questionString: "Optional types in Swift contribute to type safety by explicitly indicating the possibility of a value being absent.", options: ["True", "False"],time: 300, answer: [0]))
         
         ch2.questions = tmpQuestions
         
         
         let collectionRef = db.collection("chapters")
         do {
-//            let newDocReference = try collectionRef.addDocument(from: ch2)
+            //            let newDocReference = try collectionRef.addDocument(from: ch2)
             let newDocReference = try collectionRef.document("\(ch2.title)").setData(from: ch2)
             print("Book stored with new document reference: \(newDocReference)")
         }
@@ -263,36 +264,36 @@ class HomePageViewController: UIViewController {
         
         var tmpQuestions: [Question] = []
         
-        tmpQuestions.append(Question(type: .trueFalse, questionString: "Let someInt be an Int. The value of +someInt is the absolute value of someInt", options: ["True", "False"], answer: [1]))
+        tmpQuestions.append(Question(type: .trueFalse, questionString: "Let someInt be an Int. The value of +someInt is the absolute value of someInt", options: ["True", "False"],time: 300, answer: [1]))
         
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Which arithmetic operator is not defined for string? Choose all that apply.", options: ["addition", "subtraction", "multiplication", "division"], answer: [1, 2, 3]))
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Which arithmetic operator is not defined for string? Choose all that apply.", options: ["addition", "subtraction", "multiplication", "division"], time: 300,answer: [1, 2, 3]))
         
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the type of the first argument in the ternary conditional operator", options: ["Bool", "Int", "String", "Any"], answer: [0]))
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the type of the first argument in the ternary conditional operator", options: ["Bool", "Int", "String", "Any"], time: 300,answer: [0]))
         
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the result of '34 / 10'", options: ["4", "3", "0.4", "30"], answer: [1]))
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the result of '34 / 10'", options: ["4", "3", "0.4", "30"],time: 300, answer: [1]))
         
-        tmpQuestions.append(Question(type: .trueFalse, questionString: "5 / 2 in Swift is 2.5", options: ["True", "False"], answer: [1]))
+        tmpQuestions.append(Question(type: .trueFalse, questionString: "5 / 2 in Swift is 2.5", options: ["True", "False"],time: 300, answer: [1]))
         
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the value of num in the following Swift code?\nlet index = -1\nlet num = -index", options: ["-1", "1", "0", "error"], answer: [1]))
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the value of num in the following Swift code?\nlet index = -1\nlet num = -index", options: ["-1", "1", "0", "error"],time: 300, answer: [1]))
         
-        tmpQuestions.append(Question(type: .trueFalse, questionString: "Swift supports pre and post increment", options: ["True", "False"], answer: [1]))
+        tmpQuestions.append(Question(type: .trueFalse, questionString: "Swift supports pre and post increment", options: ["True", "False"],time: 300, answer: [1]))
         
-        tmpQuestions.append(Question(type: .trueFalse, questionString: "x += 1 is the same as x = x + 1", options: ["True", "False"], answer: [0]))
+        tmpQuestions.append(Question(type: .trueFalse, questionString: "x += 1 is the same as x = x + 1", options: ["True", "False"],time: 300, answer: [0]))
         
-        tmpQuestions.append(Question(type: .trueFalse, questionString: "In the ternary conditional operator, arg1 ? arg2 : arg3, both arg2 and arg3 are evaluated.", options: ["True", "False"], answer: [1]))
+        tmpQuestions.append(Question(type: .trueFalse, questionString: "In the ternary conditional operator, arg1 ? arg2 : arg3, both arg2 and arg3 are evaluated.", options: ["True", "False"],time: 300, answer: [1]))
         
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Which of the following produces a range from 3 inclusive to 8 inclusive", options: ["3...8", "8...3", "3..<8", "3..<9"], answer: [0, 3]))
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Which of the following produces a range from 3 inclusive to 8 inclusive", options: ["3...8", "8...3", "3..<8", "3..<9"],time: 300, answer: [0, 3]))
         
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What makes the following true?\nif 3 [] 3 {\n...\n}", options: ["<", ">", "==", "="], answer: [2]))
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What makes the following true?\nif 3 [] 3 {\n...\n}", options: ["<", ">", "==", "="], time: 300,answer: [2]))
         
-        tmpQuestions.append(Question(type: .trueFalse, questionString: "The assignment operator returns a value", options: ["True", "False"], answer: [1]))
+        tmpQuestions.append(Question(type: .trueFalse, questionString: "The assignment operator returns a value", options: ["True", "False"],time: 300, answer: [1]))
         
         ch3.questions = tmpQuestions
         
         
         let collectionRef = db.collection("chapters")
         do {
-//            let newDocReference = try collectionRef.addDocument(from: ch1)
+            //            let newDocReference = try collectionRef.addDocument(from: ch1)
             let newDocReference = try collectionRef.document(ch3.title).setData(from: ch3)
             print("Book stored with new document reference: \(newDocReference)")
         }
@@ -340,11 +341,11 @@ class HomePageViewController: UIViewController {
         
         var tmpQuestions: [Question] = []
         
-        tmpQuestions.append(Question(type: .trueFalse, questionString: "Let someInt be an Int. The value of +someInt is the absolute value of someInt", options: ["True", "False"], answer: [1]))
+        tmpQuestions.append(Question(type: .trueFalse, questionString: "Let someInt be an Int. The value of +someInt is the absolute value of someInt", options: ["True", "False"],time: 300, answer: [1]))
         
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Which arithmetic operator is not defined for string? Choose all that apply.", options: ["addition", "subtraction", "multiplication", "division"], answer: [1, 2, 3]))
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Which arithmetic operator is not defined for string? Choose all that apply.", options: ["addition", "subtraction", "multiplication", "division"],time: 300, answer: [1, 2, 3]))
         
-        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the type of the first argument in the ternary conditional operator", options: ["Bool", "Int", "String", "Any"], answer: [1]))
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the type of the first argument in the ternary conditional operator", options: ["Bool", "Int", "String", "Any"],time: 300, answer: [1]))
         
         tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the result of '34 / 10", options: ["4", "3", "0.4", "30"], answer: [1]))
         
@@ -369,7 +370,7 @@ class HomePageViewController: UIViewController {
         
         let collectionRef = db.collection("chapters")
         do {
-//            let newDocReference = try collectionRef.addDocument(from: ch1)
+            //            let newDocReference = try collectionRef.addDocument(from: ch1)
             let newDocReference = try collectionRef.document(ch.title).setData(from: ch)
             print("Book stored with new document reference: \(newDocReference)")
         }
@@ -377,7 +378,7 @@ class HomePageViewController: UIViewController {
             print(error)
         }
     }
-
+    
     
     
     
