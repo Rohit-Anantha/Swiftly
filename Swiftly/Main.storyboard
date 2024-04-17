@@ -206,7 +206,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eas-HI-vFI" customClass="RoundedTextField" customModule="Swiftly" customModuleProvider="target">
-                                <rect key="frame" x="46.666666666666657" y="386.33333333333331" width="300" height="34"/>
+                                <rect key="frame" x="46.666666666666657" y="406.33333333333331" width="300" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="UnK-BH-1X7"/>
                                 </constraints>
@@ -214,26 +214,26 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swiftly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzI-pG-HsJ">
-                                <rect key="frame" x="157" y="312" width="79" height="34.333333333333314"/>
+                                <rect key="frame" x="157" y="352" width="79" height="34.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Db-zT-N8c">
-                                <rect key="frame" x="76" y="29.666666666666657" width="241" height="236.99999999999997"/>
+                                <rect key="frame" x="46.666666666666657" y="29.666666666666657" width="300" height="305"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="241" id="R75-jS-BfV"/>
-                                    <constraint firstAttribute="height" constant="232" id="g3A-35-mPF"/>
+                                    <constraint firstAttribute="width" secondItem="6Db-zT-N8c" secondAttribute="height" multiplier="1:1" id="WcF-sz-wnz"/>
+                                    <constraint firstAttribute="width" constant="300" id="oAs-qv-ZKp"/>
                                 </constraints>
                                 <imageReference key="image" image="swift" catalog="system" symbolScale="large"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dwb-GH-QXs" customClass="RoundedTextField" customModule="Swiftly" customModuleProvider="target">
-                                <rect key="frame" x="153.33333333333334" y="445.33333333333331" width="86.666666666666657" height="34"/>
+                                <rect key="frame" x="153.33333333333334" y="465.33333333333331" width="86.666666666666657" height="34"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="Elb-4u-4LT">
-                                <rect key="frame" x="117.00000000000001" y="617" width="159.33333333333337" height="180"/>
+                                <rect key="frame" x="117.00000000000001" y="539.33333333333337" width="159.33333333333337" height="180"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJ8-3k-6aJ" customClass="RoundedButton" customModule="Swiftly" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="159.33333333333334" height="37.333333333333336"/>
@@ -248,7 +248,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVb-7i-NZw" customClass="RoundedButton" customModule="Swiftly" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="71.333333333333371" width="159.33333333333334" height="37.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="71.333333333333258" width="159.33333333333334" height="37.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Forgot Password?">
                                             <fontDescription key="titleFontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
@@ -278,12 +278,12 @@
                         <color key="backgroundColor" name="PrimaryTheme"/>
                         <color key="tintColor" name="AccentColor"/>
                         <constraints>
+                            <constraint firstItem="bzI-pG-HsJ" firstAttribute="top" secondItem="6Db-zT-N8c" secondAttribute="bottom" constant="20" id="78P-k9-IHm"/>
+                            <constraint firstItem="Elb-4u-4LT" firstAttribute="top" secondItem="dwb-GH-QXs" secondAttribute="bottom" constant="40" id="801-Zq-qQS"/>
                             <constraint firstItem="dwb-GH-QXs" firstAttribute="top" secondItem="eas-HI-vFI" secondAttribute="bottom" constant="25" id="CMz-i9-mF5"/>
-                            <constraint firstItem="bzI-pG-HsJ" firstAttribute="top" secondItem="ETM-SV-iXo" secondAttribute="top" constant="312" id="Cir-Ac-tef"/>
-                            <constraint firstItem="ETM-SV-iXo" firstAttribute="bottom" secondItem="Elb-4u-4LT" secondAttribute="bottom" constant="55" id="Gdx-se-bHE"/>
                             <constraint firstItem="bzI-pG-HsJ" firstAttribute="centerX" secondItem="Uqe-18-Yl5" secondAttribute="centerX" id="RXg-Ba-Y5O"/>
                             <constraint firstItem="dwb-GH-QXs" firstAttribute="centerX" secondItem="ETM-SV-iXo" secondAttribute="centerX" id="WTj-BK-82P"/>
-                            <constraint firstItem="eas-HI-vFI" firstAttribute="top" secondItem="bzI-pG-HsJ" secondAttribute="bottom" constant="40" id="Y0m-8a-nn2"/>
+                            <constraint firstItem="eas-HI-vFI" firstAttribute="top" secondItem="bzI-pG-HsJ" secondAttribute="bottom" constant="20" id="Y0m-8a-nn2"/>
                             <constraint firstItem="eas-HI-vFI" firstAttribute="centerX" secondItem="ETM-SV-iXo" secondAttribute="centerX" id="Zpv-fv-32M"/>
                             <constraint firstItem="6Db-zT-N8c" firstAttribute="centerX" secondItem="Uqe-18-Yl5" secondAttribute="centerX" id="psO-6f-gOA"/>
                             <constraint firstItem="Elb-4u-4LT" firstAttribute="centerX" secondItem="Uqe-18-Yl5" secondAttribute="centerX" id="rRb-4y-Yuj"/>
@@ -293,6 +293,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="u3l-37-6hI"/>
                     <connections>
+                        <outlet property="buttonStackView" destination="Elb-4u-4LT" id="RlC-FR-Mhh"/>
+                        <outlet property="logo" destination="6Db-zT-N8c" id="5Md-FW-E72"/>
+                        <outlet property="logoWidth" destination="oAs-qv-ZKp" id="q4G-kG-uQL"/>
                         <outlet property="passwordField" destination="dwb-GH-QXs" id="z5Z-3P-v2B"/>
                         <outlet property="usernameField" destination="eas-HI-vFI" id="61E-OI-Vbw"/>
                         <segue destination="3P4-gp-T3t" kind="presentation" identifier="LoggedInSegue" modalPresentationStyle="fullScreen" id="u0G-ZF-45h"/>
@@ -1064,7 +1067,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jj8-sC-nqI"/>
+        <segue reference="u0G-ZF-45h"/>
         <segue reference="YKR-ZN-bBo"/>
     </inferredMetricsTieBreakers>
     <resources>
