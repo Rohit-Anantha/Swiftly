@@ -34,11 +34,9 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
-        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+        guard notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] is CGRect else {
             return
         }
-        
-        let keyboardHeight = keyboardFrame.height
         
         UIView.animate(withDuration: 0.3) {
             self.logoView.frame.size = CGSize(width: 50, height: 50)

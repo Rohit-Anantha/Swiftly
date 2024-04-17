@@ -149,7 +149,7 @@ class HomePageViewController: UIViewController {
         let collectionRef = db.collection("chapters")
         do {
             //            let newDocReference = try collectionRef.addDocument(from: ch1)
-            let newDocReference = try collectionRef.document("\(ch1.title)").setData(from: ch1)
+            let newDocReference: () = try collectionRef.document("\(ch1.title)").setData(from: ch1)
             print("Book stored with new document reference: \(newDocReference)")
         }
         catch {
@@ -217,7 +217,7 @@ class HomePageViewController: UIViewController {
         let collectionRef = db.collection("chapters")
         do {
             //            let newDocReference = try collectionRef.addDocument(from: ch2)
-            let newDocReference = try collectionRef.document("\(ch2.title)").setData(from: ch2)
+            let newDocReference: () = try collectionRef.document("\(ch2.title)").setData(from: ch2)
             print("Book stored with new document reference: \(newDocReference)")
         }
         catch {
@@ -294,7 +294,7 @@ class HomePageViewController: UIViewController {
         let collectionRef = db.collection("chapters")
         do {
             //            let newDocReference = try collectionRef.addDocument(from: ch1)
-            let newDocReference = try collectionRef.document(ch3.title).setData(from: ch3)
+            let newDocReference: () = try collectionRef.document(ch3.title).setData(from: ch3)
             print("Book stored with new document reference: \(newDocReference)")
         }
         catch {
@@ -371,7 +371,7 @@ class HomePageViewController: UIViewController {
         let collectionRef = db.collection("chapters")
         do {
             //            let newDocReference = try collectionRef.addDocument(from: ch1)
-            let newDocReference = try collectionRef.document(ch.title).setData(from: ch)
+            let newDocReference: () = try collectionRef.document(ch.title).setData(from: ch)
             print("Book stored with new document reference: \(newDocReference)")
         }
         catch {

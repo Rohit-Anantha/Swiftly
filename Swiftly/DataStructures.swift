@@ -115,8 +115,6 @@ struct Question: Codable{
             return TestQuestionElement(type: .question(type: .trueOrFalse), isTimed: time == 0 ? false : true, timer: time, question: questionString, answers: options, correctAnswers: answer)
         case QuestionType.dragAndDrop :
             return DragAndDropElement(type: .question(type: .dragAndDrop), isTimed: time == 0 ? false : true, timer: time, question: [questionString], options: options, correctOptions: answer, number: answer.count)
-        default :
-            return CheckpointElement(type: .checkpoint(type: .checkpoint), title: "Load Error", message: "Load Error")
         }
     }
 }

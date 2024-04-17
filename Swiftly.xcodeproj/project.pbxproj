@@ -26,12 +26,10 @@
 		207F067E2B9D725A0067778F /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F067D2B9D725A0067778F /* CreateAccountViewController.swift */; };
 		207F06802B9E57630067778F /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F067F2B9E57630067778F /* HomePageViewController.swift */; };
 		207F06822B9E581C0067778F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F06812B9E581C0067778F /* SettingsViewController.swift */; };
-		209FF8A82B990A5F000854A9 /* Eder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 209FF8A72B990A5F000854A9 /* Eder.storyboard */; };
 		209FF8AA2B990A85000854A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 209FF8A92B990A85000854A9 /* LaunchScreen.storyboard */; };
 		20C8D45C2BA7B8B7001AA5EF /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8D45B2BA7B8B7001AA5EF /* AccountViewController.swift */; };
 		20C8D45E2BA7B8D6001AA5EF /* AppSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8D45D2BA7B8D6001AA5EF /* AppSettingsViewController.swift */; };
 		20C8D4602BA7B91F001AA5EF /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C8D45F2BA7B91F001AA5EF /* Styles.swift */; };
-		20F084E62B990479005FF676 /* Akin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20F084E52B990479005FF676 /* Akin.storyboard */; };
 		20F084E82B9904A8005FF676 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20F084E72B9904A8005FF676 /* Main.storyboard */; };
 		20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F084E92B9907CB005FF676 /* CustomTabBarController.swift */; };
 		20FF623A2BA201D700AFF6DD /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF62392BA201D700AFF6DD /* LeaderBoardViewController.swift */; };
@@ -93,7 +91,6 @@
 		99F45DE92B9D21D7000753C4 /* FillTheBlank.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F45DE82B9D21D7000753C4 /* FillTheBlank.storyboard */; };
 		99F45DF02B9D2780000753C4 /* LessonElementTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F45DEF2B9D2780000753C4 /* LessonElementTypes.swift */; };
 		99F45DF42B9D33A2000753C4 /* LessonElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F45DF32B9D33A2000753C4 /* LessonElementViewController.swift */; };
-		C91BDD7C2B924F380013FCE5 /* Rohit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91BDD7B2B924F380013FCE5 /* Rohit.storyboard */; };
 		C9526E762BCDB6F900705CA3 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9526E752BCDB6F900705CA3 /* ForgotPasswordViewController.swift */; };
 		C9674BB82B8FE9EB00A50CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */; };
 		C9674BBA2B8FE9EB00A50CCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9674BB92B8FE9EB00A50CCD /* SceneDelegate.swift */; };
@@ -109,12 +106,10 @@
 		207F067D2B9D725A0067778F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		207F067F2B9E57630067778F /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		207F06812B9E581C0067778F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		209FF8A72B990A5F000854A9 /* Eder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Eder.storyboard; sourceTree = "<group>"; };
 		209FF8A92B990A85000854A9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20C8D45B2BA7B8B7001AA5EF /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		20C8D45D2BA7B8D6001AA5EF /* AppSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewController.swift; sourceTree = "<group>"; };
 		20C8D45F2BA7B91F001AA5EF /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
-		20F084E52B990479005FF676 /* Akin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Akin.storyboard; sourceTree = "<group>"; };
 		20F084E72B9904A8005FF676 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		20F084E92B9907CB005FF676 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		20FF62392BA201D700AFF6DD /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
@@ -143,7 +138,6 @@
 		99F45DE82B9D21D7000753C4 /* FillTheBlank.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FillTheBlank.storyboard; sourceTree = "<group>"; };
 		99F45DEF2B9D2780000753C4 /* LessonElementTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonElementTypes.swift; sourceTree = "<group>"; };
 		99F45DF32B9D33A2000753C4 /* LessonElementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonElementViewController.swift; sourceTree = "<group>"; };
-		C91BDD7B2B924F380013FCE5 /* Rohit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rohit.storyboard; sourceTree = "<group>"; };
 		C9526E752BCDB6F900705CA3 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		C9674BB42B8FE9EB00A50CCD /* Swiftly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -344,10 +338,7 @@
 				993572EE2BBB439200CA75A3 /* DataStructures.swift */,
 				FC0E387C2B8FF20200B4405B /* ViewControllers */,
 				99F45DE12B9D2141000753C4 /* LessonElementStoryboards */,
-				C91BDD7B2B924F380013FCE5 /* Rohit.storyboard */,
-				209FF8A72B990A5F000854A9 /* Eder.storyboard */,
 				209FF8A92B990A85000854A9 /* LaunchScreen.storyboard */,
-				20F084E52B990479005FF676 /* Akin.storyboard */,
 				20F084E72B9904A8005FF676 /* Main.storyboard */,
 				99F45DD22B9D1B43000753C4 /* Lesson.storyboard */,
 				C9674BB72B8FE9EB00A50CCD /* AppDelegate.swift */,
@@ -458,7 +449,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					C9674BB32B8FE9EB00A50CCD = {
 						CreatedOnToolsVersion = 15.2;
@@ -491,22 +482,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				209FF8A82B990A5F000854A9 /* Eder.storyboard in Resources */,
-				C91BDD7C2B924F380013FCE5 /* Rohit.storyboard in Resources */,
 				99EC11C22B9F68C20023FEDE /* Checkpoint.storyboard in Resources */,
 				C9674BC12B8FE9ED00A50CCD /* Assets.xcassets in Resources */,
 				9951F67A2BA2596B0004D597 /* Test.storyboard in Resources */,
 				20F084E82B9904A8005FF676 /* Main.storyboard in Resources */,
 				99EC11C42B9F68D10023FEDE /* Results.storyboard in Resources */,
 				99F45DD32B9D1B43000753C4 /* Lesson.storyboard in Resources */,
-				20F084E62B990479005FF676 /* Akin.storyboard in Resources */,
 				992830092BA5FCF9005AB073 /* GoogleService-Info.plist in Resources */,
 				99F45DE92B9D21D7000753C4 /* FillTheBlank.storyboard in Resources */,
 				99EC11CE2B9F6AA20023FEDE /* Lecture.storyboard in Resources */,
 				209FF8AA2B990A85000854A9 /* LaunchScreen.storyboard in Resources */,
-				20F084E82B9904A8005FF676 /* Main.storyboard in Resources */,
 				993B113A2BA4BA1D00546802 /* DragAndDrop.storyboard in Resources */,
-				20F084E62B990479005FF676 /* Akin.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,7 +514,6 @@
 				99F45DD72B9D1D43000753C4 /* DragAndDropViewController.swift in Sources */,
 				20C8D45E2BA7B8D6001AA5EF /* AppSettingsViewController.swift in Sources */,
 				9951F69D2BA353FA0004D597 /* ResultsElements.swift in Sources */,
-				20F084EA2B9907CB005FF676 /* CustomTabBarController.swift in Sources */,
 				9951F69B2BA353EE0004D597 /* CheckpointElements.swift in Sources */,
 				99F45DF02B9D2780000753C4 /* LessonElementTypes.swift in Sources */,
 				99EC11C62B9F69380023FEDE /* CheckpointViewController.swift in Sources */,

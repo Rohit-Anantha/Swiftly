@@ -68,7 +68,7 @@ class LeaderBoardViewController: UIViewController, UITableViewDataSource, UITabl
 
         
         let row = indexPath.row + 1
-        var cell: CustomTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "GoldPlaceCell", for: indexPath)as? CustomTableViewCell)!
+        let cell: CustomTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "GoldPlaceCell", for: indexPath)as? CustomTableViewCell)!
         
         cell.nameLabel.text = ds[indexPath.row].userName
         cell.scoreLabel.text = String(ds[indexPath.row].totalScore)

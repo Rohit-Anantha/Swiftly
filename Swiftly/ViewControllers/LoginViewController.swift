@@ -40,11 +40,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
-        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+        guard notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] is CGRect else {
             return
         }
-        
-        let keyboardHeight = keyboardFrame.height
         
         UIView.animate(withDuration: 0.3) {
             self.logo.frame.size = CGSize(width: 50, height: 50)
@@ -120,6 +118,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     if let error = error as NSError? {
                         
                         self.showAlert("User does not exist!")
+                        print(error.localizedDescription)
                         
                     }else{
                         self.performSegue(withIdentifier: "LoggedInSegue", sender: nil)

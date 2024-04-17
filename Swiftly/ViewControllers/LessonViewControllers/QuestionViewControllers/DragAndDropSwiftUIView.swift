@@ -177,6 +177,11 @@ struct DragAndDropSwiftUIView: View {
                 text = text + Text(data.question[i]).font(.custom("Avenir-Book", size: 17))
             }
         }
+        if data.question.count < answers.count {
+            for i in data.question.count ..< answers.count {
+                text = text + Text("\n").font(.custom("Avenir-Book", size: 17)) + Text(answers[i]).font(.custom("Avenir-Heavy", size: 17))
+            }
+        }
         return text
     }
 }
