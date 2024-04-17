@@ -17,7 +17,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var usernameField: RoundedTextField!
     @IBOutlet weak var passwordField: RoundedTextField!
-        
+    
     @IBOutlet weak var logoWidth: NSLayoutConstraint!
     @IBOutlet weak var buttonStackView: UIStackView!
     
@@ -26,81 +26,81 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-
-
+        
+        
         usernameField.delegate = self
         passwordField.delegate = self
-
+        
         // Do any additional setup after loading the view.
     }
     
     func textFieldShouldReturn(_ textField:UITextField) -> Bool {
-         textField.resignFirstResponder()
-         return true
-     }
+        textField.resignFirstResponder()
+        return true
+    }
     
     @objc func keyboardWillShow(_ notification: Notification) {
-            guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
-                return
-            }
-            
-            let keyboardHeight = keyboardFrame.height
-            
-            UIView.animate(withDuration: 0.3) {
-                self.logo.frame.size = CGSize(width: 50, height: 50)
-                self.logoWidth.constant = 50
-                self.view.layoutIfNeeded()
-            }
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+            return
         }
         
-        @objc func keyboardWillHide(_ notification: Notification) {
-            UIView.animate(withDuration: 0.3) {
-                // Reset logo height and position
-                self.logo.frame.size = CGSize(width: 300, height: 300)
-                self.logoWidth.constant = 300
-                // self.logo.frame.size =
-                
-                // Reset the positions of other UI elements
-                
-                self.view.layoutIfNeeded()
-            }
+        let keyboardHeight = keyboardFrame.height
+        
+        UIView.animate(withDuration: 0.3) {
+            self.logo.frame.size = CGSize(width: 50, height: 50)
+            self.logoWidth.constant = 50
+            self.view.layoutIfNeeded()
         }
-     
-     // Called when the user clicks on the view outside of the UITextField
-
-     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-         self.view.endEditing(true)
-     }
-
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        UIView.animate(withDuration: 0.3) {
+            // Reset logo height and position
+            self.logo.frame.size = CGSize(width: 300, height: 300)
+            self.logoWidth.constant = 300
+            // self.logo.frame.size =
+            
+            // Reset the positions of other UI elements
+            
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    // Called when the user clicks on the view outside of the UITextField
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        do{
-//            try Auth.auth().signOut()
-//        }catch{
-//            print(error)
-//        }
+        //        do{
+        //            try Auth.auth().signOut()
+        //        }catch{
+        //            print(error)
+        //        }
         Auth.auth().addStateDidChangeListener { auth, user in
             if(user != nil){
                 self.performSegue(withIdentifier: "LoggedInSegue", sender: nil)
             }
         }
-       
+        
     }
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     @IBAction func loginButtonPressed(_ sender: Any) {
         let email = usernameField.text!
         let password = passwordField.text!
@@ -111,7 +111,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             guard password != "" && password.count > 7 else{
                 throw AuthenticationError.passwordTooShort
-            
+                
             }
             Auth.auth().signIn(
                 withEmail: email,
@@ -129,7 +129,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
              Create Segue to home Page
              }
              */
-
+            
             
         } catch let error as AuthenticationError {
             var errorMessage: String
