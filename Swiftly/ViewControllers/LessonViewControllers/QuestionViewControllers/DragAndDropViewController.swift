@@ -67,6 +67,10 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
         self.delegate.next(result: [0], timer: timer)
     }
     
+    func userRanOutOfTime(){
+        self.delegate.userRanOutOfTime()
+    }
+    
     // MARK: - Protocols
     
     func setup(data: LessonElement, delegate: LessonViewController, counter: Int, timer : Int) {

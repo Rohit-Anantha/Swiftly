@@ -63,6 +63,9 @@ class TestViewController: UIViewController, LessonElementViewController {
                 }
                 if self.timer <= 0 {
                     // TODO: User ran out of time, what do you do?
+                    DispatchQueue.main.sync{
+                        self.delegate.userRanOutOfTime()
+                    }
                 }
             }
             

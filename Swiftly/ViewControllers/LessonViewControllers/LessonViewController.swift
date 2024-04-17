@@ -154,6 +154,8 @@ class LessonViewController: UIViewController {
     // all lessons will have the same scoring scalars.
     static let pointsForCorrectAnswer = 5.0
     static let pointsForTimeRemaining = 0.1
+    static let pointsSubtractedWrongAnswer = 8.0
+    static let pointsSubtractedRunningOutTime = 20.0
     
     // Firestore for storing user's results
     let db = Firestore.firestore()
@@ -217,7 +219,7 @@ class LessonViewController: UIViewController {
             //self.currentElement.viewWillDisappear(true)
             //self.currentElement.willMove(toParent: nil)
             //self.currentElement.dismiss(animated: false)
-            Task {await self.storeScore(score: self.calculateScore())}
+            Task {await self.storeScore()}
             self.navigationController?.isNavigationBarHidden = false
             self.tabBarController?.tabBar.isHidden = false
             self.navigationController?.popToRootViewController(animated: true)
@@ -268,49 +270,104 @@ class LessonViewController: UIViewController {
         counter+=1
     }
     
-    
-    // MARK: - Functions
-    
-    // Function for storing the user's results in Firestore after lesson ends. The results aren't computer before this
-    // function, they are computed with computeResults()
-    
-    func storeScore(score : Double) async {
-        
+    func decreaseScore() async {
         // Get User
         let userName = Auth.auth().currentUser!.uid
         do {
             var currentUser : User = try await db.collection("users").document(userName).getDocument(as: User.self)
             
             let dbUser = db.collection("users").document(Auth.auth().currentUser!.uid)
-            
-            // Change user's stats only if they've completed their current lesson
-            if self.currentChapter == currentUser.currentLevel{
-                currentUser.currentLevel += 1
-                currentUser.totalScore += score
-            }
-            
+            // Change user's stats, in this case decrease score if it's any lesson.
+            currentUser.totalScore -= LessonViewController.pointsSubtractedRunningOutTime
             // Save user
             try dbUser.setData(from: currentUser)
             updateCircleCountDelegate.update(newCircle: currentUser.currentLevel)
-        
-            
         } catch {
             //Handle error
             print("error")
         }
     }
     
+    func userRanOutOfTime(){
+        
+        // Maker the current question dissapear
+        self.currentElement.willMove(toParent: nil)
+        self.currentElement.view.removeFromSuperview()
+        self.currentElement.removeFromParent()
+
+        let alert = UIAlertController(
+            title: "Oh no!",
+            message: "Seems like you ran out of time! You will be taken back to the roadmap with a penalty on your score.",
+            preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(
+            title: "Ok",
+            style: .default) {  (alert) in
+                Task {await self.decreaseScore()}
+            })
+        
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.popToRootViewController(animated: true)
+        return
+    }
+    
+    
+    // MARK: - Functions
+    
+    // Function for storing the user's results in Firestore after lesson ends. The results aren't computer before this
+    // function, they are computed with computeResults()
+    
+    func storeScore() async {
+        
+        var score : Double
+        var userPassed : Bool
+        
+        (score, userPassed) = calculateScore()
+        if userPassed {
+            // Get User
+            let userName = Auth.auth().currentUser!.uid
+            do {
+                var currentUser : User = try await db.collection("users").document(userName).getDocument(as: User.self)
+                
+                let dbUser = db.collection("users").document(Auth.auth().currentUser!.uid)
+                
+                // Change user's stats only if they've completed their current lesson
+                if self.currentChapter == currentUser.currentLevel{
+                    currentUser.currentLevel += 1
+                    currentUser.totalScore += score
+                }
+                
+                // Save user
+                try dbUser.setData(from: currentUser)
+                updateCircleCountDelegate.update(newCircle: currentUser.currentLevel)
+                
+                
+            } catch {
+                //Handle error
+                print("error")
+            }
+        }
+    }
+    
     
     // Computes results for the whole lesson
     
-    func calculateScore() -> Double {
+    func calculateScore() -> (Double, Bool) {
         
         // The user's score on this lesson
         var score = 0.0
         
         // Indices
         var dataIndex = 0
+        
+        // For question type checking
         var isFillInTheBlank = false
+        var isMultipleChoiceTest = false
+        
+        // We will check if the percentage of correctly answered options
+        // is greater than a certain amount percentage
+        var totalOptions = 0
+        var correctOptions = 0
         
         for item in self.userAnswers {
             
@@ -321,9 +378,12 @@ class LessonViewController: UIViewController {
             var isQuestion = false
             while !isQuestion && dataIndex < self.data.count{
                 switch self.data[dataIndex].type {
-                case .question(type: .fillTheBlank):
+                    case .question(type: .fillTheBlank):
                         isQuestion = true
                         isFillInTheBlank = true
+                    case .question(type: .multipleChoice):
+                        isQuestion = true
+                        isMultipleChoiceTest = true
                     case .question(type: _):
                         isQuestion = true
                         isFillInTheBlank = false
@@ -342,13 +402,29 @@ class LessonViewController: UIViewController {
                 for response in correctAnswers {
                     if response == 1 {
                         questionScore += LessonViewController.pointsForCorrectAnswer
+                        correctOptions+=1
                     }
+                    totalOptions+=1
+                }
+            // This case is handled so that if the user answers all questions in a multiple choice test question he doesn't get
+            // a good amount of points.
+            } else if isMultipleChoiceTest {
+                for (response,target) in zip(item, correctAnswers) {
+                    if response == target {
+                        questionScore += LessonViewController.pointsForCorrectAnswer
+                        correctOptions+=1
+                    } else {
+                        questionScore -= LessonViewController.pointsSubtractedWrongAnswer
+                    }
+                    totalOptions+=1
                 }
             } else {
                 for (response,target) in zip(item, correctAnswers) {
                     if response == target {
                         questionScore += LessonViewController.pointsForCorrectAnswer
+                        correctOptions+=1
                     }
+                    totalOptions+=1
                 }
             }
             
@@ -361,7 +437,10 @@ class LessonViewController: UIViewController {
             score += Double(time) * LessonViewController.pointsForTimeRemaining
         }
         
-        return score
+        // Checking if the user has to repeat this lesson
+        var userPassed = CGFloat(correctOptions)/CGFloat(totalOptions) > 0.6
+        
+        return (score, userPassed)
     }
     
     // Function used to create next lesson element using counter, data and dataType
