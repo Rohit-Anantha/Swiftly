@@ -291,20 +291,11 @@ class LessonViewController: UIViewController {
     func userRanOutOfTime(){
         
         // Maker the current question dissapear
+        
         self.currentElement.willMove(toParent: nil)
         self.currentElement.view.removeFromSuperview()
         self.currentElement.removeFromParent()
 
-        let alert = UIAlertController(
-            title: "Oh no!",
-            message: "Seems like you ran out of time! You will be taken back to the roadmap with a penalty on your score.",
-            preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(
-            title: "Ok",
-            style: .default) {  (alert) in
-                Task {await self.decreaseScore()}
-            })
-        
         self.navigationController?.isNavigationBarHidden = false
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.popToRootViewController(animated: true)
@@ -440,7 +431,7 @@ class LessonViewController: UIViewController {
         // Checking if the user has to repeat this lesson
         var userPassed = CGFloat(correctOptions)/CGFloat(totalOptions) > 0.6
         
-        return (score, userPassed)
+        return (round(score), userPassed)
     }
     
     // Function used to create next lesson element using counter, data and dataType

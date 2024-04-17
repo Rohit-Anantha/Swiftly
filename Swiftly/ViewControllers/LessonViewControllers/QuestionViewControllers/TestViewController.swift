@@ -62,8 +62,20 @@ class TestViewController: UIViewController, LessonElementViewController {
                     }
                 }
                 if self.timer <= 0 {
-                    // TODO: User ran out of time, what do you do?
                     DispatchQueue.main.sync{
+                        
+                        let alert = UIAlertController(
+                            title: "Oh no!",
+                            message: "Seems like you ran out of time! You will be taken back to the roadmap with a penalty on your score.",
+                            preferredStyle: .actionSheet)
+                        alert.addAction(UIAlertAction(
+                            title: "Ok",
+                            style: .default) {  (alert) in
+                                Task {await self.delegate.decreaseScore()}
+                            })
+                        
+                        self.present(alert,animated: true)
+                        
                         self.delegate.userRanOutOfTime()
                     }
                 }
