@@ -28,11 +28,11 @@ class TestViewController: UIViewController, LessonElementViewController {
     
     // Storyboard variables
     @IBOutlet weak var questionTitleLabel: UILabel!
-    @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var leftStackView: UIStackView!
     @IBOutlet weak var rightStackView: UIStackView!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var timerSymbol: UIImageView!
+    @IBOutlet weak var nextButton: UIButton!
     
     
     // Other variables
@@ -152,35 +152,62 @@ class TestViewController: UIViewController, LessonElementViewController {
         self.flashCorrectWrong {
             // After the animations complete, wait for a while before calling next
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                if self.answers.count > 0 {
-                    self.delegate.next(result: self.answers, timer: self.timer)
-                }
+                self.enableButtons()
+                self.delegate.next(result: self.answers, timer: self.timer)
             }
         }
     }
     
-    func flashCorrectWrong(completion: (() -> Void)? = nil){
-        UIView.animate(withDuration: 0.5, animations: {
-            for button in self.leftStackView.subviews{
-                if self.correctAnswers.contains(button.tag) {
-                    button.backgroundColor = UIColor(named: "correctAnswer")
-                }
-                else {
-                    button.backgroundColor = UIColor(named: "wrongAnswer")
-                }
-            }
-            for button in self.rightStackView.subviews{
-                if self.correctAnswers.contains(button.tag) {
-                    button.backgroundColor = UIColor(named: "correctAnswer")
-                }
-                else {
-                    button.backgroundColor = UIColor(named: "wrongAnswer")
-                }
-            }
-        }) { (_) in
-            // Call the completion closure after the animation completes
-            completion?()
+    
+    /// prevents user interaction with buttons (for animations and such)
+    func disableButtons () {
+        nextButton.isUserInteractionEnabled = false
+        for button in self.leftStackView.subviews {
+            button.isUserInteractionEnabled = false
         }
+        for button in self.rightStackView.subviews {
+            button.isUserInteractionEnabled = false
+        }
+    }
+    
+    
+    /// enable all buttons to be clicked
+    func enableButtons (){
+        nextButton.isUserInteractionEnabled = true
+        for button in self.leftStackView.subviews {
+            button.isUserInteractionEnabled = true
+        }
+        for button in self.rightStackView.subviews {
+            button.isUserInteractionEnabled = true
+        }
+    }
+    
+    func flashCorrectWrong(completion: (() -> Void)? = nil){
+        if self.answers.count > 0 {
+            disableButtons()
+            UIView.animate(withDuration: 0.5, animations: {
+                for button in self.leftStackView.subviews{
+                    if self.correctAnswers.contains(button.tag) {
+                        button.backgroundColor = UIColor(named: "correctAnswer")
+                    }
+                    else {
+                        button.backgroundColor = UIColor(named: "wrongAnswer")
+                    }
+                }
+                for button in self.rightStackView.subviews{
+                    if self.correctAnswers.contains(button.tag) {
+                        button.backgroundColor = UIColor(named: "correctAnswer")
+                    }
+                    else {
+                        button.backgroundColor = UIColor(named: "wrongAnswer")
+                    }
+                }
+            }) { (_) in
+                // Call the completion closure after the animation completes
+                completion?()
+            }
+        }
+        
     }
     
     // clear all the colors to red
