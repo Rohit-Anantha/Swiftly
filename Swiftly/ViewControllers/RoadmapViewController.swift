@@ -140,6 +140,9 @@ class RoadmapViewController: UIViewController, UpdateCircleCount {
             label.translatesAutoresizingMaskIntoConstraints = false
             label.font = i == currLesson ? UIFont(name:"Avenir-Heavy", size:17) : UIFont(name:"Avenir-Book", size:17)
             height += label.frame.height
+            dot.layer.borderColor = UIColor.lightGray.cgColor
+            dot.layer.borderWidth = 1.0
+            
             
             // Action for UIView
             let tapGestureRecognizer = CustomTapGestureRecognizer(target: self, action: #selector(viewTapped))

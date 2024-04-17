@@ -3,7 +3,7 @@
 //  Swiftly
 //
 //  Created by Akın B on 3/17/24.
-//
+//  Mainly worked on by Rohit after initial
 
 import Foundation
 import UIKit
@@ -23,44 +23,20 @@ class RoundedButton: UIButton {
     
     private func commonInit() {
         // Apply rounded corners
-        layer.cornerRadius = 8
         layer.masksToBounds = true
         backgroundColor = UIColor(named: "offSelect")
         alpha = 0.75
         setTitleColor(UIColor(named: "textColor"), for: .normal)
         titleLabel?.numberOfLines = 0
-        layer.shadowColor = UIColor.black.cgColor
-        clipsToBounds = false
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset = CGSizeMake(5, 5)
-        layer.shadowRadius = 2
+        clipsToBounds = true
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderWidth = 1.0
+        layer.cornerRadius = 6.0
         self.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         titleLabel?.textAlignment = .center
         self.titleLabel?.font = UIFont(name: "Avenir-Book", size: 17)
         
     }
-    /*
-     override func layoutSubviews() {
-     super.layoutSubviews()
-     
-     // Set the desired margins
-     let horizontalMargin: CGFloat = 30.0
-     
-     // Adjust the button's width to fill the superview horizontally with margins
-     
-     // Set the button's frame height to 40 pixels
-     let buttonHeight: CGFloat = 40.0
-     
-     translatesAutoresizingMaskIntoConstraints = false // Ensure that Auto Layout constraints are used
-     // Apply rounded corners
-     layer.cornerRadius = 8
-     layer.masksToBounds = true
-     self.titleLabel?.numberOfLines = 0
-     //self.layer.borderWidth = 2.0
-     //self.layer.borderColor = UIColor.black.cgColor
-     
-     }
-     */
 }
 
 import UIKit
@@ -82,6 +58,9 @@ class RoundedTextField: UITextField {
         // Apply rounded corners
         layer.cornerRadius = 8 // You can adjust the corner radius as needed
         layer.masksToBounds = true
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderWidth = 1.0
+        
         self.backgroundColor = .white
         let originalTextColor = UIColor(named: "textColor")
         let lowerOpacityColor = originalTextColor?.withAlphaComponent(0.5)
@@ -126,9 +105,11 @@ class RoundedTextView: UITextView {
         layer.shadowColor = UIColor.black.cgColor
         self.textColor = UIColor(named: "textColor")
         // clipsToBounds = false
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset = CGSize(width: 10, height: 10)
-        layer.shadowRadius = 10
+        // layer.shadowOpacity = 0.5
+        // layer.shadowOffset = CGSize(width: 10, height: 10)
+        // layer.shadowRadius = 10
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderWidth = 1.0
         textContainer.maximumNumberOfLines = 0
         textContainer.lineBreakMode = .byWordWrapping
         isSelectable = false
