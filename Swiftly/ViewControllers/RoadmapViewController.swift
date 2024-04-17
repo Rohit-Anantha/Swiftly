@@ -46,20 +46,35 @@ class RoadmapViewController: UIViewController, UpdateCircleCount {
         loadingVC.lessonTitle = titles[sender.lessonNumber]
         loadingVC.updateCircleCountDelegate = self
         // User has not unlocked these lessons
+        let cancel = UIAlertAction(
+            title: "Cancel",
+            style: .cancel)
         if sender.lessonNumber > currLesson {
             let alert = UIAlertController(
                 title: "Lesson Locked",
                 message: "You are attempting to access a locked lesson. Please complete any previous lessons.",
                 preferredStyle: .alert)
-            let cancel = UIAlertAction(
-                title: "Cancel",
-                style: .cancel)
             let nextLesson = UIAlertAction(
-                title:"Next Lesson", style: .default) {_ in
+                title: "Next Lesson",
+                style: .default) { _ in
                     self.navigationController!.pushViewController(loadingVC, animated: true)
             }
             alert.addAction(cancel)
             alert.addAction(nextLesson)
+            present(alert, animated: true)
+        } else if sender.lessonNumber < currLesson {
+            let alert = UIAlertController(
+                title: "Lesson Completed",
+                message: "This lesson has already been completed. You can review the lesson to see the correct answers.",
+                preferredStyle: .alert)
+            let reviewLesson = UIAlertAction(
+                title: "Review Lesson",
+                style: .default) { _ in
+                    loadingVC.isReview = true
+                    self.navigationController!.pushViewController(loadingVC, animated: true)
+            }
+            alert.addAction(cancel)
+            alert.addAction(reviewLesson)
             present(alert, animated: true)
         } else {
             navigationController!.pushViewController(loadingVC, animated: true)

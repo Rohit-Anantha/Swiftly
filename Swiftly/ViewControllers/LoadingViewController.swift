@@ -58,9 +58,6 @@ class LoadingSymbolView: UIView {
     }
     
     func enableAnimations(duration: Double = 0.5) {
-//        for i in 0..<count {
-//            children[i].alpha = CGFloat(i) / CGFloat(count)
-//        }
         for i in 0..<count {
             let delay = Double(i) / Double(count) * duration
             UIView.animate(withDuration: duration, delay: delay, options: .repeat) {
@@ -75,6 +72,7 @@ class LoadingViewController: UIViewController {
     var lessonNumber: Int!
     var lessonTitle: String!
     var updateCircleCountDelegate: UpdateCircleCount!
+    var isReview = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
