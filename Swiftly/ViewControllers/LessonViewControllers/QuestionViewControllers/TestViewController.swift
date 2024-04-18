@@ -58,25 +58,23 @@ class TestViewController: UIViewController, LessonElementViewController {
                     usleep(1000000)
                     DispatchQueue.main.async {
                         self.timer -= 1
+                        if self.timer <= 0 {
+                            let alert = UIAlertController(
+                                title: "Oh no!",
+                                message: "Seems like you ran out of time! You will be taken back to the roadmap with a penalty on your score.",
+                                preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(
+                                title: "Ok",
+                                style: .default) {  (alert) in
+                                    Task {
+                                        await self.delegate.decreaseScore()
+                                        self.delegate.userRanOutOfTime()}
+                                })
+                            
+                            self.present(alert,animated: true)
+                            return
+                        }
                         self.timerLabel.text = self.formatTime(self.timer)
-                    }
-                }
-                if self.timer <= 0 {
-                    DispatchQueue.main.sync{
-                        
-                        let alert = UIAlertController(
-                            title: "Oh no!",
-                            message: "Seems like you ran out of time! You will be taken back to the roadmap with a penalty on your score.",
-                            preferredStyle: .actionSheet)
-                        alert.addAction(UIAlertAction(
-                            title: "Ok",
-                            style: .default) {  (alert) in
-                                Task {await self.delegate.decreaseScore()}
-                            })
-                        
-                        self.present(alert,animated: true)
-                        
-                        self.delegate.userRanOutOfTime()
                     }
                 }
             }

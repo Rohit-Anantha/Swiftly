@@ -152,10 +152,10 @@ class LessonViewController: UIViewController {
     
     // Scalars for calculating score, for now they are static:
     // all lessons will have the same scoring scalars.
-    static let pointsForCorrectAnswer = 5.0
+    static let pointsForCorrectAnswer = 5
     static let pointsForTimeRemaining = 0.1
-    static let pointsSubtractedWrongAnswer = 8.0
-    static let pointsSubtractedRunningOutTime = 20.0
+    static let pointsSubtractedWrongAnswer = 8
+    static let pointsSubtractedRunningOutTime = 20
     
     // Firestore for storing user's results
     let db = Firestore.firestore()
@@ -219,7 +219,9 @@ class LessonViewController: UIViewController {
             //self.currentElement.viewWillDisappear(true)
             //self.currentElement.willMove(toParent: nil)
             //self.currentElement.dismiss(animated: false)
-            Task {await self.storeScore()}
+            if !self.isReview {
+                Task {await self.storeScore()}
+            }
             self.navigationController?.isNavigationBarHidden = false
             self.tabBarController?.tabBar.isHidden = false
             self.navigationController?.popToRootViewController(animated: true)
@@ -271,6 +273,8 @@ class LessonViewController: UIViewController {
     }
     
     func decreaseScore() async {
+        if self.isReview { return }
+        
         // Get User
         let userName = Auth.auth().currentUser!.uid
         do {
@@ -278,6 +282,7 @@ class LessonViewController: UIViewController {
             
             let dbUser = db.collection("users").document(Auth.auth().currentUser!.uid)
             // Change user's stats, in this case decrease score if it's any lesson.
+            currentUser.chapterScores[currentUser.currentLevel] -= LessonViewController.pointsSubtractedRunningOutTime //TODO: check of this bnreaks if new lesson
             currentUser.totalScore -= LessonViewController.pointsSubtractedRunningOutTime
             // Save user
             try dbUser.setData(from: currentUser)
@@ -310,7 +315,7 @@ class LessonViewController: UIViewController {
     
     func storeScore() async {
         
-        var score : Double
+        var score : Int
         var userPassed : Bool
         
         (score, userPassed) = calculateScore()
@@ -326,6 +331,7 @@ class LessonViewController: UIViewController {
                 if self.currentChapter == currentUser.currentLevel{
                     currentUser.currentLevel += 1
                     currentUser.totalScore += score
+                    currentUser.chapterScores[currentUser.currentLevel] = score
                 }
                 
                 // Save user
@@ -343,7 +349,7 @@ class LessonViewController: UIViewController {
     
     // Computes results for the whole lesson
     
-    func calculateScore() -> (Double, Bool) {
+    func calculateScore() -> (Int, Bool) {
         
         // The user's score on this lesson
         var score = 0.0
@@ -363,7 +369,7 @@ class LessonViewController: UIViewController {
         for item in self.userAnswers {
             
             // Score on this question
-            var questionScore = 0.0
+            var questionScore = 0
             
             ///     The Index for the questions in the 'data' variable
             var isQuestion = false
@@ -386,7 +392,6 @@ class LessonViewController: UIViewController {
             
             ///     Here we fetch the correct answers to compare them to the user's reuslts
             let correctAnswers = (self.data[dataIndex] as! QuestionElement).correctAnswers
-            let wasTimed = (self.data[dataIndex] as! QuestionElement).isTimed
             
             ///     Here we compute the part of the score that the user recieves for correct answers
             if isFillInTheBlank {
@@ -419,7 +424,7 @@ class LessonViewController: UIViewController {
                 }
             }
             
-            score += questionScore
+            score += CGFloat(questionScore)
             dataIndex += 1
         }
         
@@ -429,9 +434,9 @@ class LessonViewController: UIViewController {
         }
         
         // Checking if the user has to repeat this lesson
-        var userPassed = CGFloat(correctOptions)/CGFloat(totalOptions) > 0.6
+        let userPassed = CGFloat(correctOptions)/CGFloat(totalOptions) > 0.6
         
-        return (round(score), userPassed)
+        return (Int(round(score)), userPassed)
     }
     
     // Function used to create next lesson element using counter, data and dataType

@@ -24,8 +24,8 @@ class FillTheBlankViewController: UIViewController, LessonElementViewController 
     // Protocol Variables
     var delegate: LessonViewController!
     var number: Int!
-    var timer = 0 //CHANGE
-    var stopTimer = false //CHANGE
+    var timer = 0
+    var stopTimer = false
     
     // Storyboard variables
     
@@ -39,6 +39,10 @@ class FillTheBlankViewController: UIViewController, LessonElementViewController 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // In case we set up a timer
+        //let timerSymbol = UIImage(systemName: "timer")
+        //let timerText = UILabel("\(self.timer)")
         
         let backgroundView = UIView()
         backgroundView.frame = CGRect(x: 20, y: 100, width: view.frame.width - CGFloat(40), height: view.frame.height / 2)
@@ -78,6 +82,50 @@ class FillTheBlankViewController: UIViewController, LessonElementViewController 
         button.setTitle("Next", for: .normal)
         button.setTitleColor(.black, for: .normal)
         NSLayoutConstraint.activate(constraints)
+        
+        // If we time these
+//        if self.data.isTimed {
+//            // Set the timer up
+//            //self.timerLabel.text = formatTime(timer)
+//
+//            // Add the task that will decrease the timer
+//            let queue = DispatchQueue(label: "TimerQueue", qos: .default)
+//            queue.async {
+//                while !self.stopTimer && self.timer > 0 {
+//                    usleep(1000000)
+//                    DispatchQueue.main.async {
+//                        self.timer -= 1
+//                        //self.timerLabel.text = self.formatTime(self.timer)
+//                    }
+//                }
+//                if self.timer <= 0 {
+//                    DispatchQueue.main.sync{
+//                        
+//                        let alert = UIAlertController(
+//                            title: "Oh no!",
+//                            message: "Seems like you ran out of time! You will be taken back to the roadmap with a penalty on your score.",
+//                            preferredStyle: .actionSheet)
+//                        alert.addAction(UIAlertAction(
+//                            title: "Ok",
+//                            style: .default) {  (alert) in
+//                                Task {await self.delegate.decreaseScore()}
+//                            })
+//                        
+//                        self.present(alert,animated: true)
+//                        
+//                        self.delegate.userRanOutOfTime()
+//                    }
+//                }
+//            }
+//            
+//        } else {
+//            //self.timerLabel.isHidden = true
+//            //self.timerSymbol.isHidden = true
+//        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.stopTimer = true
     }
     
     func buttonAction() -> [Bool] {
@@ -177,5 +225,6 @@ class FillTheBlankViewController: UIViewController, LessonElementViewController 
         self.delegate = delegate
         self.number = counter
         self.data = data as? FillTheBlankElement
+        self.timer = timer
     }
 }

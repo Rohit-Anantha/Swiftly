@@ -67,6 +67,10 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
         self.delegate.next(result: [0], timer: timer)
     }
     
+    func decreaseScore() async {
+        await self.delegate.decreaseScore()
+    }
+    
     func userRanOutOfTime(){
         self.delegate.userRanOutOfTime()
     }

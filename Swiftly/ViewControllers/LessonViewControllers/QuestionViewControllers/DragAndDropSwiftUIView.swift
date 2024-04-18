@@ -19,6 +19,7 @@ struct DragAndDropSwiftUIView: View {
     @State var buttonDisabled = [true, true, true, true, true, true, true, true, true, true, true]
     @State var timer : Int
     @State var isTimed : Bool
+    @State var showAlert = false
     
     @State var flashColors: [Color?] = []
 
@@ -31,6 +32,11 @@ struct DragAndDropSwiftUIView: View {
     var formattedTimer: String {
         let minutes = timer / 60
         let seconds = timer % 60
+        if minutes == 0 && seconds == 0 {
+            self.delegate.userRanOutOfTime()
+            // TODO:
+            // Show alert
+        }
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
@@ -48,15 +54,21 @@ struct DragAndDropSwiftUIView: View {
                         
                         Text(formattedTimer)
                             .font(.custom("Avenir-Heavy", size: 17))
+                            .onReceive(timerDecrease, perform: { _ in
+                                if timer >= 0 {
+                                    timer -= 1
+                                } else {
+                                    self.showAlert.toggle()
+                                    timerDecrease.upstream.connect().cancel()
+                                }
+                            })
+                            .alert(isPresented: $showAlert, content: {
+                                Alert(title: Text("Oh no!"), message: Text("Seems like you ran out of time... You will be taken back to the roadmap with a penalty."), dismissButton: .default(Text("Ok"), action: {
+                                        Task { await self.delegate.decreaseScore() }
+                                        self.delegate.userRanOutOfTime()
+                                }))
+                            })
                     }
-                    Text("\(timer)")
-                        .onReceive(timerDecrease) { _ in
-                            if timer > 0 {
-                                timer -= 1
-                            } else {
-                                self.delegate.userRanOutOfTime()
-                            }
-                        }.font(.custom("Avenir-Heavy", size: 17))
                 }
             // Question Text
             
@@ -124,6 +136,7 @@ struct DragAndDropSwiftUIView: View {
             }
             .padding()
         }
+        
     }
     
     
