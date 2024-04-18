@@ -302,8 +302,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "next(result:timer:)"
             landmarkType = "7">
             <Locations>
@@ -365,8 +365,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
             landmarkName = "next(result:timer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -381,8 +381,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "next(result:timer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -397,8 +397,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/QuestionViewControllers/DragAndDropSwiftUIView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "nextButton()"
             landmarkType = "7">
             <Locations>
@@ -509,8 +509,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
             landmarkName = "next(result:timer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -525,8 +525,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/QuestionViewControllers/DragAndDropSwiftUIView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -618,8 +618,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/QuestionViewControllers/DragAndDropSwiftUIView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -634,8 +634,8 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
             landmarkName = "userRanOutOfTime()"
             landmarkType = "7">
          </BreakpointContent>
@@ -650,17 +650,64 @@
             filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
             landmarkName = "userRanOutOfTime()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2EAD3BF9-08AC-4AF5-B83A-2AA0305E26AC - 8f094a9a68c08fb0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.LessonViewController.userRanOutOfTime() -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "300"
+                  endingLineNumber = "300"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "2EAD3BF9-08AC-4AF5-B83A-2AA0305E26AC - 8f094a9a68c08e1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.LessonViewController.userRanOutOfTime() -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "305"
+                  endingLineNumber = "305"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "2EAD3BF9-08AC-4AF5-B83A-2AA0305E26AC - 8f094a9a68c08eb8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.LessonViewController.userRanOutOfTime() -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "308"
+                  endingLineNumber = "308"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7CB9B78A-8182-4351-A8BE-F62F6BE13C1A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Swiftly/ViewControllers/LessonViewControllers/QuestionViewControllers/DragAndDropViewController.swift"
@@ -685,6 +732,669 @@
             startingLineNumber = "76"
             endingLineNumber = "76"
             landmarkName = "userRanOutOfTime()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1740E1A5-4890-42C6-B8D4-B61B221F4FA0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
+            landmarkName = "storeScore()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "599D901F-729E-4C8F-8F19-377C424F22A9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
+            landmarkName = "storeScore()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "599D901F-729E-4C8F-8F19-377C424F22A9 - 93d58f6a7204e9d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Swiftly.LessonViewController.storeScore() async -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "349"
+                  endingLineNumber = "349"
+                  offsetFromSymbolStart = "1640">
+               </Location>
+               <Location
+                  uuid = "599D901F-729E-4C8F-8F19-377C424F22A9 - 10259333f823339a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Swiftly.LessonViewController.storeScore() async -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "349"
+                  endingLineNumber = "349"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "599D901F-729E-4C8F-8F19-377C424F22A9 - 93d58f6a7204e9d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Swiftly.LessonViewController.storeScore() async -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "349"
+                  endingLineNumber = "349"
+                  offsetFromSymbolStart = "1424">
+               </Location>
+               <Location
+                  uuid = "599D901F-729E-4C8F-8F19-377C424F22A9 - 93d58f6a7204f30"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Swiftly.LessonViewController.storeScore() async -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "352"
+                  endingLineNumber = "352"
+                  offsetFromSymbolStart = "1424">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "56428EE1-9247-4684-A213-ADA2681A96CB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
+            landmarkName = "storeScore()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "56428EE1-9247-4684-A213-ADA2681A96CB - 3b63a37b212179d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Swiftly.LessonViewController.storeScore() async -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "324"
+                  endingLineNumber = "324"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "56428EE1-9247-4684-A213-ADA2681A96CB - 3b63a37b21217a2b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Swiftly.LessonViewController.storeScore() async -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "329"
+                  endingLineNumber = "329"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "56428EE1-9247-4684-A213-ADA2681A96CB - 3b63a37b21217ace"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Swiftly.LessonViewController.storeScore() async -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "332"
+                  endingLineNumber = "332"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3AE85031-8DEA-4A4E-81B1-380A16A457F0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "next(result:timer:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A677E887-7D3C-4285-AD34-ED6D09340EB3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "next(result:timer:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A677E887-7D3C-4285-AD34-ED6D09340EB3 - 2d564f0cd3cad9f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.LessonViewController.next(result: Swift.Array&lt;Swift.Int&gt;, timer: Swift.Int) -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "612">
+               </Location>
+               <Location
+                  uuid = "A677E887-7D3C-4285-AD34-ED6D09340EB3 - debaa09966dcbf52"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () async -&gt; () in Swiftly.LessonViewController.next(result: Swift.Array&lt;Swift.Int&gt;, timer: Swift.Int) -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "A677E887-7D3C-4285-AD34-ED6D09340EB3 - 4af2715f4ab839dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for closure #1 @Sendable () async -&gt; () in Swiftly.LessonViewController.next(result: Swift.Array&lt;Swift.Int&gt;, timer: Swift.Int) -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "A677E887-7D3C-4285-AD34-ED6D09340EB3 - a9e472e58cefb03"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Swiftly.LessonViewController.next(result: Swift.Array&lt;Swift.Int&gt;, timer: Swift.Int) -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0DBD95CA-327F-40E5-AF3B-D61E95E1338C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
+            landmarkName = "storeScore()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2670B5B-F538-4F10-8748-8565C945ACEB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "329"
+            endingLineNumber = "329"
+            landmarkName = "storeScore()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E2670B5B-F538-4F10-8748-8565C945ACEB - 3b63a37b21217933"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Swiftly.LessonViewController.storeScore() async -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "321"
+                  endingLineNumber = "321"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "E2670B5B-F538-4F10-8748-8565C945ACEB - 3b63a37b21217988"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Swiftly.LessonViewController.storeScore() async -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "326"
+                  endingLineNumber = "326"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "E2670B5B-F538-4F10-8748-8565C945ACEB - 3b63a37b21217a2b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Swiftly.LessonViewController.storeScore() async -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "329"
+                  endingLineNumber = "329"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E65D83C0-073B-48B9-82B1-0C3328DDEFE7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "450"
+            endingLineNumber = "450"
+            landmarkName = "calculateScore()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E65D83C0-073B-48B9-82B1-0C3328DDEFE7 - 4fea95ad2916fc9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.LessonViewController.calculateScore() -&gt; (Swift.Int, Swift.Bool)"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "447"
+                  endingLineNumber = "447"
+                  offsetFromSymbolStart = "2992">
+               </Location>
+               <Location
+                  uuid = "E65D83C0-073B-48B9-82B1-0C3328DDEFE7 - 4fea95ad2916fac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.LessonViewController.calculateScore() -&gt; (Swift.Int, Swift.Bool)"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "450"
+                  endingLineNumber = "450"
+                  offsetFromSymbolStart = "2992">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "74C7721C-3055-4817-8FB0-40CFC3A41B33"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "421"
+            endingLineNumber = "421"
+            landmarkName = "calculateScore()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "74C7721C-3055-4817-8FB0-40CFC3A41B33 - 4fea95ad2916b8c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.LessonViewController.calculateScore() -&gt; (Swift.Int, Swift.Bool)"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "418"
+                  endingLineNumber = "418"
+                  offsetFromSymbolStart = "2252">
+               </Location>
+               <Location
+                  uuid = "74C7721C-3055-4817-8FB0-40CFC3A41B33 - 4fea95ad2916b8c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.LessonViewController.calculateScore() -&gt; (Swift.Int, Swift.Bool)"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "418"
+                  endingLineNumber = "418"
+                  offsetFromSymbolStart = "1968">
+               </Location>
+               <Location
+                  uuid = "74C7721C-3055-4817-8FB0-40CFC3A41B33 - 4fea95ad291686f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.LessonViewController.calculateScore() -&gt; (Swift.Int, Swift.Bool)"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "421"
+                  endingLineNumber = "421"
+                  offsetFromSymbolStart = "1968">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BCAB0D1A-E5E5-4417-842E-7C6A43BB269A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/QuestionViewControllers/TestViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "nextButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96E0C670-D9A1-4CD6-80DB-6B93876E7A02"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "next(result:timer:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E59522A0-C9BB-427B-A143-BF91A51D2D66"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
+            landmarkName = "calculateScore()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E59522A0-C9BB-427B-A143-BF91A51D2D66 - 4fea95ad29166a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.LessonViewController.calculateScore() -&gt; (Swift.Int, Swift.Bool)"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "380"
+                  endingLineNumber = "380"
+                  offsetFromSymbolStart = "444">
+               </Location>
+               <Location
+                  uuid = "E59522A0-C9BB-427B-A143-BF91A51D2D66 - 4fea95ad2916685"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.LessonViewController.calculateScore() -&gt; (Swift.Int, Swift.Bool)"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "379"
+                  endingLineNumber = "379"
+                  offsetFromSymbolStart = "300">
+               </Location>
+               <Location
+                  uuid = "E59522A0-C9BB-427B-A143-BF91A51D2D66 - 4fea95ad2916768"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swiftly.LessonViewController.calculateScore() -&gt; (Swift.Int, Swift.Bool)"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "382"
+                  endingLineNumber = "382"
+                  offsetFromSymbolStart = "300">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2EF5CB0-3CBC-4B3D-8A46-3480CB56AD3F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "next(result:timer:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E27C0C91-1712-45FE-94A6-F5EA38DA6096"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "next(result:timer:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "231AE026-9C87-4D34-88AB-5C7DD1996F20"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "339"
+            endingLineNumber = "339"
+            landmarkName = "storeScore()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "231AE026-9C87-4D34-88AB-5C7DD1996F20 - 93d58f6a7203140"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Swiftly.LessonViewController.storeScore() async -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "336"
+                  endingLineNumber = "336"
+                  offsetFromSymbolStart = "612">
+               </Location>
+               <Location
+                  uuid = "231AE026-9C87-4D34-88AB-5C7DD1996F20 - 93d58f6a7203140"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Swiftly.LessonViewController.storeScore() async -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "336"
+                  endingLineNumber = "336"
+                  offsetFromSymbolStart = "620">
+               </Location>
+               <Location
+                  uuid = "231AE026-9C87-4D34-88AB-5C7DD1996F20 - 93d58f6a72031e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Swiftly.LessonViewController.storeScore() async -&gt; ()"
+                  moduleName = "Swiftly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/guille/Documents/Courses/iOSMobileComputing/Project/Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "339"
+                  endingLineNumber = "339"
+                  offsetFromSymbolStart = "620">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "22D0BE3F-62CF-432C-BB6B-B7617F6EB33B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/QuestionViewControllers/DragAndDropViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "next(userAnswers:timer:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "898D38CB-1840-4CAC-85D9-B26D4DE7B4E4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Swiftly/ViewControllers/LessonViewControllers/LessonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "445"
+            endingLineNumber = "445"
+            landmarkName = "calculateScore()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

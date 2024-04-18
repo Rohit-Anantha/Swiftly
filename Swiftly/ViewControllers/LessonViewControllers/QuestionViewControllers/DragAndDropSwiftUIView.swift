@@ -12,6 +12,7 @@ import SwiftUI
 
 /// Swift UI VC that uses the draggable properties to have a drag and drop question
 struct DragAndDropSwiftUIView: View {
+    @Environment(\.dismiss) private var dismiss
     @State var delegate : DragAndDropViewController
     @State var data : DragAndDropElement
     @State var answers: [String] = [] 
@@ -51,7 +52,7 @@ struct DragAndDropSwiftUIView: View {
                         Text(formattedTimer)
                             .font(.custom("Avenir-Heavy", size: 17))
                             .onReceive(timerDecrease, perform: { _ in
-                                if timer >= 0 {
+                                if timer > 0 {
                                     timer -= 1
                                 } else {
                                     self.showAlert.toggle()
@@ -62,6 +63,7 @@ struct DragAndDropSwiftUIView: View {
                                 Alert(title: Text("Oh no!"), message: Text("Seems like you ran out of time... You will be taken back to the roadmap with a penalty."), dismissButton: .default(Text("Ok"), action: {
                                         Task { await self.delegate.decreaseScore() }
                                         self.delegate.userRanOutOfTime()
+                                        dismiss()
                                 }))
                             })
                     }
