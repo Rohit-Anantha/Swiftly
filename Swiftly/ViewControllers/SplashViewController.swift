@@ -22,7 +22,6 @@ class SplashViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         Task{
             do {
                 currentUser = try await db.collection("users").document(Auth.auth().currentUser!.uid).getDocument(as: User.self)

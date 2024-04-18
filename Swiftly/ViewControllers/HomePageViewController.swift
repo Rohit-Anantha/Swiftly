@@ -9,29 +9,173 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
-class HomePageViewController: UIViewController {
+
+class Person{
+    var name:String
+    var score: Int64
     
+    init(name: String, score: Int64) {
+        self.name = name
+        self.score = score
+    }
+}
+
+/*
+ MARK: - LeaderBoard
+ 
+Here the user will be able to compare themselves with the rest of the users. This page is accessed through the Leaderboard button on the home tab.
+ */
+class CustomTableViewCell: UITableViewCell {
+    // Declare outlets for the labels
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var medalImage: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        
+//        // Set rounded corners
+//        self.contentView.layer.cornerRadius = 8.0 // Adjust the corner radius value as needed
+//        self.contentView.layer.masksToBounds = true
+//        
+//        self.backgroundColor = UIColor.lightGray
+
+//        // Optional: Add a border to the cell (adjust the width and color as desired)
+//        if let accentColor = UIColor(named: "AccentColor"), let primaryColor =  UIColor(named: "PrimaryTheme") {
+//            self.contentView.layer.borderColor = accentColor.cgColor
+//            self.contentView.layer.borderWidth = 1.0 // Adjust the border width as needed
+//            self.backgroundColor = primaryColor
+//        }
+//        // Set the layout margins of the cell
+//        self.layoutMargins = UIEdgeInsets(top: 10, left: 15, bottom: 4, right: 15)
+//        self.separatorInset = UIEdgeInsets(top: 10, left: 15, bottom: 4, right: 15)
+        
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+}
+
+
+
+class HomePageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var ds: [User] = []{
+        didSet{
+            leaderboardTableView.reloadData()
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ds.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = indexPath.row + 1
+        let cell: CustomTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "GoldPlaceCell", for: indexPath)as? CustomTableViewCell)!
+        
+        cell.nameLabel.text = ds[indexPath.row].userName
+        cell.scoreLabel.text = String(ds[indexPath.row].totalScore)
+        
+        // Reset `medalImage` properties to avoid reuse issues
+        cell.medalImage.isHidden = false
+        cell.medalImage.tintColor = nil  // Reset the tint color
+        switch (row) {
+        case 1:
+            cell.medalImage.tintColor = UIColor(named: "goldColor")
+            
+        case 2:
+//            Silver
+            cell.medalImage.tintColor = UIColor.lightGray
+        case 3:
+//            Bronze
+            cell.medalImage.tintColor = UIColor(named: "bronzeColor")
+        default:
+            cell.medalImage.isHidden = true
+        }
+        
+        
+        
+        return cell
+    }
+    
+    // UITableViewDelegate method
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         // Handle cell selection
+         
+         // Deselect the cell with animation
+         tableView.deselectRow(at: indexPath, animated: true)
+         
+         // Perform other actions if needed (e.g., navigate to another view controller, show a detail view, etc.)
+         print("Row \(indexPath.row) selected")
+     }
+    
+    
+    
+    
+    @IBOutlet weak var leaderboardTableView: UITableView!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var chapterOverview: UITableView!
+    
     
     @IBOutlet weak var streakCount: UILabel!
     
     //    the fire logo
     @IBOutlet weak var streakLabel: UIImageView!
-    @IBOutlet weak var leaderboardButton: UIButton!
+    
     
     private let db = Firestore.firestore()
     
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         print("homepage appeared")
         Task {
             do {
                 let currentUser = try await db.collection("users").document(Auth.auth().currentUser!.uid).getDocument(as: User.self)
                 userName.text = currentUser.userName
                 print(currentUser.userName)
+                
+                
+            // Query all documents from the "users" collection
+            
+                db.collection("users").getDocuments { (querySnapshot, error) in
+                    if let error = error {
+                        print("Error getting documents: \(error)")
+                    } else {
+                        // Documents retrieved successfully
+                        var users = [User]()
+                        
+                        // Iterate through each document in the querySnapshot
+                        for document in querySnapshot!.documents {
+                            do {
+                                // Decode the document directly into a User object
+                                let user = try document.data(as: User.self)
+                                
+                                print("leaderboard user: " + user.userName)
+                                users.append(user)
+                                
+                            } catch let error {
+                                print("Error decoding user: \(error)")
+                            }
+                        }
+                        
+                        // Sort the users array based on the .totalScore attribute
+                        // Sort the users array based on the .totalScore attribute
+                        users.sort { $0.totalScore > $1.totalScore }
+                        
+                        self.ds = users
+                        self.leaderboardTableView.reloadData()
+                        
+                    }
+                    
+                
+                }
             }
         }
     }
@@ -44,6 +188,8 @@ class HomePageViewController: UIViewController {
         
         //        let count:Int? = currentUser?.streakCount
         //        streakCount.text = String(count)
+        leaderboardTableView.dataSource = self
+        leaderboardTableView.delegate = self
         email.text = Auth.auth().currentUser?.email
         let dayInSeconds: TimeInterval = TimeInterval(60 * 60 * 24)
         
@@ -455,39 +601,39 @@ class HomePageViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "LeaderboardSegue",
-           let nextVC = segue.destination as? LeaderBoardViewController {
-            
-            // Query all documents from the "users" collection
-            db.collection("users").getDocuments { (querySnapshot, error) in
-                if let error = error {
-                    print("Error getting documents: \(error)")
-                } else {
-                    // Documents retrieved successfully
-                    var users = [User]()
-                    
-                    // Iterate through each document in the querySnapshot
-                    for document in querySnapshot!.documents {
-                        do {
-                            // Decode the document directly into a User object
-                            let user = try document.data(as: User.self)
-                            
-                            print("leaderboard user: " + user.userName)
-                            users.append(user)
-                            
-                        } catch let error {
-                            print("Error decoding user: \(error)")
-                        }
-                    }
-                    
-                    // Sort the users array based on the .totalScore attribute
-                    // Sort the users array based on the .totalScore attribute
-                    users.sort { $0.totalScore > $1.totalScore }
-                    
-                    
-                    nextVC.ds = users
-                    
-                    
+//        if segue.identifier == "LeaderboardSegue",
+//           let nextVC = segue.destination as? LeaderBoardViewController {
+//            
+//            // Query all documents from the "users" collection
+//            db.collection("users").getDocuments { (querySnapshot, error) in
+//                if let error = error {
+//                    print("Error getting documents: \(error)")
+//                } else {
+//                    // Documents retrieved successfully
+//                    var users = [User]()
+//                    
+//                    // Iterate through each document in the querySnapshot
+//                    for document in querySnapshot!.documents {
+//                        do {
+//                            // Decode the document directly into a User object
+//                            let user = try document.data(as: User.self)
+//                            
+//                            print("leaderboard user: " + user.userName)
+//                            users.append(user)
+//                            
+//                        } catch let error {
+//                            print("Error decoding user: \(error)")
+//                        }
+//                    }
+//                    
+//                    // Sort the users array based on the .totalScore attribute
+//                    // Sort the users array based on the .totalScore attribute
+//                    users.sort { $0.totalScore > $1.totalScore }
+//                    
+//                    
+//                    nextVC.ds = users
+//                    
+//                    
                 }
                 
                 
@@ -501,8 +647,8 @@ class HomePageViewController: UIViewController {
                  }
                  */
                 
-            }
             
-        }
-    }
+            
+
+    
 }
