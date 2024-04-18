@@ -227,8 +227,6 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         //        Create DB
-        // addChapterDemo()
-        // addBlankChapters()
     }
     
     
@@ -546,10 +544,18 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         
         tmpQuestions.append(Question(type: .trueFalse, questionString: "Let someInt be an Int. The value of +someInt is the absolute value of someInt", options: ["True", "False"],time: 300, answer: [1]))
         
+        tmpQuestions.append(Question(type: QuestionType.dragAndDrop, questionString: "   Rearrange the code snippets to create an optional variable `name` of type `String` that is initially set to `nil`, and then print its value if it exists.", options: ["var name: String?", "print(name)", "name = \"John\""],time: 20, answer: [0,2,1]))
         
         tmpQuestions.append(Question(type: .multipleChoice, questionString: "What is the value of num in the following Swift code?\nlet index = -1\nlet num = -index", options: ["-1", "1", "0", "error"], answer: [1]))
         
-        tmpQuestions.append(Question(type: QuestionType.dragAndDrop, questionString: "   Rearrange the code snippets to create an optional variable `name` of type `String` that is initially set to `nil`, and then print its value if it exists.", options: ["var name: String?", "print(name)", "name = \"John\""],time: 300, answer: [0,2,1]))
+        
+        
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Question Example", options: ["A", "B", "C", "D"],time: 10, answer: [1, 2]))
+        
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Question Example", options: ["A", "B", "C", "D"],time: 10, answer: [3]))
+        
+        tmpQuestions.append(Question(type: .multipleChoice, questionString: "Question Example", options: ["A", "B", "C", "D"],time: 10, answer: [0]))
+        
         
         
         ch.questions = tmpQuestions
