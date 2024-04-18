@@ -213,12 +213,20 @@ class LessonViewController: UIViewController {
         
         self.timer = timer
         
-        self.userAnswers.append(result)
+        switch self.data[self.counter-1].type{
+        case .question(type: _):
+            self.userAnswers.append(result)
+        default:
+            break
+        }
         
         if self.counter == self.data.count {
             //self.currentElement.viewWillDisappear(true)
             //self.currentElement.willMove(toParent: nil)
             //self.currentElement.dismiss(animated: false)
+            if self.data.last!.isTimed {
+                self.timerResults.append(self.timer)
+            }
             if !self.isReview {
                 Task {await self.storeScore()}
             }
@@ -282,7 +290,7 @@ class LessonViewController: UIViewController {
             
             let dbUser = db.collection("users").document(Auth.auth().currentUser!.uid)
             // Change user's stats, in this case decrease score if it's any lesson.
-            currentUser.chapterScores[currentUser.currentLevel] -= LessonViewController.pointsSubtractedRunningOutTime //TODO: check of this bnreaks if new lesson
+            currentUser.chapterScores.append(LessonViewController.pointsSubtractedRunningOutTime)
             currentUser.totalScore -= LessonViewController.pointsSubtractedRunningOutTime
             // Save user
             try dbUser.setData(from: currentUser)
@@ -331,7 +339,12 @@ class LessonViewController: UIViewController {
                 if self.currentChapter == currentUser.currentLevel{
                     currentUser.currentLevel += 1
                     currentUser.totalScore += score
-                    currentUser.chapterScores[currentUser.currentLevel] = score
+                    if currentUser.chapterScores.count == currentUser.currentLevel {
+                        currentUser.chapterScores[currentUser.currentLevel] += score
+                    } else {
+                        currentUser.chapterScores.append(score)
+                    }
+                    
                 }
                 
                 // Save user

@@ -64,7 +64,7 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
     
     func next(userAnswers : [Int], timer : Int){
         self.hostingViewController.dismiss(animated: true)
-        self.delegate.next(result: [0], timer: timer)
+        self.delegate.next(result: userAnswers, timer: timer)
     }
     
     func decreaseScore() async {
