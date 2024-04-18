@@ -32,11 +32,6 @@ struct DragAndDropSwiftUIView: View {
     var formattedTimer: String {
         let minutes = timer / 60
         let seconds = timer % 60
-        if minutes == 0 && seconds == 0 {
-            self.delegate.userRanOutOfTime()
-            // TODO:
-            // Show alert
-        }
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
