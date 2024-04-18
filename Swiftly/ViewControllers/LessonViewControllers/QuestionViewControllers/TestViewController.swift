@@ -25,6 +25,7 @@ class TestViewController: UIViewController, LessonElementViewController {
     var number: Int!
     var timer = 0
     var stopTimer = false
+    var isReview: Bool!
     
     // Storyboard variables
     @IBOutlet weak var questionTitleLabel: UILabel!
@@ -53,28 +54,30 @@ class TestViewController: UIViewController, LessonElementViewController {
 
             // Add the task that will decrease the timer
             let queue = DispatchQueue(label: "TimerQueue", qos: .default)
-            queue.async {
-                while !self.stopTimer && self.timer > 0 {
-                    usleep(1000000)
-                    DispatchQueue.main.async {
-                        self.timer -= 1
-                        if self.timer <= 0 {
-                            let alert = UIAlertController(
-                                title: "Oh no!",
-                                message: "Seems like you ran out of time! You will be taken back to the roadmap with a penalty on your score.",
-                                preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(
-                                title: "Ok",
-                                style: .default) {  (alert) in
-                                    Task {
-                                        await self.delegate.decreaseScore()
-                                        self.delegate.userRanOutOfTime()}
-                                })
-                            
-                            self.present(alert,animated: true)
-                            return
+            if !isReview {
+                queue.async {
+                    while !self.stopTimer && self.timer > 0 {
+                        usleep(1000000)
+                        DispatchQueue.main.async {
+                            self.timer -= 1
+                            if self.timer <= 0 {
+                                let alert = UIAlertController(
+                                    title: "Oh no!",
+                                    message: "Seems like you ran out of time! You will be taken back to the roadmap with a penalty on your score.",
+                                    preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(
+                                    title: "Ok",
+                                    style: .default) {  (alert) in
+                                        Task {
+                                            await self.delegate.decreaseScore()
+                                            self.delegate.userRanOutOfTime()}
+                                    })
+                                
+                                self.present(alert,animated: true)
+                                return
+                            }
+                            self.timerLabel.text = self.formatTime(self.timer)
                         }
-                        self.timerLabel.text = self.formatTime(self.timer)
                     }
                 }
             }
@@ -152,6 +155,10 @@ class TestViewController: UIViewController, LessonElementViewController {
                 }
             }
         }
+        if isReview {
+            flashCorrectWrong()
+            nextButton.isUserInteractionEnabled = true
+        }
     }
     
     // Function to format time as mm:ss
@@ -203,7 +210,7 @@ class TestViewController: UIViewController, LessonElementViewController {
     }
     
     func flashCorrectWrong(completion: (() -> Void)? = nil){
-        if self.answers.count > 0 {
+        if self.answers.count > 0 || isReview {
             disableButtons()
             UIView.animate(withDuration: 0.5, animations: {
                 for button in self.leftStackView.subviews{
@@ -275,10 +282,11 @@ class TestViewController: UIViewController, LessonElementViewController {
     // MARK: - Protocol
     
     // Set up the variables from which this lesson element creates itself
-    func setup(data: LessonElement, delegate: LessonViewController, counter: Int, timer : Int) {
+    func setup(data: LessonElement, delegate: LessonViewController, counter: Int, timer : Int, isReview: Bool = false) {
         self.delegate = delegate
         self.number = counter
         self.data = data as? TestQuestionElement
         self.timer = timer
+        self.isReview = isReview
     }
 }

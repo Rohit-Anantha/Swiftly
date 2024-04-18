@@ -190,7 +190,7 @@ class LessonViewController: UIViewController {
         
         // Set it up, the first element will never be a timed question,
         // so set the timer to -1.
-        self.currentElement.setup(data: data.first!, delegate: self, counter: 0, timer: -1)
+        self.currentElement.setup(data: data.first!, delegate: self, counter: 0, timer: -1, isReview: isReview)
         
         // It's a child!
         self.addChild(self.currentElement)
@@ -234,7 +234,7 @@ class LessonViewController: UIViewController {
         // Set it up and pass the according timer value
         if wasPreviousTimed {
             // If the oprevious question was timed pass the current timer
-            next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: self.timer)
+            next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: self.timer, isReview: isReview)
             // If the timed question section has ended, add the time remaining to timerResults
             if !self.data[self.counter].isTimed {
                 self.timerResults.append(self.timer)
@@ -243,11 +243,11 @@ class LessonViewController: UIViewController {
         } else {
             if self.data[counter].isTimed {
                 // If the previous question wasn't timed check if this one should be
-                next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: self.data[counter].timer)
+                next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: self.data[counter].timer, isReview: isReview)
                 self.wasPreviousTimed = true
             } else {
                 // If it shouldn't be then pass -1 as a timer value
-                next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: -1)
+                next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: -1, isReview: isReview)
             }
         }
         

@@ -77,7 +77,7 @@ class ResultsViewController: UIViewController, LessonElementViewController {
     
     // MARK: - Protocols
     
-    func setup(data: LessonElement, delegate: LessonViewController, counter: Int, timer : Int) {
+    func setup(data: LessonElement, delegate: LessonViewController, counter: Int, timer : Int, isReview: Bool) {
         self.delegate = delegate
         self.number = counter
         self.data = data as? ResultsElement

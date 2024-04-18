@@ -34,6 +34,7 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
     var number: Int!
     var timer = 0
     var stopTimer = false // This will not be used but we needed to conform to protocol
+    var isReview: Bool!
 
     
     // Other Variables
@@ -51,7 +52,7 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
             answerList.append("\(i). __")
         }
         
-        self.hostingViewController = UIHostingController(rootView: DragAndDropSwiftUIView(delegate: self, data: self.data, answers: answerList, options: self.data.options, timer: self.timer, isTimed: data.isTimed, flashColors: Array(repeating: Color("onSelect"), count: answerList.count)))
+        self.hostingViewController = UIHostingController(rootView: DragAndDropSwiftUIView(delegate: self, data: self.data, answers: answerList, options: self.data.options, timer: self.timer, isTimed: data.isTimed, isReview: isReview , flashColors: Array(repeating: Color("onSelect"), count: answerList.count)))
         self.hostingViewController.modalPresentationStyle = .fullScreen
         present(self.hostingViewController, animated: true)
     }
@@ -77,10 +78,11 @@ class DragAndDropViewController: UIViewController, LessonElementViewController{
     
     // MARK: - Protocols
     
-    func setup(data: LessonElement, delegate: LessonViewController, counter: Int, timer : Int) {
+    func setup(data: LessonElement, delegate: LessonViewController, counter: Int, timer : Int, isReview: Bool = false) {
         self.delegate = delegate
         self.number = counter
         self.data = data as? DragAndDropElement
         self.timer = timer
+        self.isReview = isReview
     }
 }

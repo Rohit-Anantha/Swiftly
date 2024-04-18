@@ -20,6 +20,7 @@ struct DragAndDropSwiftUIView: View {
     @State var timer : Int
     @State var isTimed : Bool
     @State var showAlert = false
+    var isReview: Bool!
     
     @State var flashColors: [Color?] = []
 
@@ -88,7 +89,7 @@ struct DragAndDropSwiftUIView: View {
                 Text("Blank Spaces").font(.custom("Avenir-Heavy", size: 19))
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 8)], spacing: 8) {
                     ForEach(0..<answers.count, id: \.self) { index in
-                        let dropLocation = DropLocation(text: $answers[index], index: index, answers: $answers, flashColor: $flashColors[index])
+                        let dropLocation = DropLocation(text: $answers[index], index: index, answers: $answers, flashColor: $flashColors[index], isReview: isReview, options: options)
                         dropLocation
                     }
                 }
@@ -131,7 +132,6 @@ struct DragAndDropSwiftUIView: View {
             }
             .padding()
         }
-        
     }
     
     
@@ -143,6 +143,8 @@ struct DragAndDropSwiftUIView: View {
         let index: Int
         @Binding var answers: [String]
         @Binding var flashColor: Color?
+        var isReview: Bool!
+        var options: [String]!
         
         var body: some View {
             Text("\(text)")
@@ -152,14 +154,21 @@ struct DragAndDropSwiftUIView: View {
                 .cornerRadius(8)
                 .shadow(radius: 1, x: 1, y: 1)
                 .dropDestination(for: String.self){droppedItems,location in
-                    self.text = droppedItems.first!
-                    self.answers[index] = droppedItems.first!
-
-                    print(answers)
+                    if !isReview {
+                        self.text = droppedItems.first!
+                        self.answers[index] = droppedItems.first!
+                        
+                        print(answers)
+                    }
                     return true
                 }
-                
-
+                .onAppear {
+                    print("On Appear")
+                    if isReview {
+                        self.text = self.options[index]
+                        self.answers[index] = self.options[index]
+                    }
+                }
         }
     }
 
