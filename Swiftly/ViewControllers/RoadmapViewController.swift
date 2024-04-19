@@ -32,6 +32,7 @@ class RoadmapViewController: UIViewController, UpdateCircleCount {
     
     private var height: CGFloat!
     
+    private var labels: [UILabel] = []
     private var circles: [UIView] = []
     
     // Custom class used only for giving UITapGestureRecognizer a property
@@ -40,16 +41,16 @@ class RoadmapViewController: UIViewController, UpdateCircleCount {
     }
     
     @objc func viewTapped(sender: CustomTapGestureRecognizer) {
-        // Gets the view controller from Lesson storyboard
         let loadingVC = LoadingViewController()
-        loadingVC.lessonNumber = sender.lessonNumber
-        loadingVC.lessonTitle = titles[sender.lessonNumber]
         loadingVC.updateCircleCountDelegate = self
+
         // User has not unlocked these lessons
         let cancel = UIAlertAction(
             title: "Cancel",
             style: .cancel)
         if sender.lessonNumber > currLesson {
+            loadingVC.lessonNumber = currLesson
+            loadingVC.lessonTitle = titles[currLesson]
             let alert = UIAlertController(
                 title: "Lesson Locked",
                 message: "You are attempting to access a locked lesson. Please complete any previous lessons.",
@@ -63,6 +64,9 @@ class RoadmapViewController: UIViewController, UpdateCircleCount {
             alert.addAction(nextLesson)
             present(alert, animated: true)
         } else if sender.lessonNumber < currLesson {
+            loadingVC.lessonNumber = sender.lessonNumber
+            loadingVC.lessonTitle = titles[sender.lessonNumber]
+            loadingVC.isReview = true
             let alert = UIAlertController(
                 title: "Lesson Completed",
                 message: "This lesson has already been completed. You can review the lesson to see the correct answers.",
@@ -70,13 +74,14 @@ class RoadmapViewController: UIViewController, UpdateCircleCount {
             let reviewLesson = UIAlertAction(
                 title: "Review Lesson",
                 style: .default) { _ in
-                    loadingVC.isReview = true
                     self.navigationController!.pushViewController(loadingVC, animated: true)
             }
             alert.addAction(cancel)
             alert.addAction(reviewLesson)
             present(alert, animated: true)
         } else {
+            loadingVC.lessonNumber = sender.lessonNumber
+            loadingVC.lessonTitle = titles[sender.lessonNumber]
             navigationController!.pushViewController(loadingVC, animated: true)
         }
     }
@@ -139,21 +144,18 @@ class RoadmapViewController: UIViewController, UpdateCircleCount {
             dot.layer.cornerRadius = CGFloat(circleDiameter) / CGFloat(2)
             dot.backgroundColor = i < currLesson ? UIColor(named:"AccentColor") : i > currLesson ? UIColor(named:"paleBlueGrey") : UIColor(named: "paleYellow")
             dot.translatesAutoresizingMaskIntoConstraints = false
+            dot.layer.borderColor = UIColor.lightGray.cgColor
+            dot.layer.borderWidth = 1.0
             
             // Initializes Label
             let label = UILabel()
+            labels.append(label)
             label.text = titles[i]
-            label.sizeToFit()
             label.translatesAutoresizingMaskIntoConstraints = false
-            if i == currLesson {
-                label.font = UIFont(name: "Avenir-Heavy", size: 17)
-            }
-            else{
-                label.font = UIFont(name: "Avenir-Book", size:17)
-            }
+            label.font = i == currLesson ? UIFont(name: "Avenir-Heavy", size: 17) : UIFont(name: "Avenir-Book", size:17)
+            label.sizeToFit()
+            
             height += label.frame.height
-            dot.layer.borderColor = UIColor.lightGray.cgColor
-            dot.layer.borderWidth = 1.0
             
             
             // Action for UIView
@@ -201,7 +203,11 @@ class RoadmapViewController: UIViewController, UpdateCircleCount {
         currLesson = newCircle
         for i in 0..<circleCount {
             let dot = circles[i]
+            let label = labels[i]
+            // Resets the circle color
             dot.backgroundColor = i < currLesson ? UIColor(named:"AccentColor") : i > currLesson ? UIColor(named:"paleBlueGrey") : UIColor(named: "paleYellow")
+            // Resets the label font
+            label.font = i == currLesson ? UIFont(name: "Avenir-Heavy", size: 17) : UIFont(name: "Avenir-Book", size:17)
         }
     }
 }
