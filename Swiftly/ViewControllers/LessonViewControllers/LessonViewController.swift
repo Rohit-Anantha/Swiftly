@@ -35,98 +35,7 @@ class LessonViewController: UIViewController {
     
     @IBOutlet weak var lessonLabel: UILabel!
     var currentChapter = -1
-    var data : [any LessonElement] = [
-        // Lecture type
-        LectureElement(type: .lecture(type: .lecture),
-                       title: "Introduction to Swift Programing language!",
-                       lecture: "Swift is a cool programing language used for iOS development an other stuff. This first lesson is hardcoded in to the app and it's just used to test the app. In the future screens like this will actually teach things..."),
-        // Drag and Drop
-        DragAndDropElement(type: .question(type: .dragAndDrop),
-                           isTimed: true, timer: 30,
-                           question:
-                            ["var ", " = 0\n",
-                                            " number in 1...10 {\n\t",
-                                                " += number\n}\n",
-                                            "(\"The sum of numbers 1 to 10 is: \\(sum)\")"
-                        ],
-                           options: ["sum", "if", "for", "print"],
-                           correctOptions: [0, 2, 0, 3],
-                          number: 4),
-        
-        // One Choice question type
-        TestQuestionElement(type: .question(type: .oneChoice),
-                            isTimed: true, timer: 100,
-                            question: "What is an \"if else\" statement called?",
-                            answers: 
-                                ["Conditional Branching",
-                                 "Looping Construct",
-                                 "Protocol",
-                                 "Class"],
-                            correctAnswers: [0]),
-        TestQuestionElement(type: .question(type: .oneChoice),
-                            isTimed: true, timer: 0,
-                            question: "Another1 timed question",
-                            answers:
-                                ["Conditional Branching",
-                                 "Looping Construct",
-                                 "Protocol",
-                                 "Class"],
-                            correctAnswers: [1]),
-        TestQuestionElement(type: .question(type: .oneChoice),
-                            isTimed: true, timer: 0,
-                            question: "Another2 timed question",
-                            answers:
-                                ["Conditional Branching",
-                                 "Looping Construct",
-                                 "Protocol",
-                                 "Class"],
-                            correctAnswers: [1]),
-        TestQuestionElement(type: .question(type: .oneChoice),
-                            isTimed: true, timer: 0,
-                            question: "Another3 timed question",
-                            answers:
-                                ["Conditional Branching",
-                                 "Looping Construct",
-                                 "Protocol",
-                                 "Class"],
-                            correctAnswers: [2]),
-        // True or False question type
-        TestQuestionElement(type: .question(type: .trueOrFalse),
-                            isTimed: false, timer: 0,
-                            question: "Is Swift an interpreted language?",
-                            answers: [], // This is empty because the answers are obviously true or false (it's a true or false question)
-                            correctAnswers: [0]),
-        //Checkpoint
-        CheckpointElement(type: .checkpoint(type: .checkpoint),
-                          title: "You're doing good... keep it up!!",
-                          message: "Here, we may add more sub-lessons, a check-in, or similar."),
-        // Multiple Choice question type
-        TestQuestionElement(type: .question(type: .multipleChoice),
-                            isTimed: false, timer: 0,
-                            question: "Which of these keywords belong to Swift?",
-                            answers: ["elif",
-                                        "while",
-                                        "protocol",
-                                        "Class",
-                                        "func",
-                                        "ret"],
-                            correctAnswers: [1,2,4]),
-        
-        // Fill in the Blank question type
-        FillTheBlankElement(type: .question(type: .fillTheBlank),
-                            question:
-                                "Optional variables in Swift are values that may or may not exist. This means that a variable of type 'Int?' may contain an Int or contain nil.".components(separatedBy: .whitespacesAndNewlines),
-                            index: [1, 16, 23],
-                            correctAnswers: [],
-                            isTimed: false, timer: 0
-                           ),
-        //QuestionElement(...)
-        // Results
-        ResultsElement(type: .results(type: .final),
-                       title: "Great job!",
-                       message: "You did great! you're results are... A++",
-                       results: ["a"])
-    ]
+    var data : [any LessonElement] = []
     
     // User's Answers
     var userAnswers : [[Int]] = []
@@ -162,6 +71,12 @@ class LessonViewController: UIViewController {
     
     // The user has completed or not
     var isReview: Bool!
+    
+    // Has the final screen with results been shown
+    var finalResultsShown = false
+    
+    var userScore = 0
+    var userDidPass = false
 
     
     // MARK: - View Controller Events
@@ -220,42 +135,64 @@ class LessonViewController: UIViewController {
             break
         }
         
-        if self.counter == self.data.count {
-            //self.currentElement.viewWillDisappear(true)
-            //self.currentElement.willMove(toParent: nil)
-            //self.currentElement.dismiss(animated: false)
-            if self.data.last!.isTimed {
-                self.timerResults.append(self.timer)
+        if self.counter >= self.data.count {
+            
+            if !self.finalResultsShown {
+                if !self.isReview {
+                    self.calculateScore()
+                    Task {await self.storeScore()}
+                }
+            } else {
+                self.navigationController?.isNavigationBarHidden = false
+                self.tabBarController?.tabBar.isHidden = false
+                self.navigationController?.popToRootViewController(animated: true)
+                return
             }
-            if !self.isReview {
-                Task {await self.storeScore()}
-            }
-            self.navigationController?.isNavigationBarHidden = false
-            self.tabBarController?.tabBar.isHidden = false
-            self.navigationController?.popToRootViewController(animated: true)
-            return
         }
         
         // This will be the next lesson element
-        let next = self.instantiateNextElement()
+        let next : LessonElementViewController
+        if self.counter == self.data.count {
+            next =  UIStoryboard(name: "Results", bundle: nil).instantiateViewController(identifier: "Results") as! ResultsViewController
+            self.finalResultsShown = true
+        }else{
+            next = self.instantiateNextElement()
+        }
         
         // Set it up and pass the according timer value
-        if wasPreviousTimed {
-            // If the oprevious question was timed pass the current timer
-            next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: self.timer, isReview: isReview)
-            // If the timed question section has ended, add the time remaining to timerResults
-            if !self.data[self.counter].isTimed {
+        if self.finalResultsShown {
+            let message : String
+            let score : Int
+            if self.userDidPass {
+                message = "Congragulations! You passed this lesson!"
+                score = self.userScore
+            } else {
+                message = "Oh no! Seems like you failed more than 60% of the questions, you'll have to repeat this lesson!"
+                score = 0
+            }
+            let resultsData = ResultsElement(type: .results(type: .final), title: "You finished this lesson!", message: message, results: ["Your score was \(score)"])
+            next.setup(data: resultsData, delegate: self, counter: self.counter, timer: self.timer, isReview: isReview)
+            if wasPreviousTimed {
                 self.timerResults.append(self.timer)
-                self.wasPreviousTimed = false
             }
         } else {
-            if self.data[counter].isTimed {
-                // If the previous question wasn't timed check if this one should be
-                next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: self.data[counter].timer, isReview: isReview)
-                self.wasPreviousTimed = true
+            if wasPreviousTimed {
+                // If the oprevious question was timed pass the current timer
+                next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: self.timer, isReview: isReview)
+                // If the timed question section has ended, add the time remaining to timerResults
+                if !self.data[self.counter].isTimed {
+                    self.timerResults.append(self.timer)
+                    self.wasPreviousTimed = false
+                }
             } else {
-                // If it shouldn't be then pass -1 as a timer value
-                next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: -1, isReview: isReview)
+                if self.data[counter].isTimed {
+                    // If the previous question wasn't timed check if this one should be
+                    next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: self.data[counter].timer, isReview: isReview)
+                    self.wasPreviousTimed = true
+                } else {
+                    // If it shouldn't be then pass -1 as a timer value
+                    next.setup(data: self.data[counter], delegate: self, counter: self.counter, timer: -1, isReview: isReview)
+                }
             }
         }
         
@@ -277,7 +214,9 @@ class LessonViewController: UIViewController {
         // Update this
         self.currentElement = next
         
-        counter+=1
+        if !self.finalResultsShown {
+            counter+=1
+        }
     }
     
     func decreaseScore() async {
@@ -318,16 +257,16 @@ class LessonViewController: UIViewController {
     
     // MARK: - Functions
     
+    func showFinalResults(){
+        
+        
+    }
+    
     // Function for storing the user's results in Firestore after lesson ends. The results aren't computer before this
     // function, they are computed with computeResults()
     
     func storeScore() async {
-        
-        var score : Int
-        var userPassed : Bool
-        
-        (score, userPassed) = calculateScore()
-        if userPassed {
+        if self.userDidPass {
             // Get User
             let userName = Auth.auth().currentUser!.uid
             do {
@@ -338,11 +277,11 @@ class LessonViewController: UIViewController {
                 // Change user's stats only if they've completed their current lesson
                 if self.currentChapter == currentUser.currentLevel{
                     currentUser.currentLevel += 1
-                    currentUser.totalScore += score
+                    currentUser.totalScore += self.userScore
                     if currentUser.chapterScores.count == currentUser.currentLevel {
-                        currentUser.chapterScores[currentUser.currentLevel] += score
+                        currentUser.chapterScores[currentUser.currentLevel] += self.userScore
                     } else {
-                        currentUser.chapterScores.append(score)
+                        currentUser.chapterScores.append(self.userScore)
                     }
                     
                 }
@@ -362,7 +301,7 @@ class LessonViewController: UIViewController {
     
     // Computes results for the whole lesson
     
-    func calculateScore() -> (Int, Bool) {
+    func calculateScore() {
         
         // The user's score on this lesson
         var score = 0.0
@@ -449,7 +388,8 @@ class LessonViewController: UIViewController {
         // Checking if the user has to repeat this lesson
         let userPassed = CGFloat(correctOptions)/CGFloat(totalOptions) > 0.6
         
-        return (Int(round(score)), userPassed)
+        self.userScore = Int(round(score))
+        self.userDidPass = userPassed
     }
     
     // Function used to create next lesson element using counter, data and dataType
